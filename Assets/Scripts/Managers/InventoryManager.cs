@@ -27,6 +27,7 @@ public class InventoryManager : Singleton<InventoryManager>
     [Header("Equipment")]
     public float equipDelay;
     public int currentIndex;
+    // public int currentTargetLayerIndex;
     public Animation equipAnim;
     public int item7Count;
     public int item8Count;
@@ -35,9 +36,9 @@ public class InventoryManager : Singleton<InventoryManager>
     [Header("References")]
     public List<GameObject> markersList;
     public List<GameObject> equipmentList;
+    public List<GameObject> reticlesList;
     public List<LayerMask> layerMasksList;
-
-    
+    public List<string> tagsList;
 
 
     protected override void Awake()
@@ -77,6 +78,8 @@ public class InventoryManager : Singleton<InventoryManager>
 
         itemPrev = inputActionMap.FindAction("ItemPrev");
         itemPrev.performed += EquipItemPrev;
+
+        ResetEquipment();
     }
 
     private void OnEnable()
@@ -111,19 +114,33 @@ public class InventoryManager : Singleton<InventoryManager>
 
     private void ResetEquipment()
     {
-        ToggleMarkers(0);
+        
         ChangeEquipment(0);
     }
 
-    private void ToggleMarkers(int marker)
+    // private void SetTargetLayerIndex(int index)
+    // {
+    //     currentTargetLayerIndex = index + 10;
+    // }
+
+    private void ToggleMarkers()
     {
         foreach (var item in markersList)
         {
             item.SetActive(false);
         }
 
-        currentIndex = marker;
-        markersList[marker].SetActive(true);
+        markersList[currentIndex].SetActive(true);
+    }
+
+    private void ToggleReticles()
+    {
+        foreach (var item in reticlesList)
+        {
+            item.SetActive(false);
+        }
+
+        reticlesList[currentIndex].SetActive(true);
     }
 
     private void ChangeEquipment(int equipment)
@@ -133,6 +150,10 @@ public class InventoryManager : Singleton<InventoryManager>
             item.SetActive(false);
         }
 
+        // SetTargetLayerIndex(equipment);
+        currentIndex = equipment;
+        ToggleMarkers();
+        ToggleReticles();
         equipmentList[equipment].SetActive(true);
         equipAnim.Play("Equipment On");
     }
@@ -148,63 +169,63 @@ public class InventoryManager : Singleton<InventoryManager>
     private void EquipItem1(InputAction.CallbackContext context)
     {
         // onItem1?.Invoke();
-        ToggleMarkers(0);
+        // ToggleMarkers(0);
         StartCoroutine(ChangeEquipmentAfterDelay(0));
     }
 
     private void EquipItem2(InputAction.CallbackContext context)
     {
         // onItem2?.Invoke();
-        ToggleMarkers(1);
+        // ToggleMarkers(1);
         StartCoroutine(ChangeEquipmentAfterDelay(1));
     }
 
     private void EquipItem3(InputAction.CallbackContext context)
     {
         // onItem3?.Invoke();
-        ToggleMarkers(2);
+        // ToggleMarkers(2);
         StartCoroutine(ChangeEquipmentAfterDelay(2));
     }
 
     private void EquipItem4(InputAction.CallbackContext context)
     {
         // onItem4?.Invoke();
-        ToggleMarkers(3);
+        // ToggleMarkers(3);
         StartCoroutine(ChangeEquipmentAfterDelay(3));
     }
 
     private void EquipItem5(InputAction.CallbackContext context)
     {
         // onItem5?.Invoke();
-        ToggleMarkers(4);
+        // ToggleMarkers(4);
         StartCoroutine(ChangeEquipmentAfterDelay(4));
     }
 
     private void EquipItem6(InputAction.CallbackContext context)
     {
         // onItem6?.Invoke();
-        ToggleMarkers(5);
+        // ToggleMarkers(5);
         StartCoroutine(ChangeEquipmentAfterDelay(5));
     }
 
     private void EquipItem7(InputAction.CallbackContext context)
     {
         // onItem7?.Invoke();
-        ToggleMarkers(6);
+        // ToggleMarkers(6);
         StartCoroutine(ChangeEquipmentAfterDelay(6));
     }
 
     private void EquipItem8(InputAction.CallbackContext context)
     {
         // onItem8?.Invoke();
-        ToggleMarkers(7);
+        // ToggleMarkers(7);
         StartCoroutine(ChangeEquipmentAfterDelay(7));
     }
 
     private void EquipItem9(InputAction.CallbackContext context)
     {
         // onItem9?.Invoke();
-        ToggleMarkers(8);
+        // ToggleMarkers(8);
         StartCoroutine(ChangeEquipmentAfterDelay(8));
     }
 

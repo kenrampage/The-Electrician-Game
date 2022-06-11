@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - CinemachineTarget
+  - Raycast Indicator
+  - Red
+  - Green
+  - Blue
+  - Purple
   layers:
   - Default
   - TransparentFX
@@ -12,14 +17,14 @@ TagManager:
   - 
   - Water
   - UI
+  - 
+  - 
+  - 
+  - 
   - Red
   - Green
   - Blue
   - Purple
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 
