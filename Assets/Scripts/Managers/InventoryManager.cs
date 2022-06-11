@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : Singleton<InventoryManager>
 {
 
-    // private PlayerInput playerInput;
+    [Header("Input")]
     public InputActionAsset inputActions;
     private InputActionMap inputActionMap;
 
@@ -23,28 +23,26 @@ public class InventoryManager : MonoBehaviour
     private InputAction itemNext;
     private InputAction itemPrev;
 
-    // [SerializeField] private UnityEvent onItem1;
-    // [SerializeField] private UnityEvent onItem2;
-    // [SerializeField] private UnityEvent onItem3;
-    // [SerializeField] private UnityEvent onItem4;
-    // [SerializeField] private UnityEvent onItem5;
-    // [SerializeField] private UnityEvent onItem6;
-    // [SerializeField] private UnityEvent onItem7;
-    // [SerializeField] private UnityEvent onItem8;
-    // [SerializeField] private UnityEvent onItem9;
-    // [SerializeField] private UnityEvent onItemNext;
-    // [SerializeField] private UnityEvent onItemPrev;
 
+    [Header("Equipment")]
     public float equipDelay;
+    public int currentIndex;
+    public Animation equipAnim;
+    public int item7Count;
+    public int item8Count;
+    public int item9Count;
+
+    [Header("References")]
     public List<GameObject> markersList;
     public List<GameObject> equipmentList;
+    public List<LayerMask> layerMasksList;
 
-    public Animation equipAnim;
+    
 
 
-    private void Awake()
+    protected override void Awake()
     {
-        // playerInput = GetComponent<PlayerInput>();
+        base.Awake();
         inputActionMap = inputActions.FindActionMap("Inventory");
 
         item1 = inputActionMap.FindAction("Item1");
@@ -124,6 +122,7 @@ public class InventoryManager : MonoBehaviour
             item.SetActive(false);
         }
 
+        currentIndex = marker;
         markersList[marker].SetActive(true);
     }
 
