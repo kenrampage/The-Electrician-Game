@@ -26,18 +26,35 @@ public class InventoryManager : Singleton<InventoryManager>
 
     [Header("Equipment")]
     public float equipDelay;
-    public int currentIndex;
+ 
+    public delegate void ItemChangeAction();
+    public event ItemChangeAction onItemChanged;
+
+    private int currentIndex;
+    public int CurrentIndex
+    {
+        get { return currentIndex; }
+        set
+        {
+            currentIndex = value;
+            onItemChanged?.Invoke();
+            print("item changed to index:  " + currentIndex);
+        }
+    }
+
+    
+
+
     // public int currentTargetLayerIndex;
     public Animation equipAnim;
-    public int item7Count;
-    public int item8Count;
-    public int item9Count;
+
 
     [Header("References")]
     public List<GameObject> markersList;
     public List<GameObject> equipmentList;
     public List<GameObject> reticlesList;
     public List<LayerMask> layerMasksList;
+    public List<int> inventoryCount;
     public List<string> tagsList;
 
 
@@ -114,7 +131,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     private void ResetEquipment()
     {
-        
+
         ChangeEquipment(0);
     }
 
@@ -130,7 +147,7 @@ public class InventoryManager : Singleton<InventoryManager>
             item.SetActive(false);
         }
 
-        markersList[currentIndex].SetActive(true);
+        markersList[CurrentIndex].SetActive(true);
     }
 
     private void ToggleReticles()
@@ -140,7 +157,7 @@ public class InventoryManager : Singleton<InventoryManager>
             item.SetActive(false);
         }
 
-        reticlesList[currentIndex].SetActive(true);
+        reticlesList[CurrentIndex].SetActive(true);
     }
 
     private void ChangeEquipment(int equipment)
@@ -151,7 +168,7 @@ public class InventoryManager : Singleton<InventoryManager>
         }
 
         // SetTargetLayerIndex(equipment);
-        currentIndex = equipment;
+        CurrentIndex = equipment;
         ToggleMarkers();
         ToggleReticles();
         equipmentList[equipment].SetActive(true);
@@ -164,6 +181,28 @@ public class InventoryManager : Singleton<InventoryManager>
         yield return new WaitForSeconds(equipDelay);
         ChangeEquipment(equipment);
 
+    }
+
+    public bool CheckInventory(int i)
+    {
+        if (inventoryCount[i] > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void IncrementInventory(int i)
+    {
+        inventoryCount[i]++;
+    }
+
+    public void DecrementInventory(int i)
+    {
+        inventoryCount[i]--;
     }
 
     private void EquipItem1(InputAction.CallbackContext context)
@@ -238,6 +277,8 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         // onItemPrev?.Invoke();
     }
+
+
 
 
 }

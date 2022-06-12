@@ -64,7 +64,7 @@ public class PlayerInteract : MonoBehaviour
     public void InteractA(InputAction.CallbackContext obj)
     {
         if (currentTarget == null) return;
-        if (currentTarget.CompareTag(inventoryManager.tagsList[inventoryManager.currentIndex]))
+        if (currentTarget.CompareTag(inventoryManager.tagsList[inventoryManager.CurrentIndex]))
         {
             var interactable = currentTarget.GetComponent<IInteractable>();
             if (interactable == null) return;
@@ -77,7 +77,7 @@ public class PlayerInteract : MonoBehaviour
     {
         if (currentTarget == null) return;
 
-        if (currentTarget.CompareTag(inventoryManager.tagsList[inventoryManager.currentIndex]))
+        if (currentTarget.CompareTag(inventoryManager.tagsList[inventoryManager.CurrentIndex]))
         {
             var interactable = currentTarget.GetComponent<IInteractable>();
             if (interactable == null) return;
@@ -96,7 +96,7 @@ public class PlayerInteract : MonoBehaviour
 
             currentTarget = hit.transform.gameObject;
 
-            if (currentTarget.CompareTag(inventoryManager.tagsList[inventoryManager.currentIndex]))
+            if (currentTarget.CompareTag(inventoryManager.tagsList[inventoryManager.CurrentIndex]))
             {
                 raycastIndicator.transform.position = hit.point;
             }
