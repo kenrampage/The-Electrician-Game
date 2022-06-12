@@ -5,14 +5,13 @@ using UnityEngine;
 public class HighlightThis : MonoBehaviour
 {
     private Material material;
-    private Collider col;
+
     private string targetTag;
 
     private void Awake()
     {
         targetTag = "Raycast Indicator";
         material = GetComponent<MeshRenderer>().material;
-        col = GetComponent<Collider>();
     }
 
     private void OnTriggerEnter(Collider other)
