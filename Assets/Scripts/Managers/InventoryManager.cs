@@ -26,7 +26,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     [Header("Equipment")]
     public float equipDelay;
- 
+
     public delegate void ItemChangeAction();
     public event ItemChangeAction onItemChanged;
 
@@ -42,7 +42,7 @@ public class InventoryManager : Singleton<InventoryManager>
         }
     }
 
-    
+    public GameObject heldCable;
 
 
     // public int currentTargetLayerIndex;
@@ -203,6 +203,18 @@ public class InventoryManager : Singleton<InventoryManager>
     public void DecrementInventory(int i)
     {
         inventoryCount[i]--;
+    }
+
+    public bool CheckIfRunningCable()
+    {
+        if (heldCable == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 
     private void EquipItem1(InputAction.CallbackContext context)

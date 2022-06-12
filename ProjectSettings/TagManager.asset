@@ -11,6 +11,8 @@ TagManager:
   - Blue
   - Purple
   - BoxNode
+  - WiringNode
+  - Cable Holder
   layers:
   - Default
   - TransparentFX
