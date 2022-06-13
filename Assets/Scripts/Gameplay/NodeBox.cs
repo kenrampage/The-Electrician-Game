@@ -27,12 +27,7 @@ public class NodeBox : MonoBehaviour, IInteractable
 
     private void OnEnable()
     {
-        inventoryManager.onItemChanged += UpdatePreview;
-    }
-
-    private void OnDisable()
-    {
-        inventoryManager.onItemChanged -= UpdatePreview;
+        inventoryManager.onItemChanged.AddListener(UpdatePreview);
     }
 
     private void UpdatePreview()
@@ -67,7 +62,7 @@ public class NodeBox : MonoBehaviour, IInteractable
 
     }
 
-    public void InteractA()
+    public void Interact()
     {
         // print("InteractA on " + gameObject.name);
         //checks if installednode is null
@@ -88,7 +83,7 @@ public class NodeBox : MonoBehaviour, IInteractable
 
     }
 
-    public void InteractB()
+    public void Cancel()
     {
         // print("InteractB on " + gameObject.name);
         RemoveNode();

@@ -1,5 +1,5 @@
 public interface IInteractable
 {
-    void InteractA();
-    void InteractB();
+    void Interact();
+    void Cancel();
 }

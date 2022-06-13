@@ -10,7 +10,7 @@ public class HighlightThis : MonoBehaviour
 
     private void Awake()
     {
-        targetTag = "Raycast Indicator";
+        targetTag = "Cursor";
         material = GetComponent<MeshRenderer>().material;
     }
 
@@ -36,12 +36,14 @@ public class HighlightThis : MonoBehaviour
     [ContextMenu("Select This")]
     public void SelectThis()
     {
+        print(gameObject.name + " Selected");
         material.EnableKeyword("_EMISSION");
     }
 
     [ContextMenu("Deselect This")]
     public void DeselectThis()
     {
+        print(gameObject.name + " Deselected");
         material.DisableKeyword("_EMISSION");
     }
 

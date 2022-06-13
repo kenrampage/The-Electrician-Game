@@ -3,22 +3,24 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour, IInteractable
 {
-    public UnityEvent onInteractionA;
-    public UnityEvent onInteractionB;
+    public UnityEvent onInteraction;
+    public UnityEvent onCancel;
 
 
-    public void InteractA()
+    public void Interact()
     {
         InvokeEventA();
     }
 
+
     [ContextMenu("Test Event")]
     public void InvokeEventA()
     {
-        onInteractionA?.Invoke();
+        onInteraction?.Invoke();
     }
 
-    public void InteractB()
+
+    public void Cancel()
     {
         InvokeEventB();
     }
@@ -26,6 +28,6 @@ public class Interactable : MonoBehaviour, IInteractable
     [ContextMenu("Test Event")]
     public void InvokeEventB()
     {
-        onInteractionB?.Invoke();
+        onCancel?.Invoke();
     }
 }

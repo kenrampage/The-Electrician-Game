@@ -21,38 +21,18 @@ public class PlayerInteract : MonoBehaviour
     private InputAction interactA;
     private InputAction interactB;
 
-    public GameObject raycastIndicator;
+    public GameObject cursorObject;
 
 
     public void Awake()
     {
-
         inventoryManager = FindObjectOfType<InventoryManager>();
-
         cam = Camera.main;
-
-        inputActionMap = inputActions.FindActionMap("Player");
-
-        interactA = inputActionMap.FindAction("Interact_1");
-        interactB = inputActionMap.FindAction("Interact_2");
-
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        interactA.performed += InteractA;
-        interactB.performed += InteractB;
-        interactA.Enable();
-        interactB.Enable();
-    }
-
-    private void OnDisable()
-    {
-        interactA.performed -= InteractA;
-        interactB.performed -= InteractB;
-        interactA.Disable();
-        interactB.Disable();
-
+        InputManager.Instance.onInteract.AddListener(Interact);
     }
 
     // Update is called once per frame
@@ -61,7 +41,7 @@ public class PlayerInteract : MonoBehaviour
         CastRay();
     }
 
-    public void InteractA(InputAction.CallbackContext obj)
+    public void Interact()
     {
         if (currentTarget == null) return;
         if (currentTarget.CompareTag(inventoryManager.tagsList[inventoryManager.CurrentIndex]))
@@ -69,11 +49,11 @@ public class PlayerInteract : MonoBehaviour
             var interactable = currentTarget.GetComponent<IInteractable>();
             if (interactable == null) return;
 
-            interactable.InteractA();
+            interactable.Interact();
         }
     }
 
-    public void InteractB(InputAction.CallbackContext obj)
+    public void Cancel()
     {
         if (currentTarget == null) return;
 
@@ -82,7 +62,7 @@ public class PlayerInteract : MonoBehaviour
             var interactable = currentTarget.GetComponent<IInteractable>();
             if (interactable == null) return;
 
-            interactable.InteractB();
+            interactable.Cancel();
         }
 
     }
@@ -98,12 +78,12 @@ public class PlayerInteract : MonoBehaviour
 
             if (currentTarget.CompareTag(inventoryManager.tagsList[inventoryManager.CurrentIndex]))
             {
-                raycastIndicator.transform.position = hit.point;
+                cursorObject.transform.position = hit.point;
             }
             else
             {
                 // currentTarget = null;
-                raycastIndicator.transform.position = new Vector3(0, 0, 0);
+                cursorObject.transform.position = new Vector3(0, 0, 0);
             }
 
         }
