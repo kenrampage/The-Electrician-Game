@@ -15,13 +15,15 @@ public class Node : MonoBehaviour
 
     private LayerMask cableLayerMask;
 
+    public List<Node> connectedNodes;
+
     private void Awake()
     {
         col = GetComponent<SphereCollider>();
     }
 
     //check if any cables colliding with this node are connected to power
-    public void CheckCablePower()
+    public void CheckConnectedToPower()
     {
         Collider[] colliders = Physics.OverlapSphere(this.transform.position, col.radius, cableLayerMask);
 
@@ -37,6 +39,20 @@ public class Node : MonoBehaviour
                 connectedToPower = false;
             }
         }
+    }
+
+    public void AddConnectedNode(Node node)
+    {
+        if(!connectedNodes.Contains(node))
+        {
+            connectedNodes.Add(node);
+        }
+        
+    }
+
+    public void RemoveConnectedNode(Node node)
+    {
+        connectedNodes.Remove(node);
     }
 
 

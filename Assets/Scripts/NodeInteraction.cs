@@ -5,7 +5,7 @@ using UnityEngine;
 public class NodeInteraction : MonoBehaviour, IInteractable
 {
     private InventoryManager inventoryManager;
-    private Node node;
+    public Node node;
 
     public GameObject cablePrefab;
 
@@ -30,149 +30,32 @@ public class NodeInteraction : MonoBehaviour, IInteractable
             inventoryManager.editingCable = true;
 
             //sets start point for cable
+            cable.SetSourceNode(node);
+
             cable.cableTransform.SetStartPosition(transform.position);
-            cable.cableTransform.StartEditing();
-
-            // //When creating cable, add all connected nodes and cables from the source node to the cable's list
-            // // AddToCableConnectedLists();
-
-            // // add this cable to cable lists
-            // node.AddConnectedCable(cable);
-            // cable.AddConnectedCable(cable);
-
-            // //add this node to node lists
-            // cable.AddConnectedNode(node);
-            // node.AddConnectedNode(node);
-
-            // //add nodes connected to the node to the cable's node list
-            // foreach (var n in node.connectedNodeList)
-            // {
-            //     cable.AddConnectedNode(n);
-            // }
-
-            // //add cables connected to the node to the cable's cable list
-            // foreach (var c in node.connectedCableList)
-            // {
-            //     cable.AddConnectedCable(c);
-            // }
-
-            // //add nodes connected to the cable to the node's node list
-            // foreach (var n in cable.connectedNodeList)
-            // {
-            //     node.AddConnectedNode(n);
-            // }
-
-            // //add cables connected to the cable to the node's cable list
-            // foreach (var c in cable.connectedCableList)
-            // {
-            //     node.AddConnectedCable(c);
-            // }
-
-            // //add newly connected nodes and cables to the cables connected nodes
-            // foreach (var n in cable.connectedNodeList)
-            // {
-            //     n.AddConnectedCable(cable);
-            //     n.AddConnectedNode(node);
-            // }
-
-            // //add newly connected nodes and cables to the nodes connected nodes
-            // foreach (var n in node.connectedNodeList)
-            // {
-            //     n.AddConnectedCable(cable);
-            //     n.AddConnectedNode(node);
-            // }
-
-            // //add newly connected nodes and cables to the cables connected cables
-            // foreach (var c in cable.connectedCableList)
-            // {
-            //     c.AddConnectedCable(cable);
-            //     c.AddConnectedNode(node);
-            // }
-
-            // //add newly connected nodes and cables to the nodes connected cables
-            // foreach (var c in node.connectedCableList)
-            // {
-            //     c.AddConnectedCable(cable);
-            //     c.AddConnectedNode(node);
-            // }
+            cable.cableTransform.EditModeOn();
 
         }
         else if (inventoryManager.CurrentIndex == 7 && inventoryManager.editingCable) //Already holding cable and installing at second point
         {
             var cable = inventoryManager.heldCable.GetComponent<Cable>();
 
+            if (node.connectedNodes.Contains(cable.sourceNode))
+            {
+                return;
+            }
+
             //set end point of cable to node
             cable.cableTransform.SetEndPosition(this.transform.position);
 
             //turn off cable editing
-            cable.cableTransform.EndEditing();
-            cable.cableTransform.EndPreview();
+
+            node.AddConnectedNode(cable.sourceNode);
+            cable.sourceNode.AddConnectedNode(node);
+            cable.SetEndNode(node);
+            cable.cableTransform.Install();
+
             inventoryManager.editingCable = false;
-
-            // if (cable.CheckNodeOnList(node))
-            // {
-            //     return;
-            // }
-
-            // // add this cable to cable lists
-            // node.AddConnectedCable(cable);
-            // cable.AddConnectedCable(cable);
-
-            // //add this node to node lists
-            // cable.AddConnectedNode(node);
-            // node.AddConnectedNode(node);
-
-            // //add nodes connected to the node to the cable's node list
-            // foreach (var n in node.connectedNodeList)
-            // {
-            //     cable.AddConnectedNode(n);
-            // }
-
-            // //add cables connected to the node to the cable's cable list
-            // foreach (var c in node.connectedCableList)
-            // {
-            //     cable.AddConnectedCable(c);
-            // }
-
-            // //add nodes connected to the cable to the node's node list
-            // foreach (var n in cable.connectedNodeList)
-            // {
-            //     node.AddConnectedNode(n);
-            // }
-
-            // //add cables connected to the cable to the node's cable list
-            // foreach (var c in cable.connectedCableList)
-            // {
-            //     node.AddConnectedCable(c);
-            // }
-
-            // //add newly connected nodes and cables to the cables connected nodes
-            // foreach (var n in cable.connectedNodeList)
-            // {
-            //     n.AddConnectedCable(cable);
-            //     n.AddConnectedNode(node);
-            // }
-
-            // //add newly connected nodes and cables to the nodes connected nodes
-            // foreach (var n in node.connectedNodeList)
-            // {
-            //     n.AddConnectedCable(cable);
-            //     n.AddConnectedNode(node);
-            // }
-
-            // //add newly connected nodes and cables to the cables connected cables
-            // foreach (var c in cable.connectedCableList)
-            // {
-            //     c.AddConnectedCable(cable);
-            //     c.AddConnectedNode(node);
-            // }
-
-            // //add newly connected nodes and cables to the nodes connected cables
-            // foreach (var c in node.connectedCableList)
-            // {
-            //     c.AddConnectedCable(cable);
-            //     c.AddConnectedNode(node);
-            // }
 
         }
     }
@@ -185,33 +68,44 @@ public class NodeInteraction : MonoBehaviour, IInteractable
     private void OnTriggerEnter(Collider other)
     {
         // Check if editing cable
-        if (inventoryManager.CurrentIndex == 7 && inventoryManager.editingCable)
+        if (inventoryManager.CurrentIndex == 7 && inventoryManager.editingCable && other.tag == "Cursor")
         {
             var cable = inventoryManager.heldCable.GetComponent<Cable>();
-            cable.cableTransform.StartPreview(transform.position);
 
-            // // check if the held cable is already connected to this node
-            // if (!cable.CheckNodeOnList(node))
-            // {
-            //     //While in trigger snap end position to node
-            //     cable.cableTransform.StartPreview(transform.position);
-            // }
+            if (!node.connectedNodes.Contains(cable.sourceNode)) //check if the currently held cable has a source node thats on the node.connectednodes list.
+            {
+                cable.cableTransform.PreviewModeOn(transform.position);
+
+            }
+
+
+
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         // Check if editing cable
-        if (inventoryManager.CurrentIndex == 7 && inventoryManager.editingCable)
+        if (inventoryManager.CurrentIndex == 7 && inventoryManager.editingCable && other.tag == "Cursor")
         {
             var cable = inventoryManager.heldCable.GetComponent<Cable>();
 
 
             //While in trigger snap end position to node
-            cable.cableTransform.EndPreview();
+            cable.cableTransform.PreviewModeOff();
+            cable.cableTransform.EditModeOn();
 
         }
     }
+
+
+    //Check what cables are currently colliding with this node
+    //use a box collider for each node to dictate which other nodes this node can connect to
+    //you cant connect a wire to this node if the wire's starting node is already connected to this node
+
+    //when a cable is placed in keeps track of its source node,
+    //when a cable is connected to another node it tells the source node what the end node is, and vice versa
+    //
 
 
 }

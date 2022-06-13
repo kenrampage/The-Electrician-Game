@@ -1308,7 +1308,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &304634732
 MeshRenderer:
@@ -1372,6 +1372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b1e0db5f3ccd04dac04f040ea452ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  node: {fileID: 0}
   cablePrefab: {fileID: 1951279956131377032, guid: fbfce89d03671db4fbc00bd19413af3f, type: 3}
 --- !u!114 &304634735
 MonoBehaviour:
@@ -1388,6 +1389,7 @@ MonoBehaviour:
   connectedToPower: 0
   poweredOn: 0
   installedBox: {fileID: 0}
+  connectedNodes: []
 --- !u!1 &306232706
 GameObject:
   m_ObjectHideFlags: 0
@@ -2749,6 +2751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b1e0db5f3ccd04dac04f040ea452ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  node: {fileID: 0}
   cablePrefab: {fileID: 1951279956131377032, guid: fbfce89d03671db4fbc00bd19413af3f, type: 3}
 --- !u!114 &547749114
 MonoBehaviour:
@@ -2765,6 +2768,7 @@ MonoBehaviour:
   connectedToPower: 0
   poweredOn: 0
   installedBox: {fileID: 0}
+  connectedNodes: []
 --- !u!54 &547749115
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2792,7 +2796,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &547749117
 MeshRenderer:
@@ -2993,6 +2997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b1e0db5f3ccd04dac04f040ea452ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  node: {fileID: 0}
   cablePrefab: {fileID: 1951279956131377032, guid: fbfce89d03671db4fbc00bd19413af3f, type: 3}
 --- !u!114 &558638138
 MonoBehaviour:
@@ -3009,6 +3014,7 @@ MonoBehaviour:
   connectedToPower: 0
   poweredOn: 0
   installedBox: {fileID: 0}
+  connectedNodes: []
 --- !u!54 &558638139
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3036,7 +3042,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &558638141
 MeshRenderer:
@@ -5307,7 +5313,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &847108292
 MeshRenderer:
@@ -5371,6 +5377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b1e0db5f3ccd04dac04f040ea452ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  node: {fileID: 0}
   cablePrefab: {fileID: 1951279956131377032, guid: fbfce89d03671db4fbc00bd19413af3f, type: 3}
 --- !u!114 &847108295
 MonoBehaviour:
@@ -5387,6 +5394,7 @@ MonoBehaviour:
   connectedToPower: 0
   poweredOn: 0
   installedBox: {fileID: 0}
+  connectedNodes: []
 --- !u!1 &859713489
 GameObject:
   m_ObjectHideFlags: 0
@@ -5854,6 +5862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b1e0db5f3ccd04dac04f040ea452ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  node: {fileID: 0}
   cablePrefab: {fileID: 1951279956131377032, guid: fbfce89d03671db4fbc00bd19413af3f, type: 3}
 --- !u!114 &915501618
 MonoBehaviour:
@@ -5870,6 +5879,7 @@ MonoBehaviour:
   connectedToPower: 0
   poweredOn: 0
   installedBox: {fileID: 0}
+  connectedNodes: []
 --- !u!54 &915501619
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5897,7 +5907,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &915501621
 MeshRenderer:
@@ -6249,7 +6259,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &966291837
 MeshRenderer:
@@ -6313,6 +6323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b1e0db5f3ccd04dac04f040ea452ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  node: {fileID: 0}
   cablePrefab: {fileID: 1951279956131377032, guid: fbfce89d03671db4fbc00bd19413af3f, type: 3}
 --- !u!114 &966291840
 MonoBehaviour:
@@ -6329,6 +6340,7 @@ MonoBehaviour:
   connectedToPower: 0
   poweredOn: 0
   installedBox: {fileID: 0}
+  connectedNodes: []
 --- !u!1 &971375466
 GameObject:
   m_ObjectHideFlags: 0
@@ -11183,7 +11195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1951279956131377033, guid: fbfce89d03671db4fbc00bd19413af3f, type: 3}
       propertyPath: m_RootOrder
-      value: 27
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 1951279956131377033, guid: fbfce89d03671db4fbc00bd19413af3f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13274,67 +13286,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!1001 &8159802740226489629
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4892813831903462986, guid: 69e7a48f22b58f44cbf625a0d7c3672c, type: 3}
-      propertyPath: m_RootOrder
-      value: 26
-      objectReference: {fileID: 0}
-    - target: {fileID: 4892813831903462986, guid: 69e7a48f22b58f44cbf625a0d7c3672c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -8.416
-      objectReference: {fileID: 0}
-    - target: {fileID: 4892813831903462986, guid: 69e7a48f22b58f44cbf625a0d7c3672c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.186
-      objectReference: {fileID: 0}
-    - target: {fileID: 4892813831903462986, guid: 69e7a48f22b58f44cbf625a0d7c3672c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4892813831903462986, guid: 69e7a48f22b58f44cbf625a0d7c3672c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4892813831903462986, guid: 69e7a48f22b58f44cbf625a0d7c3672c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4892813831903462986, guid: 69e7a48f22b58f44cbf625a0d7c3672c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4892813831903462986, guid: 69e7a48f22b58f44cbf625a0d7c3672c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4892813831903462986, guid: 69e7a48f22b58f44cbf625a0d7c3672c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4892813831903462986, guid: 69e7a48f22b58f44cbf625a0d7c3672c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4892813831903462986, guid: 69e7a48f22b58f44cbf625a0d7c3672c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5373550626449172241, guid: 69e7a48f22b58f44cbf625a0d7c3672c, type: 3}
-      propertyPath: m_Name
-      value: CableLine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5373550626449172241, guid: 69e7a48f22b58f44cbf625a0d7c3672c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 69e7a48f22b58f44cbf625a0d7c3672c, type: 3}
 --- !u!4 &8224064296599705688
 Transform:
   m_ObjectHideFlags: 0

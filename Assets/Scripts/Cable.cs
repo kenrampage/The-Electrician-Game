@@ -6,10 +6,8 @@ public class Cable : MonoBehaviour
 {
     public CableTransform cableTransform;
 
-    // //track currently connected cables and Nodes
-    // public List<Cable> connectedCableList;
-    // public List<Node> connectedNodeList;
-
+    public Node sourceNode;
+    public Node endNode;
     //track power status
     public bool connectedToPower;
 
@@ -19,6 +17,48 @@ public class Cable : MonoBehaviour
     private void OnEnable()
     {
         cableTransform = GetComponent<CableTransform>();
+    }
+
+    public void SetSourceNode(Node node)
+    {
+        sourceNode = node;
+    }
+
+    public void SetEndNode(Node node)
+    {
+        endNode = node;
+    }
+
+    public Node GetSourceNode()
+    {
+        return sourceNode;
+    }
+
+    public Node GetendNode()
+    {
+        return endNode;
+    }
+
+    public void ClearSourceNode()
+    {
+        sourceNode.RemoveConnectedNode(endNode);
+    }
+
+    public void ClearEndNode()
+    {
+        endNode.RemoveConnectedNode(sourceNode);
+    }
+
+    public bool CheckConnectedToPower()
+    {
+        if (sourceNode.connectedToPower || endNode.connectedToPower)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }

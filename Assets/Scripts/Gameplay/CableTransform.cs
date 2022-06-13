@@ -7,14 +7,19 @@ public class CableTransform : MonoBehaviour, IInteractable
     public GameObject startObj;
     public GameObject endObj;
     public GameObject cableObj;
+    public GameObject sampleCable;
     private Vector3 initialScale;
 
-    public bool beingEdited;
-    public bool beingPreviewed;
+    public Cable cable;
+
+
+    public bool editMode;
+    public bool previewMode;
 
     // Start is called before the first frame update
     void Start()
     {
+        cable = GetComponent<Cable>();
         initialScale = cableObj.transform.localScale;
         UpdateCableTransform();
 
@@ -24,11 +29,11 @@ public class CableTransform : MonoBehaviour, IInteractable
     // Update is called once per frame
     void Update()
     {
-        if (beingPreviewed)
+        if (previewMode)
         {
             UpdateCableTransform();
         }
-        else if (beingEdited)
+        else if (editMode)
         {
             UpdateCableTransform();
             endObj.transform.position = PlayerHoldPosition.position;
@@ -41,12 +46,15 @@ public class CableTransform : MonoBehaviour, IInteractable
     {
         float distance = Vector3.Distance(startObj.transform.position, endObj.transform.position); //Get distance between points
         cableObj.transform.localScale = new Vector3(initialScale.x, distance / 2f, initialScale.z); //sets scale based on distance between points
+        sampleCable.transform.localScale = new Vector3(initialScale.x, distance / 2f, initialScale.z);
 
         Vector3 middlePoint = (startObj.transform.position + endObj.transform.position) / 2f; //Gets position direction in the middle between points
         cableObj.transform.position = middlePoint; //Sets cable position to middle point
+        sampleCable.transform.position = middlePoint;
 
         Vector3 rotationDir = (endObj.transform.position - startObj.transform.position); //Gets rotation direction between points
         cableObj.transform.up = rotationDir;
+        sampleCable.transform.up = rotationDir;
     }
 
     public void SetStartPosition(Vector3 pos)
@@ -59,26 +67,31 @@ public class CableTransform : MonoBehaviour, IInteractable
         endObj.transform.position = pos;
     }
 
-    public void StartEditing()
+    public void EditModeOn()
     {
-        beingEdited = true;
+        SampleObjectOn();
+        
+        editMode = true;
     }
 
-    public void EndEditing()
+    public void EditModeOff()
     {
-        beingEdited = false;
+        editMode = false;
         UpdateCableTransform();
     }
 
-    public void StartPreview(Vector3 pos)
+    public void PreviewModeOn(Vector3 pos)
     {
+        SampleObjectOn();
         SetEndPosition(pos);
-        beingPreviewed = true;
+        previewMode = true;
     }
 
-    public void EndPreview()
+    public void PreviewModeOff()
     {
-        beingPreviewed = false;
+
+        previewMode = false;
+        
     }
 
     private void DestroyThis()
@@ -88,25 +101,71 @@ public class CableTransform : MonoBehaviour, IInteractable
 
     public void HandleCancelInput()
     {
-        if (beingPreviewed || beingEdited)
+        if (previewMode || editMode)
         {
             print("Cancelling Cable Install!");
-            EndPreview();
-            EndEditing();
+            PreviewModeOff();
+            EditModeOff();
+            if (cable.endNode != null)
+            {
+                cable.ClearEndNode();
+            }
+
+            cable.ClearSourceNode();
             DestroyThis();
         }
 
     }
 
+    private void SampleObjectOn()
+    {
+
+        cableObj.SetActive(false);
+        sampleCable.SetActive(true);
+
+
+    }
+
+    private void SampleObjectOff()
+    {
+
+        cableObj.SetActive(true);
+        sampleCable.SetActive(false);
+
+    }
+
+    public void Install()
+    {
+        PreviewModeOff();
+        EditModeOff();
+        SampleObjectOff();
+    }
+
+    public void Edit()
+    {
+        EditModeOn();
+        PreviewModeOff();
+        cable.sourceNode.RemoveConnectedNode(cable.endNode);
+        cable.ClearEndNode();
+        SampleObjectOn();
+        
+    }
+
+
+
     public void Interact()
     {
-        print("Interacted");
-        StartEditing();
-        InventoryManager.Instance.PickupCable(this.gameObject);
+        if (!InventoryManager.Instance.editingCable)
+        {
+            print(this.gameObject.name + " Picked Up!");
+            Edit();
+            InventoryManager.Instance.PickupCable(this.gameObject);
+        }
+
     }
 
     public void Cancel()
     {
-        
+
     }
 }
