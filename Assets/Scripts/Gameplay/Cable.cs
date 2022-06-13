@@ -9,7 +9,7 @@ public class Cable : MonoBehaviour
     public Node sourceNode;
     public Node endNode;
     //track power status
-    public bool connectedToPower;
+    // public bool connectedToPower;
 
     private string cableTag = "Cable";
     private string nodeTag = "Node";
@@ -49,16 +49,16 @@ public class Cable : MonoBehaviour
         endNode.RemoveConnectedNode(sourceNode);
     }
 
-    public bool CheckConnectedToPower()
-    {
-        if (sourceNode.connectedToPower || endNode.connectedToPower)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    // public bool CheckConnectedToPower()
+    // {
+    //     if (sourceNode.connectedToPower || endNode.connectedToPower)
+    //     {
+    //         return true;
+    //     }
+    //     else
+    //     {
+    //         return false;
+    //     }
+    // }
 
 }

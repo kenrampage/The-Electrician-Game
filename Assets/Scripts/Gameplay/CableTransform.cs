@@ -97,6 +97,7 @@ public class CableTransform : MonoBehaviour, IInteractable
     private void DestroyThis()
     {
         Destroy(this.gameObject);
+        NodeManager.Instance.OnEdit();
     }
 
     public void HandleCancelInput()
@@ -139,6 +140,7 @@ public class CableTransform : MonoBehaviour, IInteractable
         PreviewModeOff();
         EditModeOff();
         SampleObjectOff();
+        NodeManager.Instance.OnEdit();
     }
 
     public void Edit()
@@ -148,6 +150,7 @@ public class CableTransform : MonoBehaviour, IInteractable
         cable.sourceNode.RemoveConnectedNode(cable.endNode);
         cable.ClearEndNode();
         SampleObjectOn();
+        NodeManager.Instance.OnEdit();
         
     }
 
