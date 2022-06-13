@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - CinemachineTarget
-  - Raycast Indicator
   - Red
   - Green
   - Blue
@@ -13,6 +12,9 @@ TagManager:
   - BoxNode
   - WiringNode
   - Cable Holder
+  - Node
+  - Cable
+  - Cursor
   layers:
   - Default
   - TransparentFX
@@ -28,8 +30,8 @@ TagManager:
   - Green
   - Blue
   - Purple
-  - 
-  - 
+  - Cable
+  - Node
   - 
   - 
   - 

@@ -41,7 +41,7 @@ public class NodeWiring : MonoBehaviour, IInteractable
 
     }
 
-    public void InteractA()
+    public void Interact()
     {
         if (!inventoryManager.CheckIfRunningCable())
         {
@@ -69,13 +69,9 @@ public class NodeWiring : MonoBehaviour, IInteractable
 
     }
 
-    public void InteractB()
+    public void Cancel()
     {
-        if (inventoryManager.CheckIfRunningCable())
-        {
 
-
-        }
     }
 
     public void PowerOn()

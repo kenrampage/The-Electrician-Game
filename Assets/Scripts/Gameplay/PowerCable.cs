@@ -127,54 +127,51 @@ public class PowerCable : MonoBehaviour, IInteractable
         }
     }
 
-    public void HighlightCableOn()
+    // public void HighlightCableOn()
+    // {
+    //     lineMaterial.EnableKeyword("_EMISSION");
+    // }
+
+    // public void HighlightCableOff()
+    // {
+    //     lineMaterial.DisableKeyword("_EMISSION");
+    // }
+
+
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if (!currentlyHeld && !currentlySnapped)
+    //     {
+    //         if (other.tag == targetTag)
+    //         {
+    //             HighlightCableOn();
+    //         }
+    //     }
+
+    // }
+
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     if (!currentlyHeld && !currentlySnapped)
+    //     {
+    //         if (other.tag == targetTag)
+    //         {
+    //             HighlightCableOff();
+    //         }
+    //     }
+
+
+
+    // }
+
+    public void Interact()
     {
-        lineMaterial.EnableKeyword("_EMISSION");
+
     }
 
-    public void HighlightCableOff()
-    {
-        lineMaterial.DisableKeyword("_EMISSION");
-    }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!currentlyHeld && !currentlySnapped)
-        {
-            if (other.tag == targetTag)
-            {
-                HighlightCableOn();
-            }
-        }
-
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (!currentlyHeld && !currentlySnapped)
-        {
-            if (other.tag == targetTag)
-            {
-                HighlightCableOff();
-            }
-        }
-
-
-
-    }
-
-    public void InteractA()
+    public void Cancel()
     {
 
-    }
-
-    public void InteractB()
-    {
-        if (!currentlyHeld && !currentlySnapped)
-        {
-
-        }
     }
 
 }

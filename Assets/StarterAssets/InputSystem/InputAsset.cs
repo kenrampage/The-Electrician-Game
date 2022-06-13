@@ -64,7 +64,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Interact_1"",
+                    ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""765acdd2-906e-4857-ad3d-5711bb536ae6"",
                     ""expectedControlType"": ""Button"",
@@ -73,7 +73,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Interact_2"",
+                    ""name"": ""Cancel"",
                     ""type"": ""Button"",
                     ""id"": ""adf24615-e0d3-4791-b8b6-75c34ae351d3"",
                     ""expectedControlType"": ""Button"",
@@ -266,7 +266,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
-                    ""action"": ""Interact_1"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -277,7 +277,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad;Xbox Controller;PS4 Controller"",
-                    ""action"": ""Interact_1"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -288,7 +288,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
-                    ""action"": ""Interact_2"",
+                    ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -299,7 +299,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Interact_2"",
+                    ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -590,8 +590,8 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
-        m_Player_Interact_1 = m_Player.FindAction("Interact_1", throwIfNotFound: true);
-        m_Player_Interact_2 = m_Player.FindAction("Interact_2", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_Cancel = m_Player.FindAction("Cancel", throwIfNotFound: true);
         // Inventory
         m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
         m_Inventory_Item1 = m_Inventory.FindAction("Item1", throwIfNotFound: true);
@@ -668,8 +668,8 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Sprint;
-    private readonly InputAction m_Player_Interact_1;
-    private readonly InputAction m_Player_Interact_2;
+    private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_Cancel;
     public struct PlayerActions
     {
         private @InputAsset m_Wrapper;
@@ -678,8 +678,8 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
-        public InputAction @Interact_1 => m_Wrapper.m_Player_Interact_1;
-        public InputAction @Interact_2 => m_Wrapper.m_Player_Interact_2;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @Cancel => m_Wrapper.m_Player_Cancel;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -701,12 +701,12 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @Sprint.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
                 @Sprint.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
                 @Sprint.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
-                @Interact_1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract_1;
-                @Interact_1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract_1;
-                @Interact_1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract_1;
-                @Interact_2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract_2;
-                @Interact_2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract_2;
-                @Interact_2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract_2;
+                @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                @Cancel.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCancel;
+                @Cancel.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCancel;
+                @Cancel.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCancel;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -723,12 +723,12 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @Sprint.started += instance.OnSprint;
                 @Sprint.performed += instance.OnSprint;
                 @Sprint.canceled += instance.OnSprint;
-                @Interact_1.started += instance.OnInteract_1;
-                @Interact_1.performed += instance.OnInteract_1;
-                @Interact_1.canceled += instance.OnInteract_1;
-                @Interact_2.started += instance.OnInteract_2;
-                @Interact_2.performed += instance.OnInteract_2;
-                @Interact_2.canceled += instance.OnInteract_2;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
+                @Cancel.started += instance.OnCancel;
+                @Cancel.performed += instance.OnCancel;
+                @Cancel.canceled += instance.OnCancel;
             }
         }
     }
@@ -888,8 +888,8 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
-        void OnInteract_1(InputAction.CallbackContext context);
-        void OnInteract_2(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
+        void OnCancel(InputAction.CallbackContext context);
     }
     public interface IInventoryActions
     {
