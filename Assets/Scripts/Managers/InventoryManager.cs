@@ -18,7 +18,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public UnityEvent onItemChanged;
 
-    private int currentIndex;
+    public int currentIndex;
     public int CurrentIndex
     {
         get { return currentIndex; }

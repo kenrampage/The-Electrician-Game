@@ -12,6 +12,7 @@ public class InputManager : Singleton<InputManager>
     public NumInputEvent numInputEvent;
 
     public UnityEvent onInteract;
+    public UnityEvent onInteractRelease;
     public UnityEvent onCancel;
 
     [Header("Input")]
@@ -41,7 +42,8 @@ public class InputManager : Singleton<InputManager>
         inputActionMapPlayer = inputActions.FindActionMap("Player");
 
         interact = inputActionMapPlayer.FindAction("Interact");
-        interact.performed += Interact;
+        interact.started += Interact;
+        interact.canceled += InteractRelease;
 
         cancel = inputActionMapPlayer.FindAction("Cancel");
         cancel.performed += Cancel;
@@ -130,6 +132,11 @@ public class InputManager : Singleton<InputManager>
     private void Interact(InputAction.CallbackContext context)
     {
         onInteract?.Invoke();
+    }
+
+    private void InteractRelease(InputAction.CallbackContext context)
+    {
+        onInteractRelease?.Invoke();
     }
 
     private void Cancel(InputAction.CallbackContext context)
