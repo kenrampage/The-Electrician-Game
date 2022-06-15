@@ -33,14 +33,14 @@ public class NodeInteraction : MonoBehaviour, IInteractable
             cable.SetSourceNode(node);
 
             cable.cableTransform.SetStartPosition(transform.position);
-            cable.cableTransform.EditModeOn();
+            cable.cableTransform.Edit();
 
         }
         else if (inventoryManager.CurrentIndex == 7 && inventoryManager.editingCable) //Already holding cable and installing at second point
         {
-            var cable = inventoryManager.heldCable.GetComponent<Cable>();
+            Cable cable = inventoryManager.heldCable.GetComponent<Cable>();
 
-            if (node.connectedNodes.Contains(cable.sourceNode))
+            if (node.connectedNodes.Contains(cable.sourceNode) || this.gameObject == cable.sourceNode)
             {
                 return;
             }
@@ -48,12 +48,21 @@ public class NodeInteraction : MonoBehaviour, IInteractable
             //set end point of cable to node
             cable.cableTransform.SetEndPosition(this.transform.position);
 
-            //turn off cable editing
+            
 
-            node.AddConnectedNode(cable.sourceNode);
-            cable.sourceNode.AddConnectedNode(node);
             cable.SetEndNode(node);
+            cable.AddEndNodeToSourceNode();
+            cable.AddSourceNodeToEndNode();
+
+            // node.AddConnectedNode(cable.sourceNode);
+            // cable.sourceNode.GetComponent<Node>().AddConnectedNode(node);
+
+            // NodeManager.Instance.AddConnectedNode(node);
+            // NodeManager.Instance.AddConnectedNode(cable.sourceNode);
+
+            //turn off cable editing
             cable.cableTransform.Install();
+
 
             inventoryManager.editingCable = false;
 
@@ -70,9 +79,10 @@ public class NodeInteraction : MonoBehaviour, IInteractable
         // Check if editing cable
         if (inventoryManager.CurrentIndex == 7 && inventoryManager.editingCable && other.tag == "Cursor")
         {
-            var cable = inventoryManager.heldCable.GetComponent<Cable>();
+            Cable cable = inventoryManager.heldCable.GetComponent<Cable>();
 
-            if (!node.connectedNodes.Contains(cable.sourceNode)) //check if the currently held cable has a source node thats on the node.connectednodes list.
+            //check if the currently held cable has a source node that is this node or ison the node.connectednodes list.
+            if (!node.connectedNodes.Contains(cable.sourceNode) && this.gameObject != cable.sourceNode)
             {
                 cable.cableTransform.PreviewModeOn(transform.position);
 

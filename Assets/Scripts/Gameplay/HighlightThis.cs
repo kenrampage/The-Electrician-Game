@@ -36,14 +36,14 @@ public class HighlightThis : MonoBehaviour
     [ContextMenu("Select This")]
     public void SelectThis()
     {
-        print(gameObject.name + " Selected");
+        // print(gameObject.name + " Selected");
         material.EnableKeyword("_EMISSION");
     }
 
     [ContextMenu("Deselect This")]
     public void DeselectThis()
     {
-        print(gameObject.name + " Deselected");
+        // print(gameObject.name + " Deselected");
         material.DisableKeyword("_EMISSION");
     }
 

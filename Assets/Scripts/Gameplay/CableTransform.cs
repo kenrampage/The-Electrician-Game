@@ -16,14 +16,19 @@ public class CableTransform : MonoBehaviour, IInteractable
     public bool editMode;
     public bool previewMode;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void OnEnable()
     {
         cable = GetComponent<Cable>();
         initialScale = cableObj.transform.localScale;
         UpdateCableTransform();
 
         InputManager.Instance.onCancel.AddListener(HandleCancelInput);
+    }
+
+    private void OnDisable()
+    {
+
     }
 
     // Update is called once per frame
@@ -69,8 +74,15 @@ public class CableTransform : MonoBehaviour, IInteractable
 
     public void EditModeOn()
     {
+        NodeManager.Instance.ResetConnectedNodes();
+
+
+        cable.RemoveEndNodeFromManager();
+        cable.RemoveSourceNodeFromEndNode();
+
+        // cable.ClearEndNode();
+
         SampleObjectOn();
-        
         editMode = true;
     }
 
@@ -82,6 +94,9 @@ public class CableTransform : MonoBehaviour, IInteractable
 
     public void PreviewModeOn(Vector3 pos)
     {
+        // NodeManager.Instance.TurnUpdatesOn();
+        cable.AddEndNodeToManager();
+        // cable.AddSourceNodeToEndNode();
         SampleObjectOn();
         SetEndPosition(pos);
         previewMode = true;
@@ -91,28 +106,30 @@ public class CableTransform : MonoBehaviour, IInteractable
     {
 
         previewMode = false;
-        
+
     }
 
     private void DestroyThis()
     {
+
+        cable.RemoveEndNodeFromManager();
+        cable.RemoveSourceNodeFromEndNode();
+        cable.RemoveEndNodeFromSourceNode();
+
+        NodeManager.Instance.ResetConnectedNodes();
         Destroy(this.gameObject);
-        NodeManager.Instance.OnEdit();
+
     }
 
     public void HandleCancelInput()
     {
         if (previewMode || editMode)
         {
-            print("Cancelling Cable Install!");
+
             PreviewModeOff();
             EditModeOff();
-            if (cable.endNode != null)
-            {
-                cable.ClearEndNode();
-            }
 
-            cable.ClearSourceNode();
+
             DestroyThis();
         }
 
@@ -140,18 +157,23 @@ public class CableTransform : MonoBehaviour, IInteractable
         PreviewModeOff();
         EditModeOff();
         SampleObjectOff();
-        NodeManager.Instance.OnEdit();
+        cable.AddSourceNodeToEndNode();
+        cable.AddEndNodeToSourceNode();
+        cable.AddEndNodeToManager();
+        cable.AddSourceNodeToManager();
     }
 
     public void Edit()
     {
+
         EditModeOn();
         PreviewModeOff();
-        cable.sourceNode.RemoveConnectedNode(cable.endNode);
-        cable.ClearEndNode();
-        SampleObjectOn();
-        NodeManager.Instance.OnEdit();
-        
+
+
+
+        // NodeManager.Instance.OnEdit();
+
+
     }
 
 

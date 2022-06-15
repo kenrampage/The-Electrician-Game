@@ -6,7 +6,7 @@ public class NodeWiring : MonoBehaviour, IInteractable
 {
     private InventoryManager inventoryManager;
     public List<GameObject> powerIndicators;
-    private string targetTag;
+    // private string targetTag;
 
     public int currentItemIndex;
 
@@ -28,7 +28,7 @@ public class NodeWiring : MonoBehaviour, IInteractable
             poweredOn = true;
         }
         inventoryManager = FindObjectOfType<InventoryManager>();
-        targetTag = "Raycast Indicator";
+        // targetTag = "Raycast Indicator";
     }
 
     private void Update()

@@ -30,7 +30,6 @@ public class InventoryManager : Singleton<InventoryManager>
             }
             currentIndex = value;
 
-            print("item changed to index:  " + currentIndex);
         }
     }
 
@@ -174,7 +173,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public void HandleInput(int i)
     {
-        print("received " + i + " from Input Manager");
+        // print("received " + i + " from Input Manager");
         StartCoroutine(ChangeEquipmentAfterDelay(i));
     }
 
