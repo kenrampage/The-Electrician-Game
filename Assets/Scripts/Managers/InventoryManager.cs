@@ -18,7 +18,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public UnityEvent onItemChanged;
 
-    private int currentIndex;
+    public int currentIndex;
     public int CurrentIndex
     {
         get { return currentIndex; }
@@ -30,7 +30,6 @@ public class InventoryManager : Singleton<InventoryManager>
             }
             currentIndex = value;
 
-            print("item changed to index:  " + currentIndex);
         }
     }
 
@@ -44,11 +43,12 @@ public class InventoryManager : Singleton<InventoryManager>
 
     [Header("References")]
     public List<GameObject> markersList;
-    public List<GameObject> equipmentList;
+    public List<GameObject> cursorList;
     public List<GameObject> reticlesList;
     public List<LayerMask> layerMasksList;
-    public List<int> inventoryCount;
     public List<string> tagsList;
+    public List<int> inventoryCount;
+    
 
 
     private void Awake()
@@ -60,7 +60,9 @@ public class InventoryManager : Singleton<InventoryManager>
     private void Start()
     {
         inputManager = InputManager.Instance;
-        inputManager.numInputEvent.AddListener(HandleInput);
+        inputManager.numInputEvent.AddListener(HandleNumInput);
+        inputManager.onItemNext.AddListener(EquipNextItem);
+        inputManager.onItemPrev.AddListener(EquipPrevItem);
         inputManager.onCancel.AddListener(DropCable);
 
 
@@ -99,28 +101,28 @@ public class InventoryManager : Singleton<InventoryManager>
         reticlesList[CurrentIndex].SetActive(true);
     }
 
-    private void ChangeEquipment(int equipment)
+    private void ChangeEquipment(int itemIndex)
     {
-        foreach (var item in equipmentList)
-        {
-            item.SetActive(false);
-        }
+        // foreach (var item in equipmentList)
+        // {
+        //     item.SetActive(false);
+        // }
 
         // SetTargetLayerIndex(equipment);
-        CurrentIndex = equipment;
+        CurrentIndex = itemIndex;
         ToggleMarkers();
         ToggleReticles();
-        equipmentList[equipment].SetActive(true);
-        equipAnim.Play("Equipment On");
+        // equipmentList[equipment].SetActive(true);
+        // equipAnim.Play("Equipment On");
     }
 
-    private IEnumerator ChangeEquipmentAfterDelay(int equipment)
-    {
-        equipAnim.Play("Equipment Off");
-        yield return new WaitForSeconds(equipDelay);
-        ChangeEquipment(equipment);
+    // private IEnumerator ChangeEquipmentAfterDelay(int equipment)
+    // {
+    //     equipAnim.Play("Equipment Off");
+    //     yield return new WaitForSeconds(equipDelay);
+    //     ChangeEquipment(equipment);
 
-    }
+    // }
 
     public bool CheckInventory(int i)
     {
@@ -172,10 +174,38 @@ public class InventoryManager : Singleton<InventoryManager>
         heldCable = null;
     }
 
-    public void HandleInput(int i)
+    public void HandleNumInput(int i)
     {
-        print("received " + i + " from Input Manager");
-        StartCoroutine(ChangeEquipmentAfterDelay(i));
+        ChangeEquipment(i);
+    }
+
+    public void EquipNextItem()
+    {
+        if (CurrentIndex == 8)
+        {
+            CurrentIndex = 0;
+        }
+        else
+        {
+            CurrentIndex++;
+        }
+
+        ChangeEquipment(CurrentIndex);
+
+    }
+
+    public void EquipPrevItem()
+    {
+        if (CurrentIndex == 0)
+        {
+            CurrentIndex = 8;
+        }
+        else
+        {
+            CurrentIndex--;
+        }
+
+        ChangeEquipment(CurrentIndex);
     }
 
 

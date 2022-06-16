@@ -139,50 +139,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""bb94b405-58d3-4998-8535-d705c1218a98"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardMouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""929d9071-7dd0-4368-9743-6793bb98087e"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardMouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""28abadba-06ff-4d37-bb70-af2f1e35a3b9"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardMouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""45f115b6-9b4f-4ba8-b500-b94c93bf7d7e"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardMouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": """",
                     ""id"": ""e2f9aa65-db06-4c5b-a2e9-41bc8acb9517"",
                     ""path"": ""<Gamepad>/leftStick"",
@@ -391,6 +347,15 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Item10"",
+                    ""type"": ""Button"",
+                    ""id"": ""0c45324b-8520-4541-a2ea-722f09088000"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""ItemNext"",
                     ""type"": ""Button"",
                     ""id"": ""18baff32-151e-4547-b473-74b6466f5007"",
@@ -512,10 +477,10 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f3acad74-4698-4370-8051-944bd9a5edeb"",
-                    ""path"": ""<Keyboard>/numpadPlus"",
+                    ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KeyboardMouse"",
                     ""action"": ""ItemNext"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -523,11 +488,22 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""2250b9a2-402f-45aa-bf1e-249907984cd8"",
-                    ""path"": ""<Keyboard>/minus"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""ItemPrev"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8594bb80-2f5f-4c6c-9e87-886c39b098d8"",
+                    ""path"": ""<Keyboard>/0"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ItemPrev"",
+                    ""action"": ""Item10"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -603,6 +579,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         m_Inventory_Item7 = m_Inventory.FindAction("Item7", throwIfNotFound: true);
         m_Inventory_Item8 = m_Inventory.FindAction("Item8", throwIfNotFound: true);
         m_Inventory_Item9 = m_Inventory.FindAction("Item9", throwIfNotFound: true);
+        m_Inventory_Item10 = m_Inventory.FindAction("Item10", throwIfNotFound: true);
         m_Inventory_ItemNext = m_Inventory.FindAction("ItemNext", throwIfNotFound: true);
         m_Inventory_ItemPrev = m_Inventory.FindAction("ItemPrev", throwIfNotFound: true);
     }
@@ -746,6 +723,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
     private readonly InputAction m_Inventory_Item7;
     private readonly InputAction m_Inventory_Item8;
     private readonly InputAction m_Inventory_Item9;
+    private readonly InputAction m_Inventory_Item10;
     private readonly InputAction m_Inventory_ItemNext;
     private readonly InputAction m_Inventory_ItemPrev;
     public struct InventoryActions
@@ -761,6 +739,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         public InputAction @Item7 => m_Wrapper.m_Inventory_Item7;
         public InputAction @Item8 => m_Wrapper.m_Inventory_Item8;
         public InputAction @Item9 => m_Wrapper.m_Inventory_Item9;
+        public InputAction @Item10 => m_Wrapper.m_Inventory_Item10;
         public InputAction @ItemNext => m_Wrapper.m_Inventory_ItemNext;
         public InputAction @ItemPrev => m_Wrapper.m_Inventory_ItemPrev;
         public InputActionMap Get() { return m_Wrapper.m_Inventory; }
@@ -799,6 +778,9 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @Item9.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItem9;
                 @Item9.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItem9;
                 @Item9.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItem9;
+                @Item10.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItem10;
+                @Item10.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItem10;
+                @Item10.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItem10;
                 @ItemNext.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItemNext;
                 @ItemNext.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItemNext;
                 @ItemNext.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItemNext;
@@ -836,6 +818,9 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @Item9.started += instance.OnItem9;
                 @Item9.performed += instance.OnItem9;
                 @Item9.canceled += instance.OnItem9;
+                @Item10.started += instance.OnItem10;
+                @Item10.performed += instance.OnItem10;
+                @Item10.canceled += instance.OnItem10;
                 @ItemNext.started += instance.OnItemNext;
                 @ItemNext.performed += instance.OnItemNext;
                 @ItemNext.canceled += instance.OnItemNext;
@@ -902,6 +887,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         void OnItem7(InputAction.CallbackContext context);
         void OnItem8(InputAction.CallbackContext context);
         void OnItem9(InputAction.CallbackContext context);
+        void OnItem10(InputAction.CallbackContext context);
         void OnItemNext(InputAction.CallbackContext context);
         void OnItemPrev(InputAction.CallbackContext context);
     }

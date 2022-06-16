@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Node : MonoBehaviour
 {
@@ -11,27 +12,84 @@ public class Node : MonoBehaviour
     public Vector3 rotateSpeed;
 
     //track power status
+    public bool powerSource;
     public bool connectedToPower;
     public bool poweredOn;
-    public bool powerSource;
+
+    public bool updatesOn;
 
     //track installed box
-    public WiringBox installedBox;
-
-    private LayerMask cableLayerMask;
-
     public List<Node> connectedNodes;
+
+    // public bool updatedThisRound;
+
 
     private void Awake()
     {
+        TurnUpdatesOn();
         if (powerSource)
         {
             ConnectPower();
+            NodeManager.Instance.AddConnectedNode(this);
         }
         col = GetComponent<SphereCollider>();
-        NodeManager.Instance.onEdit.AddListener(HandleEdit);
-        NodeManager.Instance.onZone1PowerOn.AddListener(PowerOn);
-        NodeManager.Instance.onZone1PowerOff.AddListener(PowerOff);
+
+
+        // NodeManager.Instance.onEdit.AddListener(HandleEdit);
+        // NodeManager.Instance.onZone1PowerOn.AddListener(PowerOn);
+        // NodeManager.Instance.onZone1PowerOff.AddListener(PowerOff);
+
+    }
+
+    public void TurnUpdatesOn()
+    {
+        updatesOn = true;
+    }
+
+    public void TurnUpdatesOff()
+    {
+        updatesOn = false;
+    }
+
+    private void Update()
+    {
+        CheckStatusOfConnectedNodes();
+
+    }
+
+    public void HandleEdit()
+    {
+        // DisconnectPower();
+        // StartPowerFlow();
+
+    }
+
+    public void CheckStatusOfConnectedNodes()
+    {
+        if (!powerSource)
+        {
+            if (connectedNodes.Count == 0)
+            {
+                DisconnectPower();
+            }
+            foreach (var node in connectedNodes)
+            {
+                if (node.connectedToPower)
+                {
+                    ConnectPower();
+                    if (node.poweredOn)
+                    {
+                        PowerOn();
+                    }
+                    break;
+                }
+                else
+                {
+                    DisconnectPower();
+                }
+            }
+
+        }
     }
 
     private void FixedUpdate()
@@ -42,55 +100,67 @@ public class Node : MonoBehaviour
         }
     }
 
-    //trigger whenever a change is made
-    [ContextMenu("Start Power Flow")]
-    public void StartPowerFlow()
-    {
-        if (powerSource)
-        {
-            print("Power Flow Started from: " + this.gameObject.name);
-            foreach (var node in connectedNodes)
-            {
-                if (node == this)
-                {
+    // //trigger whenever a change is made
+    // [ContextMenu("Start Power Flow")]
+    // public void StartPowerFlow()
+    // {
+    //     if (powerSource)
+    //     {
+    //         // print("Power Flow Started from: " + this.gameObject.name);
+    //         foreach (var node in connectedNodes)
+    //         {
+    //             node.ConnectPowerFlow();
 
-                }
-                else
-                {
-                    node.ConnectPowerFlow();
-                }
-            }
-        }
-    }
+    //             // if (node == this)
+    //             // {
 
-    public void ConnectPowerFlow()
-    {
-        print(this.gameObject.name + " Power Turned On!");
-        ConnectPower();
-        foreach (var node in connectedNodes)
-        {
-            if (!node.connectedToPower)
-            {
-                node.ConnectPowerFlow();
-            }
+    //             // }
+    //             // else
+    //             // {
+    //             //     node.ConnectPowerFlow();
+    //             // }
+    //         }
+    //     }
+    // }
 
-            if (poweredOn)
-            {
-                node.poweredOn = true;
-            }
-
-        }
-    }
+    // [ContextMenu("Connect Power Flow")]
+    // public void ConnectPowerFlow()
+    // {
+    //     ConnectPower();
+    //     foreach (var node in connectedNodes)
+    //     {
+    //         if(!node.updatedThisRound)
+    //         {   
+    //             print(gameObject.name + " has been updated this round");
+    //             node.updatedThisRound = true;
+    //             node.ConnectPowerFlow();
+    //         }
 
 
+    //         // if (!node.connectedToPower)
+    //         // {
+    //         //     node.ConnectPowerFlow();
+    //         // }
+
+    //         // if (this.poweredOn)
+    //         // {
+    //         //     node.poweredOn = true;
+    //         // }
+
+    //     }
+    // }
+
+
+    [ContextMenu("Connect Power")]
     public void ConnectPower()
     {
+
+        connectedToPower = true;
         powerConnectedIndicator.SetActive(true);
         powerDisconnectedIndicator.SetActive(false);
-        connectedToPower = true;
-
 
     }
+
 
     public void DisconnectPower()
     {
@@ -100,7 +170,6 @@ public class Node : MonoBehaviour
             powerDisconnectedIndicator.SetActive(true);
             connectedToPower = false;
         }
-
     }
 
     public void AddConnectedNode(Node node)
@@ -119,10 +188,9 @@ public class Node : MonoBehaviour
 
     public void PowerOn()
     {
-        if (connectedToPower)
-        {
-            poweredOn = true;
-        }
+
+        poweredOn = true;
+
     }
 
     public void PowerOff()
@@ -130,13 +198,6 @@ public class Node : MonoBehaviour
 
         poweredOn = false;
         powerConnectedIndicator.transform.rotation = powerDisconnectedIndicator.transform.rotation;
-
-    }
-
-    public void HandleEdit()
-    {
-        DisconnectPower();
-        StartPowerFlow();
 
     }
 
@@ -149,7 +210,5 @@ public class Node : MonoBehaviour
     {
         PowerOff();
     }
-
-
 
 }

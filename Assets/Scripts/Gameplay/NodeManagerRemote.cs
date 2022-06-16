@@ -8,7 +8,7 @@ public class NodeManagerRemote : MonoBehaviour
 
     private void Awake()
     {
-        if (NodeManager.Instance.zone1PowerOn)
+        if (NodeManager.Instance.powerOn)
         {
             powerIndicator.SetActive(true);
         }
@@ -21,7 +21,7 @@ public class NodeManagerRemote : MonoBehaviour
     [ContextMenu("Turn Power On")]
     public void Zone1PowerOn()
     {
-        NodeManager.Instance.OnZone1PowerOn();
+        NodeManager.Instance.PowerOn();
         powerIndicator.SetActive(true);
 
     }
@@ -29,14 +29,14 @@ public class NodeManagerRemote : MonoBehaviour
     [ContextMenu("Turn Power Off")]
     public void Zone1PowerOff()
     {
-        NodeManager.Instance.OnZone1PowerOff();
+        NodeManager.Instance.PowerOff();
         powerIndicator.SetActive(false);
 
     }
 
     public void Zone1PowerToggle()
     {
-        if (NodeManager.Instance.zone1PowerOn)
+        if (NodeManager.Instance.powerOn)
         {
             Zone1PowerOff();
         }

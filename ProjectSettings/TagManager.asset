@@ -15,6 +15,10 @@ TagManager:
   - Node
   - Cable
   - Cursor
+  - Smasher
+  - Smashable
+  - Raycast Indicator
+  - Fixer
   layers:
   - Default
   - TransparentFX
@@ -22,16 +26,16 @@ TagManager:
   - 
   - Water
   - UI
+  - Interactable
+  - InWall
+  - Fixable
   - 
   - 
   - 
   - 
-  - Red
-  - Green
-  - Blue
-  - Purple
-  - Cable
-  - Node
+  - 
+  - 
+  - 
   - 
   - 
   - 

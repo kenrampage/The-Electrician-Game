@@ -9,7 +9,7 @@ public class PowerCable : MonoBehaviour, IInteractable
     public bool connectedToPower;
     public bool poweredOn;
     public LineRenderer lineRenderer;
-    private string targetTag;
+    // private string targetTag;
 
     public bool currentlyHeld = false;
     public bool currentlySnapped = false;
@@ -23,7 +23,7 @@ public class PowerCable : MonoBehaviour, IInteractable
 
     private void Awake()
     {
-        targetTag = "Raycast Indicator";
+        // targetTag = "Raycast Indicator";
         lineRenderer = GetComponent<LineRenderer>();
         lineMaterial = lineRenderer.material;
     }
