@@ -9,6 +9,8 @@ public class NodeInteraction : MonoBehaviour, IInteractable
 
     public GameObject cablePrefab;
 
+    public int wiringItemIndex;
+
     private void Awake()
     {
         inventoryManager = FindObjectOfType<InventoryManager>();
@@ -19,7 +21,7 @@ public class NodeInteraction : MonoBehaviour, IInteractable
     {
         //Check which object player is holding
 
-        if (inventoryManager.CurrentIndex == 7 && !inventoryManager.editingCable) //Installing cable at first point
+        if (inventoryManager.CurrentIndex == wiringItemIndex && !inventoryManager.editingCable) //Installing cable at first point
         {
             //creates cable
             var newCable = Instantiate(cablePrefab, transform.position, transform.rotation);
@@ -36,7 +38,7 @@ public class NodeInteraction : MonoBehaviour, IInteractable
             cable.cableTransform.Edit();
 
         }
-        else if (inventoryManager.CurrentIndex == 7 && inventoryManager.editingCable) //Already holding cable and installing at second point
+        else if (inventoryManager.CurrentIndex == wiringItemIndex && inventoryManager.editingCable) //Already holding cable and installing at second point
         {
             Cable cable = inventoryManager.heldCable.GetComponent<Cable>();
 
@@ -77,7 +79,7 @@ public class NodeInteraction : MonoBehaviour, IInteractable
     private void OnTriggerEnter(Collider other)
     {
         // Check if editing cable
-        if (inventoryManager.CurrentIndex == 7 && inventoryManager.editingCable && other.tag == "Cursor")
+        if (inventoryManager.CurrentIndex == wiringItemIndex && inventoryManager.editingCable && other.tag == "Cursor")
         {
             Cable cable = inventoryManager.heldCable.GetComponent<Cable>();
 
@@ -96,7 +98,7 @@ public class NodeInteraction : MonoBehaviour, IInteractable
     private void OnTriggerExit(Collider other)
     {
         // Check if editing cable
-        if (inventoryManager.CurrentIndex == 7 && inventoryManager.editingCable && other.tag == "Cursor")
+        if (inventoryManager.CurrentIndex == wiringItemIndex && inventoryManager.editingCable && other.tag == "Cursor")
         {
             var cable = inventoryManager.heldCable.GetComponent<Cable>();
 

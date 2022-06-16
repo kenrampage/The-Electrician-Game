@@ -66,19 +66,21 @@ public class NodeManager : Singleton<NodeManager>
 
     public void PowerOff()
     {
+        powerOn = false;
         foreach (var node in connectedNodes)
         {
             node.PowerOff();
-            powerOn = false;
+            
         }
     }
 
     public void PowerOn()
     {
+        powerOn = true;
         foreach (var node in connectedNodes)
         {
             node.PowerOn();
-            powerOn = true;
+            
         }
     }
 

@@ -10,6 +10,8 @@ public class NumInputEvent : UnityEvent<int>
 public class InputManager : Singleton<InputManager>
 {
     public NumInputEvent numInputEvent;
+    public UnityEvent onItemNext;
+    public UnityEvent onItemPrev;
 
     public UnityEvent onInteract;
     public UnityEvent onInteractRelease;
@@ -32,6 +34,7 @@ public class InputManager : Singleton<InputManager>
     private InputAction item7;
     private InputAction item8;
     private InputAction item9;
+    // private InputAction item10;
     private InputAction itemNext;
     private InputAction itemPrev;
 
@@ -75,6 +78,9 @@ public class InputManager : Singleton<InputManager>
         item9 = inputActionMapInv.FindAction("Item9");
         item9.performed += EquipItem9;
 
+        // item10 = inputActionMapInv.FindAction("Item10");
+        // item10.performed += EquipItem10;
+
         itemNext = inputActionMapInv.FindAction("ItemNext");
         itemNext.performed += EquipItemNext;
 
@@ -98,6 +104,7 @@ public class InputManager : Singleton<InputManager>
         item7.Enable();
         item8.Enable();
         item9.Enable();
+        // item10.Enable();
         itemNext.Enable();
         itemPrev.Enable();
         interact.Enable();
@@ -115,6 +122,7 @@ public class InputManager : Singleton<InputManager>
         item7.Disable();
         item8.Disable();
         item9.Disable();
+        // item10.Disable();
         itemNext.Disable();
         itemPrev.Disable();
         interact.Disable();
@@ -190,18 +198,18 @@ public class InputManager : Singleton<InputManager>
         numInputEvent?.Invoke(8);
     }
 
-    private void EquipItem10(InputAction.CallbackContext context)
-    {
-        numInputEvent?.Invoke(9);
-    }
+    // private void EquipItem10(InputAction.CallbackContext context)
+    // {
+    //     numInputEvent?.Invoke(0);
+    // }
 
     private void EquipItemNext(InputAction.CallbackContext context)
     {
-        // onItemNext?.Invoke();
+        onItemNext?.Invoke();
     }
 
     private void EquipItemPrev(InputAction.CallbackContext context)
     {
-        // onItemPrev?.Invoke();
+        onItemPrev?.Invoke();
     }
 }

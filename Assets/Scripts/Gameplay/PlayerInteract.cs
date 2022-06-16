@@ -23,17 +23,13 @@ public class PlayerInteract : MonoBehaviour
     // private InputAction interactB;
 
     public GameObject cursorObject;
-    public GameObject smasherObject;
-    public GameObject smasherDefaultPosition;
-    public float smashDuration;
-    public bool ableToSmash = true;
-
-
+    // public SmashAndFix smashAndFix;
     public bool onTarget;
 
 
     public void Awake()
     {
+        // smasher = GetComponent<Smasher>();
         inventoryManager = FindObjectOfType<InventoryManager>();
         cam = Camera.main;
     }
@@ -41,101 +37,97 @@ public class PlayerInteract : MonoBehaviour
     private void Start()
     {
         InputManager.Instance.onInteract.AddListener(Interact);
-        InputManager.Instance.onInteractRelease.AddListener(InteractRelease);
+        // InputManager.Instance.onInteractRelease.AddListener(InteractRelease);
+        // InputManager.Instance.onCancel.AddListener(Cancel);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         CastRay();
     }
 
     public void Interact()
     {
-        if (inventoryManager.CurrentIndex != 8)
+        if (inventoryManager.CurrentIndex != 1 && inventoryManager.CurrentIndex != 2)
         {
             if (currentTarget == null) return;
-            if (currentTarget.CompareTag(inventoryManager.tagsList[inventoryManager.CurrentIndex]))
-            {
-                var interactable = currentTarget.GetComponent<IInteractable>();
-                if (interactable == null) return;
 
-                interactable.Interact();
-            }
-        }
-
-    }
-
-    public void InteractRelease()
-    {
-        if (inventoryManager.CurrentIndex != 8)
-        {
-
-        }
-        else if (onTarget)
-        {
-            StartCoroutine(Smash());
-        }
-    }
-
-
-    public IEnumerator Smash()
-    {
-        if (ableToSmash)
-        {
-            ableToSmash = false;
-            smasherObject.SetActive(true);
-            smasherObject.transform.position = cursorObject.transform.position;
-            yield return new WaitForSecondsRealtime(smashDuration);
-            smasherObject.transform.position = smasherDefaultPosition.transform.position;
-            smasherObject.SetActive(false);
-            ableToSmash = true;
-        }
-
-    }
-
-    public void Cancel()
-    {
-        if (currentTarget == null) return;
-
-        if (currentTarget.CompareTag(inventoryManager.tagsList[inventoryManager.CurrentIndex]))
-        {
             var interactable = currentTarget.GetComponent<IInteractable>();
             if (interactable == null) return;
 
-            interactable.Cancel();
+            interactable.Interact();
+            // if (currentTarget.CompareTag(inventoryManager.tagsList[inventoryManager.CurrentIndex]))
+            // {
+            //     var interactable = currentTarget.GetComponent<IInteractable>();
+            //     if (interactable == null) return;
+
+            //     interactable.Interact();
+            // }
         }
 
-
     }
+
+    // public void InteractRelease()
+    // {
+    //     if (inventoryManager.CurrentIndex != 8)
+    //     {
+
+    //     }
+
+    // }
+
+
+
+
+    // public void Cancel()
+    // {
+    //     if (currentTarget == null) return;
+
+    //     if (inventoryManager.currentIndex != 8)
+    //     {
+
+    //         if (currentTarget.CompareTag(inventoryManager.tagsList[inventoryManager.CurrentIndex]))
+    //         {
+    //             var interactable = currentTarget.GetComponent<IInteractable>();
+    //             if (interactable == null) return;
+
+    //             interactable.Cancel();
+    //         }
+    //     }
+    // }
 
     public void CastRay()
     {
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
 
-        if (Physics.Raycast(ray, out RaycastHit hit, 3f))
+
+        if (Physics.Raycast(ray, out RaycastHit hit, 4f, inventoryManager.layerMasksList[inventoryManager.currentIndex]))
         {
             currentTarget = hit.transform.gameObject;
+            onTarget = true;
+            cursorObject.SetActive(true);
+            cursorObject.transform.position = hit.point;
 
-            if (currentTarget.CompareTag(inventoryManager.tagsList[inventoryManager.CurrentIndex]))
-            {
-                onTarget = true;
-                cursorObject.SetActive(true);
-                cursorObject.transform.position = hit.point;
-            }
-            else
-            {
-                onTarget = false;
-                cursorObject.SetActive(false);
-                cursorObject.transform.position = new Vector3(0, 0, 0);
-            }
+            // if (currentTarget.CompareTag(inventoryManager.tagsList[inventoryManager.CurrentIndex]))
+            // {
+            //     onTarget = true;
+            //     cursorObject.SetActive(true);
+            //     cursorObject.transform.position = hit.point;
+            // }
+            // else
+            // {
+            //     onTarget = false;
+            //     cursorObject.SetActive(false);
+            //     cursorObject.transform.position = new Vector3(0, 0, 0);
+            // }
 
         }
         else
         {
             currentTarget = null;
             onTarget = false;
-            cursorObject.SetActive(false);
+            // cursorObject.SetActive(false);
             cursorObject.transform.position = new Vector3(0, 0, 0);
         }
 

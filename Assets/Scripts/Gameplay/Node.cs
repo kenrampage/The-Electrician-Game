@@ -28,7 +28,10 @@ public class Node : MonoBehaviour
     {
         TurnUpdatesOn();
         if (powerSource)
-        { ConnectPower(); }
+        {
+            ConnectPower();
+            NodeManager.Instance.AddConnectedNode(this);
+        }
         col = GetComponent<SphereCollider>();
 
 
@@ -74,6 +77,10 @@ public class Node : MonoBehaviour
                 if (node.connectedToPower)
                 {
                     ConnectPower();
+                    if (node.poweredOn)
+                    {
+                        PowerOn();
+                    }
                     break;
                 }
                 else
