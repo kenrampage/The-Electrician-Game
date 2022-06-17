@@ -128,7 +128,7 @@ public class PlayerInteract : MonoBehaviour
             currentTarget = null;
             onTarget = false;
             // cursorObject.SetActive(false);
-            cursorObject.transform.position = new Vector3(0, 0, 0);
+            cursorObject.transform.localPosition = new Vector3(0, 0, -3);
         }
 
     }
