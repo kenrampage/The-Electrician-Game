@@ -11,7 +11,7 @@ public class HighlightCable : MonoBehaviour
     private void Awake()
     {
         targetTag = "Cursor";
-        material = GetComponent<MeshRenderer>().material;
+        // material = GetComponent<MeshRenderer>().material;
     }
 
     private void OnEnable()
@@ -23,6 +23,7 @@ public class HighlightCable : MonoBehaviour
     {
         if (other.tag == targetTag)
         {
+            print("triggered by Cursor");
             SelectThis();
         }
 
@@ -45,12 +46,14 @@ public class HighlightCable : MonoBehaviour
         {
             return;
         }
+        material = GetComponent<MeshRenderer>().material;
         material.EnableKeyword("_EMISSION");
     }
 
     [ContextMenu("Deselect This")]
     public void DeselectThis()
     {
+        material = GetComponent<MeshRenderer>().material;
         material.DisableKeyword("_EMISSION");
     }
 

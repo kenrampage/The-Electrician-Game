@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: Ken Rampage
   productName: Lost Relic Game Jam 1
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -628,7 +628,7 @@ PlayerSettings:
     PS5: PROBUILDER_EXPERIMENTAL_FEATURES
     Stadia: PROBUILDER_EXPERIMENTAL_FEATURES
     Standalone: STARTER_ASSETS_PACKAGES_CHECKED;PROBUILDER_EXPERIMENTAL_FEATURES
-    WebGL: PROBUILDER_EXPERIMENTAL_FEATURES
+    WebGL: PROBUILDER_EXPERIMENTAL_FEATURES;STARTER_ASSETS_PACKAGES_CHECKED
     Windows Store Apps: PROBUILDER_EXPERIMENTAL_FEATURES
     XboxOne: PROBUILDER_EXPERIMENTAL_FEATURES
     tvOS: PROBUILDER_EXPERIMENTAL_FEATURES
