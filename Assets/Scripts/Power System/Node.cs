@@ -81,8 +81,6 @@ public class Node : MonoBehaviour
 
     public void HandleEdit()
     {
-        // DisconnectPower();
-        // StartPowerFlow();
 
     }
 
@@ -110,23 +108,22 @@ public class Node : MonoBehaviour
             {
                 DisconnectPower();
             }
-            foreach (var node in connectedNodes)
+            else
             {
-                if (node.ConnectedToPower)
+                foreach (var node in connectedNodes)
                 {
-                    ConnectPower();
-                    break;
-                    // if (node.poweredOn)
-                    // {
-                    //     PowerOn();
-                    // }
-                    // break;
-                }
-                else
-                {
-                    DisconnectPower();
+                    if (node.ConnectedToPower)
+                    {
+                        ConnectPower();
+                        break;
+                    }
+                    else
+                    {
+                        DisconnectPower();
+                    }
                 }
             }
+
 
         }
     }
@@ -149,9 +146,10 @@ public class Node : MonoBehaviour
     {
         if (!powerSource)
         {
+            ConnectedToPower = false;
             powerConnectedIndicator.SetActive(false);
             powerDisconnectedIndicator.SetActive(true);
-            ConnectedToPower = false;
+
         }
     }
 

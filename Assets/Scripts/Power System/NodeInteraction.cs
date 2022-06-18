@@ -82,7 +82,7 @@ public class NodeInteraction : MonoBehaviour, IInteractable
     private void OnTriggerEnter(Collider other)
     {
 
-        // Check if editing cable
+        
         if (inventoryManager.CurrentIndex == wiringItemIndex && !inventoryManager.editingCable && other.tag == "Cursor")
         {
             node.HighlightOn();
