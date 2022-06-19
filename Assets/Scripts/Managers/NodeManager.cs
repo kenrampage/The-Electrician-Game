@@ -14,35 +14,19 @@ public class NodeManager : Singleton<NodeManager>
     public bool updatesOn = true;
 
 
-    public TargetNodes[] targetNodeGroups;
-    public int totalNodeGroups;
-    public int nodeGroupsCompleted;
+    // public TargetNodes targetNodes;
+    // public int targetNodesTotal;
+    // public int targetNodesCompleted;
 
-    private void Awake()
-    {
-        totalNodeGroups = targetNodeGroups.Length;
-        foreach (var group in targetNodeGroups)
-        {
-            group.onComplete.AddListener(CheckNodeGroupStatus);
-            group.onUncomplete.AddListener(CheckNodeGroupStatus);
-        }
-    }
-
-
-    private void CheckNodeGroupStatus()
-    {
-        nodeGroupsCompleted = 0;
-
-        foreach (var nodes in targetNodeGroups)
-        {
-            if (nodes.IsComplete)
-            {
-                nodeGroupsCompleted++;
-            }
-        }
-
-        print(nodeGroupsCompleted + " out of " + totalNodeGroups + " groups completed");
-    }
+    // private void Awake()
+    // {
+    //     targetNodesTotal = targetNodes.nodes.Length;
+    //     foreach (var group in targetNodes)
+    //     {
+    //         group.onComplete.AddListener(CheckNodeGroupStatus);
+    //         group.onUncomplete.AddListener(CheckNodeGroupStatus);
+    //     }
+    // }
 
     public void ResetConnectedNodes()
     {
