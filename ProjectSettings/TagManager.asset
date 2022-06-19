@@ -24,10 +24,10 @@ TagManager:
   - Smashable
   - Fixable
   - Wirable
-  - 
-  - 
-  - 
-  - 
+  - WirableSource
+  - WirableSourceXray
+  - WirableTarget
+  - WirableTargetXray
   - 
   - 
   - 

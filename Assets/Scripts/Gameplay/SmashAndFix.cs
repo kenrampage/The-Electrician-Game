@@ -54,14 +54,6 @@ public class SmashAndFix : MonoBehaviour
 
     public void Interact()
     {
-        // if (inventoryManager.CurrentIndex == 8)
-        // {
-
-        // }
-    }
-
-    public void InteractRelease()
-    {
         if (inventoryManager.CurrentIndex == smashItemIndex)
         {
             StartCoroutine(Smash());
@@ -70,6 +62,18 @@ public class SmashAndFix : MonoBehaviour
         {
             StartCoroutine(Fix());
         }
+    }
+
+    public void InteractRelease()
+    {
+        // if (inventoryManager.CurrentIndex == smashItemIndex)
+        // {
+        //     StartCoroutine(Smash());
+        // }
+        // else if(inventoryManager.CurrentIndex == fixItemIndex)
+        // {
+        //     StartCoroutine(Fix());
+        // }
 
 
     }

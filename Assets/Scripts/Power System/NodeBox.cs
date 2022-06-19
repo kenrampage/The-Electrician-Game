@@ -72,10 +72,10 @@ public class NodeBox : MonoBehaviour, IInteractable
             return;
         }
 
-        if (inventoryManager.CheckInventory(currentItemIndex))
-        {
-            InstallNode();
-        }
+        // if (inventoryManager.CheckInventory(currentItemIndex))
+        // {
+        //     InstallNode();
+        // }
 
 
         //turns off preview
@@ -98,13 +98,13 @@ public class NodeBox : MonoBehaviour, IInteractable
         installedNodeIndex = currentItemIndex;
 
         //decrease inventory by 1
-        inventoryManager.DecrementInventory(installedNodeIndex);
+        // inventoryManager.DecrementInventory(installedNodeIndex);
     }
 
     public void RemoveNode()
     {
         //increase inventory
-        inventoryManager.IncrementInventory(installedNodeIndex);
+        // inventoryManager.IncrementInventory(installedNodeIndex);
 
         //destroys node object
         Destroy(installedNode);

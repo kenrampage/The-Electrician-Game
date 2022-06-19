@@ -37,14 +37,14 @@ public class Fragment : MonoBehaviour
         {
             // rb.AddForce(CalcRandomDirection() * CalcRandomVelocity(), ForceMode.Impulse);
             // StartCoroutine(Despawn());
-            print(gameObject.name + " Destroyed");
+            // print(gameObject.name + " Destroyed");
             gameObject.layer = LayerMask.NameToLayer(afterMask);
             mesh.enabled = false;
         }
         else if (other.tag == fixerTag)
         {
             gameObject.layer = LayerMask.NameToLayer(beforeMask);
-            print(gameObject.name + " Repaired");
+            // print(gameObject.name + " Repaired");
             mesh.enabled = true;
         }
 

@@ -16,7 +16,14 @@ public class InventoryManager : Singleton<InventoryManager>
     // public delegate void ItemChangeAction();
     // public event ItemChangeAction onItemChanged;
 
+    public PlayerInteract playerInteract;
+
     public UnityEvent onItemChanged;
+
+    public GameObject flashlightOnObject;
+    public GameObject flashlightOffObject;
+    public GameObject flashlight;
+    public bool isFlashlightOn;
 
     public int currentIndex;
     public int CurrentIndex
@@ -48,25 +55,53 @@ public class InventoryManager : Singleton<InventoryManager>
     public List<LayerMask> layerMasksList;
     public List<string> tagsList;
     public List<int> inventoryCount;
-    
+
 
 
     private void Awake()
     {
-
+        playerInteract = FindObjectOfType<PlayerInteract>();
         ResetEquipment();
+        ResetFlashlight();
     }
 
     private void Start()
     {
         inputManager = InputManager.Instance;
-        
+
         inputManager.numInputEvent.AddListener(HandleNumInput);
         inputManager.onItemNext.AddListener(EquipNextItem);
         inputManager.onItemPrev.AddListener(EquipPrevItem);
         inputManager.onCancel.AddListener(DropCable);
+        inputManager.onToggleFlashlight.AddListener(ToggleFlashlight);
 
 
+    }
+
+    public void ResetFlashlight()
+    {
+        flashlight.SetActive(false);
+        flashlightOffObject.SetActive(true);
+        flashlightOnObject.SetActive(false);
+    }
+
+    public void ToggleFlashlight()
+    {
+        print("flashlight toggled");
+        if (isFlashlightOn)
+        {
+            isFlashlightOn = false;
+            flashlight.SetActive(false);
+            flashlightOffObject.SetActive(true);
+            flashlightOnObject.SetActive(false);
+        }
+        else if (!isFlashlightOn)
+        {
+            isFlashlightOn = true;
+            flashlight.SetActive(true);
+            flashlightOffObject.SetActive(false);
+            flashlightOnObject.SetActive(true);
+        }
     }
 
 
@@ -113,6 +148,8 @@ public class InventoryManager : Singleton<InventoryManager>
         CurrentIndex = itemIndex;
         ToggleMarkers();
         ToggleReticles();
+        ChangeCursor();
+        playerInteract.cursorObject = cursorList[currentIndex];
         // equipmentList[equipment].SetActive(true);
         // equipAnim.Play("Equipment On");
     }
@@ -125,27 +162,27 @@ public class InventoryManager : Singleton<InventoryManager>
 
     // }
 
-    public bool CheckInventory(int i)
-    {
-        if (inventoryCount[i] > 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    // public bool CheckInventory(int i)
+    // {
+    //     if (inventoryCount[i] > 0)
+    //     {
+    //         return true;
+    //     }
+    //     else
+    //     {
+    //         return false;
+    //     }
+    // }
 
-    public void IncrementInventory(int i)
-    {
-        inventoryCount[i]++;
-    }
+    // public void IncrementInventory(int i)
+    // {
+    //     inventoryCount[i]++;
+    // }
 
-    public void DecrementInventory(int i)
-    {
-        inventoryCount[i]--;
-    }
+    // public void DecrementInventory(int i)
+    // {
+    //     inventoryCount[i]--;
+    // }
 
     public bool CheckIfRunningCable()
     {
@@ -182,7 +219,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public void EquipNextItem()
     {
-        if (CurrentIndex == 8)
+        if (CurrentIndex == 3)
         {
             CurrentIndex = 0;
         }
@@ -199,7 +236,7 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         if (CurrentIndex == 0)
         {
-            CurrentIndex = 8;
+            CurrentIndex = 3;
         }
         else
         {
@@ -208,6 +245,17 @@ public class InventoryManager : Singleton<InventoryManager>
 
         ChangeEquipment(CurrentIndex);
     }
+
+    public void ChangeCursor()
+    {
+        foreach (var item in cursorList)
+        {
+            item.SetActive(false);
+        }
+
+        cursorList[currentIndex].SetActive(true);
+    }
+    
 
 
 

@@ -23,7 +23,7 @@ public class HighlightCable : MonoBehaviour
     {
         if (other.tag == targetTag)
         {
-            print("triggered by Cursor");
+            // print("triggered by Cursor");
             SelectThis();
         }
 

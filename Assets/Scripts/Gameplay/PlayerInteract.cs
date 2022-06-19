@@ -68,41 +68,13 @@ public class PlayerInteract : MonoBehaviour
 
     }
 
-    // public void InteractRelease()
-    // {
-    //     if (inventoryManager.CurrentIndex != 8)
-    //     {
-
-    //     }
-
-    // }
-
-
-
-
-    // public void Cancel()
-    // {
-    //     if (currentTarget == null) return;
-
-    //     if (inventoryManager.currentIndex != 8)
-    //     {
-
-    //         if (currentTarget.CompareTag(inventoryManager.tagsList[inventoryManager.CurrentIndex]))
-    //         {
-    //             var interactable = currentTarget.GetComponent<IInteractable>();
-    //             if (interactable == null) return;
-
-    //             interactable.Cancel();
-    //         }
-    //     }
-    // }
 
     public void CastRay()
     {
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
 
 
-        if (Physics.Raycast(ray, out RaycastHit hit, 4f, inventoryManager.layerMasksList[inventoryManager.currentIndex]))
+        if (Physics.Raycast(ray, out RaycastHit hit, 5f, inventoryManager.layerMasksList[inventoryManager.currentIndex]))
         {
             currentTarget = hit.transform.gameObject;
             onTarget = true;

@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class Node : MonoBehaviour
 {
+    public GameObject xrayCube;
+
     private SphereCollider col;
 
     public GameObject powerConnectedIndicator;
@@ -44,6 +46,23 @@ public class Node : MonoBehaviour
     public List<Node> connectedNodes;
 
     public UnityEvent onPowerStatusChanged;
+
+    public void XrayCubeOn()
+    {
+        if (xrayCube != null)
+        {
+            xrayCube.SetActive(true);
+        }
+
+    }
+
+    public void XrayCubeOff()
+    {
+        if (xrayCube != null)
+        {
+            xrayCube.SetActive(false);
+        }
+    }
 
 
     private void Awake()
@@ -165,6 +184,25 @@ public class Node : MonoBehaviour
     public void RemoveConnectedNode(Node node)
     {
         connectedNodes.Remove(node);
+    }
+
+
+    [ContextMenu("Default Layer Masks")]
+    public void SetDefaultLayerMask()
+    {
+        int newLayerMask = LayerMask.NameToLayer("WirableTarget");
+
+        gameObject.layer = newLayerMask;
+
+    }
+
+    [ContextMenu("Xray Layer Masks")]
+    public void SetXrayLayerMask()
+    {
+        int newLayerMask = LayerMask.NameToLayer("WirableTargetXray");
+
+        gameObject.layer = newLayerMask;
+
     }
 
 }
