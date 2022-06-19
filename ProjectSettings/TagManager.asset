@@ -5,19 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - CinemachineTarget
-  - Red
-  - Green
-  - Blue
-  - Purple
   - BoxNode
-  - WiringNode
-  - Cable Holder
   - Node
   - Cable
   - Cursor
+  - Wall
+  - Cable Holder
   - Smasher
-  - Smashable
-  - Raycast Indicator
   - Fixer
   layers:
   - Default
@@ -27,9 +21,9 @@ TagManager:
   - Water
   - UI
   - Interactable
-  - InWall
+  - Smashable
   - Fixable
-  - 
+  - Wirable
   - 
   - 
   - 

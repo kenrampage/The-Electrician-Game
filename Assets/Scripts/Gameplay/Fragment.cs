@@ -15,11 +15,11 @@ public class Fragment : MonoBehaviour
 
     // public float despawnTimerMin;
     // public float despawnTimerMax;
-    public string beforeMask;
-    public string afterMask;
+    private string beforeMask = "Smashable";
+    private string afterMask = "Fixable";
 
-    public string smasherTag;
-    public string fixerTag;
+    private string smasherTag = "Smasher";
+    private string fixerTag = "Fixer";
 
     private void Awake()
     {

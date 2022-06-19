@@ -40,7 +40,7 @@ public class InputManager : Singleton<InputManager>
 
     private void Awake()
     {
-
+        CreateEventInstances();
         inputActionMapInv = inputActions.FindActionMap("Inventory");
         inputActionMapPlayer = inputActions.FindActionMap("Player");
 
@@ -90,7 +90,7 @@ public class InputManager : Singleton<InputManager>
 
     private void Start()
     {
-        CreateEventInstances();
+        
     }
 
     private void OnEnable()

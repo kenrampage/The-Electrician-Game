@@ -2,38 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 
+
+
 public class NodeManager : Singleton<NodeManager>
 {
-    //track all target nodes and their power status
-    //once all target nodes are powered on you win
 
-    public bool powerOn;
 
     private UnityEvent onEdit;
-    public UnityEvent onPowerOn;
-
-    // public HashSet<Node> connectedNodes;
     public List<Node> connectedNodes;
 
     public bool updatesOn = true;
 
-    private void Update()
-    {
-        // if (updatesOn)
-        // {
-        //     foreach (var node in connectedNodes)
-        //     {
-        //         node.CheckStatusOfConnectedNodes();
-        //     }
-        // }
 
-    }
+    // public TargetNodes targetNodes;
+    // public int targetNodesTotal;
+    // public int targetNodesCompleted;
+
+    // private void Awake()
+    // {
+    //     targetNodesTotal = targetNodes.nodes.Length;
+    //     foreach (var group in targetNodes)
+    //     {
+    //         group.onComplete.AddListener(CheckNodeGroupStatus);
+    //         group.onUncomplete.AddListener(CheckNodeGroupStatus);
+    //     }
+    // }
 
     public void ResetConnectedNodes()
     {
         foreach (var node in connectedNodes)
         {
-            print("Nodes Reset!");
+            // print("Nodes Reset!");
             node.DisconnectPower();
         }
     }
@@ -42,7 +41,7 @@ public class NodeManager : Singleton<NodeManager>
     {
         foreach (var node in connectedNodes)
         {
-            print("Updates On");
+            // print("Updates On");
             node.TurnUpdatesOn();
         }
     }
@@ -60,29 +59,9 @@ public class NodeManager : Singleton<NodeManager>
 
     public void OnEdit()
     {
-        // print("OnEdit Invoked");
         onEdit?.Invoke();
     }
 
-    public void PowerOff()
-    {
-        powerOn = false;
-        foreach (var node in connectedNodes)
-        {
-            node.PowerOff();
-            
-        }
-    }
-
-    public void PowerOn()
-    {
-        powerOn = true;
-        foreach (var node in connectedNodes)
-        {
-            node.PowerOn();
-            
-        }
-    }
 
     public void AddConnectedNode(Node node)
     {
@@ -94,12 +73,6 @@ public class NodeManager : Singleton<NodeManager>
         node.CheckStatusOfConnectedNodes();
         connectedNodes.Remove(node);
     }
-
-    //every time a cable is connected to a node add it to the connected node hashlist
-    //remove that node from hashlist if cable is removed, and there are no other cables connected
-    //in update foreach through hashlist to check connection status for each nodes connected nodes
-
-
 
 
 }

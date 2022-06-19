@@ -60,6 +60,7 @@ public class InventoryManager : Singleton<InventoryManager>
     private void Start()
     {
         inputManager = InputManager.Instance;
+        
         inputManager.numInputEvent.AddListener(HandleNumInput);
         inputManager.onItemNext.AddListener(EquipNextItem);
         inputManager.onItemPrev.AddListener(EquipPrevItem);
