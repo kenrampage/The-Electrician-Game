@@ -87,7 +87,6 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public void ToggleFlashlight()
     {
-        print("flashlight toggled");
         if (isFlashlightOn)
         {
             isFlashlightOn = false;
