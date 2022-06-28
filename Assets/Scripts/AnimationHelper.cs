@@ -11,7 +11,7 @@ public class AnimationHelper : MonoBehaviour
     private void Awake()
     {
         anim = GetComponent<Animation>();
-        AddClipsToAnimationComponent();
+        // AddClipsToAnimationComponent();
     }
 
     private void AddClipsToAnimationComponent()
