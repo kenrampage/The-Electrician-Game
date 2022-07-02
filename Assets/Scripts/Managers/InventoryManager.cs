@@ -256,6 +256,15 @@ public class InventoryManager : Singleton<InventoryManager>
     }
     
 
+    public void TurnReticleOff()
+    {
+        reticlesList[CurrentIndex].SetActive(false);
+    }
+
+    public void TurnReticleOn()
+    {
+        reticlesList[CurrentIndex].SetActive(true);
+    }
 
 
 

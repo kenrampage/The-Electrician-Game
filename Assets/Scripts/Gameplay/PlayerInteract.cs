@@ -79,7 +79,9 @@ public class PlayerInteract : MonoBehaviour
             currentTarget = hit.transform.gameObject;
             onTarget = true;
             cursorObject.SetActive(true);
+            
             cursorObject.transform.position = hit.point;
+            inventoryManager.TurnReticleOff();
 
             // if (currentTarget.CompareTag(inventoryManager.tagsList[inventoryManager.CurrentIndex]))
             // {
@@ -97,6 +99,7 @@ public class PlayerInteract : MonoBehaviour
         }
         else
         {
+            inventoryManager.TurnReticleOn();
             currentTarget = null;
             onTarget = false;
             // cursorObject.SetActive(false);
