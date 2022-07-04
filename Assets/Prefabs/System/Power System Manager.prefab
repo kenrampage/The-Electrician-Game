@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8511742402017781613}
   - component: {fileID: 8511742402017781611}
+  - component: {fileID: 1850250026}
+  - component: {fileID: 1850250029}
   m_Layer: 0
   m_Name: Power System Manager
   m_TagString: Untagged
@@ -44,13 +46,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc63834a254435428e84e3715e2dc7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _persistent: 1
   connectedNodes: []
   updatesOn: 1
-  livingRoomNodes: []
-  kitchedNodes: []
-  garageNodes: []
-  downstairsBathroomNodes: []
-  mainBedroomNodes: []
-  kidsBedroomNodes: []
-  upstairsBathroomNodes: []
+--- !u!114 &1850250026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8511742402017781614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7358f8f82c41a64396fe3024a14b6e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  totalNodes: 0
+  completedNodes: 0
+  onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  onUncomplete:
+    m_PersistentCalls:
+      m_Calls: []
+  onCompletedNodesChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  xrayOn: 0
+--- !u!114 &1850250029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8511742402017781614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 467fb013895665e44979f217c00a7415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  xrayOn: 0
+  xrayOnMarker: {fileID: 0}
