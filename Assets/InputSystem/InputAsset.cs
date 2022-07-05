@@ -80,6 +80,96 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Item1"",
+                    ""type"": ""Button"",
+                    ""id"": ""b31fb074-e157-460b-bac7-d5a00d68879c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Item2"",
+                    ""type"": ""Button"",
+                    ""id"": ""df31614d-09e9-40e9-be63-30b0496e4558"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Item3"",
+                    ""type"": ""Button"",
+                    ""id"": ""eef05d75-5660-429f-b26a-fd42f00ca7cd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Item4"",
+                    ""type"": ""Button"",
+                    ""id"": ""7c212fde-0706-406a-a082-dc61c42319f5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ItemNext"",
+                    ""type"": ""Button"",
+                    ""id"": ""fea0c38b-e72b-4334-8e10-a541115b5093"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ItemPrev"",
+                    ""type"": ""Button"",
+                    ""id"": ""c0b979cb-1bb6-4106-80c0-20610af3a40c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""toggleFlashlight"",
+                    ""type"": ""Button"",
+                    ""id"": ""d6373d7f-6851-45f9-b078-c3d6c3043b4d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""toggleGuide"",
+                    ""type"": ""Button"",
+                    ""id"": ""fcf540ce-92a3-48c3-9bf2-ca1d5a99c08b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""toggleXray"",
+                    ""type"": ""Button"",
+                    ""id"": ""c96aa1c6-0055-477e-9a60-25e46efa96ef"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""b59abe88-fb46-401a-bff1-9f84b9cb06b3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -258,99 +348,10 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Inventory"",
-            ""id"": ""ce8e3573-a49c-436c-9fb8-ed15c08c1388"",
-            ""actions"": [
-                {
-                    ""name"": ""Item1"",
-                    ""type"": ""Button"",
-                    ""id"": ""a16097d7-757e-4cef-8eb9-be0dd0c9709c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 },
-                {
-                    ""name"": ""Item2"",
-                    ""type"": ""Button"",
-                    ""id"": ""962b18a9-d857-4685-882c-35e55dd728f8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Item3"",
-                    ""type"": ""Button"",
-                    ""id"": ""a8a98452-0d84-40e8-a72f-28f90ac73283"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Item4"",
-                    ""type"": ""Button"",
-                    ""id"": ""eb3865dd-8989-4b76-a840-20b4cc101c8b"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""ItemNext"",
-                    ""type"": ""Button"",
-                    ""id"": ""18baff32-151e-4547-b473-74b6466f5007"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""ItemPrev"",
-                    ""type"": ""Button"",
-                    ""id"": ""cf6b3665-1fc3-44d6-8023-8ae57e84492d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""toggleFlashlight"",
-                    ""type"": ""Button"",
-                    ""id"": ""3f10bdc4-1cc1-48e2-8cef-3f1da509ee2b"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""toggleGuide"",
-                    ""type"": ""Button"",
-                    ""id"": ""96bfdcad-76ad-486b-a81d-c2d0e7db7116"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""toggleXray"",
-                    ""type"": ""Button"",
-                    ""id"": ""ca51873f-0271-4dc8-8f1f-4fb88f3d563a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""a68225eb-61f3-40d2-ba13-e38c89bad138"",
+                    ""id"": ""093c2ca6-9441-410c-bb2f-f5b32cfee74e"",
                     ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -361,7 +362,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ed8d333a-519e-41b5-92a9-afa2d4ddf347"",
+                    ""id"": ""b5f16b2d-00d6-4b9b-8622-fab997fbbe26"",
                     ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -372,7 +373,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""923b1d40-c45e-411e-a347-c4a3fc6d7ba3"",
+                    ""id"": ""0e941d7e-5f47-4e6a-b45d-08c4fc21e1f2"",
                     ""path"": ""<Keyboard>/3"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -383,7 +384,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a38f3c2a-3477-4e27-b4b3-4649782e9d5c"",
+                    ""id"": ""175a5e9c-1b9d-4a91-9456-17d3bc088076"",
                     ""path"": ""<Keyboard>/4"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -394,7 +395,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f3acad74-4698-4370-8051-944bd9a5edeb"",
+                    ""id"": ""548933f8-0cbd-454a-b080-8cfc7742f70d"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -405,7 +406,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""cd2570e7-6190-4304-a4cb-e22ba148699e"",
+                    ""id"": ""c86882e1-8e69-489c-9aee-d20bd6f6244f"",
                     ""path"": ""<Gamepad>/dpad/right"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -416,7 +417,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2250b9a2-402f-45aa-bf1e-249907984cd8"",
+                    ""id"": ""86578ffe-1871-43a1-a901-8152b56a58ae"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -427,7 +428,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fcd2168b-0110-43cc-b4f0-3acfdd6c3d31"",
+                    ""id"": ""6905af15-faf7-4114-ad70-fb64d7eee892"",
                     ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -438,7 +439,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ec194ad1-5340-4231-bbc9-3643576fc299"",
+                    ""id"": ""26614fa1-1ef2-4019-ae5e-14cab4e54404"",
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -449,7 +450,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ccb5d84a-e33f-480f-b3ed-cda46ce90a16"",
+                    ""id"": ""d1457d30-d215-4506-9aac-05e684c1fda8"",
                     ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -460,7 +461,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ea574021-c81f-4b66-8c13-80534124d9ed"",
+                    ""id"": ""6397d92f-1c3b-42d4-8dc9-eeb109917459"",
                     ""path"": ""<Keyboard>/g"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -471,7 +472,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""cd096a1a-55bf-4559-80b4-43f2e5efa477"",
+                    ""id"": ""d6c979c6-d50a-4b70-bf51-642b6fd20f5e"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -482,7 +483,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""55489a95-08b8-49e3-8290-e343209d2722"",
+                    ""id"": ""27bc0348-d128-4a7a-bb0f-e58dcd83784e"",
                     ""path"": ""<Keyboard>/x"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -493,12 +494,51 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8335bcb1-74ce-49a0-b7cc-f05b76b5c6e4"",
+                    ""id"": ""a6fa4af3-23b5-48b7-b420-1923e76859c6"",
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""toggleXray"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1475202f-5ae2-4b4e-aad9-e59b301d0e6c"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""ce8e3573-a49c-436c-9fb8-ed15c08c1388"",
+            ""actions"": [
+                {
+                    ""name"": ""Unpause"",
+                    ""type"": ""Button"",
+                    ""id"": ""aad82d37-78a4-4473-9ac8-16f61bd38070"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""fb6986df-9be4-4917-aaa4-f2fdf953e33a"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Unpause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -563,17 +603,19 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Cancel = m_Player.FindAction("Cancel", throwIfNotFound: true);
-        // Inventory
-        m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
-        m_Inventory_Item1 = m_Inventory.FindAction("Item1", throwIfNotFound: true);
-        m_Inventory_Item2 = m_Inventory.FindAction("Item2", throwIfNotFound: true);
-        m_Inventory_Item3 = m_Inventory.FindAction("Item3", throwIfNotFound: true);
-        m_Inventory_Item4 = m_Inventory.FindAction("Item4", throwIfNotFound: true);
-        m_Inventory_ItemNext = m_Inventory.FindAction("ItemNext", throwIfNotFound: true);
-        m_Inventory_ItemPrev = m_Inventory.FindAction("ItemPrev", throwIfNotFound: true);
-        m_Inventory_toggleFlashlight = m_Inventory.FindAction("toggleFlashlight", throwIfNotFound: true);
-        m_Inventory_toggleGuide = m_Inventory.FindAction("toggleGuide", throwIfNotFound: true);
-        m_Inventory_toggleXray = m_Inventory.FindAction("toggleXray", throwIfNotFound: true);
+        m_Player_Item1 = m_Player.FindAction("Item1", throwIfNotFound: true);
+        m_Player_Item2 = m_Player.FindAction("Item2", throwIfNotFound: true);
+        m_Player_Item3 = m_Player.FindAction("Item3", throwIfNotFound: true);
+        m_Player_Item4 = m_Player.FindAction("Item4", throwIfNotFound: true);
+        m_Player_ItemNext = m_Player.FindAction("ItemNext", throwIfNotFound: true);
+        m_Player_ItemPrev = m_Player.FindAction("ItemPrev", throwIfNotFound: true);
+        m_Player_toggleFlashlight = m_Player.FindAction("toggleFlashlight", throwIfNotFound: true);
+        m_Player_toggleGuide = m_Player.FindAction("toggleGuide", throwIfNotFound: true);
+        m_Player_toggleXray = m_Player.FindAction("toggleXray", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_Unpause = m_Menu.FindAction("Unpause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -639,6 +681,16 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Cancel;
+    private readonly InputAction m_Player_Item1;
+    private readonly InputAction m_Player_Item2;
+    private readonly InputAction m_Player_Item3;
+    private readonly InputAction m_Player_Item4;
+    private readonly InputAction m_Player_ItemNext;
+    private readonly InputAction m_Player_ItemPrev;
+    private readonly InputAction m_Player_toggleFlashlight;
+    private readonly InputAction m_Player_toggleGuide;
+    private readonly InputAction m_Player_toggleXray;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @InputAsset m_Wrapper;
@@ -649,6 +701,16 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Cancel => m_Wrapper.m_Player_Cancel;
+        public InputAction @Item1 => m_Wrapper.m_Player_Item1;
+        public InputAction @Item2 => m_Wrapper.m_Player_Item2;
+        public InputAction @Item3 => m_Wrapper.m_Player_Item3;
+        public InputAction @Item4 => m_Wrapper.m_Player_Item4;
+        public InputAction @ItemNext => m_Wrapper.m_Player_ItemNext;
+        public InputAction @ItemPrev => m_Wrapper.m_Player_ItemPrev;
+        public InputAction @toggleFlashlight => m_Wrapper.m_Player_toggleFlashlight;
+        public InputAction @toggleGuide => m_Wrapper.m_Player_toggleGuide;
+        public InputAction @toggleXray => m_Wrapper.m_Player_toggleXray;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -676,6 +738,36 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @Cancel.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCancel;
                 @Cancel.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCancel;
                 @Cancel.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCancel;
+                @Item1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem1;
+                @Item1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem1;
+                @Item1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem1;
+                @Item2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem2;
+                @Item2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem2;
+                @Item2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem2;
+                @Item3.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem3;
+                @Item3.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem3;
+                @Item3.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem3;
+                @Item4.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem4;
+                @Item4.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem4;
+                @Item4.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem4;
+                @ItemNext.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItemNext;
+                @ItemNext.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItemNext;
+                @ItemNext.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItemNext;
+                @ItemPrev.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItemPrev;
+                @ItemPrev.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItemPrev;
+                @ItemPrev.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItemPrev;
+                @toggleFlashlight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleFlashlight;
+                @toggleFlashlight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleFlashlight;
+                @toggleFlashlight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleFlashlight;
+                @toggleGuide.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleGuide;
+                @toggleGuide.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleGuide;
+                @toggleGuide.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleGuide;
+                @toggleXray.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleXray;
+                @toggleXray.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleXray;
+                @toggleXray.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleXray;
+                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -698,76 +790,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @Cancel.started += instance.OnCancel;
                 @Cancel.performed += instance.OnCancel;
                 @Cancel.canceled += instance.OnCancel;
-            }
-        }
-    }
-    public PlayerActions @Player => new PlayerActions(this);
-
-    // Inventory
-    private readonly InputActionMap m_Inventory;
-    private IInventoryActions m_InventoryActionsCallbackInterface;
-    private readonly InputAction m_Inventory_Item1;
-    private readonly InputAction m_Inventory_Item2;
-    private readonly InputAction m_Inventory_Item3;
-    private readonly InputAction m_Inventory_Item4;
-    private readonly InputAction m_Inventory_ItemNext;
-    private readonly InputAction m_Inventory_ItemPrev;
-    private readonly InputAction m_Inventory_toggleFlashlight;
-    private readonly InputAction m_Inventory_toggleGuide;
-    private readonly InputAction m_Inventory_toggleXray;
-    public struct InventoryActions
-    {
-        private @InputAsset m_Wrapper;
-        public InventoryActions(@InputAsset wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Item1 => m_Wrapper.m_Inventory_Item1;
-        public InputAction @Item2 => m_Wrapper.m_Inventory_Item2;
-        public InputAction @Item3 => m_Wrapper.m_Inventory_Item3;
-        public InputAction @Item4 => m_Wrapper.m_Inventory_Item4;
-        public InputAction @ItemNext => m_Wrapper.m_Inventory_ItemNext;
-        public InputAction @ItemPrev => m_Wrapper.m_Inventory_ItemPrev;
-        public InputAction @toggleFlashlight => m_Wrapper.m_Inventory_toggleFlashlight;
-        public InputAction @toggleGuide => m_Wrapper.m_Inventory_toggleGuide;
-        public InputAction @toggleXray => m_Wrapper.m_Inventory_toggleXray;
-        public InputActionMap Get() { return m_Wrapper.m_Inventory; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(InventoryActions set) { return set.Get(); }
-        public void SetCallbacks(IInventoryActions instance)
-        {
-            if (m_Wrapper.m_InventoryActionsCallbackInterface != null)
-            {
-                @Item1.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItem1;
-                @Item1.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItem1;
-                @Item1.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItem1;
-                @Item2.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItem2;
-                @Item2.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItem2;
-                @Item2.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItem2;
-                @Item3.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItem3;
-                @Item3.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItem3;
-                @Item3.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItem3;
-                @Item4.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItem4;
-                @Item4.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItem4;
-                @Item4.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItem4;
-                @ItemNext.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItemNext;
-                @ItemNext.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItemNext;
-                @ItemNext.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItemNext;
-                @ItemPrev.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItemPrev;
-                @ItemPrev.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItemPrev;
-                @ItemPrev.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnItemPrev;
-                @toggleFlashlight.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnToggleFlashlight;
-                @toggleFlashlight.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnToggleFlashlight;
-                @toggleFlashlight.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnToggleFlashlight;
-                @toggleGuide.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnToggleGuide;
-                @toggleGuide.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnToggleGuide;
-                @toggleGuide.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnToggleGuide;
-                @toggleXray.started -= m_Wrapper.m_InventoryActionsCallbackInterface.OnToggleXray;
-                @toggleXray.performed -= m_Wrapper.m_InventoryActionsCallbackInterface.OnToggleXray;
-                @toggleXray.canceled -= m_Wrapper.m_InventoryActionsCallbackInterface.OnToggleXray;
-            }
-            m_Wrapper.m_InventoryActionsCallbackInterface = instance;
-            if (instance != null)
-            {
                 @Item1.started += instance.OnItem1;
                 @Item1.performed += instance.OnItem1;
                 @Item1.canceled += instance.OnItem1;
@@ -795,10 +817,46 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @toggleXray.started += instance.OnToggleXray;
                 @toggleXray.performed += instance.OnToggleXray;
                 @toggleXray.canceled += instance.OnToggleXray;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
-    public InventoryActions @Inventory => new InventoryActions(this);
+    public PlayerActions @Player => new PlayerActions(this);
+
+    // Menu
+    private readonly InputActionMap m_Menu;
+    private IMenuActions m_MenuActionsCallbackInterface;
+    private readonly InputAction m_Menu_Unpause;
+    public struct MenuActions
+    {
+        private @InputAsset m_Wrapper;
+        public MenuActions(@InputAsset wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Unpause => m_Wrapper.m_Menu_Unpause;
+        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            {
+                @Unpause.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnUnpause;
+                @Unpause.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnUnpause;
+                @Unpause.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnUnpause;
+            }
+            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Unpause.started += instance.OnUnpause;
+                @Unpause.performed += instance.OnUnpause;
+                @Unpause.canceled += instance.OnUnpause;
+            }
+        }
+    }
+    public MenuActions @Menu => new MenuActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -843,9 +901,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
-    }
-    public interface IInventoryActions
-    {
         void OnItem1(InputAction.CallbackContext context);
         void OnItem2(InputAction.CallbackContext context);
         void OnItem3(InputAction.CallbackContext context);
@@ -855,5 +910,10 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         void OnToggleFlashlight(InputAction.CallbackContext context);
         void OnToggleGuide(InputAction.CallbackContext context);
         void OnToggleXray(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
+    }
+    public interface IMenuActions
+    {
+        void OnUnpause(InputAction.CallbackContext context);
     }
 }

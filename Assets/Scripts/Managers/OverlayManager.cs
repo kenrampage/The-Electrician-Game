@@ -2,15 +2,34 @@ using UnityEngine;
 
 public class OverlayManager : MonoBehaviour
 {
-    [SerializeField] private AnimationHelper curtainsAnimHelper;
-    [SerializeField] private AnimationHelper fadeAnimHelper;
+    private AnimationHelper curtainsAnimHelper;
+    private AnimationHelper fadeAnimHelper;
 
-    public void OpenCurtains()
+    [SerializeField] private GameObject curtains;
+    [SerializeField] private GameObject fadeCanvas;
+
+    private void Awake()
+    {
+        curtainsAnimHelper = curtains.GetComponent<AnimationHelper>();
+        fadeAnimHelper = fadeCanvas.GetComponent<AnimationHelper>();
+    }
+
+    public void CurtainsOn()
+    {
+        curtains.SetActive(true);
+    }
+
+    public void CurtainsOff()
+    {
+        curtains.SetActive(false);
+    }
+
+    public void CurtainsOpen()
     {
         curtainsAnimHelper.PlayAnimAtIndex(0);
     }
 
-    public void CloseCurtains()
+    public void CurtainsClose()
     {
         curtainsAnimHelper.PlayAnimAtIndex(1);
     }

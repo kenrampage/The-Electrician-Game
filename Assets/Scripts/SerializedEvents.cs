@@ -6,9 +6,9 @@ using UnityEngine.Events;
 [System.Serializable]
 public class SerializedEvents
 {
-    public UnityEvent serializedEvents;
     public float delay;
-
+    public UnityEvent serializedEvents;
+    
     public void InvokeEvent()
     {
         serializedEvents?.Invoke();

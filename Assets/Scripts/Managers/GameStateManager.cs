@@ -41,13 +41,12 @@ public class GameStateManager : Singleton<GameStateManager>
     [NonReorderable]
     [SerializeField] private SerializedEvents[] onSceneUnloadEvents;
 
-    // [SerializeField] private UnityEvent onSceneLoad;
-    // [SerializeField] private UnityEvent onLevelStart;
-    // [SerializeField] private UnityEvent onGameRun;
-    // [SerializeField] private UnityEvent onGamePause;
-    // [SerializeField] private UnityEvent onGameUnpause;
-    // [SerializeField] private UnityEvent onLevelEnd;
-    // [SerializeField] private UnityEvent onSceneUnload;
+    private void Awake()
+    {
+        InputManager.Instance.onPause.AddListener(HandlePauseInput);
+        InputManager.Instance.onUnpause.AddListener(HandleUnpauseInput);
+    }
+
 
     public void StartCycleThroughEvents(SerializedEvents[] array)
     {
@@ -102,35 +101,29 @@ public class GameStateManager : Singleton<GameStateManager>
         switch (stateCurrent)
         {
             case State.SCENELOADING:
-                // onSceneLoad?.Invoke();
                 StartCycleThroughEvents(onSceneLoadEvents);
                 break;
 
             case State.LEVELSTARTING:
-                // onLevelStart?.Invoke();
                 StartCycleThroughEvents(onLevelStartEvents);
                 break;
 
             case State.GAMERUNNING:
                 if (statePrev == State.LEVELSTARTING)
                 {
-                    // onGameRun?.Invoke();
                     StartCycleThroughEvents(onGameRunEvents);
                 }
                 else if (statePrev == State.GAMEPAUSED)
                 {
-                    // onGameUnpause?.Invoke();
                     StartCycleThroughEvents(onGameUnpauseEvents);
                 }
                 break;
 
             case State.GAMEPAUSED:
-                // onGamePause?.Invoke();
                 StartCycleThroughEvents(onGamePauseEvents);
                 break;
 
             case State.SCENEUNLOADING:
-                // onSceneUnload?.Invoke();
                 StartCycleThroughEvents(onSceneUnloadEvents);
                 break;
 
@@ -173,5 +166,15 @@ public class GameStateManager : Singleton<GameStateManager>
     public void SetSceneUnloading()
     {
         SetState(State.SCENEUNLOADING);
+    }
+
+    public void HandlePauseInput()
+    {
+        SetGamePaused();
+    }
+
+    public void HandleUnpauseInput()
+    {
+        SetGameRunning();
     }
 }

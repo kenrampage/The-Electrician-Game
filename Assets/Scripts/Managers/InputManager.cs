@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
@@ -9,24 +7,28 @@ public class NumInputEvent : UnityEvent<int>
 
 public class InputManager : Singleton<InputManager>
 {
-    public NumInputEvent numInputEvent;
-    public UnityEvent onItemNext;
-    public UnityEvent onItemPrev;
+    #region UnityEvents
+    [HideInInspector] public NumInputEvent numInputEvent;
+    [HideInInspector] public UnityEvent onItemNext;
+    [HideInInspector] public UnityEvent onItemPrev;
+    [HideInInspector] public UnityEvent onInteract;
+    [HideInInspector] public UnityEvent onInteractRelease;
+    [HideInInspector] public UnityEvent onCancel;
+    [HideInInspector] public UnityEvent onToggleFlashlight;
+    [HideInInspector] public UnityEvent onToggleXray;
+    [HideInInspector] public UnityEvent onPause;
+    [HideInInspector] public UnityEvent onUnpause;
+    #endregion
 
-    public UnityEvent onInteract;
-    public UnityEvent onInteractRelease;
-    public UnityEvent onCancel;
-    public UnityEvent onToggleFlashlight;
-    public UnityEvent onToggleXray;
-
+    #region InputAction Variables
     [Header("Input")]
-    public InputActionAsset inputActions;
-    private InputActionMap inputActionMapInv;
+    [SerializeField] private InputActionAsset inputActions;
+    [SerializeField] private string currentInputActionMap = null;
+    private InputActionMap inputActionMapMenu;
     private InputActionMap inputActionMapPlayer;
 
     private InputAction interact;
     private InputAction cancel;
-
     private InputAction item1;
     private InputAction item2;
     private InputAction item3;
@@ -35,54 +37,85 @@ public class InputManager : Singleton<InputManager>
     private InputAction itemPrev;
     private InputAction toggleFlashlight;
     private InputAction toggleXray;
+    private InputAction pause;
+    private InputAction unpause;
+    #endregion
 
+    #region Default Methods
     private void Awake()
     {
         CreateEventInstances();
-        inputActionMapInv = inputActions.FindActionMap("Inventory");
+        GetInputActionReferences();
+    }
+
+    private void OnEnable()
+    {
+        EnableInputActions();
+    }
+
+    private void OnDisable()
+    {
+        DisableInputActions();
+    }
+    #endregion
+
+    private void CreateEventInstances()
+    {
+        if (numInputEvent == null)
+        {
+            numInputEvent = new NumInputEvent();
+        }
+    }
+
+    private void GetInputActionReferences()
+    {
+        inputActionMapMenu = inputActions.FindActionMap("Menu");
         inputActionMapPlayer = inputActions.FindActionMap("Player");
+
+        pause = inputActionMapPlayer.FindAction("Pause");
+        pause.started += Pause;
+
+        unpause = inputActionMapMenu.FindAction("Unpause");
+        unpause.started += Unpause;
 
         interact = inputActionMapPlayer.FindAction("Interact");
         interact.started += Interact;
         interact.canceled += InteractRelease;
 
-        toggleXray = inputActionMapInv.FindAction("toggleXray");
+        toggleXray = inputActionMapPlayer.FindAction("toggleXray");
         toggleXray.performed += ToggleXray;
 
-        toggleFlashlight = inputActionMapInv.FindAction("toggleFlashlight");
+        toggleFlashlight = inputActionMapPlayer.FindAction("toggleFlashlight");
         toggleFlashlight.performed += ToggleFlashlight;
 
         cancel = inputActionMapPlayer.FindAction("Cancel");
         cancel.performed += Cancel;
 
-        item1 = inputActionMapInv.FindAction("Item1");
+        item1 = inputActionMapPlayer.FindAction("Item1");
         item1.performed += EquipItem1;
 
-        item2 = inputActionMapInv.FindAction("Item2");
+        item2 = inputActionMapPlayer.FindAction("Item2");
         item2.performed += EquipItem2;
 
-        item3 = inputActionMapInv.FindAction("Item3");
+        item3 = inputActionMapPlayer.FindAction("Item3");
         item3.performed += EquipItem3;
 
-        item4 = inputActionMapInv.FindAction("Item4");
+        item4 = inputActionMapPlayer.FindAction("Item4");
         item4.performed += EquipItem4;
 
-        itemNext = inputActionMapInv.FindAction("ItemNext");
+        itemNext = inputActionMapPlayer.FindAction("ItemNext");
         itemNext.performed += EquipItemNext;
 
-        itemPrev = inputActionMapInv.FindAction("ItemPrev");
+        itemPrev = inputActionMapPlayer.FindAction("ItemPrev");
         itemPrev.performed += EquipItemPrev;
     }
 
-    private void Start()
-    {
-
-    }
-
-    private void OnEnable()
+    #region Enable/Disable Input Actions
+    private void EnableInputActions()
     {
         toggleFlashlight.Enable();
         toggleXray.Enable();
+
         item1.Enable();
         item2.Enable();
         item3.Enable();
@@ -94,10 +127,11 @@ public class InputManager : Singleton<InputManager>
         cancel.Enable();
     }
 
-    private void OnDisable()
+    private void DisableInputActions()
     {
-        toggleXray.Disable();
         toggleFlashlight.Disable();
+        toggleXray.Disable();
+
         item1.Disable();
         item2.Disable();
         item3.Disable();
@@ -109,12 +143,45 @@ public class InputManager : Singleton<InputManager>
         cancel.Disable();
     }
 
-    private void CreateEventInstances()
+    #endregion
+
+    #region Input Settings
+    public void EnableMenuInput()
     {
-        if (numInputEvent == null)
-        {
-            numInputEvent = new NumInputEvent();
-        }
+        inputActionMapPlayer.Disable();
+        inputActionMapMenu.Enable();
+        currentInputActionMap = "Menu";
+    }
+
+    public void EnablePlayerInput()
+    {
+        inputActionMapPlayer.Enable();
+        inputActionMapMenu.Disable();
+        currentInputActionMap = "Player";
+    }
+
+    public void CursorLockOn()
+    {
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void CursorLockOff()
+    {
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
+    }
+
+    #endregion
+
+    #region Input Callback Methods
+
+    private void Pause(InputAction.CallbackContext context)
+    {
+        onPause?.Invoke();
+    }
+
+    private void Unpause(InputAction.CallbackContext context)
+    {
+        onUnpause?.Invoke();
     }
 
     private void ToggleXray(InputAction.CallbackContext context)
@@ -141,7 +208,6 @@ public class InputManager : Singleton<InputManager>
     {
         onCancel?.Invoke();
     }
-
 
     private void EquipItem1(InputAction.CallbackContext context)
     {
@@ -172,4 +238,5 @@ public class InputManager : Singleton<InputManager>
     {
         onItemPrev?.Invoke();
     }
+    #endregion
 }
