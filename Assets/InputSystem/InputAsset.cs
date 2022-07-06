@@ -170,6 +170,15 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EndTest"",
+                    ""type"": ""Button"",
+                    ""id"": ""21141023-57e6-4660-b9e7-279f0de409c3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -513,6 +522,17 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""83715f7a-a425-4eb8-9336-caccbf91e85e"",
+                    ""path"": ""<Keyboard>/end"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""EndTest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -613,6 +633,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         m_Player_toggleGuide = m_Player.FindAction("toggleGuide", throwIfNotFound: true);
         m_Player_toggleXray = m_Player.FindAction("toggleXray", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_EndTest = m_Player.FindAction("EndTest", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Unpause = m_Menu.FindAction("Unpause", throwIfNotFound: true);
@@ -691,6 +712,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_toggleGuide;
     private readonly InputAction m_Player_toggleXray;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_EndTest;
     public struct PlayerActions
     {
         private @InputAsset m_Wrapper;
@@ -711,6 +733,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         public InputAction @toggleGuide => m_Wrapper.m_Player_toggleGuide;
         public InputAction @toggleXray => m_Wrapper.m_Player_toggleXray;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @EndTest => m_Wrapper.m_Player_EndTest;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -768,6 +791,9 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @EndTest.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEndTest;
+                @EndTest.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEndTest;
+                @EndTest.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEndTest;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -820,6 +846,9 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @EndTest.started += instance.OnEndTest;
+                @EndTest.performed += instance.OnEndTest;
+                @EndTest.canceled += instance.OnEndTest;
             }
         }
     }
@@ -911,6 +940,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         void OnToggleGuide(InputAction.CallbackContext context);
         void OnToggleXray(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnEndTest(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

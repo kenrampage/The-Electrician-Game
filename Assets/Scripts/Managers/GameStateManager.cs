@@ -45,6 +45,7 @@ public class GameStateManager : Singleton<GameStateManager>
     {
         InputManager.Instance.onPause.AddListener(HandlePauseInput);
         InputManager.Instance.onUnpause.AddListener(HandleUnpauseInput);
+        InputManager.Instance.onEndTest.AddListener(HandleEndTestInput);
     }
 
 
@@ -58,14 +59,14 @@ public class GameStateManager : Singleton<GameStateManager>
         for (int i = 0; i < array.Length; i++)
         {
 
-            if (i == array.Length - 1)
-            {
-                print("End of Events Array");
-            }
-            else
-            {
-                print("Waiting " + array[i].delay + " seconds before invoking event at index " + i);
-            }
+            // if (i == array.Length - 1)
+            // {
+            //     print("End of Events Array");
+            // }
+            // else
+            // {
+            //     print("Waiting " + array[i].delay + " seconds before invoking event at index " + i);
+            // }
 
             yield return new WaitForSecondsRealtime(array[i].delay);
 
@@ -86,7 +87,7 @@ public class GameStateManager : Singleton<GameStateManager>
         {
             statePrev = stateCurrent;
             stateCurrent = state;
-            print("State changed from " + statePrev + " to " + stateCurrent);
+            // print("State changed from " + statePrev + " to " + stateCurrent);
             HandleStateChange();
         }
     }
@@ -121,6 +122,10 @@ public class GameStateManager : Singleton<GameStateManager>
 
             case State.GAMEPAUSED:
                 StartCycleThroughEvents(onGamePauseEvents);
+                break;
+
+            case State.LEVELENDING:
+                StartCycleThroughEvents(onLevelEndEvents);
                 break;
 
             case State.SCENEUNLOADING:
@@ -176,5 +181,10 @@ public class GameStateManager : Singleton<GameStateManager>
     public void HandleUnpauseInput()
     {
         SetGameRunning();
+    }
+
+    public void HandleEndTestInput()
+    {
+        SetLevelEnding();
     }
 }

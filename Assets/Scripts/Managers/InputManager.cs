@@ -18,6 +18,7 @@ public class InputManager : Singleton<InputManager>
     [HideInInspector] public UnityEvent onToggleXray;
     [HideInInspector] public UnityEvent onPause;
     [HideInInspector] public UnityEvent onUnpause;
+    [HideInInspector] public UnityEvent onEndTest;
     #endregion
 
     #region InputAction Variables
@@ -39,6 +40,7 @@ public class InputManager : Singleton<InputManager>
     private InputAction toggleXray;
     private InputAction pause;
     private InputAction unpause;
+    private InputAction endTest;
     #endregion
 
     #region Default Methods
@@ -71,6 +73,9 @@ public class InputManager : Singleton<InputManager>
     {
         inputActionMapMenu = inputActions.FindActionMap("Menu");
         inputActionMapPlayer = inputActions.FindActionMap("Player");
+
+        endTest = inputActionMapPlayer.FindAction("EndTest");
+        endTest.started += EndTest;
 
         pause = inputActionMapPlayer.FindAction("Pause");
         pause.started += Pause;
@@ -173,6 +178,11 @@ public class InputManager : Singleton<InputManager>
     #endregion
 
     #region Input Callback Methods
+
+    private void EndTest(InputAction.CallbackContext context)
+    {
+        onEndTest?.Invoke();
+    }
 
     private void Pause(InputAction.CallbackContext context)
     {
