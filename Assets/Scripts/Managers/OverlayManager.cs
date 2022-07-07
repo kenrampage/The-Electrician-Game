@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class OverlayManager : MonoBehaviour
 {
-    private AnimationHelper curtainsAnimHelper;
+    private Anim_Curtains anim_Curtains;
     private AnimationHelper fadeAnimHelper;
 
     [SerializeField] private GameObject curtains;
@@ -10,7 +10,7 @@ public class OverlayManager : MonoBehaviour
 
     private void Awake()
     {
-        curtainsAnimHelper = curtains.GetComponent<AnimationHelper>();
+        anim_Curtains = curtains.GetComponent<Anim_Curtains>();
         fadeAnimHelper = fadeCanvas.GetComponent<AnimationHelper>();
     }
 
@@ -26,12 +26,12 @@ public class OverlayManager : MonoBehaviour
 
     public void CurtainsOpen()
     {
-        curtainsAnimHelper.PlayAnimAtIndex(0);
+        anim_Curtains.CurtainsOpen();
     }
 
     public void CurtainsClose()
     {
-        curtainsAnimHelper.PlayAnimAtIndex(1);
+        anim_Curtains.CurtainsClose();
     }
 
     public void FadeIn()
