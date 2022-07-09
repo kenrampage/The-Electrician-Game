@@ -9,10 +9,10 @@ public class UIManagerGame : MonoBehaviour
     [SerializeField] private GameObject endUI;
     [SerializeField] private GameObject pauseUI;
 
-    private AnimationHelper startUIAnim;
-    private AnimationHelper gameUIAnim;
-    private AnimationHelper endUIAnim;
-    private AnimationHelper pauseUIAnim;
+    private Anim_ClipboardVert startUIAnim;
+    private Anim_ClipboardVert gameUIAnim;
+    private Anim_ClipboardVert endUIAnim;
+    private Anim_ClipboardVert pauseUIAnim;
 
     private void Awake()
     {
@@ -21,17 +21,17 @@ public class UIManagerGame : MonoBehaviour
 
     private void GetAnimReferences()
     {
-        startUIAnim = startUI.GetComponent<AnimationHelper>();
-        gameUIAnim = gameUI.GetComponent<AnimationHelper>();
-        endUIAnim = endUI.GetComponent<AnimationHelper>();
-        pauseUIAnim = pauseUI.GetComponent<AnimationHelper>();
+        startUIAnim = startUI.GetComponent<Anim_ClipboardVert>();
+        gameUIAnim = gameUI.GetComponent<Anim_ClipboardVert>();
+        endUIAnim = endUI.GetComponent<Anim_ClipboardVert>();
+        pauseUIAnim = pauseUI.GetComponent<Anim_ClipboardVert>();
     }
 
     public void StartUIOn()
     {
         AllUIOff();
         startUI.SetActive(true);
-        startUIAnim.PlayAnimAtIndex(0);
+        startUIAnim.ClipboardIn();
     }
 
     public void GameUIOn()
@@ -44,29 +44,29 @@ public class UIManagerGame : MonoBehaviour
     {
         AllUIOff();
         endUI.SetActive(true);
-        endUIAnim.PlayAnimAtIndex(0);
+        endUIAnim.ClipboardIn();
     }
 
     public void PauseUIOn()
     {
         AllUIOff();
         pauseUI.SetActive(true);
-        pauseUIAnim.PlayAnimAtIndex(0);
+        pauseUIAnim.ClipboardIn();
     }
 
     public void StartUIOff()
     {
-        startUIAnim.PlayAnimAtIndex(1);
+        startUIAnim.ClipboardOut();
     }
 
     public void PauseUIOff()
     {
-        pauseUIAnim.PlayAnimAtIndex(1);
+        pauseUIAnim.ClipboardOut();
     }
 
     public void EndUIOff()
     {
-        endUIAnim.PlayAnimAtIndex(1);
+        endUIAnim.ClipboardOut();
     }
 
     private void AllUIOff()

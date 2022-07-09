@@ -16,9 +16,9 @@ public class InputManager : Singleton<InputManager>
     [HideInInspector] public UnityEvent onCancel;
     [HideInInspector] public UnityEvent onToggleFlashlight;
     [HideInInspector] public UnityEvent onToggleXray;
-    [HideInInspector] public UnityEvent onPause;
-    [HideInInspector] public UnityEvent onUnpause;
-    [HideInInspector] public UnityEvent onEndTest;
+    public UnityEvent onPause;
+    public UnityEvent onUnpause;
+    public UnityEvent onEndTest;
     #endregion
 
     #region InputAction Variables

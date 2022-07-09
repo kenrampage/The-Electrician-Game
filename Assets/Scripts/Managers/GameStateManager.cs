@@ -41,13 +41,6 @@ public class GameStateManager : Singleton<GameStateManager>
     [NonReorderable]
     [SerializeField] private SerializedEvents[] onSceneUnloadEvents;
 
-    private void Awake()
-    {
-        InputManager.Instance.onPause.AddListener(HandlePauseInput);
-        InputManager.Instance.onUnpause.AddListener(HandleUnpauseInput);
-        InputManager.Instance.onEndTest.AddListener(HandleEndTestInput);
-    }
-
 
     public void StartCycleThroughEvents(SerializedEvents[] array)
     {
@@ -58,16 +51,6 @@ public class GameStateManager : Singleton<GameStateManager>
     {
         for (int i = 0; i < array.Length; i++)
         {
-
-            // if (i == array.Length - 1)
-            // {
-            //     print("End of Events Array");
-            // }
-            // else
-            // {
-            //     print("Waiting " + array[i].delay + " seconds before invoking event at index " + i);
-            // }
-
             yield return new WaitForSecondsRealtime(array[i].delay);
 
             array[i].InvokeEvent();

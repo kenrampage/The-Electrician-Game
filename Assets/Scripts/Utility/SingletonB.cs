@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class SingletonB<T> : MonoBehaviour where T : Singleton<T>
+public class SingletonB<T> : MonoBehaviour where T : SingletonB<T>
 {
     private static T instance;
     public static T Instance
