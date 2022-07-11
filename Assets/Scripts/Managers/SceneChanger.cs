@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
     private Scene currentScene;
+    [SerializeField] private string targetScene;
     [SerializeField] private float loadDelay;
 
     private void Awake()
@@ -23,6 +24,11 @@ public class SceneChanger : MonoBehaviour
         StartCoroutine(LoadMainMenuCoroutine());
     }
 
+    public void LoadTargetScene()
+    {
+        StartCoroutine(LoadTargetSceneCoroutine());
+    }
+
     public IEnumerator ReloadCurrentSceneCoroutine()
     {
         yield return new WaitForSecondsRealtime(loadDelay);
@@ -32,6 +38,12 @@ public class SceneChanger : MonoBehaviour
     public IEnumerator LoadMainMenuCoroutine()
     {
         yield return new WaitForSecondsRealtime(loadDelay);
-        SceneManager.LoadScene("StartMenu", LoadSceneMode.Single);
+        SceneManager.LoadScene("LoadingScene_StartMenu", LoadSceneMode.Single);
+    }
+
+    public IEnumerator LoadTargetSceneCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(loadDelay);
+        SceneManager.LoadScene(targetScene, LoadSceneMode.Single);
     }
 }

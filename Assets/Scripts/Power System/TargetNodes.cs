@@ -70,6 +70,10 @@ public class TargetNodes : MonoBehaviour
             onCompletedNodesChanged?.Invoke();
         }
 
+        if(completedNodes == totalNodes)
+        {
+            NodesCompleted();
+        }
 
     }
 
@@ -106,6 +110,11 @@ public class TargetNodes : MonoBehaviour
         {
             XrayCubesOn();
         }
+    }
+
+    private void NodesCompleted()
+    {
+        IsComplete = true;
     }
 
 
