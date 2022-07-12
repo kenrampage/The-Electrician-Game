@@ -10,6 +10,8 @@ public class UI_Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     private Button button;
     [SerializeField] private float submitDelay;
+    [SerializeField] private bool startResumeButton = false;
+    private bool submitting = false;
 
     public UnityEvent onSubmit;
 
@@ -41,13 +43,27 @@ public class UI_Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        ButtonDeselect();
-        HandleButtonDeselect();
+        //if submit coroutine is running keeps the button from being deselected too early
+        if (startResumeButton && submitting) 
+        {
+
+        }
+        else
+        {
+            ButtonDeselect();
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         StartCoroutine(ButtonSubmitCoroutine());
+
+        //Ensure cursor gets locked when starting/resuming gameplay in WEBGL build
+        if (startResumeButton)
+        {
+            InputManager.Instance.CursorLockOn();
+        }
+
     }
 
     public void OnSubmit(BaseEventData eventData)
@@ -92,6 +108,7 @@ public class UI_Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     private IEnumerator ButtonSubmitCoroutine()
     {
+        submitting = true;
         HandleButtonSubmit();
 
         yield return new WaitForSecondsRealtime(submitDelay);
@@ -99,6 +116,7 @@ public class UI_Button : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         ButtonDeselect();
 
         onSubmit?.Invoke();
+        submitting = false;
     }
 
 }
