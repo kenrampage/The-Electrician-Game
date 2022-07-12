@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7301747564293800526}
   - component: {fileID: 6758559333299237689}
   - component: {fileID: 8290591014546143367}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Red Power (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 289766597407933051}
   - component: {fileID: 320425872753756747}
   - component: {fileID: 313109889282415465}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Red Power
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2819214671625170915}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Green Marker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,6 +199,103 @@ Transform:
   m_Father: {fileID: 6413411078171274238}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3615617520335211247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1003218660612623431}
+  - component: {fileID: 2389574215987186414}
+  - component: {fileID: 2948125187863183507}
+  - component: {fileID: 7348935277890273753}
+  m_Layer: 13
+  m_Name: Target Xray Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1003218660612623431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3615617520335211247}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 6413411078171274238}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2389574215987186414
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3615617520335211247}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &2948125187863183507
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3615617520335211247}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7348935277890273753
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3615617520335211247}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3674776041058368445
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +305,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3740742924852256281}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Red Marker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +340,7 @@ GameObject:
   - component: {fileID: 6413411077390923764}
   - component: {fileID: 6413411077390923763}
   - component: {fileID: 6413411077390923762}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Green Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +423,7 @@ GameObject:
   - component: {fileID: 6413411077398730895}
   - component: {fileID: 6413411077398730993}
   - component: {fileID: 6413411077398730992}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Cube Grey
   m_TagString: Node
   m_Icon: {fileID: 0}
@@ -409,7 +506,7 @@ GameObject:
   - component: {fileID: 6413411077774400850}
   - component: {fileID: 6413411077774400852}
   - component: {fileID: 6413411077774400851}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Cube Yellow
   m_TagString: Node
   m_Icon: {fileID: 0}
@@ -492,7 +589,7 @@ GameObject:
   - component: {fileID: 6413411077937534774}
   - component: {fileID: 6413411077937534773}
   - component: {fileID: 6413411077937534772}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Red Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,8 +676,7 @@ GameObject:
   - component: {fileID: 6413411078171274234}
   - component: {fileID: 6413411078171274233}
   - component: {fileID: 6413411078171274232}
-  - component: {fileID: 6413411078171274231}
-  m_Layer: 7
+  m_Layer: 12
   m_Name: Target Node
   m_TagString: Node
   m_Icon: {fileID: 0}
@@ -605,6 +701,7 @@ Transform:
   - {fileID: 6413411077937534774}
   - {fileID: 3740742924852256281}
   - {fileID: 2819214671625170915}
+  - {fileID: 1003218660612623431}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -686,6 +783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a8c3b76097bd614d8e6646b89995648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xrayCube: {fileID: 3615617520335211247}
   powerConnectedIndicator: {fileID: 2452512137748002135}
   powerDisconnectedIndicator: {fileID: 3674776041058368445}
   highlightMeshes:
@@ -725,23 +823,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6413411078171274231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6413411078171274230}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dd5b3d05a3358f4a80b3f5602d11cd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  indicators:
-  - {fileID: 6413411077390923761}
-  - {fileID: 6413411077937534771}
-  indicatorsOn: 1
-  rotateSpeed: {x: 5, y: 0, z: 0}
 --- !u!1 &6413411078277288117
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,7 +834,7 @@ GameObject:
   - component: {fileID: 6413411078277288120}
   - component: {fileID: 6413411078277288119}
   - component: {fileID: 6413411078277288118}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Green Power
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -836,7 +917,7 @@ GameObject:
   - component: {fileID: 5804938919688753780}
   - component: {fileID: 1478617754057633880}
   - component: {fileID: 5718721668147077219}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Green Power (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

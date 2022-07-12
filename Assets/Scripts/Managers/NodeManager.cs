@@ -6,27 +6,11 @@ using UnityEngine.Events;
 
 public class NodeManager : Singleton<NodeManager>
 {
-
-
     private UnityEvent onEdit;
     public List<Node> connectedNodes;
 
     public bool updatesOn = true;
 
-
-    // public TargetNodes targetNodes;
-    // public int targetNodesTotal;
-    // public int targetNodesCompleted;
-
-    // private void Awake()
-    // {
-    //     targetNodesTotal = targetNodes.nodes.Length;
-    //     foreach (var group in targetNodes)
-    //     {
-    //         group.onComplete.AddListener(CheckNodeGroupStatus);
-    //         group.onUncomplete.AddListener(CheckNodeGroupStatus);
-    //     }
-    // }
 
     public void ResetConnectedNodes()
     {

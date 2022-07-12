@@ -11,6 +11,9 @@ public class TargetNodes : MonoBehaviour
 
     public UnityEvent onComplete;
     public UnityEvent onUncomplete;
+    public UnityEvent onCompletedNodesChanged;
+
+    public bool xrayOn;
 
     private bool isComplete;
     public bool IsComplete
@@ -34,6 +37,8 @@ public class TargetNodes : MonoBehaviour
 
     private void Awake()
     {
+        InputManager.Instance.onToggleXray.AddListener(ToggleXray);
+        XrayCubesOff();
         foreach (var node in nodes)
         {
             node.onPowerStatusChanged.AddListener(CheckNodeStatus);
@@ -49,18 +54,69 @@ public class TargetNodes : MonoBehaviour
 
     private void CheckNodeStatus()
     {
-        completedNodes = 0;
+        int newCompletedNodes = 0;
 
         foreach (var node in nodes)
         {
             if (node.ConnectedToPower)
             {
-                completedNodes++;
+                newCompletedNodes++;
             }
         }
 
-        print(completedNodes + " nodes completed out of " + totalNodes + " total");
+        if (newCompletedNodes != completedNodes)
+        {
+            completedNodes = newCompletedNodes;
+            onCompletedNodesChanged?.Invoke();
+        }
+
+        if(completedNodes == totalNodes)
+        {
+            NodesCompleted();
+        }
+
     }
+
+    [ContextMenu("Xray Off")]
+    public void XrayCubesOff()
+    {
+        foreach (var item in nodes)
+        {
+            item.XrayCubeOff();
+        }
+
+        xrayOn = false;
+    }
+
+    [ContextMenu("Xray On")]
+    public void XrayCubesOn()
+    {
+
+        foreach (var item in nodes)
+        {
+            item.XrayCubeOn();
+        }
+
+        xrayOn = true;
+    }
+
+    public void ToggleXray()
+    {
+        if (xrayOn)
+        {
+            XrayCubesOff();
+        }
+        else
+        {
+            XrayCubesOn();
+        }
+    }
+
+    private void NodesCompleted()
+    {
+        IsComplete = true;
+    }
+
 
 
 
