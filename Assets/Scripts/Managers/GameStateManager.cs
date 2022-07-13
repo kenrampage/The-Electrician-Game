@@ -21,33 +21,33 @@ public class GameStateManager : Singleton<GameStateManager>
 
 
     [NonReorderable]
-    [SerializeField] private SerializedEvents[] onSceneLoadEvents;
+    [SerializeField] private SerializedEvent[] onSceneLoadEvents;
 
     [NonReorderable]
-    [SerializeField] private SerializedEvents[] onLevelStartEvents;
+    [SerializeField] private SerializedEvent[] onLevelStartEvents;
 
     [NonReorderable]
-    [SerializeField] private SerializedEvents[] onGameRunEvents;
+    [SerializeField] private SerializedEvent[] onGameRunEvents;
 
     [NonReorderable]
-    [SerializeField] private SerializedEvents[] onGamePauseEvents;
+    [SerializeField] private SerializedEvent[] onGamePauseEvents;
 
     [NonReorderable]
-    [SerializeField] private SerializedEvents[] onGameUnpauseEvents;
+    [SerializeField] private SerializedEvent[] onGameUnpauseEvents;
 
     [NonReorderable]
-    [SerializeField] private SerializedEvents[] onLevelEndEvents;
+    [SerializeField] private SerializedEvent[] onLevelEndEvents;
 
     [NonReorderable]
-    [SerializeField] private SerializedEvents[] onSceneUnloadEvents;
+    [SerializeField] private SerializedEvent[] onSceneUnloadEvents;
 
 
-    public void StartCycleThroughEvents(SerializedEvents[] array)
+    public void StartCycleThroughEvents(SerializedEvent[] array)
     {
         StartCoroutine(CycleThroughEvents(array));
     }
 
-    private IEnumerator CycleThroughEvents(SerializedEvents[] array)
+    private IEnumerator CycleThroughEvents(SerializedEvent[] array)
     {
         for (int i = 0; i < array.Length; i++)
         {

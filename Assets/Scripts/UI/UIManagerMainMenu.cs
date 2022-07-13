@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UIManagerStartMenu : MonoBehaviour
+public class UIManagerMainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject startUI;
     [SerializeField] private GameObject settingsUI;

@@ -1,33 +1,33 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Interactable : MonoBehaviour, IInteractable
+namespace RampageUtils.Interfaces
 {
-    public UnityEvent onInteraction;
-    public UnityEvent onCancel;
-
-
-    public void Interact()
+    public class Interactable : MonoBehaviour, IInteractable
     {
-        InvokeEventA();
-    }
+        [Header("Events")]
+        public UnityEvent OnInteract;
+        public UnityEvent OnCancel;
 
 
-    [ContextMenu("Test Event")]
-    public void InvokeEventA()
-    {
-        onInteraction?.Invoke();
-    }
+        public void Interact()
+        {
+            InvokeInteractEvent();
+        }
 
+        public void InvokeInteractEvent()
+        {
+            OnInteract?.Invoke();
+        }
 
-    public void Cancel()
-    {
-        InvokeEventB();
-    }
+        public void Cancel()
+        {
+            InvokeCancelEvent();
+        }
 
-    [ContextMenu("Test Event")]
-    public void InvokeEventB()
-    {
-        onCancel?.Invoke();
+        public void InvokeCancelEvent()
+        {
+            OnCancel?.Invoke();
+        }
     }
 }

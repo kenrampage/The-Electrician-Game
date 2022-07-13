@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_ButtonHidden : MonoBehaviour
+public class UIButtonHidden : MonoBehaviour
 {
 
     private Button button;

@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 10234767}
   - component: {fileID: 10234766}
   m_Layer: 0
-  m_Name: SceneLoader
+  m_Name: Loading Handler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,8 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9141cebd4a5ee43b8c4b6daf26154c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Banks: []
-  sceneToLoad: StartMenu
+  _isLoggingOn: 1
+  _sceneToLoad: 
+  _fmodBanks: []
 --- !u!4 &10234767
 Transform:
   m_ObjectHideFlags: 0

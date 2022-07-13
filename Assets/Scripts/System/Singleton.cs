@@ -9,9 +9,6 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour
 
     // ReSharper disable once StaticMemberInGenericType
     private static readonly object Lock = new object();
-
-    // [SerializeField]
-    // private bool _persistent = true;
     #endregion
 
     #region  Properties
@@ -52,8 +49,6 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour
     #region  Methods
     private void Awake()
     {
-        // if (_persistent)
-        //     DontDestroyOnLoad(gameObject);
         OnAwake();
     }
 
