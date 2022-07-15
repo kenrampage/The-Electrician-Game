@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace RampageUtils.Helpers
 {
-    // Invoke Unity Event on object enabled with/without delay
+    // Invoke Unity Event on object enabled with customizable delay
     public class OnEnableHelper : MonoBehaviour
     {
         [Header("Event")]

@@ -4,119 +4,131 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISubmitHandler, ISelectHandler, IDeselectHandler, IPointerDownHandler
+namespace RampageUtils.UI
 {
-    [SerializeField] private Button hiddenButton;
 
-    private Button button;
-    [SerializeField] private float submitDelay;
-    [SerializeField] private bool startResumeButton = false;
-    private bool submitting = false;
-
-    public UnityEvent onSubmit;
-
-    [Header("Text Objects")]
-    [SerializeField] private GameObject text;
-    [SerializeField] private GameObject textSelect;
-    [SerializeField] private GameObject textSubmit;
-
-
-    private void Awake()
+    // All in one button script handles logic for m+kb and controller inputs plus swapping game objects for visual feedback
+    public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISubmitHandler, ISelectHandler, IDeselectHandler, IPointerDownHandler
     {
-        button = GetComponent<Button>();
-    }
+        private bool _isSubmitting = false;
+        private Button _button;
 
-    public void ButtonSelect()
-    {
-        button.Select();
-    }
+        [Header("Settings")]
+        [SerializeField] private float _submitDelay;
+        [SerializeField] private bool _isStartResumeButton = false;
 
-    public void ButtonDeselect()
-    {
-        hiddenButton.Select();
-    }
+        [Header("Events")]
+        public UnityEvent OnSubmitEvent;
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        ButtonSelect();
-    }
+        [Header("References")]
+        [SerializeField] private Button _hiddenButton;
+        [SerializeField] private GameObject _textPlain;
+        [SerializeField] private GameObject _textSelect;
+        [SerializeField] private GameObject _textSubmit;
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        //if submit coroutine is running keeps the button from being deselected too early
-        if (startResumeButton && submitting) 
+
+        private void Awake()
         {
+            _button = GetComponent<Button>();
+        }
+
+        public void ButtonSelect()
+        {
+            _button.Select();
+        }
+
+        public void ButtonDeselect()
+        {
+            _hiddenButton.Select();
+        }
+
+        #region Required Interface Methods
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            ButtonSelect();
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            //if submit coroutine is running this keeps the button from being deselected too early
+            if (_isStartResumeButton && _isSubmitting)
+            {
+
+            }
+            else
+            {
+                ButtonDeselect();
+            }
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            StartCoroutine(ButtonSubmitCoroutine());
+
+            //Ensure cursor gets locked when starting/resuming gameplay
+            if (_isStartResumeButton)
+            {
+                InputManager.Instance.CursorLockOn();
+            }
 
         }
-        else
+
+        public void OnSubmit(BaseEventData eventData)
         {
+            StartCoroutine(ButtonSubmitCoroutine());
+        }
+
+        public void OnSelect(BaseEventData eventData)
+        {
+            HandleButtonSelect();
+        }
+
+        public void OnDeselect(BaseEventData eventData)
+        {
+            HandleButtonDeselect();
+        }
+        #endregion
+
+        #region Button Visuals Handling
+        private void TextObjectsOff()
+        {
+            _textPlain.SetActive(false);
+            _textSelect.SetActive(false);
+            _textSubmit.SetActive(false);
+        }
+
+        private void HandleButtonSelect()
+        {
+            TextObjectsOff();
+            _textSelect.SetActive(true);
+        }
+
+        private void HandleButtonDeselect()
+        {
+            TextObjectsOff();
+            _textPlain.SetActive(true);
+        }
+
+        private void HandleButtonSubmit()
+        {
+            TextObjectsOff();
+            _textSubmit.SetActive(true);
+        }
+        #endregion
+
+        private IEnumerator ButtonSubmitCoroutine()
+        {
+            _isSubmitting = true;
+
+            HandleButtonSubmit();
+
+            yield return new WaitForSecondsRealtime(_submitDelay);
+
             ButtonDeselect();
-        }
-    }
+            OnSubmitEvent?.Invoke();
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        StartCoroutine(ButtonSubmitCoroutine());
-
-        //Ensure cursor gets locked when starting/resuming gameplay in WEBGL build
-        if (startResumeButton)
-        {
-            InputManager.Instance.CursorLockOn();
+            _isSubmitting = false;
         }
 
     }
-
-    public void OnSubmit(BaseEventData eventData)
-    {
-        StartCoroutine(ButtonSubmitCoroutine());
-    }
-
-    public void OnSelect(BaseEventData eventData)
-    {
-        HandleButtonSelect();
-    }
-
-    public void OnDeselect(BaseEventData eventData)
-    {
-        HandleButtonDeselect();
-    }
-
-    private void TextObjectsOff()
-    {
-        text.SetActive(false);
-        textSelect.SetActive(false);
-        textSubmit.SetActive(false);
-    }
-
-    private void HandleButtonSelect()
-    {
-        TextObjectsOff();
-        textSelect.SetActive(true);
-    }
-
-    private void HandleButtonDeselect()
-    {
-        TextObjectsOff();
-        text.SetActive(true);
-    }
-
-    private void HandleButtonSubmit()
-    {
-        TextObjectsOff();
-        textSubmit.SetActive(true);
-    }
-
-    private IEnumerator ButtonSubmitCoroutine()
-    {
-        submitting = true;
-        HandleButtonSubmit();
-
-        yield return new WaitForSecondsRealtime(submitDelay);
-
-        ButtonDeselect();
-
-        onSubmit?.Invoke();
-        submitting = false;
-    }
-
 }

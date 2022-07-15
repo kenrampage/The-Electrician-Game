@@ -152,8 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9141cebd4a5ee43b8c4b6daf26154c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isLoggingOn: 1
-  _sceneToLoad: 
+  _isLoggingOn: 0
+  _sceneToLoad: MainMenu
   _fmodBanks: []
 --- !u!4 &10234767
 Transform:

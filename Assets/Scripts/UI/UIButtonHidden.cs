@@ -1,31 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIButtonHidden : MonoBehaviour
+namespace RampageUtils.UI
 {
-
-    private Button button;
-    [SerializeField] private bool selectOnEnable;
-
-
-    private void Awake()
+    // Each game menu requires a hidden button to be selected by default to ensure controller & m+kb input compatability
+    public class UIButtonHidden : MonoBehaviour
     {
-        button = GetComponent<Button>();
-    }
+        private Button _button;
 
-    private void OnEnable()
-    {
-        if (selectOnEnable)
+        [Header("Settings")]
+        [SerializeField] private bool _isSelectedOnEnable;
+
+
+        private void Awake()
         {
-            ButtonSelect();
+            _button = GetComponent<Button>();
         }
-    }
 
-    public void ButtonSelect()
-    {
-        button.Select();
-    }
+        private void OnEnable()
+        {
+            if (_isSelectedOnEnable)
+            {
+                ButtonSelect();
+            }
+        }
 
+        public void ButtonSelect()
+        {
+            _button.Select();
+        }
+
+    }
 }
