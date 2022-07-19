@@ -35,7 +35,7 @@ public class InventoryManager : Singleton<InventoryManager>
         }
     }
 
-    public bool editingCable;
+    public bool _isHoldingCable;
     public GameObject heldCable;
 
     [Header("References")]
@@ -50,6 +50,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     private void Awake()
     {
+        
         playerInteract = FindObjectOfType<PlayerInteract>();
         ResetEquipment();
         ResetFlashlight();
@@ -62,7 +63,6 @@ public class InventoryManager : Singleton<InventoryManager>
         inputManager.numInputEvent.AddListener(HandleNumInput);
         inputManager.onItemNext.AddListener(EquipNextItem);
         inputManager.onItemPrev.AddListener(EquipPrevItem);
-        inputManager.onCancel.AddListener(DropCable);
         inputManager.onToggleFlashlight.AddListener(ToggleFlashlight);
 
 
@@ -136,13 +136,13 @@ public class InventoryManager : Singleton<InventoryManager>
     }
     public void PickupCable(GameObject go)
     {
-        editingCable = true;
+        _isHoldingCable = true;
         SetHeldCable(go);
     }
 
     public void DropCable()
     {
-        editingCable = false;
+        _isHoldingCable = false;
         heldCable = null;
     }
 
@@ -201,6 +201,10 @@ public class InventoryManager : Singleton<InventoryManager>
         reticle.SetActive(true);
     }
 
-
+    public void DestroyHeldCable()
+    {
+        DestroyImmediate(heldCable.gameObject);
+        DropCable();
+    }
 
 }

@@ -1,27 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CableCollision : MonoBehaviour
+// Detects trigger collision with walls and cursor
+public class CableCollision : MonoBehaviour, IInteractable
 {
-    public CableTransform cableTransform;
+    [Header("References")]
+    [SerializeField] private Cable _cable;
 
-    public string triggerTag;
-    public bool isColliding;
-
+    private string _wallTag = "Wall";
+    private string _cursorTag = "Cursor";
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == triggerTag)
+        if (other.gameObject.tag == _wallTag)
         {
-            isColliding = true;
-            cableTransform.isColliding = true;
+            _cable.CollisionOn();
+        }
+        else if (other.gameObject.tag == _cursorTag)
+        {
+            _cable.SelectedOn();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        isColliding = false;
-        cableTransform.isColliding = false;
+        if (other.gameObject.tag == _wallTag)
+        {
+            _cable.CollisionOff();
+        }
+        else if (other.gameObject.tag == _cursorTag)
+        {
+            _cable.SelectedOff();
+        }
+    }
+
+    public void Interact()
+    {
+        _cable.HandleInteractInput();
+    }
+
+    public void Cancel()
+    {
+
     }
 }

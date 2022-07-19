@@ -863,16 +863,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2db377b953bfe44bdb2543c0807291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hiddenButton: {fileID: 1290448327}
-  submitDelay: 0.2
-  startResumeButton: 0
-  onSubmit:
+  _submitDelay: 0
+  _isStartResumeButton: 0
+  OnSubmitEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 853816758}
-        m_TargetAssemblyTypeName: UIManagerStartMenu, Assembly-CSharp
-        m_MethodName: StartUIOn
-        m_Mode: 1
+      - m_Target: {fileID: 1653188426}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -881,9 +880,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  text: {fileID: 2004563679}
-  textSelect: {fileID: 1765996113}
-  textSubmit: {fileID: 334872199}
+      - m_Target: {fileID: 2071520407}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  _hiddenButton: {fileID: 1290448327}
+  _textPlain: {fileID: 2004563679}
+  _textSelect: {fileID: 1765996113}
+  _textSubmit: {fileID: 334872199}
 --- !u!114 &215720754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2582,8 +2594,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e474e789b41af142a2c9745f958af72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startUI: {fileID: 2071520407}
-  settingsUI: {fileID: 1653188426}
+  _startUI: {fileID: 2071520407}
+  _settingsUI: {fileID: 1653188426}
 --- !u!4 &853816759
 Transform:
   m_ObjectHideFlags: 0
@@ -2850,15 +2862,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2db377b953bfe44bdb2543c0807291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hiddenButton: {fileID: 1157321303}
-  submitDelay: 0.2
-  startResumeButton: 0
-  onSubmit:
+  _submitDelay: 0
+  _isStartResumeButton: 0
+  OnSubmitEvent:
     m_PersistentCalls:
       m_Calls: []
-  text: {fileID: 856099540}
-  textSelect: {fileID: 666833097}
-  textSubmit: {fileID: 1576521227}
+  _hiddenButton: {fileID: 1157321303}
+  _textPlain: {fileID: 856099540}
+  _textSelect: {fileID: 666833097}
+  _textSubmit: {fileID: 1576521227}
 --- !u!114 &899181044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5403,16 +5415,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2db377b953bfe44bdb2543c0807291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hiddenButton: {fileID: 1157321303}
-  submitDelay: 0.2
-  startResumeButton: 0
-  onSubmit:
+  _submitDelay: 0
+  _isStartResumeButton: 0
+  OnSubmitEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 853816758}
-        m_TargetAssemblyTypeName: UIManagerStartMenu, Assembly-CSharp
-        m_MethodName: SettingsUIOn
-        m_Mode: 1
+      - m_Target: {fileID: 2071520407}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5421,9 +5432,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  text: {fileID: 46202828}
-  textSelect: {fileID: 161092993}
-  textSubmit: {fileID: 1450999519}
+      - m_Target: {fileID: 1653188426}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  _hiddenButton: {fileID: 1157321303}
+  _textPlain: {fileID: 46202828}
+  _textSelect: {fileID: 161092993}
+  _textSubmit: {fileID: 1450999519}
 --- !u!114 &1960958343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6167,10 +6191,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2db377b953bfe44bdb2543c0807291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hiddenButton: {fileID: 1157321303}
-  submitDelay: 0.2
-  startResumeButton: 0
-  onSubmit:
+  _submitDelay: 0
+  _isStartResumeButton: 0
+  OnSubmitEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 598960390}
@@ -6186,7 +6209,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 497186416}
-        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_TargetAssemblyTypeName: RampageUtils.SceneManagement.SceneChanger, Assembly-CSharp
         m_MethodName: LoadTargetScene
         m_Mode: 1
         m_Arguments:
@@ -6197,9 +6220,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  text: {fileID: 2044812842}
-  textSelect: {fileID: 1790980693}
-  textSubmit: {fileID: 1963165586}
+  _hiddenButton: {fileID: 1157321303}
+  _textPlain: {fileID: 2044812842}
+  _textSelect: {fileID: 1790980693}
+  _textSubmit: {fileID: 1963165586}
 --- !u!1 &2071520407
 GameObject:
   m_ObjectHideFlags: 0

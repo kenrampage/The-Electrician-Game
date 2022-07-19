@@ -42,7 +42,7 @@ public class HighlightCable : MonoBehaviour
     [ContextMenu("Select This")]
     public void SelectThis()
     {
-        if (InventoryManager.Instance.editingCable)
+        if (InventoryManager.Instance._isHoldingCable)
         {
             return;
         }

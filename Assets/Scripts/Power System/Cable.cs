@@ -2,120 +2,245 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Primary class for handling cable interactions and directing changes in other cable classes
 public class Cable : MonoBehaviour
 {
-    public CableTransform cableTransform;
+    private CableTransform _cableTransform;
+    private CableMaterials _cableMaterials;
 
-    public Node sourceNode;
-    public Node endNode;
+    private Node _sourceNode;
+    private Node _endNode;
+
+    private bool _isColliding;
+    private bool _isSelected;
 
     private void OnEnable()
     {
-        cableTransform = GetComponent<CableTransform>();
+        _cableMaterials = GetComponent<CableMaterials>();
+        _cableTransform = GetComponent<CableTransform>();
+        InputManager.Instance.onCancel.AddListener(HandleCancelInput);
     }
 
+    #region Handle Cable state changes
 
-    public void AddEndNodeToSourceNode()
+    // Connect to source node and hold cable after interacting with node while not holding a cable
+    public void ConnectToSourceNode(Node node)
     {
-        if (endNode != null)
+        SetSourceNode(node);
+        _cableTransform.SetStartPosition(transform.position);
+        _cableTransform.Edit();
+    }
+
+    // Preview on end node while holding cable and hovering over a node
+    public void PreviewAtEndNodeOn(Node node)
+    {
+        _cableTransform.Preview(node.transform.position);
+        _cableMaterials.PreviewOn();
+        AddEndNodeToManager();
+    }
+
+    // Stop previewing when holding cable and no longer hovering over end node
+    public void PreviewAtEndNodeOff(Node node)
+    {
+        _cableTransform.Edit();
+
+        NodeManager.Instance.ResetConnectedNodes();
+
+        RemoveEndNodeFromManager();
+    }
+
+    // Connect to end node after interacting with a node while holding the cable
+    public void ConnectToEndNode(Node node)
+    {
+        _cableTransform.SetEndPosition(node.transform.position);
+
+        SetEndNode(node);
+        AddEndNodeToSourceNode();
+        AddSourceNodeToEndNode();
+
+        AddEndNodeToManager();
+        AddSourceNodeToManager();
+
+        _cableMaterials.DefaultOn();
+        _cableTransform.Install();
+
+        InventoryManager.Instance.DropCable();
+    }
+
+    // Disconnect from end node and hold cable after interacting with the body of an installed cabled
+    public void DisconnectFromEndNode()
+    {
+        RemoveEndNodeFromSourceNode();
+        RemoveSourceNodeFromEndNode();
+        RemoveEndNodeFromManager();
+        RemoveSourceNodeFromManager();
+
+        _cableTransform.Edit();
+        InventoryManager.Instance.PickupCable(this.gameObject);
+
+        ClearEndNode();
+    }
+
+    // Destroy cable while holding cable and cancelling (right click)
+    public void DestroyCable()
+    {
+        NodeManager.Instance.ResetConnectedNodes();
+        InventoryManager.Instance.DestroyHeldCable();
+    }
+    #endregion
+
+
+    #region Node Connection Methods
+    private void AddEndNodeToSourceNode()
+    {
+        if (_endNode != null)
         {
-            sourceNode.AddConnectedNode(endNode);
+            _sourceNode.AddConnectedNode(_endNode);
         }
-
     }
 
-
-    public void AddSourceNodeToEndNode()
+    private void AddSourceNodeToEndNode()
     {
-        if (endNode != null)
+        if (_endNode != null)
         {
-            endNode.AddConnectedNode(sourceNode);
+            _endNode.AddConnectedNode(_sourceNode);
         }
-
     }
 
-    public void AddSourceNodeToManager()
+    private void AddSourceNodeToManager()
     {
-        NodeManager.Instance.AddConnectedNode(sourceNode);
+        NodeManager.Instance.AddConnectedNode(_sourceNode);
     }
 
-    public void AddEndNodeToManager()
+    private void AddEndNodeToManager()
     {
-        if (endNode != null)
+        if (_endNode != null)
         {
-            NodeManager.Instance.AddConnectedNode(endNode);
+            NodeManager.Instance.AddConnectedNode(_endNode);
         }
     }
 
-
-    public void RemoveEndNodeFromSourceNode()
+    private void RemoveEndNodeFromSourceNode()
     {
-        if (endNode != null)
+        if (_endNode != null)
         {
-            sourceNode.RemoveConnectedNode(endNode);
+            _sourceNode.RemoveConnectedNode(_endNode);
         }
     }
 
-    public void RemoveSourceNodeFromEndNode()
+    private void RemoveSourceNodeFromEndNode()
     {
-        if (endNode != null)
+        if (_endNode != null)
         {
-            endNode.RemoveConnectedNode(sourceNode);
+            _endNode.RemoveConnectedNode(_sourceNode);
         }
     }
 
-    public void RemoveSourceNodeFromManager()
+    private void RemoveSourceNodeFromManager()
     {
-        NodeManager.Instance.RemoveConnectedNode(sourceNode);
+        NodeManager.Instance.RemoveConnectedNode(_sourceNode);
     }
 
-    public void RemoveEndNodeFromManager()
+    private void RemoveEndNodeFromManager()
     {
-        if (endNode != null)
+        if (_endNode != null)
         {
-            NodeManager.Instance.RemoveConnectedNode(endNode);
+            NodeManager.Instance.RemoveConnectedNode(_endNode);
         }
     }
 
-    public void SetSourceNode(Node node)
+    private void SetSourceNode(Node node)
     {
-        sourceNode = node;
+        _sourceNode = node;
     }
-    public void SetEndNode(Node node)
+    private void SetEndNode(Node node)
     {
-        endNode = node;
-    }
-
-    public void ClearSourceNode()
-    {
-        sourceNode = null;
+        _endNode = node;
     }
 
-    public void ClearEndNode()
+    private void ClearSourceNode()
     {
-        endNode = null;
+        _sourceNode = null;
+    }
+
+    private void ClearEndNode()
+    {
+        _endNode = null;
     }
 
     public Node GetSourceNode()
     {
-        return sourceNode.GetComponent<Node>();
+        return _sourceNode.GetComponent<Node>();
     }
 
-    public Node GetendNode()
+    public Node GetEndNode()
     {
-        return endNode.GetComponent<Node>();
+        return _endNode.GetComponent<Node>();
+    }
+    #endregion
+
+
+    #region State get/set methods
+    public void CollisionOn()
+    {
+        _isColliding = true;
+        _cableMaterials.CollisionOn();
     }
 
-    // public bool CheckConnectedToPower()
-    // {
-    //     if (sourceNode.connectedToPower || endNode.connectedToPower)
-    //     {
-    //         return true;
-    //     }
-    //     else
-    //     {
-    //         return false;
-    //     }
-    // }
+    public void CollisionOff()
+    {
+        _isColliding = false;
+        _cableMaterials.PreviewOn();
+    }
+
+    public bool CollisionCheck()
+    {
+        return _isColliding;
+    }
+
+    public void SelectedOn()
+    {
+        if (!InventoryManager.Instance._isHoldingCable)
+        {
+            _isSelected = true;
+            _cableMaterials.HighlightOn();
+        }
+    }
+
+    public void SelectedOff()
+    {
+        if (!InventoryManager.Instance._isHoldingCable)
+        {
+            _isSelected = false;
+            _cableMaterials.DefaultOn();
+        }
+    }
+
+    public bool SelectedCheck()
+    {
+        return _isSelected;
+    }
+    #endregion
+
+
+    #region Input Handling
+    public void HandleInteractInput()
+    {
+        if (!InventoryManager.Instance._isHoldingCable)
+        {
+            print(this.gameObject.name + " Picked Up!");
+
+            DisconnectFromEndNode();
+        }
+    }
+
+    public void HandleCancelInput()
+    {
+        if (InventoryManager.Instance.heldCable == this.gameObject)
+        {
+            DestroyCable();
+        }
+    }
+    #endregion
 
 }
