@@ -74,7 +74,7 @@ public class PlayerInteract : MonoBehaviour
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
 
 
-        if (Physics.Raycast(ray, out RaycastHit hit, 5f, inventoryManager.layerMasksList[inventoryManager.currentIndex]))
+        if (Physics.Raycast(ray, out RaycastHit hit, 5f, inventoryManager.layerMasksList[inventoryManager.CurrentIndex]))
         {
             currentTarget = hit.transform.gameObject;
             onTarget = true;
@@ -83,26 +83,12 @@ public class PlayerInteract : MonoBehaviour
             cursorObject.transform.position = hit.point;
             inventoryManager.TurnReticleOff();
 
-            // if (currentTarget.CompareTag(inventoryManager.tagsList[inventoryManager.CurrentIndex]))
-            // {
-            //     onTarget = true;
-            //     cursorObject.SetActive(true);
-            //     cursorObject.transform.position = hit.point;
-            // }
-            // else
-            // {
-            //     onTarget = false;
-            //     cursorObject.SetActive(false);
-            //     cursorObject.transform.position = new Vector3(0, 0, 0);
-            // }
-
         }
         else
         {
             inventoryManager.TurnReticleOn();
             currentTarget = null;
             onTarget = false;
-            // cursorObject.SetActive(false);
             cursorObject.transform.localPosition = new Vector3(0, 0, -3);
         }
 

@@ -20,17 +20,17 @@ public class InventoryManager : Singleton<InventoryManager>
     public GameObject flashlight;
     public bool isFlashlightOn;
 
-    public int currentIndex;
+    private int _currentIndex;
     public int CurrentIndex
     {
-        get { return currentIndex; }
+        get { return _currentIndex; }
         set
         {
-            if (currentIndex != value)
+            if (_currentIndex != value)
             {
                 onItemChanged?.Invoke();
             }
-            currentIndex = value;
+            _currentIndex = value;
 
         }
     }
@@ -50,7 +50,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     private void Awake()
     {
-        
+
         playerInteract = FindObjectOfType<PlayerInteract>();
         ResetEquipment();
         ResetFlashlight();
@@ -115,19 +115,7 @@ public class InventoryManager : Singleton<InventoryManager>
         CurrentIndex = itemIndex;
         ToggleMarkers();
         ChangeCursor();
-        playerInteract.cursorObject = cursorList[currentIndex];
-    }
-
-    public bool CheckIfRunningCable()
-    {
-        if (heldCable == null)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        playerInteract.cursorObject = cursorList[_currentIndex];
     }
 
     public void SetHeldCable(GameObject go)
@@ -187,9 +175,9 @@ public class InventoryManager : Singleton<InventoryManager>
             item.SetActive(false);
         }
 
-        cursorList[currentIndex].SetActive(true);
+        cursorList[_currentIndex].SetActive(true);
     }
-    
+
 
     public void TurnReticleOff()
     {
@@ -205,6 +193,30 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         DestroyImmediate(heldCable.gameObject);
         DropCable();
+    }
+
+    public bool CheckIfHoldingCable()
+    {
+        if (_isHoldingCable)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool CheckIfMatchCurrentIndex(int i)
+    {
+        if (_currentIndex == i)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }

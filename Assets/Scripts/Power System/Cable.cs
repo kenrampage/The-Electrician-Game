@@ -11,6 +11,7 @@ public class Cable : MonoBehaviour
     private Node _sourceNode;
     private Node _endNode;
 
+    [SerializeField]
     private bool _isColliding;
     private bool _isSelected;
 
@@ -36,7 +37,6 @@ public class Cable : MonoBehaviour
     {
         _cableTransform.Preview(node.transform.position);
         _cableMaterials.PreviewOn();
-        AddEndNodeToManager();
     }
 
     // Stop previewing when holding cable and no longer hovering over end node
@@ -44,9 +44,6 @@ public class Cable : MonoBehaviour
     {
         _cableTransform.Edit();
 
-        NodeManager.Instance.ResetConnectedNodes();
-
-        RemoveEndNodeFromManager();
     }
 
     // Connect to end node after interacting with a node while holding the cable
@@ -57,9 +54,6 @@ public class Cable : MonoBehaviour
         SetEndNode(node);
         AddEndNodeToSourceNode();
         AddSourceNodeToEndNode();
-
-        AddEndNodeToManager();
-        AddSourceNodeToManager();
 
         _cableMaterials.DefaultOn();
         _cableTransform.Install();
@@ -72,8 +66,6 @@ public class Cable : MonoBehaviour
     {
         RemoveEndNodeFromSourceNode();
         RemoveSourceNodeFromEndNode();
-        RemoveEndNodeFromManager();
-        RemoveSourceNodeFromManager();
 
         _cableTransform.Edit();
         InventoryManager.Instance.PickupCable(this.gameObject);
@@ -84,7 +76,6 @@ public class Cable : MonoBehaviour
     // Destroy cable while holding cable and cancelling (right click)
     public void DestroyCable()
     {
-        NodeManager.Instance.ResetConnectedNodes();
         InventoryManager.Instance.DestroyHeldCable();
     }
     #endregion
@@ -107,19 +98,6 @@ public class Cable : MonoBehaviour
         }
     }
 
-    private void AddSourceNodeToManager()
-    {
-        NodeManager.Instance.AddConnectedNode(_sourceNode);
-    }
-
-    private void AddEndNodeToManager()
-    {
-        if (_endNode != null)
-        {
-            NodeManager.Instance.AddConnectedNode(_endNode);
-        }
-    }
-
     private void RemoveEndNodeFromSourceNode()
     {
         if (_endNode != null)
@@ -133,19 +111,6 @@ public class Cable : MonoBehaviour
         if (_endNode != null)
         {
             _endNode.RemoveConnectedNode(_sourceNode);
-        }
-    }
-
-    private void RemoveSourceNodeFromManager()
-    {
-        NodeManager.Instance.RemoveConnectedNode(_sourceNode);
-    }
-
-    private void RemoveEndNodeFromManager()
-    {
-        if (_endNode != null)
-        {
-            NodeManager.Instance.RemoveConnectedNode(_endNode);
         }
     }
 
@@ -177,6 +142,32 @@ public class Cable : MonoBehaviour
     {
         return _endNode.GetComponent<Node>();
     }
+
+    public bool CheckIfSourceNode(Node node)
+    {
+        if (node == _sourceNode)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool CheckIfEndNode(Node node)
+    {
+        if (node == _endNode)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
     #endregion
 
 
@@ -193,7 +184,7 @@ public class Cable : MonoBehaviour
         _cableMaterials.PreviewOn();
     }
 
-    public bool CollisionCheck()
+    public bool CheckIfColliding()
     {
         return _isColliding;
     }
@@ -228,8 +219,6 @@ public class Cable : MonoBehaviour
     {
         if (!InventoryManager.Instance._isHoldingCable)
         {
-            print(this.gameObject.name + " Picked Up!");
-
             DisconnectFromEndNode();
         }
     }

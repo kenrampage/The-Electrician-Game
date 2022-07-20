@@ -15,7 +15,7 @@ public class CableCollision : MonoBehaviour, IInteractable
         {
             _cable.CollisionOn();
         }
-        else if (other.gameObject.tag == _cursorTag)
+        else if (other.gameObject.tag == _cursorTag && !InventoryManager.Instance.CheckIfHoldingCable())
         {
             _cable.SelectedOn();
         }
