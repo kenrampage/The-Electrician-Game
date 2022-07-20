@@ -3,7 +3,6 @@ using UnityEngine.Events;
 
 namespace RampageUtils
 {
-
     public class Timer : MonoBehaviour
     {
         [Header("Events")]

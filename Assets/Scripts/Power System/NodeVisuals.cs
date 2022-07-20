@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Handles visual effects of nodes
 public class NodeVisuals : MonoBehaviour
 {
     [Header("References")]
@@ -7,6 +8,7 @@ public class NodeVisuals : MonoBehaviour
     [SerializeField] private GameObject _powerDisconnectedIndicator;
     [SerializeField] private MeshRenderer[] _highlightMeshes;
 
+    #region Effects On/off functions
     public void HighlightOn()
     {
         foreach (var mesh in _highlightMeshes)
@@ -34,5 +36,6 @@ public class NodeVisuals : MonoBehaviour
         _powerConnectedIndicator.SetActive(false);
         _powerDisconnectedIndicator.SetActive(true);
     }
+    #endregion
 
 }

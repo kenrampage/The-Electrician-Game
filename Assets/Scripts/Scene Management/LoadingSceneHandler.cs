@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
+// Exists in loading scene to load next scene and relevant fmod banks
 namespace RampageUtils.SceneManagement
 {
     public class LoadingSceneHandler : MonoBehaviour

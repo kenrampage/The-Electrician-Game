@@ -51,7 +51,7 @@ public class GameStateManager : Singleton<GameStateManager>
     {
         for (int i = 0; i < array.Length; i++)
         {
-            yield return new WaitForSecondsRealtime(array[i].delay);
+            yield return new WaitForSecondsRealtime(array[i].Delay);
 
             array[i].InvokeEvent();
 

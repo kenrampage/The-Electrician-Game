@@ -3,14 +3,14 @@ using UnityEngine;
 // Handles node interaction and trigger enter/exit behaviour
 public class NodeInteraction : MonoBehaviour, IInteractable
 {
+    [Header("References")]
+    [SerializeField] private GameObject _cablePrefab;
+
+    [Header("Settings")]
+    [SerializeField] private int _wiringItemIndex;
+
     private InventoryManager _inventoryManager;
     private Node _node;
-
-    [SerializeField]
-    private GameObject _cablePrefab;
-
-    [SerializeField]
-    private int _wiringItemIndex;
 
     private void Awake()
     {

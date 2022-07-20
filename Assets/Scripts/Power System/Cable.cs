@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Primary class for handling cable interactions and directing changes in other cable classes
+[RequireComponent(typeof(CableTransform)), RequireComponent(typeof(CableMaterials))]
 public class Cable : MonoBehaviour
 {
     private CableTransform _cableTransform;
@@ -11,7 +12,6 @@ public class Cable : MonoBehaviour
     private Node _sourceNode;
     private Node _endNode;
 
-    [SerializeField]
     private bool _isColliding;
     private bool _isSelected;
 

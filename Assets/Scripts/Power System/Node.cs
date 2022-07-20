@@ -1,8 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+// Manages connections to other nodes and tracks power status
 public class Node : MonoBehaviour
 {
     [Header("Passthrough References")]

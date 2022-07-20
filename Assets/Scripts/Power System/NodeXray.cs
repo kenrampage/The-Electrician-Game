@@ -3,17 +3,14 @@ using UnityEngine;
 // Toggles xray marker objects based on player input
 public class NodeXray : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private GameObject _xrayIndicator;
-    private bool _isXrayOn;
+
+    private bool _isXrayOn = false;
 
     private void Awake()
     {
         InputManager.Instance.onToggleXray.AddListener(HandleToggleXrayInput);
-
-        if (_isXrayOn)
-        {
-            TurnXrayOn();
-        }
     }
 
     private void TurnXrayOn()

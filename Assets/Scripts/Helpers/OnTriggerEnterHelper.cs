@@ -8,7 +8,7 @@ namespace RampageUtils.Helpers
     public class OnTriggerEnterHelper : MonoBehaviour
     {
         [Header("Event")]
-        [SerializeField] private UnityEvent OnInvoke;
+        public UnityEvent OnInvoke;
 
         [Header("Settings")]
         [SerializeField] private float _delay;

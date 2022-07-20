@@ -1,9 +1,7 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace RampageUtils
 {
-
     public class RumbleTargetObject : MonoBehaviour
     {
         [Header("Settings")]

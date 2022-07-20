@@ -9,7 +9,7 @@ namespace RampageUtils.UI
         private Button _button;
 
         [Header("Settings")]
-        [SerializeField] private bool _isSelectedOnEnable;
+        [SerializeField] private bool _isSelectedOnEnable = true;
 
 
         private void Awake()

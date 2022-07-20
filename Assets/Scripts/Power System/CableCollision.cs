@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// Detects trigger collision with walls and cursor
+// Detects trigger collision with walls and cursor then updates the parent cable script
 public class CableCollision : MonoBehaviour, IInteractable
 {
     [Header("References")]

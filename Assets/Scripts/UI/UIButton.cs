@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 namespace RampageUtils.UI
 {
-
     // All in one button script handles logic for m+kb and controller inputs plus swapping game objects for visual feedback
     public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISubmitHandler, ISelectHandler, IDeselectHandler, IPointerDownHandler
     {
@@ -116,6 +115,7 @@ namespace RampageUtils.UI
         }
         #endregion
 
+        #region Coroutines
         private IEnumerator ButtonSubmitCoroutine()
         {
             _isSubmitting = true;
@@ -129,6 +129,7 @@ namespace RampageUtils.UI
 
             _isSubmitting = false;
         }
+        #endregion
 
     }
 }

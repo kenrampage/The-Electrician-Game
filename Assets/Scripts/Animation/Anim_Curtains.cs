@@ -1,16 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// Controls the animation for curtains overlay
 public class Anim_Curtains : MonoBehaviour
 {
-    private Animator anim;
-    [SerializeField] private bool startOpen;
+    private Animator _anim;
+
+    [Header("Settings")]
+    [SerializeField] private bool _isOpenAtStart;
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
-        if (startOpen)
+        _anim = GetComponent<Animator>();
+        if (_isOpenAtStart)
         {
             CurtainsOpen();
         }
@@ -23,12 +24,12 @@ public class Anim_Curtains : MonoBehaviour
     [ContextMenu("Open Curtains")]
     public void CurtainsOpen()
     {
-        anim.SetBool("isOpen", true);
+        _anim.SetBool("isOpen", true);
     }
 
     [ContextMenu("Close Curtains")]
     public void CurtainsClose()
     {
-        anim.SetBool("isOpen", false);
+        _anim.SetBool("isOpen", false);
     }
 }

@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace RampageUtils
 {
-
     public class DestroyThisObject : MonoBehaviour
     {
         [Header("Settings")]

@@ -33,6 +33,7 @@ public class NodePowered : MonoBehaviour, IInteractable
         }
     }
 
+    #region Switch/Power on and off Functions
     public void SwitchOn()
     {
         _isSwitchedOn = true;
@@ -77,18 +78,6 @@ public class NodePowered : MonoBehaviour, IInteractable
 
     }
 
-    public void HandlePowerStatusChanged()
-    {
-        if (_connectedNode.CheckPowerStatus())
-        {
-            PowerOn();
-        }
-        else
-        {
-            PowerOff();
-        }
-    }
-
     public void ToggleSwitchStatus()
     {
         if (_isSwitchedOn)
@@ -101,6 +90,20 @@ public class NodePowered : MonoBehaviour, IInteractable
         }
     }
 
+    public void HandlePowerStatusChanged()
+    {
+        if (_connectedNode.CheckPowerStatus())
+        {
+            PowerOn();
+        }
+        else
+        {
+            PowerOff();
+        }
+    }
+    #endregion
+
+    #region IInteractable functions
     public void Interact()
     {
         ToggleSwitchStatus();
@@ -110,5 +113,6 @@ public class NodePowered : MonoBehaviour, IInteractable
     {
 
     }
+    #endregion
 
 }

@@ -1,14 +1,11 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace RampageUtils
 {
     public class RotateThisObject : MonoBehaviour
     {
-        [FormerlySerializedAs("rotation")]
+        [Header("Settings")]
         [SerializeField] private Vector3 _rotation;
-
-        [FormerlySerializedAs("rotationOn")]
         [SerializeField] private bool _isRotationOn;
 
         private void FixedUpdate()

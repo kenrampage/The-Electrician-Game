@@ -2,10 +2,10 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Handles transitioning from current scene to target scene, reloading current scene, or going back to start menu with a delay
 namespace RampageUtils.SceneManagement
 {
-    // Handles transitioning from current scene to target scene, reloading current scene, or going back to start menu with a delay
-    public class SceneChanger : MonoBehaviour
+    public class SceneLoader : MonoBehaviour
     {
         private Scene _activeScene;
 

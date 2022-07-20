@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// For swapping visuals on target markers in game ui
 public class UITargetMarker : MonoBehaviour
 {
     [Header("References")]

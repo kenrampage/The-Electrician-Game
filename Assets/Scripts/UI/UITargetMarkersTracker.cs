@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
+// Manages collection and status of target markers in game UI
 public class UITargetMarkersTracker : MonoBehaviour
 {
     [Header("UI Target Objects")]
@@ -29,7 +27,7 @@ public class UITargetMarkersTracker : MonoBehaviour
 
     }
 
-    public void UpdateMarkers()
+    private void UpdateMarkers()
     {
         foreach (var item in _targetMarkers)
         {

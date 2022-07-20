@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 // Handles the physical size and shape of the cable
 public class CableTransform : MonoBehaviour
@@ -7,12 +6,12 @@ public class CableTransform : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject _startPoint;
     [SerializeField] private GameObject _endPoint;
-
-    [FormerlySerializedAs("_cableObject")]
     [SerializeField] private GameObject _cableBody;
 
     private Vector3 _initialScale;
+    
     private Cable _cable;
+
     private bool _isEditModeOn;
     private bool _isPreviewModeOn;
 
@@ -20,6 +19,7 @@ public class CableTransform : MonoBehaviour
     {
         _cable = GetComponent<Cable>();
         _initialScale = _cableBody.transform.localScale;
+
         SetCableTransform();
     }
 
@@ -38,7 +38,8 @@ public class CableTransform : MonoBehaviour
     }
 
     private void SetCableTransform()
-    {   //Get distance between points
+    {   
+        //Get distance between points
         float distance = Vector3.Distance(_startPoint.transform.position, _endPoint.transform.position);
 
         //sets scale based on distance between points

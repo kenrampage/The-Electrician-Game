@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace RampageUtils.UI
 {
-    // Bespoke manager for easily swapping between game ui menus and triggering in/out animations
+    // Manager for easier swapping between game ui menus and triggering in/out animations
     public class UIManagerGame : MonoBehaviour
     {
         [Header("References")]
