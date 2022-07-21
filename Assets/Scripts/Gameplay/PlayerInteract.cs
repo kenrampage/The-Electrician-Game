@@ -36,7 +36,7 @@ public class PlayerInteract : MonoBehaviour
 
     private void Start()
     {
-        InputManager.Instance.onInteract.AddListener(Interact);
+        InputManager.Instance.OnInteract.AddListener(Interact);
         // InputManager.Instance.onInteractRelease.AddListener(InteractRelease);
         // InputManager.Instance.onCancel.AddListener(Cancel);
     }
@@ -49,7 +49,7 @@ public class PlayerInteract : MonoBehaviour
 
     public void Interact()
     {
-        if (inventoryManager.CurrentIndex != 1 && inventoryManager.CurrentIndex != 2)
+        if (!inventoryManager.CheckIfMatchCurrentIndex(1) && !inventoryManager.CheckIfMatchCurrentIndex(2))
         {
             if (currentTarget == null) return;
 
@@ -74,7 +74,7 @@ public class PlayerInteract : MonoBehaviour
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
 
 
-        if (Physics.Raycast(ray, out RaycastHit hit, 5f, inventoryManager.layerMasksList[inventoryManager.CurrentIndex]))
+        if (Physics.Raycast(ray, out RaycastHit hit, 5f, inventoryManager.GetCurrentLayerMask()))
         {
             currentTarget = hit.transform.gameObject;
             onTarget = true;

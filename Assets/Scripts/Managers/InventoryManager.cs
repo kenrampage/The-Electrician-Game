@@ -1,197 +1,102 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.Events;
 
+// Manages equipped items, held cable, toggling flashlight and related UI markers
+// Needs to be refactored further breaking out flashlight and UI functionality at least
 public class InventoryManager : Singleton<InventoryManager>
 {
-    public InputManager inputManager;
-
-    [Header("Equipment")]
-    public float equipDelay;
-
-    public PlayerInteract playerInteract;
-
-    public UnityEvent onItemChanged;
-
-    public GameObject flashlightOnObject;
-    public GameObject flashlightOffObject;
-    public GameObject flashlight;
-    public bool isFlashlightOn;
+    private PlayerInteract _playerInteract;
+    private GameObject _heldCable;
 
     private int _currentIndex;
-    public int CurrentIndex
-    {
-        get { return _currentIndex; }
-        set
-        {
-            if (_currentIndex != value)
-            {
-                onItemChanged?.Invoke();
-            }
-            _currentIndex = value;
-
-        }
-    }
-
-    public bool _isHoldingCable;
-    public GameObject heldCable;
+    private bool _isHoldingCable;
+    private bool _isFlashlightOn;
 
     [Header("References")]
-    public List<GameObject> markersList;
-    public List<GameObject> cursorList;
-    public GameObject reticle;
-    public List<LayerMask> layerMasksList;
-    public List<string> tagsList;
-    public List<int> inventoryCount;
+    [SerializeField] private GameObject _flashlightObject;
+    [SerializeField] private GameObject _reticle;
 
+    [Header("Equipment Lists")]
+    [SerializeField] private List<GameObject> _uiMarkersList;
+    [SerializeField] private List<GameObject> _cursorList;
+    [SerializeField] private List<LayerMask> _layerMasksList;
 
+    [Header("UI References")]
+    [SerializeField] private GameObject _flashlightOnMarker;
+    [SerializeField] private GameObject _flashlightOffMarker;
 
     private void Awake()
     {
-
-        playerInteract = FindObjectOfType<PlayerInteract>();
+        _playerInteract = FindObjectOfType<PlayerInteract>();
         ResetEquipment();
         ResetFlashlight();
     }
 
     private void Start()
     {
-        inputManager = InputManager.Instance;
+        var inputManager = InputManager.Instance;
 
-        inputManager.numInputEvent.AddListener(HandleNumInput);
-        inputManager.onItemNext.AddListener(EquipNextItem);
-        inputManager.onItemPrev.AddListener(EquipPrevItem);
-        inputManager.onToggleFlashlight.AddListener(ToggleFlashlight);
-
+        inputManager.OnNumInput.AddListener(HandleNumInput);
+        inputManager.OnToggleFlashlight.AddListener(ToggleFlashlight);
 
     }
 
-    public void ResetFlashlight()
-    {
-        flashlight.SetActive(false);
-        flashlightOffObject.SetActive(true);
-        flashlightOnObject.SetActive(false);
-    }
-
-    public void ToggleFlashlight()
-    {
-        if (isFlashlightOn)
-        {
-            isFlashlightOn = false;
-            flashlight.SetActive(false);
-            flashlightOffObject.SetActive(true);
-            flashlightOnObject.SetActive(false);
-        }
-        else if (!isFlashlightOn)
-        {
-            isFlashlightOn = true;
-            flashlight.SetActive(true);
-            flashlightOffObject.SetActive(false);
-            flashlightOnObject.SetActive(true);
-        }
-    }
-
-
-    private void ResetEquipment()
-    {
-
-        ChangeEquipment(0);
-    }
-
-    private void ToggleMarkers()
-    {
-        foreach (var item in markersList)
-        {
-            item.SetActive(false);
-        }
-
-        markersList[CurrentIndex].SetActive(true);
-    }
-
-    private void ChangeEquipment(int itemIndex)
-    {
-        CurrentIndex = itemIndex;
-        ToggleMarkers();
-        ChangeCursor();
-        playerInteract.cursorObject = cursorList[_currentIndex];
-    }
-
-    public void SetHeldCable(GameObject go)
-    {
-        heldCable = go;
-    }
-    public void PickupCable(GameObject go)
-    {
-        _isHoldingCable = true;
-        SetHeldCable(go);
-    }
-
-    public void DropCable()
-    {
-        _isHoldingCable = false;
-        heldCable = null;
-    }
-
+    #region Handle Player Input
     public void HandleNumInput(int i)
     {
         ChangeEquipment(i);
     }
+    #endregion
 
-    public void EquipNextItem()
+    #region Changing Equipped Items
+    private void ChangeEquipment(int itemIndex)
     {
-        if (CurrentIndex == 3)
+        if (itemIndex != _currentIndex)
         {
-            CurrentIndex = 0;
-        }
-        else
-        {
-            CurrentIndex++;
+            _currentIndex = itemIndex;
         }
 
-        ChangeEquipment(CurrentIndex);
-
+        ToggleMarkers();
+        ChangeCursor();
+        _playerInteract.cursorObject = _cursorList[_currentIndex];
     }
 
-    public void EquipPrevItem()
+    private void ResetEquipment()
     {
-        if (CurrentIndex == 0)
+        ChangeEquipment(0);
+    }
+
+    public void ToggleFlashlight()
+    {
+        if (_isFlashlightOn)
         {
-            CurrentIndex = 3;
+            _isFlashlightOn = false;
+            _flashlightObject.SetActive(false);
+            _flashlightOffMarker.SetActive(true);
+            _flashlightOnMarker.SetActive(false);
         }
-        else
+        else if (!_isFlashlightOn)
         {
-            CurrentIndex--;
+            _isFlashlightOn = true;
+            _flashlightObject.SetActive(true);
+            _flashlightOffMarker.SetActive(false);
+            _flashlightOnMarker.SetActive(true);
         }
-
-        ChangeEquipment(CurrentIndex);
     }
 
-    public void ChangeCursor()
+    public void ResetFlashlight()
     {
-        foreach (var item in cursorList)
-        {
-            item.SetActive(false);
-        }
-
-        cursorList[_currentIndex].SetActive(true);
+        _flashlightObject.SetActive(false);
+        _flashlightOffMarker.SetActive(true);
+        _flashlightOnMarker.SetActive(false);
     }
+    #endregion
 
-
-    public void TurnReticleOff()
-    {
-        reticle.SetActive(false);
-    }
-
-    public void TurnReticleOn()
-    {
-        reticle.SetActive(true);
-    }
-
+    #region Cable Related Functions
     public void DestroyHeldCable()
     {
-        DestroyImmediate(heldCable.gameObject);
+        DestroyImmediate(_heldCable.gameObject);
         DropCable();
     }
 
@@ -207,6 +112,43 @@ public class InventoryManager : Singleton<InventoryManager>
         }
     }
 
+    public void SetHeldCable(GameObject go)
+    {
+        _heldCable = go;
+    }
+
+    public GameObject GetHeldCable()
+    {
+        return _heldCable;
+    }
+
+    public bool CheckIfCableMatches(GameObject go)
+    {
+        if (_heldCable == go)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void PickupCable(GameObject go)
+    {
+        _isHoldingCable = true;
+        SetHeldCable(go);
+    }
+
+    public void DropCable()
+    {
+        _isHoldingCable = false;
+        _heldCable = null;
+    }
+    #endregion
+
+    #region Get and Check functions
+    // Check if currently equipped item's index matches the parameter
     public bool CheckIfMatchCurrentIndex(int i)
     {
         if (_currentIndex == i)
@@ -218,5 +160,49 @@ public class InventoryManager : Singleton<InventoryManager>
             return false;
         }
     }
+
+    public int GetCurrentIndex()
+    {
+        return _currentIndex;
+    }
+
+    public LayerMask GetCurrentLayerMask()
+    {
+        return _layerMasksList[_currentIndex];
+    }
+    #endregion
+
+    #region UI
+    // Changes the markers indicating which item is equipped in the game UI
+    private void ToggleMarkers()
+    {
+        foreach (var item in _uiMarkersList)
+        {
+            item.SetActive(false);
+        }
+
+        _uiMarkersList[_currentIndex].SetActive(true);
+    }
+
+    public void ChangeCursor()
+    {
+        foreach (var item in _cursorList)
+        {
+            item.SetActive(false);
+        }
+
+        _cursorList[_currentIndex].SetActive(true);
+    }
+
+    public void TurnReticleOff()
+    {
+        _reticle.SetActive(false);
+    }
+
+    public void TurnReticleOn()
+    {
+        _reticle.SetActive(true);
+    }
+    #endregion
 
 }

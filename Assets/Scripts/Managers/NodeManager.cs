@@ -31,6 +31,7 @@ public class NodeManager : Singleton<NodeManager>
         _totalTargetNodes = _targetNodes.Length;
     }
 
+    // Checks power status of all target nodes
     private void CheckTargetNodesStatus()
     {
         int newCompletedNodes = 0;

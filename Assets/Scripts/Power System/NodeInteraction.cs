@@ -66,7 +66,7 @@ public class NodeInteraction : MonoBehaviour, IInteractable
         // Checks if wiring item is equipped and is holding cable
         else if (CheckIfWiringItemEquipped() && _inventoryManager.CheckIfHoldingCable())
         {
-            var cable = _inventoryManager.heldCable.GetComponent<Cable>();
+            var cable = _inventoryManager.GetHeldCable().GetComponent<Cable>();
 
             // Checks if this node is already connected to the cable source node, if this node is the cable's source node, and if the cable is colliding with walls
             if (!CheckIfInstallable(cable))
@@ -99,7 +99,7 @@ public class NodeInteraction : MonoBehaviour, IInteractable
         else if (CheckIfWiringItemEquipped() && _inventoryManager.CheckIfHoldingCable() && other.tag == "Cursor")
         {
             _node.NodeVisuals.HighlightOn();
-            Cable cable = _inventoryManager.heldCable.GetComponent<Cable>();
+            Cable cable = _inventoryManager.GetHeldCable().GetComponent<Cable>();
 
             if (!_node.CheckIfConnectedToNode(cable.GetSourceNode()) && !cable.CheckIfSourceNode(_node))
             {
@@ -119,7 +119,7 @@ public class NodeInteraction : MonoBehaviour, IInteractable
         {
             _node.NodeVisuals.HighlightOff();
 
-            var cable = _inventoryManager.heldCable.GetComponent<Cable>();
+            var cable = _inventoryManager.GetHeldCable().GetComponent<Cable>();
 
             cable.PreviewAtEndNodeOff(_node);
         }

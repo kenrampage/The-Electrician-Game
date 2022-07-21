@@ -10,7 +10,7 @@ public class NodeXray : MonoBehaviour
 
     private void Awake()
     {
-        InputManager.Instance.onToggleXray.AddListener(HandleToggleXrayInput);
+        InputManager.Instance.OnToggleXray.AddListener(HandleToggleXrayInput);
     }
 
     private void TurnXrayOn()

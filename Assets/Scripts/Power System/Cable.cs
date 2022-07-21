@@ -19,7 +19,7 @@ public class Cable : MonoBehaviour
     {
         _cableMaterials = GetComponent<CableMaterials>();
         _cableTransform = GetComponent<CableTransform>();
-        InputManager.Instance.onCancel.AddListener(HandleCancelInput);
+        InputManager.Instance.OnCancel.AddListener(HandleCancelInput);
     }
 
     #region Handle Cable state changes
@@ -191,7 +191,7 @@ public class Cable : MonoBehaviour
 
     public void SelectedOn()
     {
-        if (!InventoryManager.Instance._isHoldingCable)
+        if (!InventoryManager.Instance.CheckIfHoldingCable())
         {
             _isSelected = true;
             _cableMaterials.HighlightOn();
@@ -200,7 +200,7 @@ public class Cable : MonoBehaviour
 
     public void SelectedOff()
     {
-        if (!InventoryManager.Instance._isHoldingCable)
+        if (!InventoryManager.Instance.CheckIfHoldingCable())
         {
             _isSelected = false;
             _cableMaterials.DefaultOn();
@@ -217,7 +217,7 @@ public class Cable : MonoBehaviour
     #region Input Handling
     public void HandleInteractInput()
     {
-        if (!InventoryManager.Instance._isHoldingCable)
+        if (!InventoryManager.Instance.CheckIfHoldingCable())
         {
             DisconnectFromEndNode();
         }
@@ -225,7 +225,7 @@ public class Cable : MonoBehaviour
 
     public void HandleCancelInput()
     {
-        if (InventoryManager.Instance.heldCable == this.gameObject)
+        if (InventoryManager.Instance.CheckIfCableMatches(this.gameObject))
         {
             DestroyCable();
         }

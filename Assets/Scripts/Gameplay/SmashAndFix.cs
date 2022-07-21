@@ -19,9 +19,9 @@ public class SmashAndFix : MonoBehaviour
     {
         playerInteract = GetComponent<PlayerInteract>();
         inventoryManager = InventoryManager.Instance;
-        InputManager.Instance.onInteract.AddListener(Interact);
-        InputManager.Instance.onInteractRelease.AddListener(InteractRelease);
-        InputManager.Instance.onCancel.AddListener(Cancel);
+        InputManager.Instance.OnInteract.AddListener(Interact);
+        InputManager.Instance.OnInteractRelease.AddListener(InteractRelease);
+        InputManager.Instance.OnCancel.AddListener(Cancel);
     }
 
     public IEnumerator Smash()
@@ -54,11 +54,11 @@ public class SmashAndFix : MonoBehaviour
 
     public void Interact()
     {
-        if (inventoryManager.CurrentIndex == smashItemIndex)
+        if (inventoryManager.CheckIfMatchCurrentIndex(smashItemIndex))
         {
             StartCoroutine(Smash());
         }
-        else if(inventoryManager.CurrentIndex == fixItemIndex)
+        else if(inventoryManager.CheckIfMatchCurrentIndex(fixItemIndex))
         {
             StartCoroutine(Fix());
         }
