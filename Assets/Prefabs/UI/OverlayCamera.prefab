@@ -387,7 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1064bff14a8ad9f45ad8368883c4da95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startOpen: 0
+  _isOpenAtStart: 0
 --- !u!1 &2479387666868798846
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -659,12 +659,12 @@ Animation:
   m_GameObject: {fileID: 4116777277994077377}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: be544a30eb309454cb0b5b70cba541e0, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: be544a30eb309454cb0b5b70cba541e0, type: 2}
   - {fileID: 7400000, guid: 1c17cf7873555e2449c8084b88e1b343, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 0
+  m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!114 &4116777277994077379
@@ -679,6 +679,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0be03748425a8ef499db74d1f4ee76e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clips:
+  _clips:
   - {fileID: 7400000, guid: be544a30eb309454cb0b5b70cba541e0, type: 2}
   - {fileID: 7400000, guid: 1c17cf7873555e2449c8084b88e1b343, type: 2}

@@ -1,46 +1,48 @@
 using UnityEngine;
 
+// For easier management of overlay objects used for transitioning between scenes and menus
 public class OverlayManager : MonoBehaviour
 {
-    private Anim_Curtains anim_Curtains;
-    private AnimationHelper fadeAnimHelper;
+    [Header("References")]
+    [SerializeField] private GameObject _curtains;
+    [SerializeField] private GameObject _fadeCanvas;
 
-    [SerializeField] private GameObject curtains;
-    [SerializeField] private GameObject fadeCanvas;
+    private Anim_Curtains _anim_Curtains;
+    private AnimationHelper _fadeAnimHelper;
 
     private void Awake()
     {
-        anim_Curtains = curtains.GetComponent<Anim_Curtains>();
-        fadeAnimHelper = fadeCanvas.GetComponent<AnimationHelper>();
+        _anim_Curtains = _curtains.GetComponent<Anim_Curtains>();
+        _fadeAnimHelper = _fadeCanvas.GetComponent<AnimationHelper>();
     }
 
     public void CurtainsOn()
     {
-        curtains.SetActive(true);
+        _curtains.SetActive(true);
     }
 
     public void CurtainsOff()
     {
-        curtains.SetActive(false);
+        _curtains.SetActive(false);
     }
 
     public void CurtainsOpen()
     {
-        anim_Curtains.CurtainsOpen();
+        _anim_Curtains.CurtainsOpen();
     }
 
     public void CurtainsClose()
     {
-        anim_Curtains.CurtainsClose();
+        _anim_Curtains.CurtainsClose();
     }
 
     public void FadeIn()
     {
-        fadeAnimHelper.PlayAnimAtIndex(0);
+        _fadeAnimHelper.PlayAnimAtIndex(0);
     }
 
     public void FadeOut()
     {
-        fadeAnimHelper.PlayAnimAtIndex(1);
+        _fadeAnimHelper.PlayAnimAtIndex(1);
     }
 }

@@ -1,15 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// Controls animation for vertical clipboard UI objects
 public class Anim_ClipboardVert : MonoBehaviour
 {
-    [SerializeField] private Animator anim;
-    [SerializeField] private bool startIn;
+    [Header("References")]
+    [SerializeField] private Animator _anim;
+
+    [Header("Settings")]
+    [SerializeField] private bool _isInAtStart;
 
     private void Awake()
     {
-        if (startIn)
+        if (_isInAtStart)
         {
             ClipboardIn();
         }
@@ -19,15 +21,13 @@ public class Anim_ClipboardVert : MonoBehaviour
         }
     }
 
-    [ContextMenu("Clipboard In")]
     public void ClipboardIn()
     {
-        anim.SetBool("isIn", true);
+        _anim.SetBool("isIn", true);
     }
 
-    [ContextMenu("Clipboard Out")]
     public void ClipboardOut()
     {
-        anim.SetBool("isIn", false);
+        _anim.SetBool("isIn", false);
     }
 }

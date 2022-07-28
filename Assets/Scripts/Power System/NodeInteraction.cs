@@ -1,74 +1,81 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// Handles node interaction and trigger enter/exit behaviour
 public class NodeInteraction : MonoBehaviour, IInteractable
 {
-    private InventoryManager inventoryManager;
-    public Node node;
+    [Header("References")]
+    [SerializeField] private GameObject _cablePrefab;
 
-    public GameObject cablePrefab;
+    [Header("Settings")]
+    [SerializeField] private int _wiringItemIndex;
 
-    public int wiringItemIndex;
+    private InventoryManager _inventoryManager;
+    private Node _node;
 
     private void Awake()
     {
-        inventoryManager = FindObjectOfType<InventoryManager>();
-        node = GetComponent<Node>();
+        _inventoryManager = InventoryManager.Instance;
+        _node = GetComponent<Node>();
     }
 
+    #region Bool Check Functions
+    private bool CheckIfInstallable(Cable cable)
+    {
+        if (_node.CheckIfConnectedToNode(cable.GetSourceNode()) || cable.CheckIfSourceNode(_node) || cable.CheckIfColliding())
+        {
+            return false;
+        }
+        else if (!_node.CheckIfConnectedToNode(cable.GetSourceNode()) && !cable.CheckIfSourceNode(_node) && !cable.CheckIfColliding())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private bool CheckIfWiringItemEquipped()
+    {
+        if (_inventoryManager.CheckIfMatchCurrentIndex(_wiringItemIndex))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    #endregion
+
+    #region IInteractable Functions
     public void Interact()
     {
-        //Check which object player is holding
-
-        if (inventoryManager.CurrentIndex == wiringItemIndex && !inventoryManager.editingCable) //Installing cable at first point
+        // Checks if wiring item is equipped and not holding cable
+        if (CheckIfWiringItemEquipped() && !_inventoryManager.CheckIfHoldingCable())
         {
             //creates cable
-            var newCable = Instantiate(cablePrefab, transform.position, transform.rotation);
+            var newCable = Instantiate(_cablePrefab, transform.position, transform.rotation);
             var cable = newCable.GetComponent<Cable>();
 
             //sets this cable as currently held cable
-            inventoryManager.heldCable = newCable;
-            inventoryManager.editingCable = true;
-
-            //sets start point for cable
-            cable.SetSourceNode(node);
-
-            cable.cableTransform.SetStartPosition(transform.position);
-            cable.cableTransform.Edit();
+            _inventoryManager.PickupCable(newCable);
+            cable.ConnectToSourceNode(_node);
 
         }
-        else if (inventoryManager.CurrentIndex == wiringItemIndex && inventoryManager.editingCable) //Already holding cable and installing at second point
+        // Checks if wiring item is equipped and is holding cable
+        else if (CheckIfWiringItemEquipped() && _inventoryManager.CheckIfHoldingCable())
         {
-            Cable cable = inventoryManager.heldCable.GetComponent<Cable>();
+            var cable = _inventoryManager.GetHeldCable().GetComponent<Cable>();
 
-            if (node.connectedNodes.Contains(cable.sourceNode) || node == cable.sourceNode || cable.cableTransform.isColliding)
+            // Checks if this node is already connected to the cable source node, if this node is the cable's source node, and if the cable is colliding with walls
+            if (!CheckIfInstallable(cable))
             {
                 return;
             }
-            else if (!node.connectedNodes.Contains(cable.sourceNode) && node != cable.sourceNode && !cable.cableTransform.isColliding)
+            else if (CheckIfInstallable(cable))
             {
-                //set end point of cable to node
-                cable.cableTransform.SetEndPosition(this.transform.position);
-
-
-                cable.SetEndNode(node);
-                cable.AddEndNodeToSourceNode();
-                cable.AddSourceNodeToEndNode();
-
-                // node.AddConnectedNode(cable.sourceNode);
-                // cable.sourceNode.GetComponent<Node>().AddConnectedNode(node);
-
-                // NodeManager.Instance.AddConnectedNode(node);
-                // NodeManager.Instance.AddConnectedNode(cable.sourceNode);
-
-                //turn off cable editing
-                cable.cableTransform.DefaultMaterialOn();
-                cable.cableTransform.Install();
-                node.HighlightOff();
-
-
-                inventoryManager.editingCable = false;
+                cable.ConnectToEndNode(_node);
             }
 
         }
@@ -76,63 +83,46 @@ public class NodeInteraction : MonoBehaviour, IInteractable
 
     public void Cancel()
     {
-
+        // Implemented to appease IInteractable interface
     }
+    #endregion
 
+    #region Trigger Enter/Exit functions
     private void OnTriggerEnter(Collider other)
     {
-
-        
-        if (inventoryManager.CurrentIndex == wiringItemIndex && !inventoryManager.editingCable && other.tag == "Cursor")
+        if (CheckIfWiringItemEquipped() && !_inventoryManager.CheckIfHoldingCable() && other.tag == "Cursor")
         {
-            node.HighlightOn();
+            _node.NodeVisuals.HighlightOn();
 
         }
-        else if (inventoryManager.CurrentIndex == wiringItemIndex && inventoryManager.editingCable && other.tag == "Cursor")
+        else if (CheckIfWiringItemEquipped() && _inventoryManager.CheckIfHoldingCable() && other.tag == "Cursor")
         {
-            node.HighlightOn();
-            Cable cable = inventoryManager.heldCable.GetComponent<Cable>();
+            _node.NodeVisuals.HighlightOn();
+            Cable cable = _inventoryManager.GetHeldCable().GetComponent<Cable>();
 
-            //check if the currently held cable has a source node that is this node or ison the node.connectednodes list.
-            if (!node.connectedNodes.Contains(cable.sourceNode) && this.gameObject != cable.sourceNode)
+            if (!_node.CheckIfConnectedToNode(cable.GetSourceNode()) && !cable.CheckIfSourceNode(_node))
             {
-                cable.cableTransform.PreviewModeOn(transform.position);
-
+                cable.PreviewAtEndNodeOn(_node);
             }
-
         }
-
-
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (inventoryManager.CurrentIndex == wiringItemIndex && !inventoryManager.editingCable && other.tag == "Cursor")
+        if (CheckIfWiringItemEquipped() && !_inventoryManager.CheckIfHoldingCable() && other.tag == "Cursor")
         {
-            node.HighlightOff();
+            _node.NodeVisuals.HighlightOff();
 
         }
-        else if (inventoryManager.CurrentIndex == wiringItemIndex && inventoryManager.editingCable && other.tag == "Cursor")
+        else if (CheckIfWiringItemEquipped() && _inventoryManager.CheckIfHoldingCable() && other.tag == "Cursor")
         {
-            node.HighlightOff();
-            var cable = inventoryManager.heldCable.GetComponent<Cable>();
+            _node.NodeVisuals.HighlightOff();
 
+            var cable = _inventoryManager.GetHeldCable().GetComponent<Cable>();
 
-            //While in trigger snap end position to node
-            cable.cableTransform.PreviewModeOff();
-            cable.cableTransform.EditModeOn();
-
+            cable.PreviewAtEndNodeOff(_node);
         }
     }
-
-
-    //Check what cables are currently colliding with this node
-    //use a box collider for each node to dictate which other nodes this node can connect to
-    //you cant connect a wire to this node if the wire's starting node is already connected to this node
-
-    //when a cable is placed in keeps track of its source node,
-    //when a cable is connected to another node it tells the source node what the end node is, and vice versa
-    //
-
+    #endregion
 
 }

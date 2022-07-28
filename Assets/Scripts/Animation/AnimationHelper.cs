@@ -1,41 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// Helper class for manually triggering animations in legacy animation component
 [RequireComponent(typeof(Animation))]
 public class AnimationHelper : MonoBehaviour
 {
-    private Animation anim;
-    [SerializeField] private AnimationClip[] clips;
+    [Header("Animation Clips")]
+    [SerializeField] private AnimationClip[] _clips;
+
+    private Animation _anim;
 
     private void Awake()
     {
-        anim = GetComponent<Animation>();
-        
+        _anim = GetComponent<Animation>();
+        AddClipsToAnimationComponent();
     }
 
     private void AddClipsToAnimationComponent()
     {
-        foreach (var clip in clips)
+        if (_anim.GetClipCount() == 0)
         {
-            anim.AddClip(clip, clip.name);
+            foreach (var clip in _clips)
+            {
+                _anim.AddClip(clip, clip.name);
+            }
         }
     }
 
     public void PlayAnimAtIndex(int i)
     {
-        anim.Play(clips[i].name);
+        _anim.Play(_clips[i].name);
     }
 
-    [ContextMenu("Test Animation 1")]
-    public void TestAnimation1()
-    {
-        PlayAnimAtIndex(0);
-    }
-
-    [ContextMenu("Test Animation 2")]
-    public void TestAnimation2()
-    {
-        PlayAnimAtIndex(1);
-    }
 }

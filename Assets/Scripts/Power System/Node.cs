@@ -1,137 +1,107 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+// Manages connections to other nodes and tracks power status
 public class Node : MonoBehaviour
 {
-    public GameObject xrayCube;
+    [Header("Passthrough References")]
+    [HideInInspector] public NodeVisuals NodeVisuals;
 
-    private SphereCollider col;
+    [Header("Settings")]
+    [SerializeField] private bool _isPowerSource;
 
-    public GameObject powerConnectedIndicator;
-    public GameObject powerDisconnectedIndicator;
+    [Header("Status")]
+    [SerializeField] private bool _isConnectedToPower;
+    [SerializeField] private List<Node> _connectedNodes;
 
-    public MeshRenderer[] highlightMeshes;
-    // public Vector3 rotateSpeed;
-
-    //track power status
-    public bool powerSource;
-    public bool connectedToPower;
-    public bool ConnectedToPower
-    {
-        get { return connectedToPower; }
-        set
-        {
-            if (connectedToPower != value)
-            {
-                connectedToPower = value;
-                onPowerStatusChanged?.Invoke();
-            }
-            else
-            {
-                connectedToPower = value;
-            }
-
-        }
-
-    }
-
-
-    // public bool poweredOn;
-
-    public bool updatesOn;
-
-    //track installed box
-    public List<Node> connectedNodes;
-
-    public UnityEvent onPowerStatusChanged;
-
-    public void XrayCubeOn()
-    {
-        if (xrayCube != null)
-        {
-            xrayCube.SetActive(true);
-        }
-
-    }
-
-    public void XrayCubeOff()
-    {
-        if (xrayCube != null)
-        {
-            xrayCube.SetActive(false);
-        }
-    }
-
+    [Header("Events")]
+    [HideInInspector] public UnityEvent OnPowerStatusChanged;
 
     private void Awake()
     {
-        TurnUpdatesOn();
-        if (powerSource)
+        NodeVisuals = GetComponent<NodeVisuals>();
+        if (_isPowerSource)
         {
             ConnectPower();
-            NodeManager.Instance.AddConnectedNode(this);
-        }
-        col = GetComponent<SphereCollider>();
-
-
-        // NodeManager.Instance.onEdit.AddListener(HandleEdit);
-        // NodeManager.Instance.onZone1PowerOn.AddListener(PowerOn);
-        // NodeManager.Instance.onZone1PowerOff.AddListener(PowerOff);
-
-    }
-
-    public void TurnUpdatesOn()
-    {
-        updatesOn = true;
-    }
-
-    public void TurnUpdatesOff()
-    {
-        updatesOn = false;
-    }
-
-    private void Update()
-    {
-        CheckStatusOfConnectedNodes();
-
-    }
-
-    public void HandleEdit()
-    {
-
-    }
-
-    public void HighlightOn()
-    {
-        foreach (var mesh in highlightMeshes)
-        {
-            mesh.material.EnableKeyword("_EMISSION");
         }
     }
 
-    public void HighlightOff()
+    #region Power Functions
+    public void ConnectPower()
     {
-        foreach (var mesh in highlightMeshes)
+        if (!_isConnectedToPower)
         {
-            mesh.material.DisableKeyword("_EMISSION");
+            _isConnectedToPower = true;
+            OnPowerStatusChanged?.Invoke();
+        }
+
+        if (!_isPowerSource)
+        {
+            NodeVisuals.PowerOn();
         }
     }
 
-    public void CheckStatusOfConnectedNodes()
+    public void DisconnectPower()
     {
-        if (!powerSource)
+        if (!_isPowerSource)
         {
-            if (connectedNodes.Count == 0)
+            if (_isConnectedToPower)
+            {
+                _isConnectedToPower = false;
+                OnPowerStatusChanged?.Invoke();
+            }
+
+            NodeVisuals.PowerOff();
+        }
+    }
+
+    public bool CheckPowerStatus()
+    {
+        return _isConnectedToPower;
+    }
+    #endregion
+
+    #region Node Functions
+    public void AddConnectedNode(Node node)
+    {
+        if (!_connectedNodes.Contains(node))
+        {
+            _connectedNodes.Add(node);
+        }
+
+    }
+
+    public void RemoveConnectedNode(Node node)
+    {
+        _connectedNodes.Remove(node);
+    }
+
+    public bool CheckIfConnectedToNode(Node node)
+    {
+        if (_connectedNodes.Contains(node))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void CheckPowerStatusOfConnectedNodes()
+    {
+        if (!_isPowerSource)
+        {
+            if (_connectedNodes.Count == 0)
             {
                 DisconnectPower();
             }
             else
             {
-                foreach (var node in connectedNodes)
+                foreach (var node in _connectedNodes)
                 {
-                    if (node.ConnectedToPower)
+                    if (node.CheckPowerStatus())
                     {
                         ConnectPower();
                         break;
@@ -142,67 +112,8 @@ public class Node : MonoBehaviour
                     }
                 }
             }
-
-
         }
     }
 
-    [ContextMenu("Connect Power")]
-    public void ConnectPower()
-    {
-
-        if (!powerSource)
-        {
-            ConnectedToPower = true;
-            powerConnectedIndicator.SetActive(true);
-            powerDisconnectedIndicator.SetActive(false);
-        }
-
-    }
-
-
-    public void DisconnectPower()
-    {
-        if (!powerSource)
-        {
-            ConnectedToPower = false;
-            powerConnectedIndicator.SetActive(false);
-            powerDisconnectedIndicator.SetActive(true);
-
-        }
-    }
-
-    public void AddConnectedNode(Node node)
-    {
-        if (!connectedNodes.Contains(node))
-        {
-            connectedNodes.Add(node);
-        }
-
-    }
-
-    public void RemoveConnectedNode(Node node)
-    {
-        connectedNodes.Remove(node);
-    }
-
-
-    [ContextMenu("Default Layer Masks")]
-    public void SetDefaultLayerMask()
-    {
-        int newLayerMask = LayerMask.NameToLayer("WirableTarget");
-
-        gameObject.layer = newLayerMask;
-
-    }
-
-    [ContextMenu("Xray Layer Masks")]
-    public void SetXrayLayerMask()
-    {
-        int newLayerMask = LayerMask.NameToLayer("WirableTargetXray");
-
-        gameObject.layer = newLayerMask;
-
-    }
-
+    #endregion
 }

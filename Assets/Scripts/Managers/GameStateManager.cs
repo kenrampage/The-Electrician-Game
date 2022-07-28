@@ -1,10 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
+// Manages current and previous game state and invokes a serialized array of events in response to state changes
 public class GameStateManager : Singleton<GameStateManager>
 {
+
+    [Header("Events")]
+    [SerializeField] private SerializedEvent[] onSceneLoadEvents;
+    [SerializeField] private SerializedEvent[] onLevelStartEvents;
+    [SerializeField] private SerializedEvent[] onGameRunEvents;
+    [SerializeField] private SerializedEvent[] onGamePauseEvents;
+    [SerializeField] private SerializedEvent[] onGameUnpauseEvents;
+    [SerializeField] private SerializedEvent[] onLevelEndEvents;
+    [SerializeField] private SerializedEvent[] onSceneUnloadEvents;
+
     public enum State
     {
         INIT,
@@ -16,47 +25,8 @@ public class GameStateManager : Singleton<GameStateManager>
         SCENEUNLOADING
     }
 
-    [SerializeField] private State stateCurrent;
-    [SerializeField] private State statePrev;
-
-
-    [NonReorderable]
-    [SerializeField] private SerializedEvents[] onSceneLoadEvents;
-
-    [NonReorderable]
-    [SerializeField] private SerializedEvents[] onLevelStartEvents;
-
-    [NonReorderable]
-    [SerializeField] private SerializedEvents[] onGameRunEvents;
-
-    [NonReorderable]
-    [SerializeField] private SerializedEvents[] onGamePauseEvents;
-
-    [NonReorderable]
-    [SerializeField] private SerializedEvents[] onGameUnpauseEvents;
-
-    [NonReorderable]
-    [SerializeField] private SerializedEvents[] onLevelEndEvents;
-
-    [NonReorderable]
-    [SerializeField] private SerializedEvents[] onSceneUnloadEvents;
-
-
-    public void StartCycleThroughEvents(SerializedEvents[] array)
-    {
-        StartCoroutine(CycleThroughEvents(array));
-    }
-
-    private IEnumerator CycleThroughEvents(SerializedEvents[] array)
-    {
-        for (int i = 0; i < array.Length; i++)
-        {
-            yield return new WaitForSecondsRealtime(array[i].delay);
-
-            array[i].InvokeEvent();
-
-        }
-    }
+    private State _stateCurrent;
+    private State _statePrev;
 
     private void OnEnable()
     {
@@ -64,25 +34,11 @@ public class GameStateManager : Singleton<GameStateManager>
         SetState(State.SCENELOADING);
     }
 
-    public void SetState(State state)
-    {
-        if (state != stateCurrent)
-        {
-            statePrev = stateCurrent;
-            stateCurrent = state;
-            // print("State changed from " + statePrev + " to " + stateCurrent);
-            HandleStateChange();
-        }
-    }
 
-    public State GetState()
-    {
-        return stateCurrent;
-    }
-
+    // Respond to state changes by cycling through the array of serialized unity events
     private void HandleStateChange()
     {
-        switch (stateCurrent)
+        switch (_stateCurrent)
         {
             case State.SCENELOADING:
                 StartCycleThroughEvents(onSceneLoadEvents);
@@ -93,11 +49,11 @@ public class GameStateManager : Singleton<GameStateManager>
                 break;
 
             case State.GAMERUNNING:
-                if (statePrev == State.LEVELSTARTING)
+                if (_statePrev == State.LEVELSTARTING)
                 {
                     StartCycleThroughEvents(onGameRunEvents);
                 }
-                else if (statePrev == State.GAMEPAUSED)
+                else if (_statePrev == State.GAMEPAUSED)
                 {
                     StartCycleThroughEvents(onGameUnpauseEvents);
                 }
@@ -120,10 +76,43 @@ public class GameStateManager : Singleton<GameStateManager>
         }
     }
 
+    public void StartCycleThroughEvents(SerializedEvent[] array)
+    {
+        StartCoroutine(CycleThroughEvents(array));
+    }
+
+    private IEnumerator CycleThroughEvents(SerializedEvent[] array)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            yield return new WaitForSecondsRealtime(array[i].Delay);
+
+            array[i].InvokeEvent();
+
+        }
+    }
+
+
+    #region State Set/Get Functions
+    public void SetState(State state)
+    {
+        if (state != _stateCurrent)
+        {
+            _statePrev = _stateCurrent;
+            _stateCurrent = state;
+            HandleStateChange();
+        }
+    }
+
+    public State GetState()
+    {
+        return _stateCurrent;
+    }
+
     private void ResetStates()
     {
-        stateCurrent = State.INIT;
-        statePrev = State.INIT;
+        _stateCurrent = State.INIT;
+        _statePrev = State.INIT;
     }
 
     public void SetSceneLoading()
@@ -155,7 +144,9 @@ public class GameStateManager : Singleton<GameStateManager>
     {
         SetState(State.SCENEUNLOADING);
     }
+    #endregion
 
+    #region Handle Input Functions
     public void HandlePauseInput()
     {
         SetGamePaused();
@@ -170,4 +161,5 @@ public class GameStateManager : Singleton<GameStateManager>
     {
         SetLevelEnding();
     }
+    #endregion
 }

@@ -1,62 +1,103 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.Events;
+using System.Collections.Generic;
+using UnityEngine;
 
-
-
+// Tracks node statuses and invokes events based on status changes
 public class NodeManager : Singleton<NodeManager>
 {
-    private UnityEvent onEdit;
-    public List<Node> connectedNodes;
+    [Header("References")]
+    [SerializeField] private Node[] _targetNodes;
 
-    public bool updatesOn = true;
+    [Header("Events")]
+    [HideInInspector]
+    public UnityEvent OnTargetNodesCompleteChanged;
+    public UnityEvent OnAllTargetNodesCompleted;
+
+    private int _totalTargetNodes;
+    private int _completedTargetNodes;
+
+    private List<Node> _connectedNodes = new List<Node>();
 
 
-    public void ResetConnectedNodes()
+    private void Awake()
     {
-        foreach (var node in connectedNodes)
+        foreach (var node in _targetNodes)
         {
-            // print("Nodes Reset!");
-            node.DisconnectPower();
+            node.OnPowerStatusChanged.AddListener(CheckTargetNodesStatus);
+        }
+
+        CalcTotalNodes();
+    }
+
+    private void Update()
+    {
+        CheckPowerStatusOfConnectedNodes();
+    }
+
+    private void CalcTotalNodes()
+    {
+        _totalTargetNodes = _targetNodes.Length;
+    }
+
+    // Checks power status of all target nodes
+    private void CheckTargetNodesStatus()
+    {
+        int newCompletedNodes = 0;
+
+        foreach (var node in _targetNodes)
+        {
+            if (node.CheckPowerStatus())
+            {
+                newCompletedNodes++;
+            }
+        }
+
+        if (newCompletedNodes != _completedTargetNodes)
+        {
+            _completedTargetNodes = newCompletedNodes;
+            OnTargetNodesCompleteChanged?.Invoke();
+        }
+
+        if (_completedTargetNodes == _totalTargetNodes)
+        {
+            AllTargetNodesCompleted();
         }
     }
 
-    public void TurnUpdatesOn()
+    private void AllTargetNodesCompleted()
     {
-        foreach (var node in connectedNodes)
-        {
-            // print("Updates On");
-            node.TurnUpdatesOn();
-        }
+        OnAllTargetNodesCompleted?.Invoke();
     }
 
-    public void TurnUpdatesOff()
+    public int GetCompletedTargetNodes()
     {
-
-        foreach (var node in connectedNodes)
-        {
-            print("Updates Off");
-            node.TurnUpdatesOff();
-        }
-        ResetConnectedNodes();
+        return _completedTargetNodes;
     }
-
-    public void OnEdit()
-    {
-        onEdit?.Invoke();
-    }
-
 
     public void AddConnectedNode(Node node)
     {
-        connectedNodes.Add(node);
+        _connectedNodes.Add(node);
     }
 
     public void RemoveConnectedNode(Node node)
     {
-        node.CheckStatusOfConnectedNodes();
-        connectedNodes.Remove(node);
+        _connectedNodes.Remove(node);
+        ResetPowerStatusOfConnectedNodes();
     }
 
+    private void CheckPowerStatusOfConnectedNodes()
+    {
+        for (int i = 0; i < _connectedNodes.Count; i++)
+        {
+            _connectedNodes[i].CheckPowerStatusOfConnectedNodes();
+        }
+    }
 
+    private void ResetPowerStatusOfConnectedNodes()
+    {
+        for (int i = 0; i < _connectedNodes.Count; i++)
+        {
+            _connectedNodes[i].DisconnectPower();
+        }
+    }
 }

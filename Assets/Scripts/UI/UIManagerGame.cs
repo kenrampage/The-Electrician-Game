@@ -1,80 +1,90 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManagerGame : MonoBehaviour
+namespace RampageUtils.UI
 {
-    [SerializeField] private GameObject startUI;
-    [SerializeField] private GameObject gameUI;
-    [SerializeField] private GameObject endUI;
-    [SerializeField] private GameObject pauseUI;
-
-    private Anim_ClipboardVert startUIAnim;
-    private Anim_ClipboardVert gameUIAnim;
-    private Anim_ClipboardVert endUIAnim;
-    private Anim_ClipboardVert pauseUIAnim;
-
-    private void Awake()
+    // Manager for easier swapping between game ui menus and triggering in/out animations
+    public class UIManagerGame : MonoBehaviour
     {
-        GetAnimReferences();
-    }
+        [Header("References")]
+        [SerializeField] private GameObject _startUI;
+        [SerializeField] private GameObject _gameUI;
+        [SerializeField] private GameObject _endUI;
+        [SerializeField] private GameObject _pauseUI;
 
-    private void GetAnimReferences()
-    {
-        startUIAnim = startUI.GetComponent<Anim_ClipboardVert>();
-        gameUIAnim = gameUI.GetComponent<Anim_ClipboardVert>();
-        endUIAnim = endUI.GetComponent<Anim_ClipboardVert>();
-        pauseUIAnim = pauseUI.GetComponent<Anim_ClipboardVert>();
-    }
+        private Anim_ClipboardVert _startUIAnim;
+        private Anim_ClipboardVert _gameUIAnim;
+        private Anim_ClipboardVert _endUIAnim;
+        private Anim_ClipboardVert _pauseUIAnim;
 
-    public void StartUIOn()
-    {
-        AllUIOff();
-        startUI.SetActive(true);
-        startUIAnim.ClipboardIn();
-    }
+        private void Awake()
+        {
+            GetAnimReferences();
+        }
 
-    public void GameUIOn()
-    {
-        AllUIOff();
-        gameUI.SetActive(true);
-    }
+        private void GetAnimReferences()
+        {
+            _startUIAnim = _startUI.GetComponent<Anim_ClipboardVert>();
+            _gameUIAnim = _gameUI.GetComponent<Anim_ClipboardVert>();
+            _endUIAnim = _endUI.GetComponent<Anim_ClipboardVert>();
+            _pauseUIAnim = _pauseUI.GetComponent<Anim_ClipboardVert>();
+        }
 
-    public void EndUIOn()
-    {
-        AllUIOff();
-        endUI.SetActive(true);
-        endUIAnim.ClipboardIn();
-    }
+        public void StartUIOn()
+        {
+            AllUIOff();
+            _startUI.SetActive(true);
+            _startUIAnim.ClipboardIn();
+        }
 
-    public void PauseUIOn()
-    {
-        AllUIOff();
-        pauseUI.SetActive(true);
-        pauseUIAnim.ClipboardIn();
-    }
+        public void GameUIOn()
+        {
+            AllUIOff();
+            _gameUI.SetActive(true);
+        }
 
-    public void StartUIOff()
-    {
-        startUIAnim.ClipboardOut();
-    }
+        public void PauseUIOn()
+        {
+            AllUIOff();
+            _pauseUI.SetActive(true);
+            _pauseUIAnim.ClipboardIn();
+        }
 
-    public void PauseUIOff()
-    {
-        pauseUIAnim.ClipboardOut();
-    }
+        public void EndUIOn()
+        {
+            AllUIOff();
+            _endUI.SetActive(true);
+            _endUIAnim.ClipboardIn();
+        }
 
-    public void EndUIOff()
-    {
-        endUIAnim.ClipboardOut();
-    }
+        public void StartUIOff()
+        {
+            _startUIAnim.ClipboardOut();
+        }
 
-    private void AllUIOff()
-    {
-        startUI.SetActive(false);
-        gameUI.SetActive(false);
-        endUI.SetActive(false);
-        pauseUI.SetActive(false);
+        public void GameUIOff()
+        {
+            _gameUI.SetActive(false);
+        }
+
+
+        public void PauseUIOff()
+        {
+            _pauseUIAnim.ClipboardOut();
+        }
+
+        public void EndUIOff()
+        {
+            _endUIAnim.ClipboardOut();
+        }
+
+        private void AllUIOff()
+        {
+            _startUI.SetActive(false);
+            _gameUI.SetActive(false);
+            _endUI.SetActive(false);
+            _pauseUI.SetActive(false);
+        }
+
     }
 
 
