@@ -24,15 +24,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Jump",
-                    "type": "Button",
-                    "id": "8c4abdf8-4099-493a-aa1a-129acec7c3df",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Sprint",
                     "type": "PassThrough",
                     "id": "980e881e-182c-404c-8cbf-3d09fdb48fef",
@@ -60,43 +51,16 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Item1",
+                    "name": "Pause",
                     "type": "Button",
-                    "id": "b31fb074-e157-460b-bac7-d5a00d68879c",
+                    "id": "b59abe88-fb46-401a-bff1-9f84b9cb06b3",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Item2",
-                    "type": "Button",
-                    "id": "df31614d-09e9-40e9-be63-30b0496e4558",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Item3",
-                    "type": "Button",
-                    "id": "eef05d75-5660-429f-b26a-fd42f00ca7cd",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Item4",
-                    "type": "Button",
-                    "id": "7c212fde-0706-406a-a082-dc61c42319f5",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "ItemNext",
+                    "name": "NextItem",
                     "type": "Button",
                     "id": "fea0c38b-e72b-4334-8e10-a541115b5093",
                     "expectedControlType": "Button",
@@ -105,7 +69,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ItemPrev",
+                    "name": "PrevItem",
                     "type": "Button",
                     "id": "c0b979cb-1bb6-4106-80c0-20610af3a40c",
                     "expectedControlType": "Button",
@@ -114,7 +78,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "toggleFlashlight",
+                    "name": "Flashlight",
                     "type": "Button",
                     "id": "d6373d7f-6851-45f9-b078-c3d6c3043b4d",
                     "expectedControlType": "Button",
@@ -123,27 +87,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "toggleGuide",
-                    "type": "Button",
-                    "id": "fcf540ce-92a3-48c3-9bf2-ca1d5a99c08b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "toggleXray",
+                    "name": "Xray",
                     "type": "Button",
                     "id": "c96aa1c6-0055-477e-9a60-25e46efa96ef",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "b59abe88-fb46-401a-bff1-9f84b9cb06b3",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -250,28 +196,6 @@
                 },
                 {
                     "name": "",
-                    "id": "1bd55a0b-761e-4ae4-89ae-8ec127e08a29",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9f973413-5e27-4239-acee-38c4a63feeba",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "dc65b89f-9bd3-43fb-92af-d0d87ba5faa4",
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
@@ -338,56 +262,12 @@
                 },
                 {
                     "name": "",
-                    "id": "093c2ca6-9441-410c-bb2f-f5b32cfee74e",
-                    "path": "<Keyboard>/1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Item1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b5f16b2d-00d6-4b9b-8622-fab997fbbe26",
-                    "path": "<Keyboard>/2",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Item2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0e941d7e-5f47-4e6a-b45d-08c4fc21e1f2",
-                    "path": "<Keyboard>/3",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Item3",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "175a5e9c-1b9d-4a91-9456-17d3bc088076",
-                    "path": "<Keyboard>/4",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Item4",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "548933f8-0cbd-454a-b080-8cfc7742f70d",
-                    "path": "<Keyboard>/rightArrow",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
-                    "action": "ItemNext",
+                    "action": "NextItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -398,18 +278,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ItemNext",
+                    "action": "NextItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "86578ffe-1871-43a1-a901-8152b56a58ae",
-                    "path": "<Keyboard>/leftArrow",
+                    "id": "fa8154fd-7cb3-4271-95e3-ed9202547ec0",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
-                    "action": "ItemPrev",
+                    "action": "NextItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -420,7 +300,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ItemPrev",
+                    "action": "PrevItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1f1598bd-ad79-4430-a1a5-5f9d420a49c2",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PrevItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -431,7 +322,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "toggleFlashlight",
+                    "action": "Flashlight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -442,29 +333,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "toggleFlashlight",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6397d92f-1c3b-42d4-8dc9-eeb109917459",
-                    "path": "<Keyboard>/g",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "toggleGuide",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d6c979c6-d50a-4b70-bf51-642b6fd20f5e",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "toggleGuide",
+                    "action": "Flashlight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -475,7 +344,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "toggleXray",
+                    "action": "Xray",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -486,18 +355,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "toggleXray",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1475202f-5ae2-4b4e-aad9-e59b301d0e6c",
-                    "path": "<Keyboard>/p",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Pause",
+                    "action": "Xray",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -509,6 +367,17 @@
                     "processors": "",
                     "groups": "KeyboardMouse",
                     "action": "EndTest",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1475202f-5ae2-4b4e-aad9-e59b301d0e6c",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 namespace RampageUtils
 {
+    // Reusable timer class that invokes event on completion
     public class Timer : MonoBehaviour
     {
         [Header("Events")]

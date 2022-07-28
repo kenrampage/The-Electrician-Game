@@ -46,15 +46,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Jump"",
-                    ""type"": ""Button"",
-                    ""id"": ""8c4abdf8-4099-493a-aa1a-129acec7c3df"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Sprint"",
                     ""type"": ""PassThrough"",
                     ""id"": ""980e881e-182c-404c-8cbf-3d09fdb48fef"",
@@ -82,43 +73,16 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Item1"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
-                    ""id"": ""b31fb074-e157-460b-bac7-d5a00d68879c"",
+                    ""id"": ""b59abe88-fb46-401a-bff1-9f84b9cb06b3"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Item2"",
-                    ""type"": ""Button"",
-                    ""id"": ""df31614d-09e9-40e9-be63-30b0496e4558"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Item3"",
-                    ""type"": ""Button"",
-                    ""id"": ""eef05d75-5660-429f-b26a-fd42f00ca7cd"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Item4"",
-                    ""type"": ""Button"",
-                    ""id"": ""7c212fde-0706-406a-a082-dc61c42319f5"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""ItemNext"",
+                    ""name"": ""NextItem"",
                     ""type"": ""Button"",
                     ""id"": ""fea0c38b-e72b-4334-8e10-a541115b5093"",
                     ""expectedControlType"": ""Button"",
@@ -127,7 +91,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ItemPrev"",
+                    ""name"": ""PrevItem"",
                     ""type"": ""Button"",
                     ""id"": ""c0b979cb-1bb6-4106-80c0-20610af3a40c"",
                     ""expectedControlType"": ""Button"",
@@ -136,7 +100,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""toggleFlashlight"",
+                    ""name"": ""Flashlight"",
                     ""type"": ""Button"",
                     ""id"": ""d6373d7f-6851-45f9-b078-c3d6c3043b4d"",
                     ""expectedControlType"": ""Button"",
@@ -145,27 +109,9 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""toggleGuide"",
-                    ""type"": ""Button"",
-                    ""id"": ""fcf540ce-92a3-48c3-9bf2-ca1d5a99c08b"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""toggleXray"",
+                    ""name"": ""Xray"",
                     ""type"": ""Button"",
                     ""id"": ""c96aa1c6-0055-477e-9a60-25e46efa96ef"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Pause"",
-                    ""type"": ""Button"",
-                    ""id"": ""b59abe88-fb46-401a-bff1-9f84b9cb06b3"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -272,28 +218,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1bd55a0b-761e-4ae4-89ae-8ec127e08a29"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardMouse"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9f973413-5e27-4239-acee-38c4a63feeba"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""dc65b89f-9bd3-43fb-92af-d0d87ba5faa4"",
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
@@ -360,56 +284,12 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""093c2ca6-9441-410c-bb2f-f5b32cfee74e"",
-                    ""path"": ""<Keyboard>/1"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Item1"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b5f16b2d-00d6-4b9b-8622-fab997fbbe26"",
-                    ""path"": ""<Keyboard>/2"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Item2"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""0e941d7e-5f47-4e6a-b45d-08c4fc21e1f2"",
-                    ""path"": ""<Keyboard>/3"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Item3"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""175a5e9c-1b9d-4a91-9456-17d3bc088076"",
-                    ""path"": ""<Keyboard>/4"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Item4"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""548933f8-0cbd-454a-b080-8cfc7742f70d"",
-                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
-                    ""action"": ""ItemNext"",
+                    ""action"": ""NextItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -420,18 +300,18 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ItemNext"",
+                    ""action"": ""NextItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""86578ffe-1871-43a1-a901-8152b56a58ae"",
-                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""id"": ""fa8154fd-7cb3-4271-95e3-ed9202547ec0"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
-                    ""action"": ""ItemPrev"",
+                    ""action"": ""NextItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -442,7 +322,18 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ItemPrev"",
+                    ""action"": ""PrevItem"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1f1598bd-ad79-4430-a1a5-5f9d420a49c2"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrevItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -453,7 +344,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""toggleFlashlight"",
+                    ""action"": ""Flashlight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -464,29 +355,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""toggleFlashlight"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6397d92f-1c3b-42d4-8dc9-eeb109917459"",
-                    ""path"": ""<Keyboard>/g"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""toggleGuide"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d6c979c6-d50a-4b70-bf51-642b6fd20f5e"",
-                    ""path"": ""<Gamepad>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""toggleGuide"",
+                    ""action"": ""Flashlight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -497,7 +366,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""toggleXray"",
+                    ""action"": ""Xray"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -508,18 +377,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""toggleXray"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1475202f-5ae2-4b4e-aad9-e59b301d0e6c"",
-                    ""path"": ""<Keyboard>/p"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardMouse"",
-                    ""action"": ""Pause"",
+                    ""action"": ""Xray"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -531,6 +389,17 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
                     ""action"": ""EndTest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1475202f-5ae2-4b4e-aad9-e59b301d0e6c"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -619,20 +488,14 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
-        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Cancel = m_Player.FindAction("Cancel", throwIfNotFound: true);
-        m_Player_Item1 = m_Player.FindAction("Item1", throwIfNotFound: true);
-        m_Player_Item2 = m_Player.FindAction("Item2", throwIfNotFound: true);
-        m_Player_Item3 = m_Player.FindAction("Item3", throwIfNotFound: true);
-        m_Player_Item4 = m_Player.FindAction("Item4", throwIfNotFound: true);
-        m_Player_ItemNext = m_Player.FindAction("ItemNext", throwIfNotFound: true);
-        m_Player_ItemPrev = m_Player.FindAction("ItemPrev", throwIfNotFound: true);
-        m_Player_toggleFlashlight = m_Player.FindAction("toggleFlashlight", throwIfNotFound: true);
-        m_Player_toggleGuide = m_Player.FindAction("toggleGuide", throwIfNotFound: true);
-        m_Player_toggleXray = m_Player.FindAction("toggleXray", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_NextItem = m_Player.FindAction("NextItem", throwIfNotFound: true);
+        m_Player_PrevItem = m_Player.FindAction("PrevItem", throwIfNotFound: true);
+        m_Player_Flashlight = m_Player.FindAction("Flashlight", throwIfNotFound: true);
+        m_Player_Xray = m_Player.FindAction("Xray", throwIfNotFound: true);
         m_Player_EndTest = m_Player.FindAction("EndTest", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
@@ -698,20 +561,14 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
-    private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Cancel;
-    private readonly InputAction m_Player_Item1;
-    private readonly InputAction m_Player_Item2;
-    private readonly InputAction m_Player_Item3;
-    private readonly InputAction m_Player_Item4;
-    private readonly InputAction m_Player_ItemNext;
-    private readonly InputAction m_Player_ItemPrev;
-    private readonly InputAction m_Player_toggleFlashlight;
-    private readonly InputAction m_Player_toggleGuide;
-    private readonly InputAction m_Player_toggleXray;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_NextItem;
+    private readonly InputAction m_Player_PrevItem;
+    private readonly InputAction m_Player_Flashlight;
+    private readonly InputAction m_Player_Xray;
     private readonly InputAction m_Player_EndTest;
     public struct PlayerActions
     {
@@ -719,20 +576,14 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         public PlayerActions(@InputAsset wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
-        public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Cancel => m_Wrapper.m_Player_Cancel;
-        public InputAction @Item1 => m_Wrapper.m_Player_Item1;
-        public InputAction @Item2 => m_Wrapper.m_Player_Item2;
-        public InputAction @Item3 => m_Wrapper.m_Player_Item3;
-        public InputAction @Item4 => m_Wrapper.m_Player_Item4;
-        public InputAction @ItemNext => m_Wrapper.m_Player_ItemNext;
-        public InputAction @ItemPrev => m_Wrapper.m_Player_ItemPrev;
-        public InputAction @toggleFlashlight => m_Wrapper.m_Player_toggleFlashlight;
-        public InputAction @toggleGuide => m_Wrapper.m_Player_toggleGuide;
-        public InputAction @toggleXray => m_Wrapper.m_Player_toggleXray;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @NextItem => m_Wrapper.m_Player_NextItem;
+        public InputAction @PrevItem => m_Wrapper.m_Player_PrevItem;
+        public InputAction @Flashlight => m_Wrapper.m_Player_Flashlight;
+        public InputAction @Xray => m_Wrapper.m_Player_Xray;
         public InputAction @EndTest => m_Wrapper.m_Player_EndTest;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -749,9 +600,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Sprint.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
                 @Sprint.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
                 @Sprint.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
@@ -761,36 +609,21 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @Cancel.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCancel;
                 @Cancel.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCancel;
                 @Cancel.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCancel;
-                @Item1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem1;
-                @Item1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem1;
-                @Item1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem1;
-                @Item2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem2;
-                @Item2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem2;
-                @Item2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem2;
-                @Item3.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem3;
-                @Item3.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem3;
-                @Item3.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem3;
-                @Item4.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem4;
-                @Item4.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem4;
-                @Item4.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItem4;
-                @ItemNext.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItemNext;
-                @ItemNext.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItemNext;
-                @ItemNext.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItemNext;
-                @ItemPrev.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItemPrev;
-                @ItemPrev.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItemPrev;
-                @ItemPrev.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnItemPrev;
-                @toggleFlashlight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleFlashlight;
-                @toggleFlashlight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleFlashlight;
-                @toggleFlashlight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleFlashlight;
-                @toggleGuide.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleGuide;
-                @toggleGuide.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleGuide;
-                @toggleGuide.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleGuide;
-                @toggleXray.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleXray;
-                @toggleXray.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleXray;
-                @toggleXray.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleXray;
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @NextItem.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNextItem;
+                @NextItem.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNextItem;
+                @NextItem.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNextItem;
+                @PrevItem.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrevItem;
+                @PrevItem.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrevItem;
+                @PrevItem.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrevItem;
+                @Flashlight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlashlight;
+                @Flashlight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlashlight;
+                @Flashlight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlashlight;
+                @Xray.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnXray;
+                @Xray.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnXray;
+                @Xray.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnXray;
                 @EndTest.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEndTest;
                 @EndTest.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEndTest;
                 @EndTest.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEndTest;
@@ -804,9 +637,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
-                @Jump.started += instance.OnJump;
-                @Jump.performed += instance.OnJump;
-                @Jump.canceled += instance.OnJump;
                 @Sprint.started += instance.OnSprint;
                 @Sprint.performed += instance.OnSprint;
                 @Sprint.canceled += instance.OnSprint;
@@ -816,36 +646,21 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @Cancel.started += instance.OnCancel;
                 @Cancel.performed += instance.OnCancel;
                 @Cancel.canceled += instance.OnCancel;
-                @Item1.started += instance.OnItem1;
-                @Item1.performed += instance.OnItem1;
-                @Item1.canceled += instance.OnItem1;
-                @Item2.started += instance.OnItem2;
-                @Item2.performed += instance.OnItem2;
-                @Item2.canceled += instance.OnItem2;
-                @Item3.started += instance.OnItem3;
-                @Item3.performed += instance.OnItem3;
-                @Item3.canceled += instance.OnItem3;
-                @Item4.started += instance.OnItem4;
-                @Item4.performed += instance.OnItem4;
-                @Item4.canceled += instance.OnItem4;
-                @ItemNext.started += instance.OnItemNext;
-                @ItemNext.performed += instance.OnItemNext;
-                @ItemNext.canceled += instance.OnItemNext;
-                @ItemPrev.started += instance.OnItemPrev;
-                @ItemPrev.performed += instance.OnItemPrev;
-                @ItemPrev.canceled += instance.OnItemPrev;
-                @toggleFlashlight.started += instance.OnToggleFlashlight;
-                @toggleFlashlight.performed += instance.OnToggleFlashlight;
-                @toggleFlashlight.canceled += instance.OnToggleFlashlight;
-                @toggleGuide.started += instance.OnToggleGuide;
-                @toggleGuide.performed += instance.OnToggleGuide;
-                @toggleGuide.canceled += instance.OnToggleGuide;
-                @toggleXray.started += instance.OnToggleXray;
-                @toggleXray.performed += instance.OnToggleXray;
-                @toggleXray.canceled += instance.OnToggleXray;
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @NextItem.started += instance.OnNextItem;
+                @NextItem.performed += instance.OnNextItem;
+                @NextItem.canceled += instance.OnNextItem;
+                @PrevItem.started += instance.OnPrevItem;
+                @PrevItem.performed += instance.OnPrevItem;
+                @PrevItem.canceled += instance.OnPrevItem;
+                @Flashlight.started += instance.OnFlashlight;
+                @Flashlight.performed += instance.OnFlashlight;
+                @Flashlight.canceled += instance.OnFlashlight;
+                @Xray.started += instance.OnXray;
+                @Xray.performed += instance.OnXray;
+                @Xray.canceled += instance.OnXray;
                 @EndTest.started += instance.OnEndTest;
                 @EndTest.performed += instance.OnEndTest;
                 @EndTest.canceled += instance.OnEndTest;
@@ -926,20 +741,14 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
-        void OnJump(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
-        void OnItem1(InputAction.CallbackContext context);
-        void OnItem2(InputAction.CallbackContext context);
-        void OnItem3(InputAction.CallbackContext context);
-        void OnItem4(InputAction.CallbackContext context);
-        void OnItemNext(InputAction.CallbackContext context);
-        void OnItemPrev(InputAction.CallbackContext context);
-        void OnToggleFlashlight(InputAction.CallbackContext context);
-        void OnToggleGuide(InputAction.CallbackContext context);
-        void OnToggleXray(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnNextItem(InputAction.CallbackContext context);
+        void OnPrevItem(InputAction.CallbackContext context);
+        void OnFlashlight(InputAction.CallbackContext context);
+        void OnXray(InputAction.CallbackContext context);
         void OnEndTest(InputAction.CallbackContext context);
     }
     public interface IMenuActions

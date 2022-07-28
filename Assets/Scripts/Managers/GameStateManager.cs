@@ -4,6 +4,16 @@ using UnityEngine;
 // Manages current and previous game state and invokes a serialized array of events in response to state changes
 public class GameStateManager : Singleton<GameStateManager>
 {
+
+    [Header("Events")]
+    [SerializeField] private SerializedEvent[] onSceneLoadEvents;
+    [SerializeField] private SerializedEvent[] onLevelStartEvents;
+    [SerializeField] private SerializedEvent[] onGameRunEvents;
+    [SerializeField] private SerializedEvent[] onGamePauseEvents;
+    [SerializeField] private SerializedEvent[] onGameUnpauseEvents;
+    [SerializeField] private SerializedEvent[] onLevelEndEvents;
+    [SerializeField] private SerializedEvent[] onSceneUnloadEvents;
+
     public enum State
     {
         INIT,
@@ -17,16 +27,6 @@ public class GameStateManager : Singleton<GameStateManager>
 
     private State _stateCurrent;
     private State _statePrev;
-
-    [Header("Events")]
-    [SerializeField] private SerializedEvent[] onSceneLoadEvents;
-    [SerializeField] private SerializedEvent[] onLevelStartEvents;
-    [SerializeField] private SerializedEvent[] onGameRunEvents;
-    [SerializeField] private SerializedEvent[] onGamePauseEvents;
-    [SerializeField] private SerializedEvent[] onGameUnpauseEvents;
-    [SerializeField] private SerializedEvent[] onLevelEndEvents;
-    [SerializeField] private SerializedEvent[] onSceneUnloadEvents;
-
 
     private void OnEnable()
     {

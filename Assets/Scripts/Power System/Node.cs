@@ -27,11 +27,6 @@ public class Node : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        CheckPowerStatusOfConnectedNodes();
-    }
-
     #region Power Functions
     public void ConnectPower()
     {

@@ -3,12 +3,12 @@ using UnityEngine;
 // For easier management of overlay objects used for transitioning between scenes and menus
 public class OverlayManager : MonoBehaviour
 {
-    private Anim_Curtains _anim_Curtains;
-    private AnimationHelper _fadeAnimHelper;
-
     [Header("References")]
     [SerializeField] private GameObject _curtains;
     [SerializeField] private GameObject _fadeCanvas;
+
+    private Anim_Curtains _anim_Curtains;
+    private AnimationHelper _fadeAnimHelper;
 
     private void Awake()
     {

@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace RampageUtils
 {
+    // Toggles active status of this object
     public class ToggleThisObject : MonoBehaviour
     {
         public void SetActive()

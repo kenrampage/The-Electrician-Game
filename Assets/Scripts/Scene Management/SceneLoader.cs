@@ -7,12 +7,12 @@ namespace RampageUtils.SceneManagement
 {
     public class SceneLoader : MonoBehaviour
     {
-        private Scene _activeScene;
-
         [Header("Settings")]
         [SerializeField] private string _mainMenuSceneName = "LoadingScene_MainMenu";
         [SerializeField] private string _targetSceneName;
         [SerializeField] private float _loadDelay;
+
+        private Scene _activeScene;
 
         private void OnEnable()
         {

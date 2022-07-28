@@ -6,11 +6,10 @@ namespace RampageUtils.UI
     // Each game menu requires a hidden button to be selected by default to ensure controller & m+kb input compatability
     public class UIButtonHidden : MonoBehaviour
     {
-        private Button _button;
-
         [Header("Settings")]
         [SerializeField] private bool _isSelectedOnEnable = true;
 
+        private Button _button;
 
         private void Awake()
         {

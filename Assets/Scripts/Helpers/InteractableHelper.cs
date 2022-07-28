@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 // Helper to handle IInteractable activity and translate into serializable unity events
-namespace RampageUtils.Interfaces
+namespace RampageUtils.Helpers
 {
     public class InteractableHelper : MonoBehaviour, IInteractable
     {

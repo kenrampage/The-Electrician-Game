@@ -76,7 +76,6 @@ public class NodeInteraction : MonoBehaviour, IInteractable
             else if (CheckIfInstallable(cable))
             {
                 cable.ConnectToEndNode(_node);
-                // _node.NodeVisuals.HighlightOff();
             }
 
         }

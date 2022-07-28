@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace RampageUtils
 {
+    // Move this object in specified direction and speed
     public class MoveThisObject : MonoBehaviour
     {
         [Header("Settings")]

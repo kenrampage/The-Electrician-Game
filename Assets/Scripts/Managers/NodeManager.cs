@@ -1,4 +1,5 @@
 using UnityEngine.Events;
+using System.Collections.Generic;
 using UnityEngine;
 
 // Tracks node statuses and invokes events based on status changes
@@ -15,6 +16,8 @@ public class NodeManager : Singleton<NodeManager>
     private int _totalTargetNodes;
     private int _completedTargetNodes;
 
+    private List<Node> _connectedNodes = new List<Node>();
+
 
     private void Awake()
     {
@@ -24,6 +27,11 @@ public class NodeManager : Singleton<NodeManager>
         }
 
         CalcTotalNodes();
+    }
+
+    private void Update()
+    {
+        CheckPowerStatusOfConnectedNodes();
     }
 
     private void CalcTotalNodes()
@@ -64,5 +72,32 @@ public class NodeManager : Singleton<NodeManager>
     public int GetCompletedTargetNodes()
     {
         return _completedTargetNodes;
+    }
+
+    public void AddConnectedNode(Node node)
+    {
+        _connectedNodes.Add(node);
+    }
+
+    public void RemoveConnectedNode(Node node)
+    {
+        _connectedNodes.Remove(node);
+        ResetPowerStatusOfConnectedNodes();
+    }
+
+    private void CheckPowerStatusOfConnectedNodes()
+    {
+        for (int i = 0; i < _connectedNodes.Count; i++)
+        {
+            _connectedNodes[i].CheckPowerStatusOfConnectedNodes();
+        }
+    }
+
+    private void ResetPowerStatusOfConnectedNodes()
+    {
+        for (int i = 0; i < _connectedNodes.Count; i++)
+        {
+            _connectedNodes[i].DisconnectPower();
+        }
     }
 }

@@ -4,10 +4,10 @@ using UnityEngine;
 [RequireComponent(typeof(Animation))]
 public class AnimationHelper : MonoBehaviour
 {
-    private Animation _anim;
-
     [Header("Animation Clips")]
     [SerializeField] private AnimationClip[] _clips;
+
+    private Animation _anim;
 
     private void Awake()
     {

@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace RampageUtils
 {
+    // Rotate this object on specified direction and speed
     public class RotateThisObject : MonoBehaviour
     {
         [Header("Settings")]

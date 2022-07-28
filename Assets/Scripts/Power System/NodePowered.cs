@@ -9,11 +9,12 @@ public class NodePowered : MonoBehaviour, IInteractable
 
     [Header("Settings")]
     [SerializeField] private bool _isSwitchedOn;
-    private bool _isConnectedToPower;
 
     [Header("Events")]
     [SerializeField] private UnityEvent _onPoweredOn;
     [SerializeField] private UnityEvent _onPoweredOff;
+
+    private bool _isConnectedToPower;
 
     private void Awake()
     {

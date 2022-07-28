@@ -9,9 +9,6 @@ namespace RampageUtils.UI
     // All in one button script handles logic for m+kb and controller inputs plus swapping game objects for visual feedback
     public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISubmitHandler, ISelectHandler, IDeselectHandler, IPointerDownHandler
     {
-        private bool _isSubmitting = false;
-        private Button _button;
-
         [Header("Settings")]
         [SerializeField] private float _submitDelay;
         [SerializeField] private bool _isStartResumeButton = false;
@@ -25,6 +22,8 @@ namespace RampageUtils.UI
         [SerializeField] private GameObject _textSelect;
         [SerializeField] private GameObject _textSubmit;
 
+        private bool _isSubmitting = false;
+        private Button _button;
 
         private void Awake()
         {

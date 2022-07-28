@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace RampageUtils
 {
+    // Destroy this object after customizable delay
     public class DestroyThisObject : MonoBehaviour
     {
         [Header("Settings")]

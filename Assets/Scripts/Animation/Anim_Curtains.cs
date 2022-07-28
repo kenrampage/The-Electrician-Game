@@ -3,10 +3,10 @@ using UnityEngine;
 // Controls the animation for curtains overlay
 public class Anim_Curtains : MonoBehaviour
 {
-    private Animator _anim;
-
     [Header("Settings")]
     [SerializeField] private bool _isOpenAtStart;
+
+    private Animator _anim;
 
     private void Awake()
     {

@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace RampageUtils
 {
+    // Randomizes local position of target object simulating a rumbling effect
     public class RumbleTargetObject : MonoBehaviour
     {
         [Header("Settings")]

@@ -33,7 +33,7 @@ public class CableTransform : MonoBehaviour
         else if (_isEditModeOn)
         {
             SetCableTransform();
-            _endPoint.transform.position = PlayerHoldPosition.position;
+            _endPoint.transform.position = PlayerHoldPosition.Position;
         }
     }
 

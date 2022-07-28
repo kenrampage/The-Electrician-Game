@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,13 +5,6 @@ using UnityEngine;
 // Needs to be refactored further breaking out flashlight and UI functionality at least
 public class InventoryManager : Singleton<InventoryManager>
 {
-    private PlayerInteract _playerInteract;
-    private GameObject _heldCable;
-
-    private int _currentIndex;
-    private bool _isHoldingCable;
-    private bool _isFlashlightOn;
-
     [Header("References")]
     [SerializeField] private GameObject _flashlightObject;
     [SerializeField] private GameObject _reticle;
@@ -26,6 +18,13 @@ public class InventoryManager : Singleton<InventoryManager>
     [SerializeField] private GameObject _flashlightOnMarker;
     [SerializeField] private GameObject _flashlightOffMarker;
 
+    private PlayerInteract _playerInteract;
+    private GameObject _heldCable;
+
+    private int _currentIndex;
+    private bool _isHoldingCable;
+    private bool _isFlashlightOn;
+
     private void Awake()
     {
         _playerInteract = FindObjectOfType<PlayerInteract>();
@@ -37,29 +36,45 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         var inputManager = InputManager.Instance;
 
-        inputManager.OnNumInput.AddListener(HandleNumInput);
-        inputManager.OnToggleFlashlight.AddListener(ToggleFlashlight);
+        inputManager.OnItemNextEvent.AddListener(HandleItemNextInput);
+        inputManager.OnItemPrevEvent.AddListener(HandleItemPrevInput);
+        inputManager.OnToggleFlashlightEvent.AddListener(ToggleFlashlight);
 
     }
 
     #region Handle Player Input
-    public void HandleNumInput(int i)
+    public void HandleItemNextInput()
     {
-        ChangeEquipment(i);
+        var newIndex = _currentIndex + 1;
+        if (newIndex > _cursorList.Count - 1)
+        {
+            newIndex = 0;
+        }
+
+        ChangeEquipment(newIndex);
     }
+
+    public void HandleItemPrevInput()
+    {
+        var newIndex = _currentIndex - 1;
+        if (newIndex < 0)
+        {
+            newIndex = _cursorList.Count - 1;
+        }
+
+        ChangeEquipment(newIndex);
+    }
+
     #endregion
 
     #region Changing Equipped Items
     private void ChangeEquipment(int itemIndex)
     {
-        if (itemIndex != _currentIndex)
-        {
-            _currentIndex = itemIndex;
-        }
+        _currentIndex = itemIndex;
 
         ToggleMarkers();
         ChangeCursor();
-        _playerInteract.cursorObject = _cursorList[_currentIndex];
+        _playerInteract.SetCursorObject(_cursorList[_currentIndex]);
     }
 
     private void ResetEquipment()

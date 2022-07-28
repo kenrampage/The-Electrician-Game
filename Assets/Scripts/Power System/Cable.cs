@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 // Primary class for handling cable interactions and directing changes in other cable classes
@@ -8,6 +6,7 @@ public class Cable : MonoBehaviour
 {
     private CableTransform _cableTransform;
     private CableMaterials _cableMaterials;
+    private NodeManager _nodeManager;
 
     private Node _sourceNode;
     private Node _endNode;
@@ -17,9 +16,10 @@ public class Cable : MonoBehaviour
 
     private void OnEnable()
     {
+        _nodeManager = NodeManager.Instance;
         _cableMaterials = GetComponent<CableMaterials>();
         _cableTransform = GetComponent<CableTransform>();
-        InputManager.Instance.OnCancel.AddListener(HandleCancelInput);
+        InputManager.Instance.OnCancelEvent.AddListener(HandleCancelInput);
     }
 
     #region Handle Cable state changes
@@ -55,6 +55,9 @@ public class Cable : MonoBehaviour
         AddEndNodeToSourceNode();
         AddSourceNodeToEndNode();
 
+        _nodeManager.AddConnectedNode(_sourceNode);
+        _nodeManager.AddConnectedNode(_endNode);
+
         _cableMaterials.DefaultOn();
         _cableTransform.Install();
 
@@ -66,6 +69,9 @@ public class Cable : MonoBehaviour
     {
         RemoveEndNodeFromSourceNode();
         RemoveSourceNodeFromEndNode();
+
+        _nodeManager.RemoveConnectedNode(_sourceNode);
+        _nodeManager.RemoveConnectedNode(_endNode);
 
         _cableTransform.Edit();
         InventoryManager.Instance.PickupCable(this.gameObject);

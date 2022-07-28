@@ -5,14 +5,11 @@ using UnityEngine;
 // Reusable singleton class
 public abstract class Singleton<T> : Singleton where T : MonoBehaviour
 {
-    #region  Fields
     private static T _instance;
 
     // ReSharper disable once StaticMemberInGenericType
     private static readonly object Lock = new object();
-    #endregion
 
-    #region  Properties
     public static T Instance
     {
         get
@@ -40,28 +37,21 @@ public abstract class Singleton<T> : Singleton where T : MonoBehaviour
             }
         }
     }
-    #endregion
 
-    #region  Methods
     private void Awake()
     {
         OnAwake();
     }
 
     protected virtual void OnAwake() { }
-    #endregion
 }
 
 public abstract class Singleton : MonoBehaviour
 {
-    #region  Properties
     public static bool Quitting { get; private set; }
-    #endregion
 
-    #region  Methods
     private void OnApplicationQuit()
     {
         Quitting = true;
     }
-    #endregion
 }
