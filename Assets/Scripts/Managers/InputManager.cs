@@ -95,10 +95,10 @@ public class InputManager : Singleton<InputManager>
     #endregion
 
     #region Receive Messages from Player Input component
-    public void OnControlsChanged(InputValue value)
-    {
-        // handle changes to input device
-    }
+    // public void OnControlsChanged(InputValue value)
+    // {
+    //     // handle changes to input device
+    // }
 
     public void OnMove(InputValue value)
     {
@@ -152,7 +152,7 @@ public class InputManager : Singleton<InputManager>
 
     public void OnXray(InputValue value)
     {
-        OnToggleFlashlightEvent?.Invoke();
+        OnToggleXrayEvent?.Invoke();
     }
 
     public void OnEndTest(InputValue value)
