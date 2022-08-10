@@ -36,6 +36,16 @@ public class OverlayManager : MonoBehaviour
         _anim_Curtains.CurtainsClose();
     }
 
+    public void FadeCanvasOn()
+    {
+        _fadeCanvas.SetActive(true);
+    }
+
+    public void FadeCanvasOff()
+    {
+        _fadeCanvas.SetActive(false);
+    }
+
     public void FadeIn()
     {
         _fadeAnimHelper.PlayAnimAtIndex(0);

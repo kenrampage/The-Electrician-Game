@@ -29,6 +29,7 @@ public class ToggleMaterialEmission : MonoBehaviour
 
     public void ToggleEmission()
     {
+        GetReferences();
         if (_material.IsKeywordEnabled("_EMISSION"))
         {
             TurnEmissionOff();
