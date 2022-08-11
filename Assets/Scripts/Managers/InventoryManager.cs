@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Manages equipped items, held cable, toggling flashlight and related UI markers
-// Needs to be refactored further breaking out flashlight and UI functionality at least
+// Manages equipped items, held cable, related UI markers
+// Needs to be refactored further breaking out UI functionality
 public class InventoryManager : Singleton<InventoryManager>
 {
     [Header("References")]
-    [SerializeField] private GameObject _flashlightObject;
     [SerializeField] private GameObject _reticle;
 
     [Header("Equipment Lists")]
@@ -14,22 +13,16 @@ public class InventoryManager : Singleton<InventoryManager>
     [SerializeField] private List<GameObject> _cursorList;
     [SerializeField] private List<LayerMask> _layerMasksList;
 
-    [Header("UI References")]
-    [SerializeField] private GameObject _flashlightOnMarker;
-    [SerializeField] private GameObject _flashlightOffMarker;
-
     private PlayerInteract _playerInteract;
     private GameObject _heldCable;
 
     private int _currentIndex;
     private bool _isHoldingCable;
-    private bool _isFlashlightOn;
 
     private void Awake()
     {
         _playerInteract = FindObjectOfType<PlayerInteract>();
         ResetEquipment();
-        ResetFlashlight();
     }
 
     private void Start()
@@ -38,7 +31,6 @@ public class InventoryManager : Singleton<InventoryManager>
 
         inputManager.OnItemNextEvent.AddListener(HandleItemNextInput);
         inputManager.OnItemPrevEvent.AddListener(HandleItemPrevInput);
-        inputManager.OnToggleFlashlightEvent.AddListener(ToggleFlashlight);
 
     }
 
@@ -70,6 +62,11 @@ public class InventoryManager : Singleton<InventoryManager>
     #region Changing Equipped Items
     private void ChangeEquipment(int itemIndex)
     {
+        if(CheckIfHoldingCable())
+        {
+            DestroyHeldCable();
+        }
+        
         _currentIndex = itemIndex;
 
         ToggleMarkers();
@@ -82,30 +79,6 @@ public class InventoryManager : Singleton<InventoryManager>
         ChangeEquipment(0);
     }
 
-    public void ToggleFlashlight()
-    {
-        if (_isFlashlightOn)
-        {
-            _isFlashlightOn = false;
-            _flashlightObject.SetActive(false);
-            _flashlightOffMarker.SetActive(true);
-            _flashlightOnMarker.SetActive(false);
-        }
-        else if (!_isFlashlightOn)
-        {
-            _isFlashlightOn = true;
-            _flashlightObject.SetActive(true);
-            _flashlightOffMarker.SetActive(false);
-            _flashlightOnMarker.SetActive(true);
-        }
-    }
-
-    public void ResetFlashlight()
-    {
-        _flashlightObject.SetActive(false);
-        _flashlightOffMarker.SetActive(true);
-        _flashlightOnMarker.SetActive(false);
-    }
     #endregion
 
     #region Cable Related Functions
