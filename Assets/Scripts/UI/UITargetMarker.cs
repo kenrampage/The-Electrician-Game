@@ -4,18 +4,18 @@ using UnityEngine;
 public class UITargetMarker : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GameObject redMarker;
-    [SerializeField] private GameObject greenMarker;
+    [SerializeField] private GameObject _offMarker;
+    [SerializeField] private GameObject _onMarker;
 
     public void TurnOn()
     {
-        redMarker.SetActive(false);
-        greenMarker.SetActive(true);
+        _offMarker.SetActive(false);
+        _onMarker.SetActive(true);
     }
 
     public void TurnOff()
     {
-        redMarker.SetActive(true);
-        greenMarker.SetActive(false);
+        _offMarker.SetActive(true);
+        _onMarker.SetActive(false);
     }
 }

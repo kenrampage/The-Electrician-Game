@@ -12,7 +12,7 @@ namespace RampageUtils.UI
         [SerializeField] private GameObject _pauseUI;
 
         private Anim_ClipboardVert _startUIAnim;
-        private Anim_ClipboardVert _gameUIAnim;
+        private Anim_EquipPanel _gameUIAnim;
         private Anim_ClipboardVert _endUIAnim;
         private Anim_ClipboardVert _pauseUIAnim;
 
@@ -24,7 +24,7 @@ namespace RampageUtils.UI
         private void GetAnimReferences()
         {
             _startUIAnim = _startUI.GetComponent<Anim_ClipboardVert>();
-            _gameUIAnim = _gameUI.GetComponent<Anim_ClipboardVert>();
+            _gameUIAnim = _gameUI.GetComponent<Anim_EquipPanel>();
             _endUIAnim = _endUI.GetComponent<Anim_ClipboardVert>();
             _pauseUIAnim = _pauseUI.GetComponent<Anim_ClipboardVert>();
         }
@@ -40,6 +40,7 @@ namespace RampageUtils.UI
         {
             AllUIOff();
             _gameUI.SetActive(true);
+            _gameUIAnim.EquipPanelIn();
         }
 
         public void PauseUIOn()
@@ -63,7 +64,7 @@ namespace RampageUtils.UI
 
         public void GameUIOff()
         {
-            _gameUI.SetActive(false);
+            _gameUIAnim.EquipPanelOut();
         }
 
 

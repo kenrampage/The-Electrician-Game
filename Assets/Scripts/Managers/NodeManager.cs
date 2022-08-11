@@ -37,6 +37,7 @@ public class NodeManager : Singleton<NodeManager>
     private void CalcTotalNodes()
     {
         _totalTargetNodes = _targetNodes.Length;
+        print(_totalTargetNodes);
     }
 
     // Checks power status of all target nodes
@@ -72,6 +73,11 @@ public class NodeManager : Singleton<NodeManager>
     public int GetCompletedTargetNodes()
     {
         return _completedTargetNodes;
+    }
+
+    public int GetTotalTargetNodes()
+    {
+        return _totalTargetNodes;
     }
 
     public void AddConnectedNode(Node node)
