@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 7301747564293800526}
   - component: {fileID: 6758559333299237689}
   - component: {fileID: 8290591014546143367}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Red Back
-  m_TagString: Untagged
+  m_TagString: Wirable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 87
   m_IsActive: 1
 --- !u!4 &7301747564293800526
 Transform:
@@ -94,12 +94,12 @@ GameObject:
   - component: {fileID: 289766597407933051}
   - component: {fileID: 320425872753756747}
   - component: {fileID: 313109889282415465}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Red Front
-  m_TagString: Untagged
+  m_TagString: Wirable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 87
   m_IsActive: 1
 --- !u!4 &289766597407933051
 Transform:
@@ -175,12 +175,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2819214671625170915}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Power On Icon
-  m_TagString: Untagged
+  m_TagString: Wirable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 87
   m_IsActive: 0
 --- !u!4 &2819214671625170915
 Transform:
@@ -213,10 +213,10 @@ GameObject:
   - component: {fileID: 7348935277890273753}
   m_Layer: 13
   m_Name: Target Xray Cube
-  m_TagString: Untagged
+  m_TagString: Wirable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 87
   m_IsActive: 0
 --- !u!4 &1003218660612623431
 Transform:
@@ -227,7 +227,7 @@ Transform:
   m_GameObject: {fileID: 3615617520335211247}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6413411078171274238}
@@ -305,12 +305,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3740742924852256281}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Power Off Icon
-  m_TagString: Untagged
+  m_TagString: Wirable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 87
   m_IsActive: 1
 --- !u!4 &3740742924852256281
 Transform:
@@ -340,12 +340,12 @@ GameObject:
   - component: {fileID: 6413411077398730895}
   - component: {fileID: 6413411077398730993}
   - component: {fileID: 6413411077398730992}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Cube Grey
-  m_TagString: Node
+  m_TagString: Wirable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 87
   m_IsActive: 1
 --- !u!4 &6413411077398730895
 Transform:
@@ -429,12 +429,12 @@ GameObject:
   - component: {fileID: 6413411078171274232}
   - component: {fileID: 468839880494762207}
   - component: {fileID: 2060929326371942155}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Target Node
-  m_TagString: Node
+  m_TagString: Wirable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 87
   m_IsActive: 1
 --- !u!4 &6413411078171274238
 Transform:
@@ -565,7 +565,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Size: {x: 1.25, y: 1.25, z: 1.25}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &468839880494762207
 MonoBehaviour:
@@ -607,12 +607,12 @@ GameObject:
   - component: {fileID: 6413411078277288120}
   - component: {fileID: 6413411078277288119}
   - component: {fileID: 6413411078277288118}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Green Front
-  m_TagString: Untagged
+  m_TagString: Wirable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 87
   m_IsActive: 1
 --- !u!4 &6413411078277288120
 Transform:
@@ -690,12 +690,12 @@ GameObject:
   - component: {fileID: 5804938919688753780}
   - component: {fileID: 1478617754057633880}
   - component: {fileID: 5718721668147077219}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Green Back
-  m_TagString: Untagged
+  m_TagString: Wirable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 87
   m_IsActive: 1
 --- !u!4 &5804938919688753780
 Transform:

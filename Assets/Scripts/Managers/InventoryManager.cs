@@ -12,6 +12,7 @@ public class InventoryManager : Singleton<InventoryManager>
     [SerializeField] private List<GameObject> _uiMarkersList;
     [SerializeField] private List<GameObject> _cursorList;
     [SerializeField] private List<LayerMask> _layerMasksList;
+    [SerializeField] private List<string> _tagsList;
 
     private PlayerInteract _playerInteract;
     private GameObject _heldCable;
@@ -158,6 +159,12 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         return _layerMasksList[_currentIndex];
     }
+
+    public string GetCurrentTag()
+    {
+        return _tagsList[_currentIndex];
+    }
+
     #endregion
 
     #region UI

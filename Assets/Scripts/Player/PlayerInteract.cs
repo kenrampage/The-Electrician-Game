@@ -57,10 +57,20 @@ public class PlayerInteract : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, 5f, _inventoryManager.GetCurrentLayerMask()))
         {
-            _inventoryManager.TurnReticleOff();
-            _currentTarget = hit.transform.gameObject;
+            if (hit.collider.CompareTag(_inventoryManager.GetCurrentTag()))
+            {
+                _inventoryManager.TurnReticleOff();
+                _currentTarget = hit.transform.gameObject;
 
-            SetCursorPosition(hit.point);
+                SetCursorPosition(hit.point);
+            }
+            else
+            {
+                _inventoryManager.TurnReticleOn();
+                _currentTarget = null;
+
+                SetCursorLocalPosition(_cursorHiddenPosition);
+            }
 
         }
         else

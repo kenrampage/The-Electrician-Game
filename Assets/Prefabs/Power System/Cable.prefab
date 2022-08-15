@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8577266238475123881}
   m_Layer: 9
   m_Name: Cable
-  m_TagString: Cursor
+  m_TagString: Wirable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86fd8955d9ac0f4084188d8cb08b53e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cableCollision: {fileID: 1065739896}
 --- !u!114 &1951279956131377030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,8 +65,7 @@ MonoBehaviour:
   _startPoint: {fileID: 1951279956536739997}
   _endPoint: {fileID: 1951279956965110951}
   _cableBody: {fileID: 1951279957504453508}
-  editMode: 0
-  previewMode: 0
+  _maxCableLength: 4
 --- !u!114 &8577266238475123881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,9 +291,9 @@ GameObject:
   - component: {fileID: 1951279957504453506}
   - component: {fileID: 2171968058111802628}
   - component: {fileID: 1065739896}
-  m_Layer: 9
+  m_Layer: 2
   m_Name: Cable Body
-  m_TagString: Cable
+  m_TagString: Wirable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -406,3 +406,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cable: {fileID: 3895215058295337098}
+  _selectableMask: Wirable
+  _passthroughMask: Ignore Raycast

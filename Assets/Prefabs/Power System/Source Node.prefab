@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 22
   m_IsActive: 0
 --- !u!4 &841204068491365904
 Transform:
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2835104887715183799}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2899508280377478370}
@@ -114,12 +114,12 @@ GameObject:
   - component: {fileID: 2899508280377478170}
   - component: {fileID: 8147501764415479482}
   - component: {fileID: 6186065153313253821}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Source Node
-  m_TagString: Node
+  m_TagString: Wirable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 22
   m_IsActive: 1
 --- !u!4 &2899508280377478370
 Transform:
@@ -249,7 +249,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Size: {x: 1.25, y: 1.25, z: 1.25}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8147501764415479482
 MonoBehaviour:
@@ -291,12 +291,12 @@ GameObject:
   - component: {fileID: 3375722127327558535}
   - component: {fileID: 2327204998393996383}
   - component: {fileID: 6427552306661924006}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Lightning Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 22
   m_IsActive: 1
 --- !u!4 &3375722127327558535
 Transform:
@@ -372,12 +372,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6776449652453056810}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Icon
-  m_TagString: Untagged
+  m_TagString: Wirable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 22
   m_IsActive: 1
 --- !u!4 &6776449652453056810
 Transform:
@@ -407,12 +407,12 @@ GameObject:
   - component: {fileID: 7061759627011412879}
   - component: {fileID: 7061759627011412877}
   - component: {fileID: 7061759627011412878}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Cube
-  m_TagString: Node
+  m_TagString: Wirable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 22
   m_IsActive: 1
 --- !u!4 &7061759627011412879
 Transform:
@@ -490,12 +490,12 @@ GameObject:
   - component: {fileID: 7065923762410155490}
   - component: {fileID: 7095253999796148138}
   - component: {fileID: 7084837760537007266}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Lighting Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 22
   m_IsActive: 1
 --- !u!4 &7065923762410155490
 Transform:

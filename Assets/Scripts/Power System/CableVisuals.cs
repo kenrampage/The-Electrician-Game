@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // Handles swapping materials of cable
-public class CableMaterials : MonoBehaviour
+public class CableVisuals : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private MeshRenderer _cableMesh;

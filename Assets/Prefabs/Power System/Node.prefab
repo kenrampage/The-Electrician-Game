@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 784043423}
   - component: {fileID: 784043425}
   - component: {fileID: 784043424}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Power Plug Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 87
   m_IsActive: 1
 --- !u!4 &784043423
 Transform:
@@ -92,12 +92,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 961131875540355081}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 87
   m_IsActive: 1
 --- !u!4 &961131875540355081
 Transform:
@@ -127,12 +127,12 @@ GameObject:
   - component: {fileID: 1886833037609497794}
   - component: {fileID: 1894170687086593248}
   - component: {fileID: 1903842900911659570}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Power Plug Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 87
   m_IsActive: 1
 --- !u!4 &1886833037609497794
 Transform:
@@ -210,12 +210,12 @@ GameObject:
   - component: {fileID: 1891268002789298742}
   - component: {fileID: 1891268002789298741}
   - component: {fileID: 1891268002789298740}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Sphere Yellow
   m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 87
   m_IsActive: 0
 --- !u!4 &1891268002789298742
 Transform:
@@ -296,12 +296,12 @@ GameObject:
   - component: {fileID: 1891268003021475916}
   - component: {fileID: 1891268003021475907}
   - component: {fileID: -4953873444062558362}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Node
-  m_TagString: Node
+  m_TagString: Wirable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 87
   m_IsActive: 1
 --- !u!4 &1891268003021475912
 Transform:
@@ -347,7 +347,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Size: {x: 1.25, y: 1.25, z: 1.25}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1891268003021475916
 MonoBehaviour:
@@ -410,12 +410,12 @@ GameObject:
   - component: {fileID: 1891268003053870038}
   - component: {fileID: 1891268003053870037}
   - component: {fileID: 1891268003053870036}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Sphere Grey
   m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 87
   m_IsActive: 1
 --- !u!4 &1891268003053870038
 Transform:
@@ -491,12 +491,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 125181568522262727}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 87
   m_IsActive: 1
 --- !u!4 &125181568522262727
 Transform:
