@@ -8,8 +8,12 @@ public class CableTransform : MonoBehaviour
     [SerializeField] private GameObject _endPoint;
     [SerializeField] private GameObject _cableBody;
 
+    [Header("Settings")]
+    [SerializeField] private float _maxCableLength;
+
     private Vector3 _initialScale;
-    
+    private float _currentLength;
+
     private Cable _cable;
 
     private bool _isEditModeOn;
@@ -26,6 +30,8 @@ public class CableTransform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         if (_isPreviewModeOn)
         {
             SetCableTransform();
@@ -33,17 +39,24 @@ public class CableTransform : MonoBehaviour
         else if (_isEditModeOn)
         {
             SetCableTransform();
+
+            if (_currentLength >= _maxCableLength)
+            {
+                _cable.DestroyCable();
+                return;
+            }
+
             _endPoint.transform.position = PlayerHoldPosition.Position;
         }
     }
 
     private void SetCableTransform()
-    {   
-        //Get distance between points
-        float distance = Vector3.Distance(_startPoint.transform.position, _endPoint.transform.position);
+    {
+        //Get _currentLength between points
+        _currentLength = Vector3.Distance(_startPoint.transform.position, _endPoint.transform.position);
 
-        //sets scale based on distance between points
-        _cableBody.transform.localScale = new Vector3(_initialScale.x, distance / 2f, _initialScale.z);
+        //sets scale based on _currentLength between points
+        _cableBody.transform.localScale = new Vector3(_initialScale.x, _currentLength / 2f, _initialScale.z);
 
         //Gets position direction in the middle between points
         Vector3 middlePoint = (_startPoint.transform.position + _endPoint.transform.position) / 2f;
@@ -56,7 +69,6 @@ public class CableTransform : MonoBehaviour
         _cableBody.transform.up = rotationDir;
 
     }
-
 
     #region Bool set/get methods
     private void EditModeOn()

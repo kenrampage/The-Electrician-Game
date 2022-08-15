@@ -1,11 +1,15 @@
 using UnityEngine;
 
 // Primary class for handling cable interactions and directing changes in other cable classes
-[RequireComponent(typeof(CableTransform)), RequireComponent(typeof(CableMaterials))]
+[RequireComponent(typeof(CableTransform)), RequireComponent(typeof(CableVisuals))]
 public class Cable : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private CableCollision _cableCollision;
     private CableTransform _cableTransform;
-    private CableMaterials _cableMaterials;
+    private CableVisuals _cableVisuals;
+    
+
     private NodeManager _nodeManager;
 
     private Node _sourceNode;
@@ -17,7 +21,7 @@ public class Cable : MonoBehaviour
     private void OnEnable()
     {
         _nodeManager = NodeManager.Instance;
-        _cableMaterials = GetComponent<CableMaterials>();
+        _cableVisuals = GetComponent<CableVisuals>();
         _cableTransform = GetComponent<CableTransform>();
         InputManager.Instance.OnCancelEvent.AddListener(HandleCancelInput);
     }
@@ -30,13 +34,14 @@ public class Cable : MonoBehaviour
         SetSourceNode(node);
         _cableTransform.SetStartPosition(transform.position);
         _cableTransform.Edit();
+        _cableCollision.SetPassthroughMask();
     }
 
     // Preview on end node while holding cable and hovering over a node
     public void PreviewAtEndNodeOn(Node node)
     {
         _cableTransform.Preview(node.transform.position);
-        _cableMaterials.PreviewOn();
+        _cableVisuals.PreviewOn();
     }
 
     // Stop previewing when holding cable and no longer hovering over end node
@@ -58,10 +63,13 @@ public class Cable : MonoBehaviour
         _nodeManager.AddConnectedNode(_sourceNode);
         _nodeManager.AddConnectedNode(_endNode);
 
-        _cableMaterials.DefaultOn();
+        _cableVisuals.DefaultOn();
         _cableTransform.Install();
 
         InventoryManager.Instance.DropCable();
+
+        _cableCollision.SetSelectableMask();
+        
     }
 
     // Disconnect from end node and hold cable after interacting with the body of an installed cabled
@@ -77,6 +85,8 @@ public class Cable : MonoBehaviour
         InventoryManager.Instance.PickupCable(this.gameObject);
 
         ClearEndNode();
+
+        _cableCollision.SetPassthroughMask();
     }
 
     // Destroy cable while holding cable and cancelling (right click)
@@ -181,13 +191,13 @@ public class Cable : MonoBehaviour
     public void CollisionOn()
     {
         _isColliding = true;
-        _cableMaterials.CollisionOn();
+        _cableVisuals.CollisionOn();
     }
 
     public void CollisionOff()
     {
         _isColliding = false;
-        _cableMaterials.PreviewOn();
+        _cableVisuals.PreviewOn();
     }
 
     public bool CheckIfColliding()
@@ -200,7 +210,7 @@ public class Cable : MonoBehaviour
         if (!InventoryManager.Instance.CheckIfHoldingCable())
         {
             _isSelected = true;
-            _cableMaterials.HighlightOn();
+            _cableVisuals.HighlightOn();
         }
     }
 
@@ -209,7 +219,7 @@ public class Cable : MonoBehaviour
         if (!InventoryManager.Instance.CheckIfHoldingCable())
         {
             _isSelected = false;
-            _cableMaterials.DefaultOn();
+            _cableVisuals.DefaultOn();
         }
     }
 

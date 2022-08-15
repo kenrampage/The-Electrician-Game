@@ -6,6 +6,10 @@ public class CableCollision : MonoBehaviour, IInteractable
     [Header("References")]
     [SerializeField] private Cable _cable;
 
+    [Header("Settings")]
+    [SerializeField] private string _selectableMask;
+    [SerializeField] private string _passthroughMask;
+
     private string _wallTag = "Wall";
     private string _cursorTag = "Cursor";
 
@@ -40,6 +44,16 @@ public class CableCollision : MonoBehaviour, IInteractable
 
     public void Cancel()
     {
+        
+    }
 
+    public void SetSelectableMask()
+    {
+        gameObject.layer = LayerMask.NameToLayer(_selectableMask);
+    }
+
+    public void SetPassthroughMask()
+    {
+        gameObject.layer = LayerMask.NameToLayer(_passthroughMask);
     }
 }
