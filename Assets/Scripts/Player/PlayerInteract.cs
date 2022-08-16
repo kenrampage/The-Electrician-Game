@@ -9,6 +9,10 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private int _pointerItemIndex = 0;
     [SerializeField] private int _wiringItemIndex = 3;
 
+    [Header("Cursor Animation")]
+    [SerializeField] private Animation _handAnim;
+    [SerializeField] private Animation _wireAnim;
+
     private Camera _camera;
 
     private GameObject _currentTarget;
@@ -37,7 +41,7 @@ public class PlayerInteract : MonoBehaviour
 
     public void Interact()
     {
-        if (_inventoryManager.CheckIfMatchCurrentIndex(_pointerItemIndex) || _inventoryManager.CheckIfMatchCurrentIndex(_wiringItemIndex))
+        if (_inventoryManager.CheckIfMatchCurrentIndex(_pointerItemIndex))
         {
             if (_currentTarget == null) return;
 
@@ -45,6 +49,18 @@ public class PlayerInteract : MonoBehaviour
 
             if (interactable == null) return;
 
+            _handAnim.Play();
+            interactable.Interact();
+        }
+        else if (_inventoryManager.CheckIfMatchCurrentIndex(_wiringItemIndex))
+        {
+            if (_currentTarget == null) return;
+
+            var interactable = _currentTarget.GetComponent<IInteractable>();
+
+            if (interactable == null) return;
+
+            _wireAnim.Play();
             interactable.Interact();
         }
 
