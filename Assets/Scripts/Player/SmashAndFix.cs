@@ -7,6 +7,10 @@ public class SmashAndFix : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject _smasherObject;
     [SerializeField] private GameObject _fixerObject;
+    [Space(10)]
+    [SerializeField] private ParticleSystem _particleSystem;
+    [SerializeField] private Vector3 _particlePositionOffset;
+
 
     [Header("Settings")]
     [SerializeField] private float _interactDuration = .1f;
@@ -39,6 +43,9 @@ public class SmashAndFix : MonoBehaviour
             _smasherObject.SetActive(true);
             _smasherObject.transform.position = _playerInteract.GetCursorPosition();
 
+            // Play Particle
+            Instantiate<ParticleSystem>(_particleSystem, _playerInteract.GetCursorPosition() + _particlePositionOffset, _playerInteract.GetCursorRotation());
+
             // wait
             yield return new WaitForSecondsRealtime(_interactDuration);
 
@@ -62,6 +69,9 @@ public class SmashAndFix : MonoBehaviour
             // Turns on object and sets its position to the position of the player's cursor
             _fixerObject.SetActive(true);
             _fixerObject.transform.position = _playerInteract.GetCursorPosition();
+
+            // Play Particle
+            Instantiate<ParticleSystem>(_particleSystem, _playerInteract.GetCursorPosition() + _particlePositionOffset, _playerInteract.GetCursorRotation());
 
             // wait
             yield return new WaitForSecondsRealtime(_interactDuration);

@@ -104,6 +104,11 @@ public class PlayerInteract : MonoBehaviour
     {
         _cursorObject = go;
     }
+
+    public Quaternion GetCursorRotation()
+    {
+        return _cursorObject.transform.rotation;
+    }
     #endregion
 
 }
