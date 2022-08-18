@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using System.Collections.Generic;
 
 public enum InputDeviceType
 {
@@ -22,7 +23,6 @@ public class InputManager : Singleton<InputManager>
     [HideInInspector] public UnityEvent OnItemPrevEvent;
     [HideInInspector] public UnityEvent OnInteractEvent;
     [HideInInspector] public UnityEvent OnCancelEvent;
-    [HideInInspector] public UnityEvent OnToggleFlashlightEvent;
     [HideInInspector] public UnityEvent OnToggleXrayEvent;
     #endregion
 
@@ -143,11 +143,6 @@ public class InputManager : Singleton<InputManager>
     public void OnPrevItem(InputValue value)
     {
         OnItemPrevEvent?.Invoke();
-    }
-
-    public void OnFlashlight(InputValue value)
-    {
-        OnToggleFlashlightEvent?.Invoke();
     }
 
     public void OnXray(InputValue value)
