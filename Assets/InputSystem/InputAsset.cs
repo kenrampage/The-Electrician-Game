@@ -100,15 +100,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Flashlight"",
-                    ""type"": ""Button"",
-                    ""id"": ""d6373d7f-6851-45f9-b078-c3d6c3043b4d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Xray"",
                     ""type"": ""Button"",
                     ""id"": ""c96aa1c6-0055-477e-9a60-25e46efa96ef"",
@@ -210,7 +201,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""id"": ""d1d171b6-19d8-47a6-ba3a-71b6a8e7b3c0"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": ""InvertVector2(invertX=false),StickDeadzone,ScaleVector2(x=300,y=300)"",
+                    ""processors"": ""InvertVector2(invertX=false),StickDeadzone(min=0.001,max=0.925),ScaleVector2(x=0.5,y=0.5)"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
@@ -255,7 +246,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad;Xbox Controller;PS4 Controller"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -277,29 +268,18 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""548933f8-0cbd-454a-b080-8cfc7742f70d"",
-                    ""path"": ""<Keyboard>/tab"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardMouse"",
-                    ""action"": ""NextItem"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""c86882e1-8e69-489c-9aee-d20bd6f6244f"",
-                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""NextItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -318,10 +298,10 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6905af15-faf7-4114-ad70-fb64d7eee892"",
-                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""PrevItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -334,28 +314,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PrevItem"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""26614fa1-1ef2-4019-ae5e-14cab4e54404"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Flashlight"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d1457d30-d215-4506-9aac-05e684c1fda8"",
-                    ""path"": ""<Gamepad>/select"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Flashlight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -399,6 +357,17 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f18ff24d-96ea-4885-a35a-c4a07983d6bb"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -494,7 +463,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_NextItem = m_Player.FindAction("NextItem", throwIfNotFound: true);
         m_Player_PrevItem = m_Player.FindAction("PrevItem", throwIfNotFound: true);
-        m_Player_Flashlight = m_Player.FindAction("Flashlight", throwIfNotFound: true);
         m_Player_Xray = m_Player.FindAction("Xray", throwIfNotFound: true);
         m_Player_EndTest = m_Player.FindAction("EndTest", throwIfNotFound: true);
         // Menu
@@ -567,7 +535,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_NextItem;
     private readonly InputAction m_Player_PrevItem;
-    private readonly InputAction m_Player_Flashlight;
     private readonly InputAction m_Player_Xray;
     private readonly InputAction m_Player_EndTest;
     public struct PlayerActions
@@ -582,7 +549,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @NextItem => m_Wrapper.m_Player_NextItem;
         public InputAction @PrevItem => m_Wrapper.m_Player_PrevItem;
-        public InputAction @Flashlight => m_Wrapper.m_Player_Flashlight;
         public InputAction @Xray => m_Wrapper.m_Player_Xray;
         public InputAction @EndTest => m_Wrapper.m_Player_EndTest;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -618,9 +584,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @PrevItem.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrevItem;
                 @PrevItem.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrevItem;
                 @PrevItem.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrevItem;
-                @Flashlight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlashlight;
-                @Flashlight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlashlight;
-                @Flashlight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlashlight;
                 @Xray.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnXray;
                 @Xray.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnXray;
                 @Xray.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnXray;
@@ -655,9 +618,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @PrevItem.started += instance.OnPrevItem;
                 @PrevItem.performed += instance.OnPrevItem;
                 @PrevItem.canceled += instance.OnPrevItem;
-                @Flashlight.started += instance.OnFlashlight;
-                @Flashlight.performed += instance.OnFlashlight;
-                @Flashlight.canceled += instance.OnFlashlight;
                 @Xray.started += instance.OnXray;
                 @Xray.performed += instance.OnXray;
                 @Xray.canceled += instance.OnXray;
@@ -747,7 +707,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnNextItem(InputAction.CallbackContext context);
         void OnPrevItem(InputAction.CallbackContext context);
-        void OnFlashlight(InputAction.CallbackContext context);
         void OnXray(InputAction.CallbackContext context);
         void OnEndTest(InputAction.CallbackContext context);
     }

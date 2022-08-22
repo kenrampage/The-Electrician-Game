@@ -103,4 +103,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4c4cb721f33cc4487603bf786b4fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectOnEnable: 1
+  _isSelectedOnEnable: 1

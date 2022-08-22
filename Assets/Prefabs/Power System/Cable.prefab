@@ -79,10 +79,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cableMesh: {fileID: 1951279957504453507}
-  _defaultMaterial: {fileID: 2100000, guid: 2775b05dd71f6324697fc277750ecedd, type: 2}
-  _previewMaterial: {fileID: 2100000, guid: 3b363c9272281594b83f18764bf0552c, type: 2}
-  _collisionMaterial: {fileID: 2100000, guid: 18ba7c8e0a68991469cafc038bd2114a, type: 2}
-  _highlightMaterial: {fileID: 2100000, guid: 7a0c1ed6d56f5cc43af0dabcf8b279f4, type: 2}
+  _defaultMaterial: {fileID: 2100000, guid: 8a9d97b6ebfd3d040871f43963a70697, type: 2}
+  _previewMaterial: {fileID: 2100000, guid: 5cb8db46821e46c40aa5ab8e89e00156, type: 2}
+  _collisionMaterial: {fileID: 2100000, guid: 629f7e921fe35194a8ddf933cec0667f, type: 2}
+  _highlightMaterial: {fileID: 2100000, guid: f2d0238d50527f14591250b9d3483eb1, type: 2}
 --- !u!1 &1951279956536739997
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,7 +145,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 245301bcb5f610f4d8e396abc2e1060f, type: 2}
+  - {fileID: 2100000, guid: 3195e394a706f164da6a7b805d23d60c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -242,7 +242,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 245301bcb5f610f4d8e396abc2e1060f, type: 2}
+  - {fileID: 2100000, guid: 3195e394a706f164da6a7b805d23d60c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
