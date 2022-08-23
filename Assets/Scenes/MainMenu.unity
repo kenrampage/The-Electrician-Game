@@ -1376,7 +1376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isRumbleOn: 1
-  _rumbleAmount: {x: 0.005, y: 0.005, z: 0.005}
+  _rumbleAmount: {x: 0.003, y: 0.003, z: 0.003}
   _rumbleObject: {fileID: 1884971151}
 --- !u!43 &269941480
 Mesh:
@@ -2120,7 +2120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isRumbleOn: 1
-  _rumbleAmount: {x: 0.008, y: 0.008, z: 0.008}
+  _rumbleAmount: {x: 0.005, y: 0.005, z: 0.005}
   _rumbleObject: {fileID: 1733900044722599}
 --- !u!4 &400104412
 Transform:
@@ -19818,5 +19818,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button_Hidden
       objectReference: {fileID: 0}
+    - target: {fileID: 3580450064901447755, guid: 4e69916a8166c5842b6c67cb809e417b, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3580450064901447755, guid: 4e69916a8166c5842b6c67cb809e417b, type: 3}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 2048591534}
+    - target: {fileID: 3580450064901447755, guid: 4e69916a8166c5842b6c67cb809e417b, type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 2048591534}
+    - target: {fileID: 3580450064901447755, guid: 4e69916a8166c5842b6c67cb809e417b, type: 3}
+      propertyPath: m_Navigation.m_SelectOnLeft
+      value: 
+      objectReference: {fileID: 2048591534}
+    - target: {fileID: 3580450064901447755, guid: 4e69916a8166c5842b6c67cb809e417b, type: 3}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
+      objectReference: {fileID: 2048591534}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e69916a8166c5842b6c67cb809e417b, type: 3}

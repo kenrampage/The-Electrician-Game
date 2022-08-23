@@ -76,7 +76,7 @@ public class FirstPersonController : MonoBehaviour
         if (_inputManager.LookInput.sqrMagnitude >= _inputThreshold)
         {
             //Don't multiply mouse input by Time.deltaTime
-            float deltaTimeMultiplier = _inputManager.CurrentInputDevice == InputDeviceType.MKB ? 1.0f : Time.deltaTime;
+            float deltaTimeMultiplier = _inputManager.CurrentInputDeviceType == InputDeviceType.MKB ? 1.0f : Time.deltaTime;
 
             _cinemachineTargetPitch += _inputManager.LookInput.y * RotationSpeed * deltaTimeMultiplier;
             _rotationVelocity = _inputManager.LookInput.x * RotationSpeed * deltaTimeMultiplier;
