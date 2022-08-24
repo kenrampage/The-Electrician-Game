@@ -60,7 +60,7 @@ public class InputManager : Singleton<InputManager>
         get { return _isAnalogInput; }
     }
 
-    private InputDeviceType _currentInputDeviceType;
+    [SerializeField] private InputDeviceType _currentInputDeviceType;
     public InputDeviceType CurrentInputDeviceType
     {
         get { return _currentInputDeviceType; }
