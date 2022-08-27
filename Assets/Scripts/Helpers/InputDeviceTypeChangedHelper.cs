@@ -19,7 +19,7 @@ public class InputDeviceTypeChangedHelper : MonoBehaviour
         _inputManager.OnInputDeviceTypeChanged.AddListener(HandleInputDeviceTypeChanged);
     }
 
-    private void HandleInputDeviceTypeChanged()
+    public void HandleInputDeviceTypeChanged()
     {
         switch (_inputManager.CurrentInputDeviceType)
         {
