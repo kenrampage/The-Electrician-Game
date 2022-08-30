@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using System.Collections.Generic;
 
 public enum InputDeviceType
 {
     MKB,
-    XBOX,
+    GAMEPAD,
 }
 
 [RequireComponent(typeof(PlayerInput))]
@@ -22,8 +23,8 @@ public class InputManager : Singleton<InputManager>
     [HideInInspector] public UnityEvent OnItemPrevEvent;
     [HideInInspector] public UnityEvent OnInteractEvent;
     [HideInInspector] public UnityEvent OnCancelEvent;
-    [HideInInspector] public UnityEvent OnToggleFlashlightEvent;
     [HideInInspector] public UnityEvent OnToggleXrayEvent;
+    [HideInInspector] public UnityEvent OnInputDeviceTypeChanged;
     #endregion
 
     private PlayerInput _playerInput;
@@ -53,23 +54,25 @@ public class InputManager : Singleton<InputManager>
         get { return _jumpInput; }
     }
 
-    private InputDeviceType _currentInputDevice = InputDeviceType.MKB;
-    public InputDeviceType CurrentInputDevice
-    {
-        get { return _currentInputDevice; }
-    }
-
     private bool _isAnalogInput = false;
     public bool IsAnalogInput
     {
         get { return _isAnalogInput; }
     }
+
+    [SerializeField] private InputDeviceType _currentInputDeviceType;
+    public InputDeviceType CurrentInputDeviceType
+    {
+        get { return _currentInputDeviceType; }
+    }
     #endregion
+
 
     private void Awake()
     {
-        _playerInput = GetComponent<PlayerInput>();
+        TryGetReferences();
     }
+
 
     // Various functions for changing user input settings
     #region Input Settings
@@ -95,10 +98,12 @@ public class InputManager : Singleton<InputManager>
     #endregion
 
     #region Receive Messages from Player Input component
-    // public void OnControlsChanged(InputValue value)
-    // {
-    //     // handle changes to input device
-    // }
+    public void OnControlsChanged()
+    {
+        TryGetReferences();
+        ControlSchemeToInputDeviceType();
+        OnInputDeviceTypeChanged?.Invoke();
+    }
 
     public void OnMove(InputValue value)
     {
@@ -145,11 +150,6 @@ public class InputManager : Singleton<InputManager>
         OnItemPrevEvent?.Invoke();
     }
 
-    public void OnFlashlight(InputValue value)
-    {
-        OnToggleFlashlightEvent?.Invoke();
-    }
-
     public void OnXray(InputValue value)
     {
         OnToggleXrayEvent?.Invoke();
@@ -160,5 +160,36 @@ public class InputManager : Singleton<InputManager>
         OnEndTestEvent?.Invoke();
     }
     #endregion
+
+    private void TryGetReferences()
+    {
+        if (_playerInput == null)
+        {
+            _playerInput = GetComponent<PlayerInput>();
+        }
+    }
+
+    // Gets the current control scheme from player input and populates the InputDeviceType field
+    private void ControlSchemeToInputDeviceType()
+    {
+        switch (_playerInput.currentControlScheme)
+        {
+            case "KeyboardMouse":
+                _currentInputDeviceType = InputDeviceType.MKB;
+                break;
+
+            case "Gamepad":
+                _currentInputDeviceType = InputDeviceType.GAMEPAD;
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    public void ForceInputDeviceTypeUpdate()
+    {
+        OnInputDeviceTypeChanged?.Invoke();
+    }
 
 }

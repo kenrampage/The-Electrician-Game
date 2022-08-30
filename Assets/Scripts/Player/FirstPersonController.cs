@@ -6,31 +6,26 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class FirstPersonController : MonoBehaviour
 {
+    [Header("Settings Scriptable Object")]
+    [SerializeField] private SOSettings _settings;
+
     [Header("Player Settings")]
-    [Tooltip("Move speed of the character in m/s")]
-    public float MoveSpeed = 4.0f;
-    [Tooltip("Sprint speed of the character in m/s")]
-    public float SprintSpeed = 6.0f;
-    [Tooltip("Rotation speed of the character")]
-    public float RotationSpeed = 1.0f;
-    [Tooltip("Acceleration and deceleration")]
-    public float SpeedChangeRate = 10.0f;
-    [Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
-    public float GravityPower = -.5f;
+    [SerializeField] private float _moveSpeed = 4.0f;
+    [SerializeField] private float _sprintSpeed = 6.0f;
+    [SerializeField] private float _lookSensitivity = 1.0f;
+    [SerializeField] private float _moveSpeedChangeRate = 10.0f;
+    [SerializeField] private float _gravityPower = -.5f;
 
     [Header("Camera Settings")]
-    [Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
-    public GameObject CinemachineCameraTarget;
-    [Tooltip("How far in degrees can you move the camera up")]
-    public float TopClamp = 90.0f;
-    [Tooltip("How far in degrees can you move the camera down")]
-    public float BottomClamp = -90.0f;
+    [SerializeField] private GameObject _cinemachineCameraTarget;
+    [SerializeField] private float _topClamp = 90.0f;
+    [SerializeField] private float _bottomClamp = -90.0f;
 
     // cinemachine
     private float _cinemachineTargetPitch;
 
     // player
-    private float _moveSpeed;
+    private float _currentMoveSpeed;
     private float _rotationVelocity;
     private float _verticalVelocity;
     private float _terminalVelocity = 53.0f;
@@ -50,6 +45,8 @@ public class FirstPersonController : MonoBehaviour
         {
             _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         }
+
+        _settings.OnLookSensitivityChanged.AddListener(HandleLookSensitivityChanged);
     }
 
     private void Start()
@@ -70,22 +67,27 @@ public class FirstPersonController : MonoBehaviour
         CameraRotation();
     }
 
+    private void HandleLookSensitivityChanged()
+    {
+        _lookSensitivity = _settings.GetLookSensitivity();
+    }
+
     private void CameraRotation()
     {
         // if there is an input
         if (_inputManager.LookInput.sqrMagnitude >= _inputThreshold)
         {
             //Don't multiply mouse input by Time.deltaTime
-            float deltaTimeMultiplier = _inputManager.CurrentInputDevice == InputDeviceType.MKB ? 1.0f : Time.deltaTime;
+            float deltaTimeMultiplier = _inputManager.CurrentInputDeviceType == InputDeviceType.MKB ? 1.0f : Time.deltaTime;
 
-            _cinemachineTargetPitch += _inputManager.LookInput.y * RotationSpeed * deltaTimeMultiplier;
-            _rotationVelocity = _inputManager.LookInput.x * RotationSpeed * deltaTimeMultiplier;
+            _cinemachineTargetPitch += _inputManager.LookInput.y * _lookSensitivity * deltaTimeMultiplier;
+            _rotationVelocity = _inputManager.LookInput.x * _lookSensitivity * deltaTimeMultiplier;
 
             // clamp our pitch rotation
-            _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
+            _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, _bottomClamp, _topClamp);
 
             // Update Cinemachine camera target pitch
-            CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(_cinemachineTargetPitch, 0.0f, 0.0f);
+            _cinemachineCameraTarget.transform.localRotation = Quaternion.Euler(_cinemachineTargetPitch, 0.0f, 0.0f);
 
             // rotate the player left and right
             transform.Rotate(Vector3.up * _rotationVelocity);
@@ -95,7 +97,7 @@ public class FirstPersonController : MonoBehaviour
     private void Move()
     {
         // set target speed based on move speed, sprint speed and if sprint is pressed
-        float targetSpeed = _inputManager.SprintInput ? SprintSpeed : MoveSpeed;
+        float targetSpeed = _inputManager.SprintInput ? _sprintSpeed : _moveSpeed;
 
         // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
@@ -114,14 +116,14 @@ public class FirstPersonController : MonoBehaviour
         {
             // creates curved result rather than a linear one giving a more organic speed change
             // note T in Lerp is clamped, so we don't need to clamp our speed
-            _moveSpeed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude, Time.deltaTime * SpeedChangeRate);
+            _currentMoveSpeed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude, Time.deltaTime * _moveSpeedChangeRate);
 
             // round speed to 3 decimal places
-            _moveSpeed = Mathf.Round(_moveSpeed * 1000f) / 1000f;
+            _currentMoveSpeed = Mathf.Round(_currentMoveSpeed * 1000f) / 1000f;
         }
         else
         {
-            _moveSpeed = targetSpeed;
+            _currentMoveSpeed = targetSpeed;
         }
 
         // normalise input direction
@@ -136,7 +138,7 @@ public class FirstPersonController : MonoBehaviour
         }
 
         // move the player
-        _controller.Move(inputDirection.normalized * (_moveSpeed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+        _controller.Move(inputDirection.normalized * (_currentMoveSpeed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
     }
 
     private void Gravity()
@@ -144,7 +146,7 @@ public class FirstPersonController : MonoBehaviour
         // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
         if (_verticalVelocity < _terminalVelocity)
         {
-            _verticalVelocity += GravityPower * Time.deltaTime;
+            _verticalVelocity += _gravityPower * Time.deltaTime;
         }
     }
 

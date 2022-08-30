@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using RampageUtils;
 
 // Manages equipped items, held cable, related UI markers
 // Needs to be refactored further breaking out UI functionality
@@ -9,7 +10,7 @@ public class InventoryManager : Singleton<InventoryManager>
     [SerializeField] private GameObject _reticle;
 
     [Header("Equipment Lists")]
-    [SerializeField] private List<GameObject> _uiMarkersList;
+    [SerializeField] private List<ToggleTargetObjects> _uiMarkersList;
     [SerializeField] private List<GameObject> _cursorList;
     [SerializeField] private List<LayerMask> _layerMasksList;
     [SerializeField] private List<string> _tagsList;
@@ -173,10 +174,10 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         foreach (var item in _uiMarkersList)
         {
-            item.SetActive(false);
+            item.SetInactive();
         }
 
-        _uiMarkersList[_currentIndex].SetActive(true);
+        _uiMarkersList[_currentIndex].SetActive();
     }
 
     public void ChangeCursor()

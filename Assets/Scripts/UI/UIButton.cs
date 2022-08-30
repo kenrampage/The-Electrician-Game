@@ -40,6 +40,11 @@ namespace RampageUtils.UI
             _hiddenButton.Select();
         }
 
+        private void OnDisable()
+        {
+            HandleButtonDeselect();
+        }
+
         #region Required Interface Methods
         public void OnPointerEnter(PointerEventData eventData)
         {
@@ -123,7 +128,7 @@ namespace RampageUtils.UI
 
             yield return new WaitForSecondsRealtime(_submitDelay);
 
-            ButtonDeselect();
+            // ButtonDeselect();
             OnSubmitEvent?.Invoke();
 
             _isSubmitting = false;

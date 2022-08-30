@@ -100,15 +100,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Flashlight"",
-                    ""type"": ""Button"",
-                    ""id"": ""d6373d7f-6851-45f9-b078-c3d6c3043b4d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Xray"",
                     ""type"": ""Button"",
                     ""id"": ""c96aa1c6-0055-477e-9a60-25e46efa96ef"",
@@ -210,7 +201,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""id"": ""d1d171b6-19d8-47a6-ba3a-71b6a8e7b3c0"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": ""InvertVector2(invertX=false),StickDeadzone,ScaleVector2(x=300,y=300)"",
+                    ""processors"": ""InvertVector2(invertX=false),StickDeadzone(min=0.001,max=0.925),ScaleVector2(x=100,y=100)"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
@@ -255,7 +246,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad;Xbox Controller;PS4 Controller"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -277,29 +268,18 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""548933f8-0cbd-454a-b080-8cfc7742f70d"",
-                    ""path"": ""<Keyboard>/tab"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardMouse"",
-                    ""action"": ""NextItem"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""c86882e1-8e69-489c-9aee-d20bd6f6244f"",
-                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""NextItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -318,10 +298,10 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6905af15-faf7-4114-ad70-fb64d7eee892"",
-                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""PrevItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -334,28 +314,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PrevItem"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""26614fa1-1ef2-4019-ae5e-14cab4e54404"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Flashlight"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d1457d30-d215-4506-9aac-05e684c1fda8"",
-                    ""path"": ""<Gamepad>/select"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Flashlight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -376,7 +334,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Xray"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -402,6 +360,17 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f18ff24d-96ea-4885-a35a-c4a07983d6bb"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -417,6 +386,15 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""e2377254-f9e0-43c9-a127-5a9f05c6c75f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -428,6 +406,83 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
                     ""action"": ""Unpause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""adb48cf6-fa6c-4770-a2a3-b82a53abd57b"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Unpause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""645fc120-9722-4b5f-9e61-2c02552791b0"",
+                    ""path"": ""2DVector(mode=1)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""d72b066e-6db1-4c09-8bea-61795c7a8a95"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""83ced64f-ed80-4ba5-a857-f9c78d5b02ef"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""5b0e3144-590c-4226-a31e-3585777dfc9e"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""68ff16ba-a1c0-47dc-b29f-2b0205d2bea8"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5e42fad2-c71c-457b-97b7-b37cb9228d39"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": ""StickDeadzone"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -494,12 +549,12 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_NextItem = m_Player.FindAction("NextItem", throwIfNotFound: true);
         m_Player_PrevItem = m_Player.FindAction("PrevItem", throwIfNotFound: true);
-        m_Player_Flashlight = m_Player.FindAction("Flashlight", throwIfNotFound: true);
         m_Player_Xray = m_Player.FindAction("Xray", throwIfNotFound: true);
         m_Player_EndTest = m_Player.FindAction("EndTest", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Unpause = m_Menu.FindAction("Unpause", throwIfNotFound: true);
+        m_Menu_Move = m_Menu.FindAction("Move", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -567,7 +622,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_NextItem;
     private readonly InputAction m_Player_PrevItem;
-    private readonly InputAction m_Player_Flashlight;
     private readonly InputAction m_Player_Xray;
     private readonly InputAction m_Player_EndTest;
     public struct PlayerActions
@@ -582,7 +636,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @NextItem => m_Wrapper.m_Player_NextItem;
         public InputAction @PrevItem => m_Wrapper.m_Player_PrevItem;
-        public InputAction @Flashlight => m_Wrapper.m_Player_Flashlight;
         public InputAction @Xray => m_Wrapper.m_Player_Xray;
         public InputAction @EndTest => m_Wrapper.m_Player_EndTest;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -618,9 +671,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @PrevItem.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrevItem;
                 @PrevItem.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrevItem;
                 @PrevItem.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPrevItem;
-                @Flashlight.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlashlight;
-                @Flashlight.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlashlight;
-                @Flashlight.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFlashlight;
                 @Xray.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnXray;
                 @Xray.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnXray;
                 @Xray.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnXray;
@@ -655,9 +705,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @PrevItem.started += instance.OnPrevItem;
                 @PrevItem.performed += instance.OnPrevItem;
                 @PrevItem.canceled += instance.OnPrevItem;
-                @Flashlight.started += instance.OnFlashlight;
-                @Flashlight.performed += instance.OnFlashlight;
-                @Flashlight.canceled += instance.OnFlashlight;
                 @Xray.started += instance.OnXray;
                 @Xray.performed += instance.OnXray;
                 @Xray.canceled += instance.OnXray;
@@ -673,11 +720,13 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Menu;
     private IMenuActions m_MenuActionsCallbackInterface;
     private readonly InputAction m_Menu_Unpause;
+    private readonly InputAction m_Menu_Move;
     public struct MenuActions
     {
         private @InputAsset m_Wrapper;
         public MenuActions(@InputAsset wrapper) { m_Wrapper = wrapper; }
         public InputAction @Unpause => m_Wrapper.m_Menu_Unpause;
+        public InputAction @Move => m_Wrapper.m_Menu_Move;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -690,6 +739,9 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @Unpause.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnUnpause;
                 @Unpause.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnUnpause;
                 @Unpause.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnUnpause;
+                @Move.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnMove;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -697,6 +749,9 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @Unpause.started += instance.OnUnpause;
                 @Unpause.performed += instance.OnUnpause;
                 @Unpause.canceled += instance.OnUnpause;
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
             }
         }
     }
@@ -747,12 +802,12 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnNextItem(InputAction.CallbackContext context);
         void OnPrevItem(InputAction.CallbackContext context);
-        void OnFlashlight(InputAction.CallbackContext context);
         void OnXray(InputAction.CallbackContext context);
         void OnEndTest(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {
         void OnUnpause(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
     }
 }
