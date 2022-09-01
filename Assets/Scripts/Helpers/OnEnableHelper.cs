@@ -13,6 +13,7 @@ namespace RampageUtils.Helpers
         [Header("Settings")]
         [SerializeField] private float _delay;
 
+        [ContextMenu("Test")]
         private void OnEnable()
         {
             StartCoroutine(InvokeEvent());
@@ -20,6 +21,7 @@ namespace RampageUtils.Helpers
 
         private IEnumerator InvokeEvent()
         {
+            
             yield return new WaitForSecondsRealtime(_delay);
             OnInvoke?.Invoke();
         }

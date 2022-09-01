@@ -13,7 +13,8 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private Animation _handAnim;
     [SerializeField] private Animation _wireAnim;
 
-    private Camera _camera;
+    [Header("References")]
+    [SerializeField] private Camera _camera;
 
     private GameObject _currentTarget;
     private GameObject _cursorObject;
@@ -26,7 +27,7 @@ public class PlayerInteract : MonoBehaviour
     public void Awake()
     {
         _inventoryManager = FindObjectOfType<InventoryManager>();
-        _camera = Camera.main;
+        // _camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     private void Start()

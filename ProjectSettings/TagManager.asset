@@ -15,6 +15,7 @@ TagManager:
   - Fixer
   - TriggerBarrier
   - Wirable
+  - Game Overlays
   layers:
   - Default
   - TransparentFX

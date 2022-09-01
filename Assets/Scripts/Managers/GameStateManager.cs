@@ -4,15 +4,17 @@ using UnityEngine;
 // Manages current and previous game state and invokes a serialized array of events in response to state changes
 public class GameStateManager : Singleton<GameStateManager>
 {
+    [Header("Scriptable Object")]
+    [SerializeField] private SOGameStateControl _gameStateControl;
 
     [Header("Events")]
-    [SerializeField] private SerializedEvent[] onSceneLoadEvents;
-    [SerializeField] private SerializedEvent[] onLevelStartEvents;
-    [SerializeField] private SerializedEvent[] onGameRunEvents;
-    [SerializeField] private SerializedEvent[] onGamePauseEvents;
-    [SerializeField] private SerializedEvent[] onGameUnpauseEvents;
-    [SerializeField] private SerializedEvent[] onLevelEndEvents;
-    [SerializeField] private SerializedEvent[] onSceneUnloadEvents;
+    [SerializeField] private SerializedEvent[] _sceneLoadEvents;
+    [SerializeField] private SerializedEvent[] _levelStartEvents;
+    [SerializeField] private SerializedEvent[] _gameRunEvents;
+    [SerializeField] private SerializedEvent[] _gamePauseEvents;
+    [SerializeField] private SerializedEvent[] _gameUnpauseEvents;
+    [SerializeField] private SerializedEvent[] _levelEndEvents;
+    [SerializeField] private SerializedEvent[] _sceneUnloadEvents;
 
     public enum State
     {
@@ -28,10 +30,25 @@ public class GameStateManager : Singleton<GameStateManager>
     private State _stateCurrent;
     private State _statePrev;
 
+    private void Awake()
+    {
+        RegisterEventListeners();
+    }
+
     private void OnEnable()
     {
         ResetStates();
         SetState(State.SCENELOADING);
+    }
+
+    private void RegisterEventListeners()
+    {
+        _gameStateControl.OnSceneLoad.AddListener(SetSceneLoading);
+        _gameStateControl.OnLevelStart.AddListener(SetLevelStarting);
+        _gameStateControl.OnGameRun.AddListener(SetGameRunning);
+        _gameStateControl.OnGamePause.AddListener(SetGamePaused);
+        _gameStateControl.OnLevelEnd.AddListener(SetLevelEnding);
+        _gameStateControl.OnSceneUnload.AddListener(SetSceneUnloading);
     }
 
 
@@ -41,34 +58,34 @@ public class GameStateManager : Singleton<GameStateManager>
         switch (_stateCurrent)
         {
             case State.SCENELOADING:
-                StartCycleThroughEvents(onSceneLoadEvents);
+                StartCycleThroughEvents(_sceneLoadEvents);
                 break;
 
             case State.LEVELSTARTING:
-                StartCycleThroughEvents(onLevelStartEvents);
+                StartCycleThroughEvents(_levelStartEvents);
                 break;
 
             case State.GAMERUNNING:
                 if (_statePrev == State.LEVELSTARTING)
                 {
-                    StartCycleThroughEvents(onGameRunEvents);
+                    StartCycleThroughEvents(_gameRunEvents);
                 }
                 else if (_statePrev == State.GAMEPAUSED)
                 {
-                    StartCycleThroughEvents(onGameUnpauseEvents);
+                    StartCycleThroughEvents(_gameUnpauseEvents);
                 }
                 break;
 
             case State.GAMEPAUSED:
-                StartCycleThroughEvents(onGamePauseEvents);
+                StartCycleThroughEvents(_gamePauseEvents);
                 break;
 
             case State.LEVELENDING:
-                StartCycleThroughEvents(onLevelEndEvents);
+                StartCycleThroughEvents(_levelEndEvents);
                 break;
 
             case State.SCENEUNLOADING:
-                StartCycleThroughEvents(onSceneUnloadEvents);
+                StartCycleThroughEvents(_sceneUnloadEvents);
                 break;
 
             default:

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Settings", menuName = "ScriptableObjects/Settings")]
+[CreateAssetMenu(fileName = "Settings", menuName = "Scriptable Objects/Settings")]
 public class SOSettings : ScriptableObject
 {
     [Header("Settings")]
