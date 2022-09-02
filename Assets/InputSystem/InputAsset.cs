@@ -386,6 +386,15 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Navigate"",
+                    ""type"": ""Value"",
+                    ""id"": ""165948bf-3c3c-4254-8ee5-1e3c51e7ddea"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -408,6 +417,72 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Unpause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""69c751c1-7544-468f-a955-e7ecdb9eddd8"",
+                    ""path"": ""2DVector(mode=1)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""388ca18f-d97e-4118-8ead-133f27270744"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""b9db62cf-d302-45f0-80ca-f9af76188460"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""2f6e25f3-f41a-44d9-89e9-796980780740"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""fa4d8232-9b89-48ed-b5b9-7844d328beb7"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5ea365c9-4812-4683-bdbe-4b18ae351ea6"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": ""StickDeadzone"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Navigate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -479,6 +554,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Unpause = m_Menu.FindAction("Unpause", throwIfNotFound: true);
+        m_Menu_Navigate = m_Menu.FindAction("Navigate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -644,11 +720,13 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Menu;
     private IMenuActions m_MenuActionsCallbackInterface;
     private readonly InputAction m_Menu_Unpause;
+    private readonly InputAction m_Menu_Navigate;
     public struct MenuActions
     {
         private @InputAsset m_Wrapper;
         public MenuActions(@InputAsset wrapper) { m_Wrapper = wrapper; }
         public InputAction @Unpause => m_Wrapper.m_Menu_Unpause;
+        public InputAction @Navigate => m_Wrapper.m_Menu_Navigate;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -661,6 +739,9 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @Unpause.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnUnpause;
                 @Unpause.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnUnpause;
                 @Unpause.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnUnpause;
+                @Navigate.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnNavigate;
+                @Navigate.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnNavigate;
+                @Navigate.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnNavigate;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -668,6 +749,9 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                 @Unpause.started += instance.OnUnpause;
                 @Unpause.performed += instance.OnUnpause;
                 @Unpause.canceled += instance.OnUnpause;
+                @Navigate.started += instance.OnNavigate;
+                @Navigate.performed += instance.OnNavigate;
+                @Navigate.canceled += instance.OnNavigate;
             }
         }
     }
@@ -724,5 +808,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
     public interface IMenuActions
     {
         void OnUnpause(InputAction.CallbackContext context);
+        void OnNavigate(InputAction.CallbackContext context);
     }
 }

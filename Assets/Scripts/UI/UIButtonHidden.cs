@@ -8,12 +8,16 @@ namespace RampageUtils.UI
     {
         [Header("Settings")]
         [SerializeField] private bool _isSelectedOnEnable = true;
+        [SerializeField] private bool _isSelectedWhenInputDeviceChanged;
+
+        private InputManager _inputManager;
 
         private Button _button;
 
         private void Awake()
         {
             _button = GetComponent<Button>();
+
         }
 
         private void OnEnable()
@@ -22,11 +26,22 @@ namespace RampageUtils.UI
             {
                 ButtonSelect();
             }
+
+            _inputManager = InputManager.Instance;
+            _inputManager.OnInputDeviceTypeChanged.AddListener(HandleDeviceTypeChanged);
         }
 
         public void ButtonSelect()
         {
             _button.Select();
+        }
+
+        private void HandleDeviceTypeChanged()
+        {
+            if (_isSelectedWhenInputDeviceChanged)
+            {
+                ButtonSelect();
+            }
         }
 
     }

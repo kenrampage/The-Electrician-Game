@@ -1,5 +1,1202 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &256611170881532371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9128749579957032675}
+  - component: {fileID: 788316112175633719}
+  m_Layer: 5
+  m_Name: SFX_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &9128749579957032675
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256611170881532371}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3948452506443525162}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &788316112175633719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256611170881532371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -509347274
+      Data2: 1283985939
+      Data3: -1106005583
+      Data4: 1559032529
+    Path: event:/SFX/UI/Button Select
+  soundEffectsOn: 1
+--- !u!1 &300697986616435518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 787700063468150471}
+  - component: {fileID: 3315125893163846850}
+  m_Layer: 5
+  m_Name: SFX_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &787700063468150471
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300697986616435518}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8095168344803428362}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3315125893163846850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300697986616435518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -509347274
+      Data2: 1283985939
+      Data3: -1106005583
+      Data4: 1559032529
+    Path: event:/SFX/UI/Button Select
+  soundEffectsOn: 1
+--- !u!1 &496552663980842617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9183778918820845684}
+  - component: {fileID: 9091566214086286119}
+  m_Layer: 5
+  m_Name: SFX_Submit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &9183778918820845684
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496552663980842617}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8095168344803428362}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9091566214086286119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496552663980842617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -1912454187
+      Data2: 1236687665
+      Data3: 369438849
+      Data4: 647372542
+    Path: event:/SFX/UI/Button Submit
+  soundEffectsOn: 1
+--- !u!1 &632216016946893454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1841099148052543859}
+  - component: {fileID: 1379412061969038846}
+  m_Layer: 5
+  m_Name: SFX_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1841099148052543859
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632216016946893454}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3954467956466242346}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1379412061969038846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632216016946893454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -509347274
+      Data2: 1283985939
+      Data3: -1106005583
+      Data4: 1559032529
+    Path: event:/SFX/UI/Button Select
+  soundEffectsOn: 1
+--- !u!1 &641227900968458171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6250256835581740105}
+  m_Layer: 5
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6250256835581740105
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641227900968458171}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3486936614204813545}
+  - {fileID: 5825925792120007785}
+  m_Father: {fileID: 8732255784802066670}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.1000001, y: -0.522}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &700298212342028198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4411833942313681697}
+  m_Layer: 5
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4411833942313681697
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700298212342028198}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6774626507861694784}
+  - {fileID: 1033871683790315223}
+  m_Father: {fileID: 4454887104806782166}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.1000001, y: -0.522}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &882796812754404599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6303859613562231542}
+  - component: {fileID: 6492056624106715602}
+  m_Layer: 5
+  m_Name: SFX_Submit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6303859613562231542
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882796812754404599}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6869732722161226487}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6492056624106715602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882796812754404599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -1912454187
+      Data2: 1236687665
+      Data3: 369438849
+      Data4: 647372542
+    Path: event:/SFX/UI/Button Submit
+  soundEffectsOn: 1
+--- !u!1 &971630157220164687
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1327314421626687121}
+  - component: {fileID: 5478040841039258781}
+  m_Layer: 5
+  m_Name: SFX_Submit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1327314421626687121
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971630157220164687}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6678066435805652257}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5478040841039258781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971630157220164687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -1912454187
+      Data2: 1236687665
+      Data3: 369438849
+      Data4: 647372542
+    Path: event:/SFX/UI/Button Submit
+  soundEffectsOn: 1
+--- !u!1 &1243603138375202199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7346939411003374109}
+  - component: {fileID: 8304047951760765664}
+  m_Layer: 5
+  m_Name: SFX_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7346939411003374109
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243603138375202199}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6742478107456848879}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8304047951760765664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243603138375202199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -509347274
+      Data2: 1283985939
+      Data3: -1106005583
+      Data4: 1559032529
+    Path: event:/SFX/UI/Button Select
+  soundEffectsOn: 1
+--- !u!1 &1705424190665130749
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2352603166973952077}
+  m_Layer: 5
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2352603166973952077
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705424190665130749}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5980249788541930501}
+  - {fileID: 8193699121515084606}
+  m_Father: {fileID: 4454887105225735379}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.1000001, y: -0.522}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1791542084103697509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4333586407609013961}
+  m_Layer: 5
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4333586407609013961
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791542084103697509}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2113459151047333851}
+  - {fileID: 6203962218183219260}
+  m_Father: {fileID: 4454887105002839991}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.1000001, y: -0.522}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2072529838215744717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5161385835280900910}
+  m_Layer: 5
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5161385835280900910
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072529838215744717}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3144701102075822452}
+  - {fileID: 8744260049720041181}
+  m_Father: {fileID: 4454887105289449478}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.1000001, y: -0.522}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2089972725282659367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 390839989176355507}
+  - component: {fileID: 3158069617004551596}
+  m_Layer: 5
+  m_Name: SFX_Submit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &390839989176355507
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089972725282659367}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8521994998292433177}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3158069617004551596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089972725282659367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -1912454187
+      Data2: 1236687665
+      Data3: 369438849
+      Data4: 647372542
+    Path: event:/SFX/UI/Button Submit
+  soundEffectsOn: 1
+--- !u!1 &2220348499457961451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3663926443839508085}
+  - component: {fileID: 2658200831179312848}
+  m_Layer: 5
+  m_Name: SFX_Submit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3663926443839508085
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2220348499457961451}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 180103443164437248}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2658200831179312848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2220348499457961451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -1912454187
+      Data2: 1236687665
+      Data3: 369438849
+      Data4: 647372542
+    Path: event:/SFX/UI/Button Submit
+  soundEffectsOn: 1
+--- !u!1 &2315280041280049654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3976462389875997815}
+  - component: {fileID: 2303742973065505583}
+  m_Layer: 5
+  m_Name: SFX_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3976462389875997815
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315280041280049654}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5685572947250229315}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2303742973065505583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315280041280049654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -509347274
+      Data2: 1283985939
+      Data3: -1106005583
+      Data4: 1559032529
+    Path: event:/SFX/UI/Button Select
+  soundEffectsOn: 1
+--- !u!1 &2574495898950126292
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1656151181470904128}
+  - component: {fileID: 7004203970151104894}
+  m_Layer: 5
+  m_Name: SFX_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1656151181470904128
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2574495898950126292}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1636951991280773065}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7004203970151104894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2574495898950126292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -509347274
+      Data2: 1283985939
+      Data3: -1106005583
+      Data4: 1559032529
+    Path: event:/SFX/UI/Button Select
+  soundEffectsOn: 1
+--- !u!1 &2734842134648007876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6742478107456848879}
+  m_Layer: 5
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6742478107456848879
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2734842134648007876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7346939411003374109}
+  - {fileID: 5754648137320248148}
+  m_Father: {fileID: 8732255783707751724}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.1000001, y: -0.522}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2893043870697768323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8744260049720041181}
+  - component: {fileID: 4488985542793985286}
+  m_Layer: 5
+  m_Name: SFX_Submit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8744260049720041181
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2893043870697768323}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5161385835280900910}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4488985542793985286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2893043870697768323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -1912454187
+      Data2: 1236687665
+      Data3: 369438849
+      Data4: 647372542
+    Path: event:/SFX/UI/Button Submit
+  soundEffectsOn: 1
+--- !u!1 &2897758533123342567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3144701102075822452}
+  - component: {fileID: 3272860825694474086}
+  m_Layer: 5
+  m_Name: SFX_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3144701102075822452
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897758533123342567}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5161385835280900910}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3272860825694474086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897758533123342567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -509347274
+      Data2: 1283985939
+      Data3: -1106005583
+      Data4: 1559032529
+    Path: event:/SFX/UI/Button Select
+  soundEffectsOn: 1
+--- !u!1 &3002397852449071789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1425738841097130443}
+  m_Layer: 5
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1425738841097130443
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3002397852449071789}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3347157515295256074}
+  - {fileID: 1646256253309224889}
+  m_Father: {fileID: 4454887106803338853}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.1000001, y: -0.522}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &3131515615823864124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5174213881368787817}
+  - component: {fileID: 7391045707027072454}
+  m_Layer: 5
+  m_Name: SFX_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5174213881368787817
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3131515615823864124}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6678066435805652257}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7391045707027072454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3131515615823864124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -509347274
+      Data2: 1283985939
+      Data3: -1106005583
+      Data4: 1559032529
+    Path: event:/SFX/UI/Button Select
+  soundEffectsOn: 1
+--- !u!1 &3378851257557355033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6203962218183219260}
+  - component: {fileID: 8651862567267339379}
+  m_Layer: 5
+  m_Name: SFX_Submit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6203962218183219260
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378851257557355033}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4333586407609013961}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8651862567267339379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378851257557355033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -1912454187
+      Data2: 1236687665
+      Data3: 369438849
+      Data4: 647372542
+    Path: event:/SFX/UI/Button Submit
+  soundEffectsOn: 1
+--- !u!1 &3860766292307826969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3954467956466242346}
+  m_Layer: 5
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3954467956466242346
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3860766292307826969}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1841099148052543859}
+  - {fileID: 3674436788894630182}
+  m_Father: {fileID: 4454887106083336421}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.1000001, y: -0.522}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &4410455412485905211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3514206117849990705}
+  m_Layer: 5
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3514206117849990705
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4410455412485905211}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8900621097330347892}
+  - {fileID: 1891814101064920697}
+  m_Father: {fileID: 2938501646024090031}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.1000001, y: -0.522}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4454479740150811370
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,6 +1522,7 @@ RectTransform:
   - {fileID: 4454887106419727596}
   - {fileID: 4454887105517701054}
   - {fileID: 4454887106637302717}
+  - {fileID: 4411833942313681697}
   m_Father: {fileID: 4454887105638067231}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -397,8 +1595,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2db377b953bfe44bdb2543c0807291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _submitDelay: 0.2
-  _isStartResumeButton: 0
+  OnPointerDownEvent:
+    m_PersistentCalls:
+      m_Calls: []
   OnSubmitEvent:
     m_PersistentCalls:
       m_Calls:
@@ -426,10 +1625,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  _submitDelay: 0.2
   _hiddenButton: {fileID: 892452032542625463}
   _textPlain: {fileID: 4454887106419727599}
   _textSelect: {fileID: 4454887105517701049}
   _textSubmit: {fileID: 4454887106637302716}
+  _sfxSelect: {fileID: 556242688605014966}
+  _sfxSubmit: {fileID: 651107724384791453}
 --- !u!1 &4454887104902354114
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +1968,7 @@ RectTransform:
   - {fileID: 4454887105594816070}
   - {fileID: 4454887105961866616}
   - {fileID: 4454887105624187624}
+  - {fileID: 4333586407609013961}
   m_Father: {fileID: 4454887105939325237}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -838,8 +2041,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2db377b953bfe44bdb2543c0807291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _submitDelay: 0.2
-  _isStartResumeButton: 0
+  OnPointerDownEvent:
+    m_PersistentCalls:
+      m_Calls: []
   OnSubmitEvent:
     m_PersistentCalls:
       m_Calls:
@@ -879,10 +2083,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _submitDelay: 0.2
   _hiddenButton: {fileID: 892452031850409672}
   _textPlain: {fileID: 4454887105594816065}
   _textSelect: {fileID: 4454887105961866619}
   _textSubmit: {fileID: 4454887105624187627}
+  _sfxSelect: {fileID: 8423759365652540902}
+  _sfxSubmit: {fileID: 8651862567267339379}
 --- !u!1 &4454887105013874711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1407,6 +2614,7 @@ RectTransform:
   - {fileID: 4454887105832799169}
   - {fileID: 4454887105489787717}
   - {fileID: 4454887104937857643}
+  - {fileID: 2352603166973952077}
   m_Father: {fileID: 4454887105119462824}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1479,8 +2687,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2db377b953bfe44bdb2543c0807291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _submitDelay: 0.2
-  _isStartResumeButton: 0
+  OnPointerDownEvent:
+    m_PersistentCalls:
+      m_Calls: []
   OnSubmitEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1508,10 +2717,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  _submitDelay: 0.2
   _hiddenButton: {fileID: 892452031876699426}
   _textPlain: {fileID: 4454887105832799168}
   _textSelect: {fileID: 4454887105489787716}
   _textSubmit: {fileID: 4454887104937857642}
+  _sfxSelect: {fileID: 5904705451465823308}
+  _sfxSubmit: {fileID: 7801063004807296520}
 --- !u!1 &4454887105287559871
 GameObject:
   m_ObjectHideFlags: 0
@@ -2768,7 +3980,7 @@ GameObject:
   - component: {fileID: 4454887105638067229}
   - component: {fileID: 4454887105638067228}
   m_Layer: 16
-  m_Name: Overlay
+  m_Name: Start Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3490,6 +4702,7 @@ GameObject:
   - component: {fileID: 4454887105878583019}
   - component: {fileID: 4454887105878582805}
   - component: {fileID: 4454887105878583018}
+  - component: {fileID: 1578795414}
   m_Layer: 16
   m_Name: Button_Start
   m_TagString: Untagged
@@ -3512,6 +4725,7 @@ RectTransform:
   - {fileID: 4454887105907861942}
   - {fileID: 4454887106067294367}
   - {fileID: 4454887105166034025}
+  - {fileID: 180103443164437248}
   m_Father: {fileID: 4454887105638067231}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3584,8 +4798,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2db377b953bfe44bdb2543c0807291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _submitDelay: 0.2
-  _isStartResumeButton: 0
+  OnPointerDownEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1578795414}
+        m_TargetAssemblyTypeName: CursorLockHelper, Assembly-CSharp
+        m_MethodName: CursorLockOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnSubmitEvent:
     m_PersistentCalls:
       m_Calls:
@@ -3601,10 +4828,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _submitDelay: 0.2
   _hiddenButton: {fileID: 892452032542625463}
   _textPlain: {fileID: 4454887105907861939}
   _textSelect: {fileID: 4454887106067294360}
   _textSubmit: {fileID: 4454887105166034026}
+  _sfxSelect: {fileID: 3591627634238965187}
+  _sfxSubmit: {fileID: 2658200831179312848}
+--- !u!114 &1578795414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4454887105878582804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d505d6d131f5d43b00c045137b2a0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4454887105883387377
 GameObject:
   m_ObjectHideFlags: 0
@@ -4635,6 +5877,7 @@ RectTransform:
   - {fileID: 4454887106694997510}
   - {fileID: 4454887106271684410}
   - {fileID: 4454887105287559868}
+  - {fileID: 3954467956466242346}
   m_Father: {fileID: 4454887105119462824}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4707,8 +5950,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2db377b953bfe44bdb2543c0807291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _submitDelay: 0.2
-  _isStartResumeButton: 0
+  OnPointerDownEvent:
+    m_PersistentCalls:
+      m_Calls: []
   OnSubmitEvent:
     m_PersistentCalls:
       m_Calls:
@@ -4748,10 +5992,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _submitDelay: 0.2
   _hiddenButton: {fileID: 892452031876699426}
   _textPlain: {fileID: 4454887106694997505}
   _textSelect: {fileID: 4454887106271684389}
   _textSubmit: {fileID: 4454887105287559871}
+  _sfxSelect: {fileID: 1379412061969038846}
+  _sfxSubmit: {fileID: 2596320833201549975}
 --- !u!1 &4454887106133788083
 GameObject:
   m_ObjectHideFlags: 0
@@ -4904,6 +6151,7 @@ RectTransform:
   - {fileID: 4454887104743549338}
   - {fileID: 4454887106074227175}
   - {fileID: 4454887106026117794}
+  - {fileID: 6678066435805652257}
   m_Father: {fileID: 4454887105119462824}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4976,8 +6224,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2db377b953bfe44bdb2543c0807291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _submitDelay: 0.2
-  _isStartResumeButton: 0
+  OnPointerDownEvent:
+    m_PersistentCalls:
+      m_Calls: []
   OnSubmitEvent:
     m_PersistentCalls:
       m_Calls:
@@ -5005,10 +6254,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  _submitDelay: 0.2
   _hiddenButton: {fileID: 892452031876699426}
   _textPlain: {fileID: 4454887104743549317}
   _textSelect: {fileID: 4454887106074227174}
   _textSubmit: {fileID: 4454887106026117805}
+  _sfxSelect: {fileID: 7391045707027072454}
+  _sfxSubmit: {fileID: 5478040841039258781}
 --- !u!1 &4454887106248634875
 GameObject:
   m_ObjectHideFlags: 0
@@ -5090,6 +6342,7 @@ RectTransform:
   - {fileID: 4454887105144597491}
   - {fileID: 4454887105813249630}
   - {fileID: 4454887104902354115}
+  - {fileID: 5685572947250229315}
   m_Father: {fileID: 4454887105939325237}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5162,8 +6415,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2db377b953bfe44bdb2543c0807291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _submitDelay: 0.2
-  _isStartResumeButton: 0
+  OnPointerDownEvent:
+    m_PersistentCalls:
+      m_Calls: []
   OnSubmitEvent:
     m_PersistentCalls:
       m_Calls:
@@ -5203,10 +6457,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _submitDelay: 0.2
   _hiddenButton: {fileID: 892452031850409672}
   _textPlain: {fileID: 4454887105144597490}
   _textSelect: {fileID: 4454887105813249625}
   _textSubmit: {fileID: 4454887104902354114}
+  _sfxSelect: {fileID: 2303742973065505583}
+  _sfxSubmit: {fileID: 1203848106100217318}
 --- !u!1 &4454887106271684389
 GameObject:
   m_ObjectHideFlags: 0
@@ -5511,6 +6768,7 @@ RectTransform:
   - {fileID: 4454887105460394797}
   - {fileID: 4454887105720222431}
   - {fileID: 4454887106751011132}
+  - {fileID: 5861419890515255739}
   m_Father: {fileID: 4454887105638067231}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5583,8 +6841,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2db377b953bfe44bdb2543c0807291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _submitDelay: 0.2
-  _isStartResumeButton: 0
+  OnPointerDownEvent:
+    m_PersistentCalls:
+      m_Calls: []
   OnSubmitEvent:
     m_PersistentCalls:
       m_Calls:
@@ -5624,10 +6883,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _submitDelay: 0.2
   _hiddenButton: {fileID: 892452032542625463}
   _textPlain: {fileID: 4454887105460394796}
   _textSelect: {fileID: 4454887105720222430}
   _textSubmit: {fileID: 4454887106751011135}
+  _sfxSelect: {fileID: 6862525974716589340}
+  _sfxSubmit: {fileID: 2076280635174097167}
 --- !u!1 &4454887106342572498
 GameObject:
   m_ObjectHideFlags: 0
@@ -5716,6 +6978,7 @@ GameObject:
   - component: {fileID: 4454887106342717681}
   - component: {fileID: 4454887106342717680}
   - component: {fileID: 4454887106342717683}
+  - component: {fileID: 701005543}
   m_Layer: 5
   m_Name: Button_Resume
   m_TagString: Untagged
@@ -5738,6 +7001,7 @@ RectTransform:
   - {fileID: 4454887105584937736}
   - {fileID: 4454887106605211593}
   - {fileID: 4454887106447744371}
+  - {fileID: 8095168344803428362}
   m_Father: {fileID: 4454887105119462824}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5810,8 +7074,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2db377b953bfe44bdb2543c0807291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _submitDelay: 0.2
-  _isStartResumeButton: 0
+  OnPointerDownEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 701005543}
+        m_TargetAssemblyTypeName: CursorLockHelper, Assembly-CSharp
+        m_MethodName: CursorLockOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnSubmitEvent:
     m_PersistentCalls:
       m_Calls:
@@ -5827,10 +7104,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _submitDelay: 0.2
   _hiddenButton: {fileID: 892452031876699426}
   _textPlain: {fileID: 4454887105584937739}
   _textSelect: {fileID: 4454887106605211592}
   _textSubmit: {fileID: 4454887106447744370}
+  _sfxSelect: {fileID: 3315125893163846850}
+  _sfxSubmit: {fileID: 9091566214086286119}
+--- !u!114 &701005543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4454887106342717693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d505d6d131f5d43b00c045137b2a0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4454887106384704626
 GameObject:
   m_ObjectHideFlags: 0
@@ -6520,6 +7812,7 @@ RectTransform:
   - {fileID: 4454887106632194623}
   - {fileID: 4454887106444513898}
   - {fileID: 4454887106448140664}
+  - {fileID: 6869732722161226487}
   m_Father: {fileID: 4454887105638067231}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6592,8 +7885,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2db377b953bfe44bdb2543c0807291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _submitDelay: 0.2
-  _isStartResumeButton: 0
+  OnPointerDownEvent:
+    m_PersistentCalls:
+      m_Calls: []
   OnSubmitEvent:
     m_PersistentCalls:
       m_Calls:
@@ -6621,10 +7915,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  _submitDelay: 0.2
   _hiddenButton: {fileID: 892452032542625463}
   _textPlain: {fileID: 4454887106632194622}
   _textSelect: {fileID: 4454887106444514197}
   _textSubmit: {fileID: 4454887106448140667}
+  _sfxSelect: {fileID: 4996296489428908250}
+  _sfxSubmit: {fileID: 6492056624106715602}
 --- !u!1 &4454887106543589396
 GameObject:
   m_ObjectHideFlags: 0
@@ -7587,6 +8884,253 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &4526306438793077937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3674436788894630182}
+  - component: {fileID: 2596320833201549975}
+  m_Layer: 5
+  m_Name: SFX_Submit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3674436788894630182
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4526306438793077937}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3954467956466242346}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2596320833201549975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4526306438793077937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -1912454187
+      Data2: 1236687665
+      Data3: 369438849
+      Data4: 647372542
+    Path: event:/SFX/UI/Button Submit
+  soundEffectsOn: 1
+--- !u!1 &4565437024808394262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3486936614204813545}
+  - component: {fileID: 2397073508444183031}
+  m_Layer: 5
+  m_Name: SFX_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3486936614204813545
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4565437024808394262}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6250256835581740105}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2397073508444183031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4565437024808394262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -509347274
+      Data2: 1283985939
+      Data3: -1106005583
+      Data4: 1559032529
+    Path: event:/SFX/UI/Button Select
+  soundEffectsOn: 1
+--- !u!1 &4672494234133252154
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3948452506443525162}
+  m_Layer: 5
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3948452506443525162
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4672494234133252154}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9128749579957032675}
+  - {fileID: 1872337478572840097}
+  m_Father: {fileID: 4454887105554533661}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.1000001, y: -0.522}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &4876817774103599383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5754648137320248148}
+  - component: {fileID: 8946537223147117447}
+  m_Layer: 5
+  m_Name: SFX_Submit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5754648137320248148
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4876817774103599383}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6742478107456848879}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8946537223147117447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4876817774103599383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -1912454187
+      Data2: 1236687665
+      Data3: 369438849
+      Data4: 647372542
+    Path: event:/SFX/UI/Button Submit
+  soundEffectsOn: 1
+--- !u!1 &4912381533771088543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5861419890515255739}
+  m_Layer: 5
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5861419890515255739
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4912381533771088543}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1618609902067716525}
+  - {fileID: 7782302895852156057}
+  m_Father: {fileID: 4454887106338765675}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.1000001, y: -0.522}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4936566194755227355
 GameObject:
   m_ObjectHideFlags: 0
@@ -7670,6 +9214,44 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &5064278669350624978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5685572947250229315}
+  m_Layer: 5
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5685572947250229315
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5064278669350624978}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3976462389875997815}
+  - {fileID: 1051380269179933798}
+  m_Father: {fileID: 4454887106255242722}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.1000001, y: -0.522}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5199978861399227522
 GameObject:
   m_ObjectHideFlags: 0
@@ -7864,6 +9446,956 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1 &5228187714117415014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6869732722161226487}
+  m_Layer: 5
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6869732722161226487
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5228187714117415014}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1793007975820392704}
+  - {fileID: 6303859613562231542}
+  m_Father: {fileID: 4454887106494452162}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.1000001, y: -0.522}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &5243639962218014404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1636951991280773065}
+  m_Layer: 5
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1636951991280773065
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5243639962218014404}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1656151181470904128}
+  - {fileID: 6142961435974967814}
+  m_Father: {fileID: 2938501645754932404}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.1000001, y: -0.522}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &5260172866143370928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6678066435805652257}
+  m_Layer: 5
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6678066435805652257
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5260172866143370928}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5174213881368787817}
+  - {fileID: 1327314421626687121}
+  m_Father: {fileID: 4454887106195403487}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.1000001, y: -0.522}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &5446896952290663944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5825925792120007785}
+  - component: {fileID: 9142587046282030768}
+  m_Layer: 5
+  m_Name: SFX_Submit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5825925792120007785
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5446896952290663944}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6250256835581740105}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9142587046282030768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5446896952290663944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -1912454187
+      Data2: 1236687665
+      Data3: 369438849
+      Data4: 647372542
+    Path: event:/SFX/UI/Button Submit
+  soundEffectsOn: 1
+--- !u!1 &5456850528111288330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1033871683790315223}
+  - component: {fileID: 651107724384791453}
+  m_Layer: 5
+  m_Name: SFX_Submit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1033871683790315223
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5456850528111288330}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4411833942313681697}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &651107724384791453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5456850528111288330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -1912454187
+      Data2: 1236687665
+      Data3: 369438849
+      Data4: 647372542
+    Path: event:/SFX/UI/Button Submit
+  soundEffectsOn: 1
+--- !u!1 &5545863103856404655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1872337478572840097}
+  - component: {fileID: 4582482162191049587}
+  m_Layer: 5
+  m_Name: SFX_Submit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1872337478572840097
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5545863103856404655}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3948452506443525162}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4582482162191049587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5545863103856404655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -1912454187
+      Data2: 1236687665
+      Data3: 369438849
+      Data4: 647372542
+    Path: event:/SFX/UI/Button Submit
+  soundEffectsOn: 1
+--- !u!1 &5546784850388192201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8900621097330347892}
+  - component: {fileID: 2253415128124836732}
+  m_Layer: 5
+  m_Name: SFX_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8900621097330347892
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5546784850388192201}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3514206117849990705}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2253415128124836732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5546784850388192201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -509347274
+      Data2: 1283985939
+      Data3: -1106005583
+      Data4: 1559032529
+    Path: event:/SFX/UI/Button Select
+  soundEffectsOn: 1
+--- !u!1 &5562994734488847835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6774626507861694784}
+  - component: {fileID: 556242688605014966}
+  m_Layer: 5
+  m_Name: SFX_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6774626507861694784
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5562994734488847835}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4411833942313681697}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &556242688605014966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5562994734488847835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -509347274
+      Data2: 1283985939
+      Data3: -1106005583
+      Data4: 1559032529
+    Path: event:/SFX/UI/Button Select
+  soundEffectsOn: 1
+--- !u!1 &5851453410226144979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5961513991023737885}
+  - component: {fileID: 6589507859127162463}
+  m_Layer: 5
+  m_Name: SFX_Submit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5961513991023737885
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5851453410226144979}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6916863232063128818}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6589507859127162463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5851453410226144979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -1912454187
+      Data2: 1236687665
+      Data3: 369438849
+      Data4: 647372542
+    Path: event:/SFX/UI/Button Submit
+  soundEffectsOn: 1
+--- !u!1 &6120647297968039473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1793007975820392704}
+  - component: {fileID: 4996296489428908250}
+  m_Layer: 5
+  m_Name: SFX_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1793007975820392704
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6120647297968039473}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6869732722161226487}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4996296489428908250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6120647297968039473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -509347274
+      Data2: 1283985939
+      Data3: -1106005583
+      Data4: 1559032529
+    Path: event:/SFX/UI/Button Select
+  soundEffectsOn: 1
+--- !u!1 &6233473238301438015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4304368684455098538}
+  - component: {fileID: 607751267021028916}
+  m_Layer: 5
+  m_Name: SFX_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4304368684455098538
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6233473238301438015}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1796054793498550535}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &607751267021028916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6233473238301438015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -509347274
+      Data2: 1283985939
+      Data3: -1106005583
+      Data4: 1559032529
+    Path: event:/SFX/UI/Button Select
+  soundEffectsOn: 1
+--- !u!1 &6956212963842288595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5980249788541930501}
+  - component: {fileID: 5904705451465823308}
+  m_Layer: 5
+  m_Name: SFX_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5980249788541930501
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6956212963842288595}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2352603166973952077}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5904705451465823308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6956212963842288595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -509347274
+      Data2: 1283985939
+      Data3: -1106005583
+      Data4: 1559032529
+    Path: event:/SFX/UI/Button Select
+  soundEffectsOn: 1
+--- !u!1 &7122027399987783598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1891814101064920697}
+  - component: {fileID: 377649024087480663}
+  m_Layer: 5
+  m_Name: SFX_Submit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1891814101064920697
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7122027399987783598}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3514206117849990705}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &377649024087480663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7122027399987783598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -1912454187
+      Data2: 1236687665
+      Data3: 369438849
+      Data4: 647372542
+    Path: event:/SFX/UI/Button Submit
+  soundEffectsOn: 1
+--- !u!1 &7128635020708394284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2113459151047333851}
+  - component: {fileID: 8423759365652540902}
+  m_Layer: 5
+  m_Name: SFX_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2113459151047333851
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7128635020708394284}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4333586407609013961}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8423759365652540902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7128635020708394284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -509347274
+      Data2: 1283985939
+      Data3: -1106005583
+      Data4: 1559032529
+    Path: event:/SFX/UI/Button Select
+  soundEffectsOn: 1
+--- !u!1 &7214676566685794563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6916863232063128818}
+  m_Layer: 5
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6916863232063128818
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7214676566685794563}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3240195300564701133}
+  - {fileID: 5961513991023737885}
+  m_Father: {fileID: 4302198422810443332}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.1000001, y: -0.522}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &7303828998175508697
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1646256253309224889}
+  - component: {fileID: 1573812761693878333}
+  m_Layer: 5
+  m_Name: SFX_Submit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1646256253309224889
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7303828998175508697}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1425738841097130443}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1573812761693878333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7303828998175508697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -1912454187
+      Data2: 1236687665
+      Data3: 369438849
+      Data4: 647372542
+    Path: event:/SFX/UI/Button Submit
+  soundEffectsOn: 1
+--- !u!1 &7701614849449485963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7968285257567925232}
+  - component: {fileID: 3591627634238965187}
+  m_Layer: 5
+  m_Name: SFX_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7968285257567925232
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7701614849449485963}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 180103443164437248}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3591627634238965187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7701614849449485963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -509347274
+      Data2: 1283985939
+      Data3: -1106005583
+      Data4: 1559032529
+    Path: event:/SFX/UI/Button Select
+  soundEffectsOn: 1
+--- !u!1 &7900754498954414651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7782302895852156057}
+  - component: {fileID: 2076280635174097167}
+  m_Layer: 5
+  m_Name: SFX_Submit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7782302895852156057
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7900754498954414651}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5861419890515255739}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2076280635174097167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7900754498954414651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -1912454187
+      Data2: 1236687665
+      Data3: 369438849
+      Data4: 647372542
+    Path: event:/SFX/UI/Button Submit
+  soundEffectsOn: 1
 --- !u!1 &7912224609078487309
 GameObject:
   m_ObjectHideFlags: 0
@@ -7936,6 +10468,18 @@ MonoBehaviour:
     Event:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 5199978861399227522}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
         - m_Target: {fileID: 4454887106036675799}
           m_TargetAssemblyTypeName: OverlayAnimationManager, Assembly-CSharp
           m_MethodName: FadeIn
@@ -7969,6 +10513,18 @@ MonoBehaviour:
     Event:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 5199978861399227522}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 4454887106036675799}
           m_TargetAssemblyTypeName: OverlayAnimationManager, Assembly-CSharp
           m_MethodName: CurtainsClose
@@ -8036,6 +10592,18 @@ MonoBehaviour:
     Event:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 5199978861399227522}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
         - m_Target: {fileID: 4833917624209879344}
           m_TargetAssemblyTypeName: RampageUtils.UI.UIOverlayCanvasManager, Assembly-CSharp
           m_MethodName: StartUIOn
@@ -8065,6 +10633,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 5199978861399227522}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - Delay: 0.25
     Event:
       m_PersistentCalls:
@@ -8073,6 +10653,22 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: OverlayAnimationManager, Assembly-CSharp
           m_MethodName: CurtainsOpen
           m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Delay: 0.25
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4454887105013874711}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8119,6 +10715,18 @@ MonoBehaviour:
     Event:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 5199978861399227522}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
         - m_Target: {fileID: 4833917624209879344}
           m_TargetAssemblyTypeName: RampageUtils.UI.UIOverlayCanvasManager, Assembly-CSharp
           m_MethodName: PauseUIOn
@@ -8136,6 +10744,18 @@ MonoBehaviour:
     Event:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 5199978861399227522}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 4833917624209879344}
           m_TargetAssemblyTypeName: RampageUtils.UI.UIOverlayCanvasManager, Assembly-CSharp
           m_MethodName: PauseUIOff
@@ -8156,6 +10776,22 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: OverlayAnimationManager, Assembly-CSharp
           m_MethodName: CurtainsOpen
           m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Delay: 0.25
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4454887105190657775}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8186,6 +10822,18 @@ MonoBehaviour:
     Event:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 5199978861399227522}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
         - m_Target: {fileID: 4454887106036675799}
           m_TargetAssemblyTypeName: OverlayAnimationManager, Assembly-CSharp
           m_MethodName: CurtainsClose
@@ -8219,10 +10867,38 @@ MonoBehaviour:
     Event:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 5199978861399227522}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
         - m_Target: {fileID: 4833917624209879344}
           m_TargetAssemblyTypeName: RampageUtils.UI.UIOverlayCanvasManager, Assembly-CSharp
           m_MethodName: EndUIOff
           m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Delay: 0.5
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4454887104771184311}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8248,6 +10924,614 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1 &8041976448511566413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1598568300125583931}
+  - component: {fileID: 521087218333861936}
+  m_Layer: 5
+  m_Name: SFX_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1598568300125583931
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8041976448511566413}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8521994998292433177}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &521087218333861936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8041976448511566413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -509347274
+      Data2: 1283985939
+      Data3: -1106005583
+      Data4: 1559032529
+    Path: event:/SFX/UI/Button Select
+  soundEffectsOn: 1
+--- !u!1 &8046409971090236710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6142961435974967814}
+  - component: {fileID: 3395226809658704795}
+  m_Layer: 5
+  m_Name: SFX_Submit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6142961435974967814
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8046409971090236710}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1636951991280773065}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3395226809658704795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8046409971090236710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -1912454187
+      Data2: 1236687665
+      Data3: 369438849
+      Data4: 647372542
+    Path: event:/SFX/UI/Button Submit
+  soundEffectsOn: 1
+--- !u!1 &8160662078616761517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 180103443164437248}
+  m_Layer: 5
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &180103443164437248
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8160662078616761517}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7968285257567925232}
+  - {fileID: 3663926443839508085}
+  m_Father: {fileID: 4454887105878583016}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &8215574872081763126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3347157515295256074}
+  - component: {fileID: 6642889200673402499}
+  m_Layer: 5
+  m_Name: SFX_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3347157515295256074
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215574872081763126}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1425738841097130443}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6642889200673402499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215574872081763126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -509347274
+      Data2: 1283985939
+      Data3: -1106005583
+      Data4: 1559032529
+    Path: event:/SFX/UI/Button Select
+  soundEffectsOn: 1
+--- !u!1 &8313583803203188005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1618609902067716525}
+  - component: {fileID: 6862525974716589340}
+  m_Layer: 5
+  m_Name: SFX_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1618609902067716525
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8313583803203188005}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5861419890515255739}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6862525974716589340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8313583803203188005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -509347274
+      Data2: 1283985939
+      Data3: -1106005583
+      Data4: 1559032529
+    Path: event:/SFX/UI/Button Select
+  soundEffectsOn: 1
+--- !u!1 &8392171264599775937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4755727553326714454}
+  - component: {fileID: 863768200465160438}
+  m_Layer: 5
+  m_Name: SFX_Submit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4755727553326714454
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8392171264599775937}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1796054793498550535}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &863768200465160438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8392171264599775937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -1912454187
+      Data2: 1236687665
+      Data3: 369438849
+      Data4: 647372542
+    Path: event:/SFX/UI/Button Submit
+  soundEffectsOn: 1
+--- !u!1 &8473733027919906532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8095168344803428362}
+  m_Layer: 5
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8095168344803428362
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8473733027919906532}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 787700063468150471}
+  - {fileID: 9183778918820845684}
+  m_Father: {fileID: 4454887106342717682}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.1000001, y: -0.522}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &8495244439456071873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1051380269179933798}
+  - component: {fileID: 1203848106100217318}
+  m_Layer: 5
+  m_Name: SFX_Submit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1051380269179933798
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8495244439456071873}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5685572947250229315}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1203848106100217318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8495244439456071873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -1912454187
+      Data2: 1236687665
+      Data3: 369438849
+      Data4: 647372542
+    Path: event:/SFX/UI/Button Submit
+  soundEffectsOn: 1
+--- !u!1 &8819008779919791060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3240195300564701133}
+  - component: {fileID: 306482096404648376}
+  m_Layer: 5
+  m_Name: SFX_Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3240195300564701133
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8819008779919791060}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6916863232063128818}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &306482096404648376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8819008779919791060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -509347274
+      Data2: 1283985939
+      Data3: -1106005583
+      Data4: 1559032529
+    Path: event:/SFX/UI/Button Select
+  soundEffectsOn: 1
+--- !u!1 &8833798612798956365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8521994998292433177}
+  m_Layer: 5
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8521994998292433177
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8833798612798956365}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1598568300125583931}
+  - {fileID: 390839989176355507}
+  m_Father: {fileID: 4454887106583802638}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.1000001, y: -0.522}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &8888205618902126881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8193699121515084606}
+  - component: {fileID: 7801063004807296520}
+  m_Layer: 5
+  m_Name: SFX_Submit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8193699121515084606
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8888205618902126881}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2352603166973952077}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7801063004807296520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8888205618902126881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4c7db820a4994f945ad8c91d17932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodEvent:
+    Guid:
+      Data1: -1912454187
+      Data2: 1236687665
+      Data3: 369438849
+      Data4: 647372542
+    Path: event:/SFX/UI/Button Submit
+  soundEffectsOn: 1
+--- !u!1 &9162114433476637319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1796054793498550535}
+  m_Layer: 5
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1796054793498550535
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9162114433476637319}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4304368684455098538}
+  - {fileID: 4755727553326714454}
+  m_Father: {fileID: 4454887105742576551}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.1000001, y: -0.522}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2938501646603746603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8260,9 +11544,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1519216750536265004, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
+      propertyPath: _sfxSelect
+      value: 
+      objectReference: {fileID: 3272860825694474086}
+    - target: {fileID: 1519216750536265004, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
+      propertyPath: _sfxSubmit
+      value: 
+      objectReference: {fileID: 4488985542793985286}
+    - target: {fileID: 1519216750536265004, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
       propertyPath: OnSubmitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 4454887105119462827}
+    - target: {fileID: 1519216750808051764, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
+      propertyPath: _sfxSelect
+      value: 
+      objectReference: {fileID: 788316112175633719}
+    - target: {fileID: 1519216750808051764, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
+      propertyPath: _sfxSubmit
+      value: 
+      objectReference: {fileID: 4582482162191049587}
     - target: {fileID: 1519216750808051764, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
       propertyPath: OnSubmitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -8373,6 +11673,11 @@ PrefabInstance:
       objectReference: {fileID: 4272612878972211404}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
+--- !u!224 &4454887105289449478 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1519216750536265005, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
+  m_PrefabInstance: {fileID: 2938501646603746603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4454887105336484860 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1519216750623448791, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
@@ -8384,6 +11689,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9e1652d7a718a499a0371dcfe3c621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &4454887105554533661 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1519216750808051766, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
+  m_PrefabInstance: {fileID: 2938501646603746603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4454887105635492497 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1519216750869635002, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
@@ -8498,9 +11808,29 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 461208378742591732, guid: d85da6335c17a8f47b3762506a002191, type: 3}
+      propertyPath: _sfxSelect
+      value: 
+      objectReference: {fileID: 521087218333861936}
+    - target: {fileID: 461208378742591732, guid: d85da6335c17a8f47b3762506a002191, type: 3}
+      propertyPath: _sfxSubmit
+      value: 
+      objectReference: {fileID: 3158069617004551596}
+    - target: {fileID: 461208378742591732, guid: d85da6335c17a8f47b3762506a002191, type: 3}
       propertyPath: OnSubmitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 4454887105119462827}
+    - target: {fileID: 9163936941992937497, guid: d85da6335c17a8f47b3762506a002191, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163936941992937497, guid: d85da6335c17a8f47b3762506a002191, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163936941992937497, guid: d85da6335c17a8f47b3762506a002191, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d85da6335c17a8f47b3762506a002191, type: 3}
 --- !u!224 &4454887106491347780 stripped
@@ -8511,6 +11841,11 @@ RectTransform:
 --- !u!1 &4454887106491347783 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 461208378650497212, guid: d85da6335c17a8f47b3762506a002191, type: 3}
+  m_PrefabInstance: {fileID: 4302198422125405179}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &4454887106583802638 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 461208378742591733, guid: d85da6335c17a8f47b3762506a002191, type: 3}
   m_PrefabInstance: {fileID: 4302198422125405179}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4454887104811298556
@@ -9036,6 +12371,14 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 461208378742591732, guid: d85da6335c17a8f47b3762506a002191, type: 3}
+      propertyPath: _sfxSelect
+      value: 
+      objectReference: {fileID: 306482096404648376}
+    - target: {fileID: 461208378742591732, guid: d85da6335c17a8f47b3762506a002191, type: 3}
+      propertyPath: _sfxSubmit
+      value: 
+      objectReference: {fileID: 6589507859127162463}
+    - target: {fileID: 461208378742591732, guid: d85da6335c17a8f47b3762506a002191, type: 3}
       propertyPath: OnSubmitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 4454887105638067230}
@@ -9071,6 +12414,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 9163936941992937497, guid: d85da6335c17a8f47b3762506a002191, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163936941992937497, guid: d85da6335c17a8f47b3762506a002191, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163936941992937497, guid: d85da6335c17a8f47b3762506a002191, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 9163936942229961911, guid: d85da6335c17a8f47b3762506a002191, type: 3}
       propertyPath: m_Layer
       value: 16
@@ -9097,6 +12452,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d85da6335c17a8f47b3762506a002191, type: 3}
+--- !u!224 &4302198422810443332 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 461208378742591733, guid: d85da6335c17a8f47b3762506a002191, type: 3}
+  m_PrefabInstance: {fileID: 4454887105918561969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4302198422902668813 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 461208378650497212, guid: d85da6335c17a8f47b3762506a002191, type: 3}
@@ -9115,9 +12475,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 4454887105456030795}
     m_Modifications:
     - target: {fileID: 1519216750536265004, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
+      propertyPath: _sfxSelect
+      value: 
+      objectReference: {fileID: 7004203970151104894}
+    - target: {fileID: 1519216750536265004, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
+      propertyPath: _sfxSubmit
+      value: 
+      objectReference: {fileID: 3395226809658704795}
+    - target: {fileID: 1519216750536265004, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
       propertyPath: OnSubmitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 4454887105638067230}
+    - target: {fileID: 1519216750808051764, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
+      propertyPath: _sfxSelect
+      value: 
+      objectReference: {fileID: 2253415128124836732}
+    - target: {fileID: 1519216750808051764, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
+      propertyPath: _sfxSubmit
+      value: 
+      objectReference: {fileID: 377649024087480663}
     - target: {fileID: 1519216750808051764, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
       propertyPath: OnSubmitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -9220,6 +12596,11 @@ PrefabInstance:
       objectReference: {fileID: 4272612878972211404}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
+--- !u!224 &2938501645754932404 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1519216750536265005, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
+  m_PrefabInstance: {fileID: 4454887106603782553}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2938501645970852312 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1519216750869633089, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
@@ -9228,6 +12609,11 @@ RectTransform:
 --- !u!1 &2938501645970853411 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1519216750869635002, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
+  m_PrefabInstance: {fileID: 4454887106603782553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2938501646024090031 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1519216750808051766, guid: 06eef73b6752f61449060d177e526ea1, type: 3}
   m_PrefabInstance: {fileID: 4454887106603782553}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4454887106629650648
@@ -15234,6 +18620,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4971345508700973097, guid: 58162eb5551596d4b9bf85ac7d3ca815, type: 3}
+      propertyPath: _sfxSelect
+      value: 
+      objectReference: {fileID: 2397073508444183031}
+    - target: {fileID: 4971345508700973097, guid: 58162eb5551596d4b9bf85ac7d3ca815, type: 3}
+      propertyPath: _sfxSubmit
+      value: 
+      objectReference: {fileID: 9142587046282030768}
+    - target: {fileID: 4971345508700973097, guid: 58162eb5551596d4b9bf85ac7d3ca815, type: 3}
       propertyPath: OnSubmitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 4454887105638067230}
@@ -15241,6 +18635,14 @@ PrefabInstance:
       propertyPath: OnSubmitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
+    - target: {fileID: 4971345509724782066, guid: 58162eb5551596d4b9bf85ac7d3ca815, type: 3}
+      propertyPath: _sfxSelect
+      value: 
+      objectReference: {fileID: 8304047951760765664}
+    - target: {fileID: 4971345509724782066, guid: 58162eb5551596d4b9bf85ac7d3ca815, type: 3}
+      propertyPath: _sfxSubmit
+      value: 
+      objectReference: {fileID: 8946537223147117447}
     - target: {fileID: 4971345509724782066, guid: 58162eb5551596d4b9bf85ac7d3ca815, type: 3}
       propertyPath: OnSubmitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -15355,6 +18757,16 @@ GameObject:
 --- !u!224 &8732255783117797511 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4971345510242119775, guid: 58162eb5551596d4b9bf85ac7d3ca815, type: 3}
+  m_PrefabInstance: {fileID: 4454887106629650648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &8732255783707751724 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4971345509724782068, guid: 58162eb5551596d4b9bf85ac7d3ca815, type: 3}
+  m_PrefabInstance: {fileID: 4454887106629650648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &8732255784802066670 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4971345508700973110, guid: 58162eb5551596d4b9bf85ac7d3ca815, type: 3}
   m_PrefabInstance: {fileID: 4454887106629650648}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8732255784695621203
@@ -21361,9 +24773,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4971345508700973097, guid: 58162eb5551596d4b9bf85ac7d3ca815, type: 3}
+      propertyPath: _sfxSelect
+      value: 
+      objectReference: {fileID: 6642889200673402499}
+    - target: {fileID: 4971345508700973097, guid: 58162eb5551596d4b9bf85ac7d3ca815, type: 3}
+      propertyPath: _sfxSubmit
+      value: 
+      objectReference: {fileID: 1573812761693878333}
+    - target: {fileID: 4971345508700973097, guid: 58162eb5551596d4b9bf85ac7d3ca815, type: 3}
       propertyPath: OnSubmitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 4454887105119462827}
+    - target: {fileID: 4971345509724782066, guid: 58162eb5551596d4b9bf85ac7d3ca815, type: 3}
+      propertyPath: _sfxSelect
+      value: 
+      objectReference: {fileID: 607751267021028916}
+    - target: {fileID: 4971345509724782066, guid: 58162eb5551596d4b9bf85ac7d3ca815, type: 3}
+      propertyPath: _sfxSubmit
+      value: 
+      objectReference: {fileID: 863768200465160438}
     - target: {fileID: 4971345509724782066, guid: 58162eb5551596d4b9bf85ac7d3ca815, type: 3}
       propertyPath: OnSubmitEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -21478,5 +24906,15 @@ RectTransform:
 --- !u!1 &4454887105253283343 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4971345510242119772, guid: 58162eb5551596d4b9bf85ac7d3ca815, type: 3}
+  m_PrefabInstance: {fileID: 8732255784695621203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &4454887105742576551 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4971345509724782068, guid: 58162eb5551596d4b9bf85ac7d3ca815, type: 3}
+  m_PrefabInstance: {fileID: 8732255784695621203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &4454887106803338853 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4971345508700973110, guid: 58162eb5551596d4b9bf85ac7d3ca815, type: 3}
   m_PrefabInstance: {fileID: 8732255784695621203}
   m_PrefabAsset: {fileID: 0}

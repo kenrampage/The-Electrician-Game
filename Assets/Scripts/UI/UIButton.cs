@@ -9,12 +9,13 @@ namespace RampageUtils.UI
     // All in one button script handles logic for m+kb and controller inputs plus swapping game objects for visual feedback
     public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISubmitHandler, ISelectHandler, IDeselectHandler, IPointerDownHandler
     {
-        [Header("Settings")]
-        [SerializeField] private float _submitDelay;
-        [SerializeField] private bool _isStartResumeButton = false;
 
         [Header("Events")]
+        public UnityEvent OnPointerDownEvent;
         public UnityEvent OnSubmitEvent;
+
+        [Header("Settings")]
+        [SerializeField] private float _submitDelay;
 
         [Header("References")]
         [SerializeField] private Button _hiddenButton;
@@ -22,7 +23,11 @@ namespace RampageUtils.UI
         [SerializeField] private GameObject _textSelect;
         [SerializeField] private GameObject _textSubmit;
 
-        private bool _isSubmitting = false;
+        [Header("Audio")]
+        [SerializeField] private FMODPlayOneShot _sfxSelect;
+        [SerializeField] private FMODPlayOneShot _sfxSubmit;
+
+        private bool _isSelected = false;
         private Button _button;
 
         private void Awake()
@@ -33,11 +38,13 @@ namespace RampageUtils.UI
         public void ButtonSelect()
         {
             _button.Select();
+            _isSelected = true;
         }
 
         public void ButtonDeselect()
         {
             _hiddenButton.Select();
+            _isSelected = false;
         }
 
         private void OnDisable()
@@ -53,27 +60,14 @@ namespace RampageUtils.UI
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            //if submit coroutine is running this keeps the button from being deselected too early
-            if (_isStartResumeButton && _isSubmitting)
-            {
-
-            }
-            else
-            {
-                ButtonDeselect();
-            }
+            ButtonDeselect();
+            StopCoroutine(ButtonSubmitCoroutine());
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
             StartCoroutine(ButtonSubmitCoroutine());
-
-            //Ensure cursor gets locked when starting/resuming gameplay
-            if (_isStartResumeButton)
-            {
-                InputManager.Instance.CursorLockOn();
-            }
-
+            OnPointerDownEvent?.Invoke();
         }
 
         public void OnSubmit(BaseEventData eventData)
@@ -83,11 +77,13 @@ namespace RampageUtils.UI
 
         public void OnSelect(BaseEventData eventData)
         {
+            _isSelected = true;
             HandleButtonSelect();
         }
 
         public void OnDeselect(BaseEventData eventData)
         {
+            _isSelected = false;
             HandleButtonDeselect();
         }
         #endregion
@@ -104,6 +100,7 @@ namespace RampageUtils.UI
         {
             TextObjectsOff();
             _textSelect.SetActive(true);
+            _sfxSelect.Play();
         }
 
         private void HandleButtonDeselect()
@@ -116,22 +113,33 @@ namespace RampageUtils.UI
         {
             TextObjectsOff();
             _textSubmit.SetActive(true);
+            _sfxSubmit.Play();
+        }
+
+        private void HandleButtonAfterSubmit()
+        {
+            TextObjectsOff();
+            _textSelect.SetActive(true);
         }
         #endregion
 
         #region Coroutines
         private IEnumerator ButtonSubmitCoroutine()
         {
-            _isSubmitting = true;
-
             HandleButtonSubmit();
 
             yield return new WaitForSecondsRealtime(_submitDelay);
 
-            // ButtonDeselect();
-            OnSubmitEvent?.Invoke();
+            if (_isSelected)
+            {
+                HandleButtonAfterSubmit();
+            }
+            else
+            {
+                ButtonDeselect();
+            }
 
-            _isSubmitting = false;
+            OnSubmitEvent?.Invoke();
         }
         #endregion
 
