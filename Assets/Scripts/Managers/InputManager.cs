@@ -81,6 +81,11 @@ public class InputManager : Singleton<InputManager>
         _playerInput.SwitchCurrentActionMap("Menu");
     }
 
+    public void SwitchToGameMenuInput()
+    {
+        _playerInput.SwitchCurrentActionMap("Game Menu");
+    }
+
     public void SwitchToPlayerInput()
     {
         _playerInput.SwitchCurrentActionMap("Player");

@@ -375,7 +375,7 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Menu"",
+            ""name"": ""Game Menu"",
             ""id"": ""ce8e3573-a49c-436c-9fb8-ed15c08c1388"",
             ""actions"": [
                 {
@@ -487,6 +487,89 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""758621eb-a094-46de-9964-b77671f0b10c"",
+            ""actions"": [
+                {
+                    ""name"": ""Navigate"",
+                    ""type"": ""Value"",
+                    ""id"": ""91a3e7f6-8ebb-4ff4-8add-f8c6e1622be7"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""6abf5df1-636b-42ca-9a73-cc7036201b68"",
+                    ""path"": ""2DVector(mode=1)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""1a096d44-685c-41ac-aa30-2536bfdc6b41"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""8df55743-cd32-4e11-afb6-59eed95fe2ee"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""de841de1-c31a-4f3b-858a-0df5cb343d4a"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""d403b8d6-1647-4e49-88e6-d49b7c8bb105"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3d621754-48ed-41a7-8029-3745eacfc40e"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": ""StickDeadzone"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -551,9 +634,12 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         m_Player_PrevItem = m_Player.FindAction("PrevItem", throwIfNotFound: true);
         m_Player_Xray = m_Player.FindAction("Xray", throwIfNotFound: true);
         m_Player_EndTest = m_Player.FindAction("EndTest", throwIfNotFound: true);
+        // Game Menu
+        m_GameMenu = asset.FindActionMap("Game Menu", throwIfNotFound: true);
+        m_GameMenu_Unpause = m_GameMenu.FindAction("Unpause", throwIfNotFound: true);
+        m_GameMenu_Navigate = m_GameMenu.FindAction("Navigate", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
-        m_Menu_Unpause = m_Menu.FindAction("Unpause", throwIfNotFound: true);
         m_Menu_Navigate = m_Menu.FindAction("Navigate", throwIfNotFound: true);
     }
 
@@ -716,16 +802,55 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
     }
     public PlayerActions @Player => new PlayerActions(this);
 
+    // Game Menu
+    private readonly InputActionMap m_GameMenu;
+    private IGameMenuActions m_GameMenuActionsCallbackInterface;
+    private readonly InputAction m_GameMenu_Unpause;
+    private readonly InputAction m_GameMenu_Navigate;
+    public struct GameMenuActions
+    {
+        private @InputAsset m_Wrapper;
+        public GameMenuActions(@InputAsset wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Unpause => m_Wrapper.m_GameMenu_Unpause;
+        public InputAction @Navigate => m_Wrapper.m_GameMenu_Navigate;
+        public InputActionMap Get() { return m_Wrapper.m_GameMenu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GameMenuActions set) { return set.Get(); }
+        public void SetCallbacks(IGameMenuActions instance)
+        {
+            if (m_Wrapper.m_GameMenuActionsCallbackInterface != null)
+            {
+                @Unpause.started -= m_Wrapper.m_GameMenuActionsCallbackInterface.OnUnpause;
+                @Unpause.performed -= m_Wrapper.m_GameMenuActionsCallbackInterface.OnUnpause;
+                @Unpause.canceled -= m_Wrapper.m_GameMenuActionsCallbackInterface.OnUnpause;
+                @Navigate.started -= m_Wrapper.m_GameMenuActionsCallbackInterface.OnNavigate;
+                @Navigate.performed -= m_Wrapper.m_GameMenuActionsCallbackInterface.OnNavigate;
+                @Navigate.canceled -= m_Wrapper.m_GameMenuActionsCallbackInterface.OnNavigate;
+            }
+            m_Wrapper.m_GameMenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Unpause.started += instance.OnUnpause;
+                @Unpause.performed += instance.OnUnpause;
+                @Unpause.canceled += instance.OnUnpause;
+                @Navigate.started += instance.OnNavigate;
+                @Navigate.performed += instance.OnNavigate;
+                @Navigate.canceled += instance.OnNavigate;
+            }
+        }
+    }
+    public GameMenuActions @GameMenu => new GameMenuActions(this);
+
     // Menu
     private readonly InputActionMap m_Menu;
     private IMenuActions m_MenuActionsCallbackInterface;
-    private readonly InputAction m_Menu_Unpause;
     private readonly InputAction m_Menu_Navigate;
     public struct MenuActions
     {
         private @InputAsset m_Wrapper;
         public MenuActions(@InputAsset wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Unpause => m_Wrapper.m_Menu_Unpause;
         public InputAction @Navigate => m_Wrapper.m_Menu_Navigate;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
@@ -736,9 +861,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_MenuActionsCallbackInterface != null)
             {
-                @Unpause.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnUnpause;
-                @Unpause.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnUnpause;
-                @Unpause.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnUnpause;
                 @Navigate.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnNavigate;
                 @Navigate.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnNavigate;
                 @Navigate.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnNavigate;
@@ -746,9 +868,6 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Unpause.started += instance.OnUnpause;
-                @Unpause.performed += instance.OnUnpause;
-                @Unpause.canceled += instance.OnUnpause;
                 @Navigate.started += instance.OnNavigate;
                 @Navigate.performed += instance.OnNavigate;
                 @Navigate.canceled += instance.OnNavigate;
@@ -805,9 +924,13 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         void OnXray(InputAction.CallbackContext context);
         void OnEndTest(InputAction.CallbackContext context);
     }
-    public interface IMenuActions
+    public interface IGameMenuActions
     {
         void OnUnpause(InputAction.CallbackContext context);
+        void OnNavigate(InputAction.CallbackContext context);
+    }
+    public interface IMenuActions
+    {
         void OnNavigate(InputAction.CallbackContext context);
     }
 }
