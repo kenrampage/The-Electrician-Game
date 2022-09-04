@@ -9,6 +9,9 @@ public class InventoryManager : Singleton<InventoryManager>
     [Header("References")]
     [SerializeField] private GameObject _reticle;
 
+    [Header("Audio")]
+    [SerializeField] private FMODPlayOneShot _sfxItemChange;
+
     [Header("Equipment Lists")]
     [SerializeField] private List<ToggleTargetObjects> _uiMarkersList;
     [SerializeField] private List<GameObject> _cursorList;
@@ -46,6 +49,7 @@ public class InventoryManager : Singleton<InventoryManager>
         }
 
         ChangeEquipment(newIndex);
+        _sfxItemChange.Play();
     }
 
     public void HandleItemPrevInput()
@@ -57,6 +61,7 @@ public class InventoryManager : Singleton<InventoryManager>
         }
 
         ChangeEquipment(newIndex);
+        _sfxItemChange.Play();
     }
 
     #endregion
@@ -64,11 +69,11 @@ public class InventoryManager : Singleton<InventoryManager>
     #region Changing Equipped Items
     private void ChangeEquipment(int itemIndex)
     {
-        if(CheckIfHoldingCable())
+        if (CheckIfHoldingCable())
         {
             DestroyHeldCable();
         }
-        
+
         _currentIndex = itemIndex;
 
         ToggleMarkers();

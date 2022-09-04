@@ -13,6 +13,9 @@ public enum InputDeviceType
 // Receives messages from player input component and allows easier management of responses via unity events
 public class InputManager : Singleton<InputManager>
 {
+    [Header("Audio")]
+    [SerializeField] private FMODPlayOneShot _sfxPause;
+
     #region UnityEvents
     [Header("Events")]
     public UnityEvent OnPauseEvent;
@@ -138,6 +141,7 @@ public class InputManager : Singleton<InputManager>
     public void OnPause(InputValue value)
     {
         OnPauseEvent?.Invoke();
+        _sfxPause.Play();
     }
 
     public void OnUnpause(InputValue value)

@@ -45,37 +45,7 @@ public class FMODMusicPlayer : MonoBehaviour
         }
 
         SetEventInstance();
-        // GetPlaybackState();
     }
-
-    // private void GetPlaybackState()
-    // {
-    //     eventInstance.getPlaybackState(out playbackState);
-    //     eventInstance.getPaused(out isPaused);
-    // }
-
-    // public void TogglePause()
-    // {
-    //     GetPlaybackState();
-
-    //     if (playbackState == FMOD.Studio.PLAYBACK_STATE.STOPPED)
-    //     {
-    //         StartPlayback();
-    //     }
-    //     else if (playbackState == FMOD.Studio.PLAYBACK_STATE.PLAYING)
-    //     {
-
-
-    //         if (isPaused)
-    //         {
-    //             PausePlayback();
-    //         }
-    //         else
-    //         {
-    //             UnpausePlayback();
-    //         }
-    //     }
-    // }
 
     [ContextMenu("Pause Music")]
     public void PausePlayback()
@@ -113,6 +83,16 @@ public class FMODMusicPlayer : MonoBehaviour
     public void SetHighpassOff()
     {
         eventInstance.setParameterByName("HighPass", 0);
+    }
+
+    public void SetLowpassOn()
+    {
+        eventInstance.setParameterByName("LowPass", 1);
+    }
+
+    public void SetLowpassOff()
+    {
+        eventInstance.setParameterByName("LowPass", 0);
     }
 
     public void SetParameterByName(string parameterName, float value)
