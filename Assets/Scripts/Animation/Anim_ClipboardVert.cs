@@ -9,24 +9,40 @@ public class Anim_ClipboardVert : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private bool _isInAtStart;
 
+    [Header("Audio")]
+    [SerializeField] private FMODPlayOneShot _sfxClipboardIn;
+    [SerializeField] private FMODPlayOneShot _sfxClipboardOut;
+
     private void Awake()
     {
         if (_isInAtStart)
         {
-            ClipboardIn();
+            SetClipboardIn();
         }
         else
         {
-            ClipboardOut();
+            SetClipboardOut();
         }
     }
 
     public void ClipboardIn()
     {
-        _anim.SetBool("isIn", true);
+        SetClipboardIn();
+        _sfxClipboardIn.Play();
     }
 
     public void ClipboardOut()
+    {
+        SetClipboardOut();
+        _sfxClipboardOut.Play();
+    }
+
+    private void SetClipboardIn()
+    {
+        _anim.SetBool("isIn", true);
+    }
+
+    private void SetClipboardOut()
     {
         _anim.SetBool("isIn", false);
     }
