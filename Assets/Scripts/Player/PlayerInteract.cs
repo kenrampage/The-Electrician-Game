@@ -27,7 +27,6 @@ public class PlayerInteract : MonoBehaviour
     public void Awake()
     {
         _inventoryManager = FindObjectOfType<InventoryManager>();
-        // _camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     private void Start()

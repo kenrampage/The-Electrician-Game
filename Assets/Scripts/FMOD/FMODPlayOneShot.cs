@@ -37,7 +37,7 @@ public class FMODPlayOneShot : MonoBehaviour
     {
         if (soundEffectsOn)
         {
-            RuntimeManager.PlayOneShotAttached(fmodEvent.ToString(), gameObject);
+            RuntimeManager.PlayOneShotAttached(fmodEvent, gameObject);
         }
 
     }

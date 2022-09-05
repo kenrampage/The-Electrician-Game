@@ -36,10 +36,10 @@ public class OverlayManager : MonoBehaviour
         _overlayControl.OnMainMenuOn.AddListener(MainMenuOn);
         _overlayControl.OnMainMenuOff.AddListener(MainMenuOff);
 
-        _overlayControl.OnStartUIOn.AddListener(StartUIOn);
-
         _overlayControl.OnSceneLoad.AddListener(SceneLoad);
         _overlayControl.OnSceneUnload.AddListener(SceneUnload);
+
+        _overlayControl.OnStartUIOn.AddListener(StartUIOn);
         _overlayControl.OnStartUIOff.AddListener(StartUIOff);
         _overlayControl.OnStartUIOut.AddListener(StartUIOut);
 
@@ -123,6 +123,7 @@ public class OverlayManager : MonoBehaviour
     [ContextMenu("EndUIOn")]
     private void EndUIOn()
     {
+        print("End UI On Events triggered");
         StartCycleThroughEvents(_endUIOnEvents);
     }
 
@@ -135,6 +136,7 @@ public class OverlayManager : MonoBehaviour
     [ContextMenu("EndUIOut")]
     private void EndUIOut()
     {
+        
         StartCycleThroughEvents(_endUIOutEvents);
     }
 

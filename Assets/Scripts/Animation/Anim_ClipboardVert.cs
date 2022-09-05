@@ -15,14 +15,14 @@ public class Anim_ClipboardVert : MonoBehaviour
 
     private void Awake()
     {
-        if (_isInAtStart)
-        {
-            SetClipboardIn();
-        }
-        else
-        {
-            SetClipboardOut();
-        }
+        // if (_isInAtStart)
+        // {
+        //     SetClipboardIn();
+        // }
+        // else
+        // {
+        //     SetClipboardOut();
+        // }
     }
 
     public void ClipboardIn()
