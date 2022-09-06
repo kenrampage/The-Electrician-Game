@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RampageUtils;
 
+
 // Manages equipped items, held cable, related UI markers
 // Needs to be refactored further breaking out UI functionality
 public class InventoryManager : Singleton<InventoryManager>
@@ -12,11 +13,8 @@ public class InventoryManager : Singleton<InventoryManager>
     [Header("Audio")]
     [SerializeField] private FMODPlayOneShot _sfxItemChange;
 
-    [Header("Equipment Lists")]
-    [SerializeField] private List<ToggleTargetObjects> _uiMarkersList;
-    [SerializeField] private List<GameObject> _cursorList;
-    [SerializeField] private List<LayerMask> _layerMasksList;
-    [SerializeField] private List<string> _tagsList;
+    [Header("Equipment")]
+    [SerializeField] private Equipment[] _equipmentArray;
 
     private PlayerInteract _playerInteract;
     private GameObject _heldCable;
@@ -43,7 +41,8 @@ public class InventoryManager : Singleton<InventoryManager>
     public void HandleItemNextInput()
     {
         var newIndex = _currentIndex + 1;
-        if (newIndex > _cursorList.Count - 1)
+
+        if (newIndex > _equipmentArray.Length - 1)
         {
             newIndex = 0;
         }
@@ -55,9 +54,10 @@ public class InventoryManager : Singleton<InventoryManager>
     public void HandleItemPrevInput()
     {
         var newIndex = _currentIndex - 1;
+
         if (newIndex < 0)
         {
-            newIndex = _cursorList.Count - 1;
+            newIndex = _equipmentArray.Length - 1;
         }
 
         ChangeEquipment(newIndex);
@@ -78,7 +78,9 @@ public class InventoryManager : Singleton<InventoryManager>
 
         ToggleMarkers();
         ChangeCursor();
-        _playerInteract.SetCursorObject(_cursorList[_currentIndex]);
+
+        _playerInteract.SetCursorObject(_equipmentArray[_currentIndex].Cursor);
+
     }
 
     private void ResetEquipment()
@@ -163,12 +165,17 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public LayerMask GetCurrentLayerMask()
     {
-        return _layerMasksList[_currentIndex];
+        return _equipmentArray[_currentIndex].LayerMask;
     }
 
     public string GetCurrentTag()
     {
-        return _tagsList[_currentIndex];
+        return _equipmentArray[_currentIndex].Tag;
+    }
+
+    public Equipment.Type GetCurrentTargetType()
+    {
+        return _equipmentArray[_currentIndex].TargetType;
     }
 
     #endregion
@@ -177,22 +184,23 @@ public class InventoryManager : Singleton<InventoryManager>
     // Changes the markers indicating which item is equipped in the game UI
     private void ToggleMarkers()
     {
-        foreach (var item in _uiMarkersList)
+        foreach (var item in _equipmentArray)
         {
-            item.SetInactive();
+            item.UIMarker.SetInactive();
         }
 
-        _uiMarkersList[_currentIndex].SetActive();
+        _equipmentArray[_currentIndex].UIMarker.SetActive();
     }
 
     public void ChangeCursor()
     {
-        foreach (var item in _cursorList)
+        foreach (var item in _equipmentArray)
         {
-            item.SetActive(false);
+            item.Cursor.SetActive(false);
         }
 
-        _cursorList[_currentIndex].SetActive(true);
+        _equipmentArray[_currentIndex].Cursor.SetActive(true);
+
     }
 
     public void TurnReticleOff()

@@ -25,15 +25,15 @@ TagManager:
   - Water
   - UI
   - Interactable
-  - Smashable
-  - Fixable
+  - 
+  - 
   - Wirable
   - WirableSource
   - WirableSourceXray
   - WirableTarget
   - WirableTargetXray
-  - 
-  - 
+  - WallOn
+  - WallOff
   - Overlays
   - 
   - 

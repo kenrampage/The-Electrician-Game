@@ -5,8 +5,8 @@ public class WallFragment : MonoBehaviour
 {
     private MeshRenderer _mesh;
 
-    private string _smashableMask = "Smashable";
-    private string _fixableMask = "Fixable";
+    private string _smashableMask = "WallOn";
+    private string _fixableMask = "WallOff";
 
     private string _smasherTag = "Smasher";
     private string _fixerTag = "Fixer";

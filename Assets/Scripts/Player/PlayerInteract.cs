@@ -6,8 +6,6 @@ public class PlayerInteract : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private Vector3 _cursorHiddenPosition;
-    [SerializeField] private int _pointerItemIndex = 0;
-    [SerializeField] private int _wiringItemIndex = 3;
 
     [Header("Cursor Animation")]
     [SerializeField] private Animation _handAnim;
@@ -15,6 +13,7 @@ public class PlayerInteract : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Camera _camera;
+    [SerializeField] private SmashAndFix _smashAndFix;
 
     private GameObject _currentTarget;
     private GameObject _cursorObject;
@@ -41,29 +40,64 @@ public class PlayerInteract : MonoBehaviour
 
     public void Interact()
     {
-        if (_inventoryManager.CheckIfMatchCurrentIndex(_pointerItemIndex))
+        switch (_inventoryManager.GetCurrentTargetType())
         {
-            if (_currentTarget == null) return;
+            case Equipment.Type.INTERACTABLE:
+                InteractWithInteractable();
+                break;
 
-            var interactable = _currentTarget.GetComponent<IInteractable>();
+            case Equipment.Type.WALLON:
+                InteractWithWallOn();
+                break;
 
-            if (interactable == null) return;
+            case Equipment.Type.WALLOFF:
+                InteractWithWallOff();
+                break;
 
-            _handAnim.Play();
-            interactable.Interact();
+            case Equipment.Type.WIRABLE:
+                InteractWithWirable();
+                break;
+
+            default:
+                break;
         }
-        else if (_inventoryManager.CheckIfMatchCurrentIndex(_wiringItemIndex))
-        {
-            if (_currentTarget == null) return;
 
-            var interactable = _currentTarget.GetComponent<IInteractable>();
+    }
 
-            if (interactable == null) return;
+    private void InteractWithInteractable()
+    {
+        if (_currentTarget == null) return;
 
-            _wireAnim.Play();
-            interactable.Interact();
-        }
+        var interactable = _currentTarget.GetComponent<IInteractable>();
 
+        if (interactable == null) return;
+
+        _handAnim.Play();
+        interactable.Interact();
+    }
+
+    private void InteractWithWallOn()
+    {
+        if (_currentTarget == null) return;
+        _smashAndFix.StartSmash();
+    }
+
+    private void InteractWithWallOff()
+    {
+        if (_currentTarget == null) return;
+        _smashAndFix.StartFix();
+    }
+
+    private void InteractWithWirable()
+    {
+        if (_currentTarget == null) return;
+
+        var interactable = _currentTarget.GetComponent<IInteractable>();
+
+        if (interactable == null) return;
+
+        _wireAnim.Play();
+        interactable.Interact();
     }
 
 
@@ -97,8 +131,13 @@ public class PlayerInteract : MonoBehaviour
             SetCursorLocalPosition(_cursorHiddenPosition);
 
         }
-
     }
+
+    // private void CastRay()
+    // {
+    //     // cast ray from camera
+    //     //
+    // }
 
     #region Get/Set Cursor properties
     public Vector3 GetCursorPosition()
@@ -126,6 +165,7 @@ public class PlayerInteract : MonoBehaviour
         return _cursorObject.transform.rotation;
     }
     #endregion
+
 
 }
 
