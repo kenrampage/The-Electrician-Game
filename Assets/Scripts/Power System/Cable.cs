@@ -8,7 +8,13 @@ public class Cable : MonoBehaviour
     [SerializeField] private CableCollision _cableCollision;
     private CableTransform _cableTransform;
     private CableVisuals _cableVisuals;
-    
+
+    [Header("Audio")]
+    [SerializeField] private FMODPlayOneShot _sfxCablePickup;
+    [SerializeField] private FMODPlayOneShot _sfxCableDrop;
+    [SerializeField] private FMODPlayOneShot _sfxCablePreview;
+    [SerializeField] private FMODPlayOneShot _sfxCableInstallPower;
+    [SerializeField] private FMODPlayOneShot _sfxCableInstall;
 
     private NodeManager _nodeManager;
 
@@ -35,6 +41,11 @@ public class Cable : MonoBehaviour
         _cableTransform.SetStartPosition(transform.position);
         _cableTransform.Edit();
         _cableCollision.SetPassthroughMask();
+
+        // Play Audio
+
+        _sfxCableInstall.PlayAttached(_sourceNode.gameObject);
+
     }
 
     // Preview on end node while holding cable and hovering over a node
@@ -42,11 +53,19 @@ public class Cable : MonoBehaviour
     {
         _cableTransform.Preview(node.transform.position);
         _cableVisuals.PreviewOn();
+
+        // Play Audio
+        _sfxCablePreview.PlayAttached(node.gameObject);
     }
 
     // Stop previewing when holding cable and no longer hovering over end node
     public void PreviewAtEndNodeOff(Node node)
     {
+        // Play Audio
+        if (node != _sourceNode)
+        {
+            _sfxCablePreview.PlayAttached(node.gameObject);
+        }
         _cableTransform.Edit();
 
     }
@@ -69,7 +88,17 @@ public class Cable : MonoBehaviour
         InventoryManager.Instance.DropCable();
 
         _cableCollision.SetSelectableMask();
-        
+
+        // Play Audio
+        if (_sourceNode.CheckPowerStatus() || _endNode.CheckPowerStatus())
+        {
+            _sfxCableInstallPower.PlayAttached(_endNode.gameObject);
+        }
+        else
+        {
+            _sfxCableInstall.PlayAttached(_endNode.gameObject);
+        }
+
     }
 
     // Disconnect from end node and hold cable after interacting with the body of an installed cabled
@@ -87,11 +116,17 @@ public class Cable : MonoBehaviour
         ClearEndNode();
 
         _cableCollision.SetPassthroughMask();
+
+        // Play audio
+        _sfxCablePickup.Play();
     }
 
     // Destroy cable while holding cable and cancelling (right click)
     public void DestroyCable()
     {
+        // Play Audio
+        _sfxCableDrop.Play();
+
         InventoryManager.Instance.DestroyHeldCable();
     }
     #endregion

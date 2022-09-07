@@ -68,12 +68,12 @@ public class PlayerInteract : MonoBehaviour
     {
         if (_currentTarget == null) return;
 
-        var interactable = _currentTarget.GetComponent<IInteractable>();
+        var iInteractable = _currentTarget.GetComponent<IInteractable>();
 
-        if (interactable == null) return;
+        if (iInteractable == null) return;
 
         _handAnim.Play();
-        interactable.Interact();
+        iInteractable.Interact();
     }
 
     private void InteractWithWallOn()
@@ -92,12 +92,13 @@ public class PlayerInteract : MonoBehaviour
     {
         if (_currentTarget == null) return;
 
-        var interactable = _currentTarget.GetComponent<IInteractable>();
+        var iInteractable = _currentTarget.GetComponent<IInteractable>();
 
-        if (interactable == null) return;
+        if (iInteractable == null) return;
 
         _wireAnim.Play();
-        interactable.Interact();
+        iInteractable.Interact();
+
     }
 
 
@@ -133,11 +134,6 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    // private void CastRay()
-    // {
-    //     // cast ray from camera
-    //     //
-    // }
 
     #region Get/Set Cursor properties
     public Vector3 GetCursorPosition()

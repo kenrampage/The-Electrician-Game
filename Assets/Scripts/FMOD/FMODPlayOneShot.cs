@@ -23,7 +23,7 @@ public class FMODPlayOneShot : MonoBehaviour
 
             if (is3D)
             {
-                PlayAttached();
+                PlayAttached(this.gameObject);
             }
             else
             {
@@ -33,11 +33,11 @@ public class FMODPlayOneShot : MonoBehaviour
 
     }
 
-    private void PlayAttached()
+    public void PlayAttached(GameObject obj)
     {
         if (soundEffectsOn)
         {
-            RuntimeManager.PlayOneShotAttached(fmodEvent, gameObject);
+            RuntimeManager.PlayOneShotAttached(fmodEvent, obj);
         }
 
     }
