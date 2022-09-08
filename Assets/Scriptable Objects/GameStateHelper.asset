@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ca4f1ef127d3c47a2b7df78bc30dca, type: 3}
+  m_Name: GameStateHelper
+  m_EditorClassIdentifier: 
+  OnSceneLoad:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLevelStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGameRun:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGamePause:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLevelEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSceneUnload:
+    m_PersistentCalls:
+      m_Calls: []

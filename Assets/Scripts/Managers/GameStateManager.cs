@@ -4,8 +4,9 @@ using UnityEngine;
 // Manages current and previous game state and invokes a serialized array of events in response to state changes
 public class GameStateManager : Singleton<GameStateManager>
 {
-    [Header("Scriptable Object")]
-    [SerializeField] private SOGameStateControl _gameStateControl;
+    [Header("Scriptable Objects")]
+    [SerializeField] private SOGameStateControl _soGameStateControl;
+    [SerializeField] private SOGameStateHelper _soGameStateHelper;
 
     [Header("Events")]
     [SerializeField] private SerializedEvent[] _sceneLoadEvents;
@@ -43,12 +44,12 @@ public class GameStateManager : Singleton<GameStateManager>
 
     private void RegisterEventListeners()
     {
-        _gameStateControl.OnSceneLoad.AddListener(SetSceneLoading);
-        _gameStateControl.OnLevelStart.AddListener(SetLevelStarting);
-        _gameStateControl.OnGameRun.AddListener(SetGameRunning);
-        _gameStateControl.OnGamePause.AddListener(SetGamePaused);
-        _gameStateControl.OnLevelEnd.AddListener(SetLevelEnding);
-        _gameStateControl.OnSceneUnload.AddListener(SetSceneUnloading);
+        _soGameStateControl.OnSceneLoad.AddListener(SetSceneLoading);
+        _soGameStateControl.OnLevelStart.AddListener(SetLevelStarting);
+        _soGameStateControl.OnGameRun.AddListener(SetGameRunning);
+        _soGameStateControl.OnGamePause.AddListener(SetGamePaused);
+        _soGameStateControl.OnLevelEnd.AddListener(SetLevelEnding);
+        _soGameStateControl.OnSceneUnload.AddListener(SetSceneUnloading);
     }
 
 
@@ -135,31 +136,37 @@ public class GameStateManager : Singleton<GameStateManager>
     public void SetSceneLoading()
     {
         SetState(State.SCENELOADING);
+        _soGameStateHelper.OnSceneLoad?.Invoke();
     }
 
     public void SetLevelStarting()
     {
         SetState(State.LEVELSTARTING);
+        _soGameStateHelper.OnLevelStart?.Invoke();
     }
 
     public void SetGameRunning()
     {
         SetState(State.GAMERUNNING);
+        _soGameStateHelper.OnGameRun?.Invoke();
     }
 
     public void SetGamePaused()
     {
         SetState(State.GAMEPAUSED);
+        _soGameStateHelper.OnGamePause?.Invoke();
     }
 
     public void SetLevelEnding()
     {
         SetState(State.LEVELENDING);
+        _soGameStateHelper.OnLevelEnd?.Invoke();
     }
 
     public void SetSceneUnloading()
     {
         SetState(State.SCENEUNLOADING);
+        _soGameStateHelper.OnSceneUnload?.Invoke();
     }
     #endregion
 
