@@ -1,54 +1,61 @@
 using UnityEngine;
 using FMODUnity;
-using TMPro;
-using UnityEngine.UI;
 
 public class FMODVolumeControl : MonoBehaviour
 {
-    public FMOD.Studio.Bus masterBus;
-    private Slider slider;
+    [Header("Scriptable Object")]
+    [SerializeField] private SOSettings _soSettings;
+
+    [Header("FMOD VCAs")]
+    [SerializeField] private string _vcaSFXName;
+    [SerializeField] private string _vcaMusicName;
+
+    private FMOD.Studio.VCA _vcaSFX;
+    private FMOD.Studio.VCA _vcaMusic;
+
 
     private void Awake()
     {
-        GetBusReferences();
-        slider = GetComponent<Slider>();
-
+        GetVCAReferences();
+        RegisterEventListeners();
     }
 
-    private void OnEnable()
+    private void RegisterEventListeners()
     {
-        InitializeSlider();
+        _soSettings.OnMusicVolumeChanged?.AddListener(SetVolumeMusic);
+        _soSettings.OnSFXVolumeChanged?.AddListener(SetVolumeSFX);
     }
 
-    public void SetVolume(float v)
+    private void GetVCAReferences()
     {
-        masterBus.setVolume(v);
+        _vcaSFX = FMODUnity.RuntimeManager.GetVCA("vca:/" + _vcaSFXName);
+        _vcaMusic = FMODUnity.RuntimeManager.GetVCA("vca:/" + _vcaMusicName);
     }
 
-    public float GetVolume()
+    #region Get/Set Functions
+    public void SetVolumeSFX()
+    {
+        _vcaSFX.setVolume(_soSettings.GetSFXVolume());
+    }
+
+    public float GetVolumeSFX()
     {
         float v;
-        masterBus.getVolume(out v);
+        _vcaSFX.getVolume(out v);
         return v;
     }
 
-    public void GetBusReferences()
+    public void SetVolumeMusic()
     {
-        if (masterBus.isValid() == false)
-        {
-            masterBus = RuntimeManager.GetBus("bus:/");
-        }
+        _vcaMusic.setVolume(_soSettings.GetMusicVolume());
     }
 
-    [ContextMenu("Test Values")]
-    public void TestValues()
+    public float GetVolumeMusic()
     {
-        print("FMOD Volume: " + GetVolume());
-        print("Slider value is: " + slider.value);
+        float v;
+        _vcaMusic.getVolume(out v);
+        return v;
     }
+    #endregion
 
-    public void InitializeSlider()
-    {
-        slider.value = GetVolume();
-    }
 }

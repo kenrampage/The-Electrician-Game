@@ -29,7 +29,8 @@ public class SystemsSpawner : MonoBehaviour
             }
             else
             {
-                print("Object with Tag of " + entry.Tag + " already exists");
+                // print("Object with Tag of " + entry.Tag + " already exists");
+                return;
             }
         }
     }
