@@ -4,7 +4,7 @@ using UnityEngine;
 public class NodeXray : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GameObject _xrayIndicator;
+    [SerializeField] private GameObject[] _xrayIndicators;
     private bool _isXrayOn = false;
 
     private void Awake()
@@ -14,12 +14,21 @@ public class NodeXray : MonoBehaviour
 
     private void TurnXrayOn()
     {
-        _xrayIndicator.SetActive(true);
+        foreach (var item in _xrayIndicators)
+        {
+            item.SetActive(true);
+        }
+        // _xrayIndicator.SetActive(true);
     }
 
     private void TurnXrayOff()
     {
-        _xrayIndicator.SetActive(false);
+        foreach (var item in _xrayIndicators)
+        {
+            item.SetActive(false);
+        }
+
+        // _xrayIndicator.SetActive(false);
     }
 
     private void HandleToggleXrayInput()
