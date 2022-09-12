@@ -10,8 +10,6 @@ public class SmashAndFix : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private float _interactDuration = .1f;
-    [SerializeField] private int _smashItemIndex = 1;
-    [SerializeField] private int _fixItemIndex = 2;
 
     [Header("Particle Settings")]
     [SerializeField] private ParticleSystem _particleSystem;
@@ -20,6 +18,10 @@ public class SmashAndFix : MonoBehaviour
     [Header("Cursor Animation")]
     [SerializeField] private Animation _smashAnim;
     [SerializeField] private Animation _fixAnim;
+
+    [Header("Audio")]
+    [SerializeField] private ObjectPooler _sfxSmashPool;
+    [SerializeField] private ObjectPooler _sfxFixPool;
 
     private InventoryManager _inventoryManager;
     private PlayerInteract _playerInteract;
@@ -30,8 +32,6 @@ public class SmashAndFix : MonoBehaviour
     {
         _playerInteract = GetComponent<PlayerInteract>();
         _inventoryManager = InventoryManager.Instance;
-
-        InputManager.Instance.OnInteractEvent.AddListener(Interact);
     }
 
 
@@ -52,6 +52,9 @@ public class SmashAndFix : MonoBehaviour
 
             // Play Particle
             Instantiate<ParticleSystem>(_particleSystem, _playerInteract.GetCursorPosition() + _particlePositionOffset, _playerInteract.GetCursorRotation());
+
+            // Play Sound
+            _sfxSmashPool.RetrieveObject(_playerInteract.GetCursorPosition(), _playerInteract.GetCursorRotation());
 
             // wait
             yield return new WaitForSecondsRealtime(_interactDuration);
@@ -83,6 +86,9 @@ public class SmashAndFix : MonoBehaviour
             // Play Particle
             Instantiate<ParticleSystem>(_particleSystem, _playerInteract.GetCursorPosition() + _particlePositionOffset, _playerInteract.GetCursorRotation());
 
+            // Play Sound
+            _sfxFixPool.RetrieveObject(_playerInteract.GetCursorPosition(), _playerInteract.GetCursorRotation());
+
             // wait
             yield return new WaitForSecondsRealtime(_interactDuration);
 
@@ -95,17 +101,14 @@ public class SmashAndFix : MonoBehaviour
         }
     }
 
-    // Handle Player Input
-    public void Interact()
+    public void StartSmash()
     {
-        if (_inventoryManager.CheckIfMatchCurrentIndex(_smashItemIndex))
-        {
-            StartCoroutine(Smash());
-        }
-        else if (_inventoryManager.CheckIfMatchCurrentIndex(_fixItemIndex))
-        {
-            StartCoroutine(Fix());
-        }
+        StartCoroutine(Smash());
+    }
+
+    public void StartFix()
+    {
+        StartCoroutine(Fix());
     }
 
 }

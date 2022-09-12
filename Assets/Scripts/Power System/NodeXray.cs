@@ -5,7 +5,6 @@ public class NodeXray : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject _xrayIndicator;
-
     private bool _isXrayOn = false;
 
     private void Awake()

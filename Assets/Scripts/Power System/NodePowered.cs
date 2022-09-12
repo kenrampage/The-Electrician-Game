@@ -11,10 +11,13 @@ public class NodePowered : MonoBehaviour, IInteractable
     [SerializeField] private bool _isSwitchedOn;
 
     [Header("Events")]
+    [SerializeField] private UnityEvent _onSwitchedOn;
+    [SerializeField] private UnityEvent _onSwitchedOff;
+
     [SerializeField] private UnityEvent _onPoweredOn;
     [SerializeField] private UnityEvent _onPoweredOff;
 
-    private bool _isConnectedToPower;
+    [SerializeField] private bool _isConnectedToPower;
 
     private void Awake()
     {
@@ -23,15 +26,13 @@ public class NodePowered : MonoBehaviour, IInteractable
 
     private void OnEnable()
     {
-        if (_isSwitchedOn && _connectedNode.CheckPowerStatus())
+        CheckPowerStatus();
+
+        if (_isSwitchedOn && _isConnectedToPower)
         {
             _onPoweredOn?.Invoke();
         }
-
-        if (_connectedNode.CheckPowerStatus())
-        {
-            _isConnectedToPower = true;
-        }
+        
     }
 
     #region Switch/Power on and off Functions
@@ -39,48 +40,47 @@ public class NodePowered : MonoBehaviour, IInteractable
     {
         _isSwitchedOn = true;
 
+        _onSwitchedOn?.Invoke();
+
         if (_isConnectedToPower)
         {
             _onPoweredOn?.Invoke();
         }
-        else
-        {
-            _onPoweredOff?.Invoke();
-        }
+
     }
 
     public void SwitchOff()
     {
         _isSwitchedOn = false;
 
-        _onPoweredOff?.Invoke();
+        _onSwitchedOff?.Invoke();
 
+        if (_isConnectedToPower)
+        {
+            _onPoweredOff?.Invoke();
+        }
+
+    }
+
+    public void SwitchOffNoEvents()
+    {
+        _isSwitchedOn = false;
     }
 
     public void PowerOn()
     {
         _isConnectedToPower = true;
-
-        if (_isSwitchedOn)
-        {
-            _onPoweredOn?.Invoke();
-        }
-        else
-        {
-            _onPoweredOff?.Invoke();
-        }
     }
 
     public void PowerOff()
     {
         _isConnectedToPower = false;
-
-        _onPoweredOff?.Invoke();
-
     }
 
     public void ToggleSwitchStatus()
     {
+        CheckPowerStatus();
+
         if (_isSwitchedOn)
         {
             SwitchOff();
@@ -91,7 +91,7 @@ public class NodePowered : MonoBehaviour, IInteractable
         }
     }
 
-    public void HandlePowerStatusChanged()
+    public void CheckPowerStatus()
     {
         if (_connectedNode.CheckPowerStatus())
         {
@@ -100,6 +100,15 @@ public class NodePowered : MonoBehaviour, IInteractable
         else
         {
             PowerOff();
+        }
+    }
+
+    public void HandlePowerStatusChanged()
+    {
+        CheckPowerStatus();
+        if (_isSwitchedOn)
+        {
+            _onPoweredOn?.Invoke();
         }
     }
     #endregion

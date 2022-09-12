@@ -9,6 +9,11 @@ public class NodeInteraction : MonoBehaviour, IInteractable
     [Header("Settings")]
     [SerializeField] private int _wiringItemIndex;
 
+    // [Header("Audio")]
+    // [SerializeField] private FMODPlayOneShot _sfxInstallCableWithPower;
+    // [SerializeField] private FMODPlayOneShot _sfxInstallCable;
+    // [SerializeField] private FMODPlayOneShot _sfxPreviewCable;
+
     private InventoryManager _inventoryManager;
     private Node _node;
 
@@ -62,20 +67,35 @@ public class NodeInteraction : MonoBehaviour, IInteractable
             _inventoryManager.PickupCable(newCable);
             cable.ConnectToSourceNode(_node);
 
+            // //Play Audio
+            // if (_node.CheckPowerStatus())
+            // {
+            //     _sfxInstallCableWithPower.Play();
+            // }
+            // else
+            // {
+            //     _sfxInstallCable.Play();
+            // }
+
         }
         // Checks if wiring item is equipped and is holding cable
         else if (CheckIfWiringItemEquipped() && _inventoryManager.CheckIfHoldingCable())
         {
             var cable = _inventoryManager.GetHeldCable().GetComponent<Cable>();
 
-            // Checks if this node is already connected to the cable source node, if this node is the cable's source node, and if the cable is colliding with walls
-            if (!CheckIfInstallable(cable))
-            {
-                return;
-            }
-            else if (CheckIfInstallable(cable))
+            if (CheckIfInstallable(cable))
             {
                 cable.ConnectToEndNode(_node);
+
+                // //Play Audio
+                // if (_node.CheckPowerStatus() || cable.GetSourceNode().CheckPowerStatus())
+                // {
+                //     _sfxInstallCableWithPower.Play();
+                // }
+                // else
+                // {
+                //     _sfxInstallCable.Play();
+                // }
             }
 
         }
@@ -103,6 +123,7 @@ public class NodeInteraction : MonoBehaviour, IInteractable
             if (!_node.CheckIfConnectedToNode(cable.GetSourceNode()) && !cable.CheckIfSourceNode(_node))
             {
                 cable.PreviewAtEndNodeOn(_node);
+
             }
         }
     }

@@ -5,7 +5,7 @@ using UnityEngine.Events;
 // Manages connections to other nodes and tracks power status
 public class Node : MonoBehaviour
 {
-    [Header("Passthrough References")]
+    [Header("References")]
     [HideInInspector] public NodeVisuals NodeVisuals;
 
     [Header("Settings")]
@@ -21,6 +21,7 @@ public class Node : MonoBehaviour
     private void Awake()
     {
         NodeVisuals = GetComponent<NodeVisuals>();
+
         if (_isPowerSource)
         {
             ConnectPower();

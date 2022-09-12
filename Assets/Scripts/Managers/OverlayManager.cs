@@ -1,58 +1,161 @@
 using UnityEngine;
+using System.Collections;
 
 // For easier management of overlay objects used for transitioning between scenes and menus
 public class OverlayManager : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private GameObject _curtains;
-    [SerializeField] private GameObject _fadeCanvas;
+    [Header("Scriptable Object")]
+    [SerializeField] private SOOverlayControl _overlayControl;
 
-    private Anim_Curtains _anim_Curtains;
-    private AnimationHelper _fadeAnimHelper;
+    [Header("Events")]
+    [SerializeField] private SerializedEvent[] _splashScreenOffEvents;
+    [SerializeField] private SerializedEvent[] _mainMenuOnEvents;
+    [SerializeField] private SerializedEvent[] _mainMenuOffEvents;
+    [SerializeField] private SerializedEvent[] _sceneLoadEvents;
+    [SerializeField] private SerializedEvent[] _sceneUnloadEvents;
+    [SerializeField] private SerializedEvent[] _startUIOnEvents;
+    [SerializeField] private SerializedEvent[] _startUIOffEvents;
+    [SerializeField] private SerializedEvent[] _startUIOutEvents;
+    [SerializeField] private SerializedEvent[] _pauseUIOnEvents;
+    [SerializeField] private SerializedEvent[] _pauseUIOffEvents;
+    [SerializeField] private SerializedEvent[] _pauseUIOutEvents;
+    [SerializeField] private SerializedEvent[] _endUIOnEvents;
+    [SerializeField] private SerializedEvent[] _endUIOffEvents;
+    [SerializeField] private SerializedEvent[] _endUIOutEvents;
 
     private void Awake()
     {
-        _anim_Curtains = _curtains.GetComponent<Anim_Curtains>();
-        _fadeAnimHelper = _fadeCanvas.GetComponent<AnimationHelper>();
+        DontDestroyOnLoad(this);
+        RegisterEventListeners();
     }
 
-    public void CurtainsOn()
+    private void RegisterEventListeners()
     {
-        _curtains.SetActive(true);
+        _overlayControl.OnSplashScreenOff.AddListener(SplashScreenOff);
+
+        _overlayControl.OnMainMenuOn.AddListener(MainMenuOn);
+        _overlayControl.OnMainMenuOff.AddListener(MainMenuOff);
+
+        _overlayControl.OnSceneLoad.AddListener(SceneLoad);
+        _overlayControl.OnSceneUnload.AddListener(SceneUnload);
+
+        _overlayControl.OnStartUIOn.AddListener(StartUIOn);
+        _overlayControl.OnStartUIOff.AddListener(StartUIOff);
+        _overlayControl.OnStartUIOut.AddListener(StartUIOut);
+
+        _overlayControl.OnPauseUIOn.AddListener(PauseUIOn);
+        _overlayControl.OnPauseUIOff.AddListener(PauseUIOff);
+        _overlayControl.OnPauseUIOut.AddListener(PauseUIOut);
+
+        _overlayControl.OnEndUIOn.AddListener(EndUIOn);
+        _overlayControl.OnEndUIOff.AddListener(EndUIOff);
+        _overlayControl.OnEndUIOut.AddListener(EndUIOut);
     }
 
-    public void CurtainsOff()
+    #region UI Methods
+
+    [ContextMenu("SplashScreenOff")]
+    private void SplashScreenOff()
     {
-        _curtains.SetActive(false);
+        StartCycleThroughEvents(_splashScreenOffEvents);
     }
 
-    public void CurtainsOpen()
+    [ContextMenu("MainMenuOn")]
+    private void MainMenuOn()
     {
-        _anim_Curtains.CurtainsOpen();
+        StartCycleThroughEvents(_mainMenuOnEvents);
     }
 
-    public void CurtainsClose()
+    [ContextMenu("MainMenuOff")]
+    private void MainMenuOff()
     {
-        _anim_Curtains.CurtainsClose();
+        StartCycleThroughEvents(_mainMenuOffEvents);
     }
 
-    public void FadeCanvasOn()
+    [ContextMenu("StartUIOn")]
+    private void StartUIOn()
     {
-        _fadeCanvas.SetActive(true);
+        StartCycleThroughEvents(_startUIOnEvents);
     }
 
-    public void FadeCanvasOff()
+    [ContextMenu("SceneLoad")]
+    private void SceneLoad()
     {
-        _fadeCanvas.SetActive(false);
+        StartCycleThroughEvents(_sceneLoadEvents);
     }
 
-    public void FadeIn()
+    [ContextMenu("SceneUnload")]
+    private void SceneUnload()
     {
-        _fadeAnimHelper.PlayAnimAtIndex(0);
+        StartCycleThroughEvents(_sceneUnloadEvents);
     }
 
-    public void FadeOut()
+    [ContextMenu("StartUIOff")]
+    private void StartUIOff()
     {
-        _fadeAnimHelper.PlayAnimAtIndex(1);
+        StartCycleThroughEvents(_startUIOffEvents);
     }
+
+    [ContextMenu("StartUIOut")]
+    private void StartUIOut()
+    {
+        StartCycleThroughEvents(_startUIOutEvents);
+    }
+
+    [ContextMenu("PauseUIOn")]
+    private void PauseUIOn()
+    {
+        StartCycleThroughEvents(_pauseUIOnEvents);
+    }
+
+    [ContextMenu("PauseUIOff")]
+    private void PauseUIOff()
+    {
+        StartCycleThroughEvents(_pauseUIOffEvents);
+    }
+
+    [ContextMenu("PauseUIOut")]
+    private void PauseUIOut()
+    {
+        StartCycleThroughEvents(_pauseUIOutEvents);
+    }
+
+    [ContextMenu("EndUIOn")]
+    private void EndUIOn()
+    {
+        print("End UI On Events triggered");
+        StartCycleThroughEvents(_endUIOnEvents);
+    }
+
+    [ContextMenu("EndUIOff")]
+    private void EndUIOff()
+    {
+        StartCycleThroughEvents(_endUIOffEvents);
+    }
+
+    [ContextMenu("EndUIOut")]
+    private void EndUIOut()
+    {
+        
+        StartCycleThroughEvents(_endUIOutEvents);
+    }
+
+    #endregion
+
+    public void StartCycleThroughEvents(SerializedEvent[] array)
+    {
+        StartCoroutine(CycleThroughEvents(array));
+    }
+
+    private IEnumerator CycleThroughEvents(SerializedEvent[] array)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            yield return new WaitForSecondsRealtime(array[i].Delay);
+
+            array[i].InvokeEvent();
+
+        }
+    }
+
 }

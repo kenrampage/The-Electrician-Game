@@ -15,6 +15,7 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private float _lookSensitivity = 1.0f;
     [SerializeField] private float _moveSpeedChangeRate = 10.0f;
     [SerializeField] private float _gravityPower = -.5f;
+    [SerializeField] private float _groundCheckHeight;
 
     [Header("Camera Settings")]
     [SerializeField] private GameObject _cinemachineCameraTarget;
@@ -29,6 +30,8 @@ public class FirstPersonController : MonoBehaviour
     private float _rotationVelocity;
     private float _verticalVelocity;
     private float _terminalVelocity = 53.0f;
+    private bool _isGrounded;
+    private Vector3 _inputDirection;
 
     // References
     private PlayerInput _playerInput;
@@ -62,6 +65,11 @@ public class FirstPersonController : MonoBehaviour
         Gravity();
     }
 
+    private void FixedUpdate()
+    {
+        CheckIfGrounded();
+    }
+
     private void LateUpdate()
     {
         CameraRotation();
@@ -70,6 +78,23 @@ public class FirstPersonController : MonoBehaviour
     private void HandleLookSensitivityChanged()
     {
         _lookSensitivity = _settings.GetLookSensitivity();
+    }
+
+    private void CheckIfGrounded()
+    {
+        Ray ray = new Ray(transform.position, Vector3.down);
+
+        Physics.Raycast(ray, out RaycastHit hit, _groundCheckHeight);
+
+        if (hit.collider != null)
+        {
+            SetGroundedStatus(true);
+        }
+        else
+        {
+            SetGroundedStatus(false);
+        }
+
     }
 
     private void CameraRotation()
@@ -127,18 +152,18 @@ public class FirstPersonController : MonoBehaviour
         }
 
         // normalise input direction
-        Vector3 inputDirection = new Vector3(_inputManager.MoveInput.x, 0.0f, _inputManager.MoveInput.y).normalized;
+        _inputDirection = new Vector3(_inputManager.MoveInput.x, 0.0f, _inputManager.MoveInput.y).normalized;
 
         // note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
         // if there is a move input rotate player when the player is moving
         if (_inputManager.MoveInput != Vector2.zero)
         {
             // move
-            inputDirection = transform.right * _inputManager.MoveInput.x + transform.forward * _inputManager.MoveInput.y;
+            _inputDirection = transform.right * _inputManager.MoveInput.x + transform.forward * _inputManager.MoveInput.y;
         }
 
         // move the player
-        _controller.Move(inputDirection.normalized * (_currentMoveSpeed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+        _controller.Move(_inputDirection.normalized * (_currentMoveSpeed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
     }
 
     private void Gravity()
@@ -155,6 +180,21 @@ public class FirstPersonController : MonoBehaviour
         if (lfAngle < -360f) lfAngle += 360f;
         if (lfAngle > 360f) lfAngle -= 360f;
         return Mathf.Clamp(lfAngle, lfMin, lfMax);
+    }
+
+    public void SetGroundedStatus(bool status)
+    {
+        _isGrounded = status;
+    }
+
+    public bool GetGroundedStatus()
+    {
+        return _isGrounded;
+    }
+
+    public float GetCurrentMoveSpeed()
+    {
+        return _currentMoveSpeed;
     }
 
 }

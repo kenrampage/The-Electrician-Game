@@ -50,15 +50,15 @@ namespace RampageUtils
             }
         }
 
-        private void ResetTimer()
+        public void ResetTimer()
         {
             _currentTime = _startTime;
         }
 
         private void TimerDone()
         {
-            ResetTimer();
             OnTimerDone?.Invoke();
+            ResetTimer();
         }
 
     }
