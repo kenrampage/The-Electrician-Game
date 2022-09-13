@@ -16,6 +16,9 @@ public class Cable : MonoBehaviour
     [SerializeField] private FMODPlayOneShot _sfxCableInstallPower;
     [SerializeField] private FMODPlayOneShot _sfxCableInstall;
 
+    [Header("Particles")]
+    [SerializeField] private ParticleSystem _vfxCableInstallPower;
+
     private NodeManager _nodeManager;
 
     private Node _sourceNode;
@@ -42,9 +45,25 @@ public class Cable : MonoBehaviour
         _cableTransform.Edit();
         _cableCollision.SetPassthroughMask();
 
-        // Play Audio
+        // // Play Audio
+        // _sfxCableInstall.PlayAttached(_sourceNode.gameObject);
 
-        _sfxCableInstall.PlayAttached(_sourceNode.gameObject);
+        // // Play VFX
+        // if (_sourceNode.CheckPowerStatus())
+        // {
+        //     PlayVFXAtPosition(_sourceNode.transform.position);
+        // }
+
+        // Play Audio and VFX
+        if (_sourceNode.CheckPowerStatus())
+        {
+            _sfxCableInstallPower.PlayAttached(_sourceNode.gameObject);
+            PlayVFXAtPosition(_sourceNode.transform.position);
+        }
+        else
+        {
+            _sfxCableInstall.PlayAttached(_sourceNode.gameObject);
+        }
 
     }
 
@@ -89,10 +108,11 @@ public class Cable : MonoBehaviour
 
         _cableCollision.SetSelectableMask();
 
-        // Play Audio
+        // Play Audio and VFX
         if (_sourceNode.CheckPowerStatus() || _endNode.CheckPowerStatus())
         {
             _sfxCableInstallPower.PlayAttached(_endNode.gameObject);
+            PlayVFXAtPosition(_endNode.transform.position);
         }
         else
         {
@@ -282,5 +302,11 @@ public class Cable : MonoBehaviour
         }
     }
     #endregion
+
+    private void PlayVFXAtPosition(Vector3 pos)
+    {
+        _vfxCableInstallPower.transform.position = pos;
+        _vfxCableInstallPower.Play();
+    }
 
 }

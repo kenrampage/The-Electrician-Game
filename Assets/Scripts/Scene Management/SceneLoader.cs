@@ -14,15 +14,10 @@ namespace RampageUtils.SceneManagement
 
         private Scene _activeScene;
 
-        private void OnEnable()
-        {
-            GetActiveScene();
-        }
-
-        private void GetActiveScene()
-        {
-            _activeScene = SceneManager.GetActiveScene();
-        }
+        // private void GetActiveScene()
+        // {
+        //     _activeScene = SceneManager.GetActiveScene();
+        // }
 
         public void ReloadCurrentScene()
         {
@@ -48,7 +43,7 @@ namespace RampageUtils.SceneManagement
         private IEnumerator ReloadCurrentSceneCoroutine()
         {
             yield return new WaitForSecondsRealtime(_loadDelay);
-            SceneManager.LoadScene(_activeScene.name, LoadSceneMode.Single);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
         }
 
         private IEnumerator LoadMainMenuCoroutine()

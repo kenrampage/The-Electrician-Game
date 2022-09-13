@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5948567}
-  - component: {fileID: 5948568}
   m_Layer: 0
   m_Name: ~Main Menu
   m_TagString: Untagged
@@ -157,46 +156,6 @@ Transform:
   m_Father: {fileID: 1923427027}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5948568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5948566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49ea90f059ca4ff4e84d92503ce67cac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnInvoke:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 33465179613545268}
-        m_TargetAssemblyTypeName: AnimationHelper, Assembly-CSharp
-        m_MethodName: PlayAnimAtIndex
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1801866835}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  _delay: 0.75
 --- !u!1 &15246786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,7 +1385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4433dbbcab90d047b5590450becf424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _url: http://kenrampage.itch.io/
+  _url: https://kenrampage.itch.io/the-electrician-game/devlog
 --- !u!114 &193704793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2880,6 +2839,17 @@ PrefabInstance:
       objectReference: {fileID: 541436015}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e69916a8166c5842b6c67cb809e417b, type: 3}
+--- !u!114 &312293600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3580450064901447755, guid: 4e69916a8166c5842b6c67cb809e417b, type: 3}
+  m_PrefabInstance: {fileID: 312293599}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &317097200
 GameObject:
   m_ObjectHideFlags: 0
@@ -4534,7 +4504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainMenuSceneName: MainMenu
   _targetSceneName: Level
-  _loadDelay: 1.5
+  _loadDelay: 1.75
 --- !u!1001 &498102062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4852,7 +4822,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _submitDelay: 0.2
-  _hiddenButton: {fileID: 3614050235297404637}
+  _hiddenButton: {fileID: 312293600}
   _textPlain: {fileID: 947858347}
   _textSelect: {fileID: 2056576877}
   _textSubmit: {fileID: 1510561537}
@@ -5762,7 +5732,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   _submitDelay: 0.2
-  _hiddenButton: {fileID: 3614050235297404636}
+  _hiddenButton: {fileID: 312293600}
   _textPlain: {fileID: 407382635}
   _textSelect: {fileID: 1765590574}
   _textSubmit: {fileID: 1293254060}
@@ -6933,7 +6903,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   _submitDelay: 0.2
-  _hiddenButton: {fileID: 3614050235297404636}
+  _hiddenButton: {fileID: 3580450065908691485}
   _textPlain: {fileID: 58607864}
   _textSelect: {fileID: 571119550}
   _textSubmit: {fileID: 1308219804}
@@ -8961,7 +8931,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   _submitDelay: 0.2
-  _hiddenButton: {fileID: 3614050235297404636}
+  _hiddenButton: {fileID: 1793276783}
   _textPlain: {fileID: 1007009949}
   _textSelect: {fileID: 490519618}
   _textSubmit: {fileID: 1884041132}
@@ -10047,7 +10017,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _submitDelay: 0.2
-  _hiddenButton: {fileID: 3614050235297404637}
+  _hiddenButton: {fileID: 312293600}
   _textPlain: {fileID: 1839719247}
   _textSelect: {fileID: 311563584}
   _textSubmit: {fileID: 1009206287}
@@ -10838,8 +10808,52 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+  - Delay: 0.25
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 33465179613545268}
+          m_TargetAssemblyTypeName: AnimationHelper, Assembly-CSharp
+          m_MethodName: PlayAnimAtIndex
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1801866835}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
   onSceneUnloadEvents:
   - Delay: 0
+    Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 33465179613545268}
+          m_TargetAssemblyTypeName: AnimationHelper, Assembly-CSharp
+          m_MethodName: PlayAnimAtIndex
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Delay: 0.25
     Event:
       m_PersistentCalls:
         m_Calls:
@@ -14717,7 +14731,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   _submitDelay: 0.2
-  _hiddenButton: {fileID: 3614050235297404636}
+  _hiddenButton: {fileID: 3580450065908691485}
   _textPlain: {fileID: 927023663}
   _textSelect: {fileID: 755871125}
   _textSubmit: {fileID: 701658965}
@@ -17709,7 +17723,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _submitDelay: 0.2
-  _hiddenButton: {fileID: 3614050235297404637}
+  _hiddenButton: {fileID: 312293600}
   _textPlain: {fileID: 2027217498}
   _textSelect: {fileID: 74345450}
   _textSubmit: {fileID: 327683756}
@@ -18450,7 +18464,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _submitDelay: 0.2
-  _hiddenButton: {fileID: 3614050235297404637}
+  _hiddenButton: {fileID: 312293600}
   _textPlain: {fileID: 573102426}
   _textSelect: {fileID: 130210336}
   _textSubmit: {fileID: 701657956}
@@ -18580,7 +18594,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _submitDelay: 0.2
-  _hiddenButton: {fileID: 3614050235297404637}
+  _hiddenButton: {fileID: 312293600}
   _textPlain: {fileID: 135934337}
   _textSelect: {fileID: 1844683018}
   _textSubmit: {fileID: 1260834656}
@@ -18794,6 +18808,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3580450064901447750, guid: 4e69916a8166c5842b6c67cb809e417b, type: 3}
   m_PrefabInstance: {fileID: 1793276781}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1793276783 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3580450064901447755, guid: 4e69916a8166c5842b6c67cb809e417b, type: 3}
+  m_PrefabInstance: {fileID: 1793276781}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1801866835
 GameObject:
   m_ObjectHideFlags: 0
@@ -18814,7 +18839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1801866836
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21474,7 +21499,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _submitDelay: 0.2
-  _hiddenButton: {fileID: 3614050235297404636}
+  _hiddenButton: {fileID: 3580450065908691485}
   _textPlain: {fileID: 893491295}
   _textSelect: {fileID: 1982802714}
   _textSubmit: {fileID: 15246786}
@@ -22254,7 +22279,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _submitDelay: 0.2
-  _hiddenButton: {fileID: 3614050235297404636}
+  _hiddenButton: {fileID: 3580450065908691485}
   _textPlain: {fileID: 1410908312}
   _textSelect: {fileID: 880715392}
   _textSubmit: {fileID: 700917971}
@@ -25032,7 +25057,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _submitDelay: 0.2
-  _hiddenButton: {fileID: 3614050235297404637}
+  _hiddenButton: {fileID: 312293600}
   _textPlain: {fileID: 2021051000}
   _textSelect: {fileID: 1519386604}
   _textSubmit: {fileID: 1207958607}
@@ -30570,82 +30595,10 @@ PrefabInstance:
       objectReference: {fileID: 1890123961}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e69916a8166c5842b6c67cb809e417b, type: 3}
---- !u!1001 &3614050235297404635
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6901683623413452058, guid: f958bbcaaebf0a5488fd2e581eaeb1b7, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6901683623413452058, guid: f958bbcaaebf0a5488fd2e581eaeb1b7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6901683623413452058, guid: f958bbcaaebf0a5488fd2e581eaeb1b7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6901683623413452058, guid: f958bbcaaebf0a5488fd2e581eaeb1b7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6901683623413452058, guid: f958bbcaaebf0a5488fd2e581eaeb1b7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6901683623413452058, guid: f958bbcaaebf0a5488fd2e581eaeb1b7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6901683623413452058, guid: f958bbcaaebf0a5488fd2e581eaeb1b7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6901683623413452058, guid: f958bbcaaebf0a5488fd2e581eaeb1b7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6901683623413452058, guid: f958bbcaaebf0a5488fd2e581eaeb1b7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6901683623413452058, guid: f958bbcaaebf0a5488fd2e581eaeb1b7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6901683623413452058, guid: f958bbcaaebf0a5488fd2e581eaeb1b7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7912224609078487309, guid: f958bbcaaebf0a5488fd2e581eaeb1b7, type: 3}
-      propertyPath: m_Name
-      value: Game Overlays
-      objectReference: {fileID: 0}
-    - target: {fileID: 7912224609078487309, guid: f958bbcaaebf0a5488fd2e581eaeb1b7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f958bbcaaebf0a5488fd2e581eaeb1b7, type: 3}
---- !u!114 &3614050235297404636 stripped
+--- !u!114 &3580450065908691485 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 892452032542625463, guid: f958bbcaaebf0a5488fd2e581eaeb1b7, type: 3}
-  m_PrefabInstance: {fileID: 3614050235297404635}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3614050235297404637 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 721749080216692661, guid: f958bbcaaebf0a5488fd2e581eaeb1b7, type: 3}
-  m_PrefabInstance: {fileID: 3614050235297404635}
+  m_CorrespondingSourceObject: {fileID: 3580450064901447755, guid: 4e69916a8166c5842b6c67cb809e417b, type: 3}
+  m_PrefabInstance: {fileID: 3580450065908691484}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
