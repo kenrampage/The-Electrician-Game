@@ -22,6 +22,9 @@ namespace RampageUtils.SceneManagement
         {
             // StartCoroutine(LoadGameAsync());
             StartCoroutine(LoadScenesAsync());
+            
+            // FMODUnity.RuntimeManager.CoreSystem.mixerSuspend();
+            // FMODUnity.RuntimeManager.CoreSystem.mixerResume();
         }
 
         private IEnumerator LoadScenesAsync()
