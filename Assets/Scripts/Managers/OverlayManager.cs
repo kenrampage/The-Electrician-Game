@@ -123,7 +123,6 @@ public class OverlayManager : MonoBehaviour
     [ContextMenu("EndUIOn")]
     private void EndUIOn()
     {
-        print("End UI On Events triggered");
         StartCycleThroughEvents(_endUIOnEvents);
     }
 

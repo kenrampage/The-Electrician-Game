@@ -114,7 +114,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: d0149f071d209c84fa4baaa46de50115, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -291,9 +291,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cablePrefab: {fileID: 1951279956131377032, guid: fbfce89d03671db4fbc00bd19413af3f, type: 3}
   _wiringItemIndex: 3
-  _sfxInstallCableWithPower: {fileID: 3036402969733977659}
-  _sfxInstallCable: {fileID: 161528032904999253}
-  _sfxPreviewCable: {fileID: 6618601658094972105}
 --- !u!65 &2899508280377478170
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -335,7 +332,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e99bcebf37e6834d86a94cabe3365e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _xrayIndicator: {fileID: 2835104887715183799}
+  _xrayIndicators:
+  - {fileID: 2835104887715183799}
 --- !u!1 &4414797635167197495
 GameObject:
   m_ObjectHideFlags: 0

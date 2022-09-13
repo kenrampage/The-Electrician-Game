@@ -11,8 +11,9 @@ public class SmashAndFix : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float _interactDuration = .1f;
 
-    [Header("Particle Settings")]
-    [SerializeField] private ParticleSystem _particleSystem;
+    [Header("VFX")]
+    [SerializeField] private ParticleSystem _smashParticles;
+    [SerializeField] private ParticleSystem _fixParticles;
     [SerializeField] private Vector3 _particlePositionOffset;
 
     [Header("Cursor Animation")]
@@ -51,7 +52,9 @@ public class SmashAndFix : MonoBehaviour
             _smashAnim.Play();
 
             // Play Particle
-            Instantiate<ParticleSystem>(_particleSystem, _playerInteract.GetCursorPosition() + _particlePositionOffset, _playerInteract.GetCursorRotation());
+            // Instantiate<ParticleSystem>(_smashParticles, _playerInteract.GetCursorPosition() + _particlePositionOffset, _playerInteract.GetCursorRotation());
+            _smashParticles.transform.SetPositionAndRotation(_playerInteract.GetCursorPosition() + _particlePositionOffset, _playerInteract.GetCursorRotation());
+            _smashParticles.Play();
 
             // Play Sound
             _sfxSmashPool.RetrieveObject(_playerInteract.GetCursorPosition(), _playerInteract.GetCursorRotation());
@@ -84,7 +87,9 @@ public class SmashAndFix : MonoBehaviour
             _fixAnim.Play();
 
             // Play Particle
-            Instantiate<ParticleSystem>(_particleSystem, _playerInteract.GetCursorPosition() + _particlePositionOffset, _playerInteract.GetCursorRotation());
+            // Instantiate<ParticleSystem>(_smashParticles, _playerInteract.GetCursorPosition() + _particlePositionOffset, _playerInteract.GetCursorRotation());
+            _fixParticles.transform.SetPositionAndRotation(_playerInteract.GetCursorPosition() + _particlePositionOffset, _playerInteract.GetCursorRotation());
+            _fixParticles.Play();
 
             // Play Sound
             _sfxFixPool.RetrieveObject(_playerInteract.GetCursorPosition(), _playerInteract.GetCursorRotation());

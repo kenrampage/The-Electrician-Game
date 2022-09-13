@@ -18,6 +18,8 @@ public class FMODVolumeControl : MonoBehaviour
     {
         GetVCAReferences();
         RegisterEventListeners();
+        SetVolumeSFX();
+        SetVolumeMusic();
     }
 
     private void RegisterEventListeners()

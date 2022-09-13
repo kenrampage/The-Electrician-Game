@@ -26,7 +26,7 @@ namespace RampageUtils.UI
             if (_isSelectedOnEnable)
             {
                 ButtonSelect();
-                print(gameObject.name + " selected on Enable!");
+                // print(gameObject.name + " selected on Enable!");
             }
 
             _inputManager = InputManager.Instance;
@@ -44,7 +44,7 @@ namespace RampageUtils.UI
             if (_isSelectedWhenInputDeviceChanged)
             {
                 ButtonSelect();
-                print(gameObject.name + " selected on Device Change!");
+                // print(gameObject.name + " selected on Device Change!");
             }
         }
 
