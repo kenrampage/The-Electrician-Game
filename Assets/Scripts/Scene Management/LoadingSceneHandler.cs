@@ -9,6 +9,7 @@ namespace RampageUtils.SceneManagement
     public class LoadingSceneHandler : MonoBehaviour
     {
         [Header("Settings")]
+        [SerializeField] private float _loadDelay;
         [SerializeField] private bool _isLoggingOn = true;
         [SerializeField] [FMODUnity.BankRef] private List<string> _fmodBanks = new List<string>();
         [SerializeField] private List<string> _scenesToLoad;
@@ -60,6 +61,7 @@ namespace RampageUtils.SceneManagement
 
             Log("All FMOD Samples have loaded");
 
+            yield return new WaitForSeconds(_loadDelay);
             // Allow the scene to be activated. This means that any OnActivated() or Start()
             // methods will be guaranteed that all FMOD Studio loading will be completed and
             // there will be no delay in starting events
@@ -75,6 +77,8 @@ namespace RampageUtils.SceneManagement
             }
 
             SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+
+
 
         }
 

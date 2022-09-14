@@ -25,9 +25,18 @@ public class MainMenuManager : MonoBehaviour
     private State _stateCurrent;
     private State _statePrev;
 
+    private void Awake()
+    {
+        
+
+        
+    }
+
     private void OnEnable()
     {
         ResetStates();
+        
+        SetState(State.SCENELOADING);
 
         if (_sessionData.GetSplashScreenStatus())
         {

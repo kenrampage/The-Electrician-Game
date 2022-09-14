@@ -20,7 +20,7 @@ public class UIPulseTextEffect : MonoBehaviour
         {
             if (_fadeInAtStart)
             {
-                _text.DOFade(0, _effectLength).SetLoops(-1, LoopType.Yoyo).From();
+                _text.DOFade(1, _effectLength).SetLoops(-1, LoopType.Yoyo).From(0);
             }
             else
             {

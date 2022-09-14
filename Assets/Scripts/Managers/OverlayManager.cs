@@ -8,6 +8,7 @@ public class OverlayManager : MonoBehaviour
     [SerializeField] private SOOverlayControl _overlayControl;
 
     [Header("Events")]
+    [SerializeField] private SerializedEvent[] _splashScreenOnEvents;
     [SerializeField] private SerializedEvent[] _splashScreenOffEvents;
     [SerializeField] private SerializedEvent[] _mainMenuOnEvents;
     [SerializeField] private SerializedEvent[] _mainMenuOffEvents;
@@ -31,6 +32,7 @@ public class OverlayManager : MonoBehaviour
 
     private void RegisterEventListeners()
     {
+        _overlayControl.OnSplashScreenOn.AddListener(SplashScreenOn);
         _overlayControl.OnSplashScreenOff.AddListener(SplashScreenOff);
 
         _overlayControl.OnMainMenuOn.AddListener(MainMenuOn);
@@ -53,6 +55,12 @@ public class OverlayManager : MonoBehaviour
     }
 
     #region UI Methods
+
+    [ContextMenu("SplashScreenOn")]
+    private void SplashScreenOn()
+    {
+        StartCycleThroughEvents(_splashScreenOnEvents);
+    }
 
     [ContextMenu("SplashScreenOff")]
     private void SplashScreenOff()
@@ -135,7 +143,7 @@ public class OverlayManager : MonoBehaviour
     [ContextMenu("EndUIOut")]
     private void EndUIOut()
     {
-        
+
         StartCycleThroughEvents(_endUIOutEvents);
     }
 
