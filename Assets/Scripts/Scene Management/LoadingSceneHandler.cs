@@ -12,19 +12,23 @@ namespace RampageUtils.SceneManagement
         [SerializeField] private bool _isLoggingOn = true;
         [SerializeField] [FMODUnity.BankRef] private List<string> _fmodBanks = new List<string>();
         [SerializeField] private List<string> _scenesToLoad;
-        // [SerializeField] private List<string> _scenesToUnload;
 
         private List<AsyncOperation> _loadOperations = new List<AsyncOperation>();
 
-        // [SerializeField] private string _sceneToActivate;
+        private bool _loadingStarted = false;
+        private bool _loadOnStart = false;
 
         public void Start()
         {
-            // StartCoroutine(LoadGameAsync());
-            StartCoroutine(LoadScenesAsync());
-            
-            // FMODUnity.RuntimeManager.CoreSystem.mixerSuspend();
-            // FMODUnity.RuntimeManager.CoreSystem.mixerResume();
+            // // Due to an FMOD bug, loading must be initiated by user input for WEBGL builds
+#if !UNITY_WEBGL
+
+            _loadOnStart = true;
+#endif
+            if (_loadOnStart)
+            {
+                StartCoroutine(LoadScenesAsync());
+            }
         }
 
         private IEnumerator LoadScenesAsync()
@@ -55,6 +59,7 @@ namespace RampageUtils.SceneManagement
             }
 
             Log("All FMOD Samples have loaded");
+
             // Allow the scene to be activated. This means that any OnActivated() or Start()
             // methods will be guaranteed that all FMOD Studio loading will be completed and
             // there will be no delay in starting events
@@ -69,60 +74,9 @@ namespace RampageUtils.SceneManagement
                 }
             }
 
-            // foreach (var scene in _scenesToUnload)
-            // {
-            //     SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(scene));
-            // }
-
             SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
 
-            // if (_sceneToActivate != string.Empty)
-            // {
-            //     SceneManager.SetActiveScene(SceneManager.GetSceneByName(_sceneToActivate));
-            // }
         }
-
-        // IEnumerator LoadGameAsync()
-        // {
-        //     // Start an asynchronous operation to load the scene
-        //     AsyncOperation async = SceneManager.LoadSceneAsync(_sceneToLoad, LoadSceneMode.Additive);
-
-        //     // Don't allow the scene to start until all Studio _fmodBanks have finished loading
-        //     async.allowSceneActivation = false;
-
-        //     // Iterate all the Studio _fmodBanks and start them loading in the background
-        //     // including the audio sample data
-        //     foreach (var bank in _fmodBanks)
-        //     {
-        //         FMODUnity.RuntimeManager.LoadBank(bank, true);
-        //     }
-
-        //     // Keep yielding the co-routine until all the bank loading is done
-        //     // (for platforms with asynchronous bank loading)
-        //     while (!FMODUnity.RuntimeManager.HaveAllBanksLoaded)
-        //     {
-        //         yield return null;
-        //     }
-
-        //     Log("All FMOD _fmodBanks have loaded");
-        //     // Keep yielding the co-routine until all the sample data loading is done
-        //     while (FMODUnity.RuntimeManager.AnySampleDataLoading())
-        //     {
-        //         yield return null;
-        //     }
-
-        //     Log("All FMOD Samples have loaded");
-        //     // Allow the scene to be activated. This means that any OnActivated() or Start()
-        //     // methods will be guaranteed that all FMOD Studio loading will be completed and
-        //     // there will be no delay in starting events
-        //     async.allowSceneActivation = true;
-
-        //     // Keep yielding the co-routine until scene loading and activation is done.
-        //     while (!async.isDone)
-        //     {
-        //         yield return null;
-        //     }
-        // }
 
         private void Log(string text)
         {
@@ -130,6 +84,20 @@ namespace RampageUtils.SceneManagement
             {
                 Debug.Log(text);
             }
+        }
+
+        public void StartLoad()
+        {
+            if (!_loadingStarted)
+            {
+                StartCoroutine(LoadScenesAsync());
+                _loadingStarted = true;
+            }
+            else
+            {
+                return;
+            }
+
         }
     }
 }
