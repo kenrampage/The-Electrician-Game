@@ -4,6 +4,7 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "SOOverlayControl", menuName = "Scriptable Objects/OverlayControl")]
 public class SOOverlayControl : ScriptableObject
 {
+    [HideInInspector] public UnityEvent OnSplashScreenOn;
     [HideInInspector] public UnityEvent OnSplashScreenOff;
     [HideInInspector] public UnityEvent OnMainMenuOn;
     [HideInInspector] public UnityEvent OnMainMenuOff;
@@ -18,6 +19,11 @@ public class SOOverlayControl : ScriptableObject
     [HideInInspector] public UnityEvent OnEndUIOn;
     [HideInInspector] public UnityEvent OnEndUIOff;
     [HideInInspector] public UnityEvent OnEndUIOut;
+
+    public void SplashScreenOn()
+    {
+        OnSplashScreenOn?.Invoke();
+    }
 
     public void SplashScreenOff()
     {
