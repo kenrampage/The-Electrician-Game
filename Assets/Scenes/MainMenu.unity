@@ -4468,6 +4468,7 @@ GameObject:
   m_Component:
   - component: {fileID: 497186415}
   - component: {fileID: 497186416}
+  - component: {fileID: 497186417}
   m_Layer: 0
   m_Name: Scene Loader
   m_TagString: Untagged
@@ -4504,7 +4505,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainMenuSceneName: MainMenu
   _targetSceneName: Level
-  _loadDelay: 1.75
+  _loadDelay: 1.5
+--- !u!114 &497186417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497186414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba8186dffaa3b2b41bad0e08472980b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _delay: 1.25
 --- !u!1001 &498102062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16302,7 +16316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: v0.2.3
+  m_text: v0.2.4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d1b9d720662308840b2ad5c73d874606, type: 2}
   m_sharedMaterial: {fileID: 8805040989912837429, guid: d1b9d720662308840b2ad5c73d874606, type: 2}
@@ -22314,6 +22328,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1032226528}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: SetSceneUnloading
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 497186417}
+        m_TargetAssemblyTypeName: QuitGame, Assembly-CSharp
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

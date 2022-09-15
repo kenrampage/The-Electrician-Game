@@ -14,10 +14,6 @@ public class SplashScreenInput : MonoBehaviour
     private void Awake()
     {
 #if UNITY_WEBGL
-        // print("Platform: WEBGL");
-        return;
-#elif UNITY_EDITOR
-        // print("Platoform: EDITOR");
         return;
 #else
         DeactivateGameObject();
