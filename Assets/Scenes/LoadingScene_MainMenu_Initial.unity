@@ -191,7 +191,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &25853169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +207,19 @@ MonoBehaviour:
   OnInvoke:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 10234766}
+        m_TargetAssemblyTypeName: RampageUtils.SceneManagement.LoadingSceneHandler,
+          Assembly-CSharp
+        m_MethodName: StartLoad
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 8ec0dbedf7a86be42ad53c6b53d97193, type: 2}
         m_TargetAssemblyTypeName: SOOverlayControl, Assembly-CSharp
         m_MethodName: SceneUnload
@@ -409,7 +422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &447761629
 MonoBehaviour:
   m_ObjectHideFlags: 0
