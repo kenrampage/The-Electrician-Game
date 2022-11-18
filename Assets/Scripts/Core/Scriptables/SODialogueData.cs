@@ -74,4 +74,28 @@ public class SODialogueData : ScriptableObject
     {
         return _charInterval;
     }
+
+    public bool CheckIfLastMessage()
+    {
+        if (_index >= _messageArray.Length - 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool CheckIfFirstMessage()
+    {
+        if (_index <= 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

@@ -21,5 +21,5 @@ MonoBehaviour:
   _fontColor:
     serializedVersion: 2
     rgba: 4283956992
-  _charInterval: 0.1
+  _charInterval: 0.05
   _index: 0

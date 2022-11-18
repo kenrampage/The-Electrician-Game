@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00878d0fbed02524c9f1d551ea6c242b, type: 3}
   m_Name: DialogueData_Demo03
   m_EditorClassIdentifier: 
-  _name: Test 3 Name
+  _name: Test 3
   _messageArray:
   - Line: Test Message 3-1
   - Line: Test Message 3-2
@@ -21,5 +21,5 @@ MonoBehaviour:
   _fontColor:
     serializedVersion: 2
     rgba: 4282993151
-  _charInterval: 0.1
-  _index: 0
+  _charInterval: 0.05
+  _index: 2

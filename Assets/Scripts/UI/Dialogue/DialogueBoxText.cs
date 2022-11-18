@@ -9,8 +9,13 @@ public class DialogueBoxText : MonoBehaviour
     [SerializeField] private SODialogueBoxRemote _remote;
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _messageText;
+    [SerializeField] private AnimationHelper _animHelper;
+    [SerializeField] private GameObject _buttonPrompts;
 
-    private bool _isWritingText;
+    [Header("Settings")]
+    [SerializeField] private float _buttonPromptDelay;
+
+    private bool _isWritingText = false;
 
     private void Awake()
     {
@@ -23,8 +28,6 @@ public class DialogueBoxText : MonoBehaviour
 
     private void HandleDialogueOn()
     {
-        // Set size of text panel?
-
         // populate name text
         _nameText.text = _remote.Data.GetNameText();
 
@@ -33,42 +36,84 @@ public class DialogueBoxText : MonoBehaviour
 
         // Set Font
         _nameText.font = _remote.Data.GetFontAsset();
-        
 
         // Animate panel in
+        _animHelper.PlayAnimAtIndex(0);
 
+        // Start Dialogue
+        StopAllCoroutines();
+        _buttonPrompts.SetActive(false);
         HandleDialogueStart();
     }
 
     private void HandleDialogueOff()
     {
         // Animate Panel Out
-        // Clear name text
-        // Clear message text
+        _animHelper.PlayAnimAtIndex(1);
+
     }
 
     private void HandleDialogueStart()
     {
         // Populate line[0] message text
         _messageText.font = _remote.Data.GetFontAsset();
-        _messageText.text = _remote.Data.GetMessageText();
 
-        // set iswritingtext to true until entire line is loaded then set to false
+        StartCoroutine(PrintDialogueCoroutine());
     }
 
     private void HandleDialogueNext()
     {
-        // if writingtext is false, increment dialogue index and call handledialoguestart
-        _remote.Data.IncrementIndex();
-        _messageText.text = _remote.Data.GetMessageText();
+        if (_isWritingText)
+        {
+            return;
+        }
 
+        StopAllCoroutines();
+        _buttonPrompts.SetActive(false);
+
+        if (_remote.Data.CheckIfLastMessage())
+        {
+            HandleDialogueOff();
+        }
+        else
+        {
+            _remote.Data.IncrementIndex();
+            StartCoroutine(PrintDialogueCoroutine());
+        }
     }
 
     private void HandleDialoguePrev()
     {
-        // if writingtext is false, increment dialogue index and call handledialoguestart
-        _remote.Data.DecrementIndex();
-        _messageText.text = _remote.Data.GetMessageText();
+        if (_isWritingText)
+        {
+            return;
+        }
 
+        if (!_remote.Data.CheckIfFirstMessage())
+        {
+            StopAllCoroutines();
+            _buttonPrompts.SetActive(false);
+            _remote.Data.DecrementIndex();
+            StartCoroutine(PrintDialogueCoroutine());
+        }
+
+    }
+
+    private IEnumerator PrintDialogueCoroutine()
+    {
+        _messageText.text = string.Empty;
+        _isWritingText = true;
+
+        foreach (char character in _remote.Data.GetMessageText())
+        {
+            _messageText.text += character;
+
+            yield return new WaitForSeconds(_remote.Data.GetCharInterval());
+        }
+
+        yield return new WaitForSeconds(_buttonPromptDelay);
+        _buttonPrompts.SetActive(true);
+
+        _isWritingText = false;
     }
 }
