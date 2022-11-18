@@ -5,17 +5,22 @@ using TMPro;
 
 public class DialogueBoxText : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private SODialogueBoxRemote _remote;
+    [Header("Text")]
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _messageText;
+
+    [Header("Audio")]
+    [SerializeField] private FMODPlay _audioSource;
+
+    [Header("References")]
+    [SerializeField] private SODialogueBoxRemote _remote;
     [SerializeField] private AnimationHelper _animHelper;
     [SerializeField] private GameObject _buttonPrompts;
 
     [Header("Settings")]
     [SerializeField] private float _buttonPromptDelay;
 
-    private bool _isWritingText = false;
+    private bool _isPrintingText = false;
 
     private void Awake()
     {
@@ -28,6 +33,9 @@ public class DialogueBoxText : MonoBehaviour
 
     private void HandleDialogueOn()
     {
+        // Get FMOD event from dialogue data and set it into the audio source
+        SetFMODEvent();
+
         // populate name text
         _nameText.text = _remote.Data.GetNameText();
 
@@ -63,7 +71,7 @@ public class DialogueBoxText : MonoBehaviour
 
     private void HandleDialogueNext()
     {
-        if (_isWritingText)
+        if (_isPrintingText)
         {
             return;
         }
@@ -84,7 +92,7 @@ public class DialogueBoxText : MonoBehaviour
 
     private void HandleDialoguePrev()
     {
-        if (_isWritingText)
+        if (_isPrintingText)
         {
             return;
         }
@@ -102,7 +110,8 @@ public class DialogueBoxText : MonoBehaviour
     private IEnumerator PrintDialogueCoroutine()
     {
         _messageText.text = string.Empty;
-        _isWritingText = true;
+        _isPrintingText = true;
+        _audioSource.StartEvent();
 
         foreach (char character in _remote.Data.GetMessageText())
         {
@@ -111,9 +120,17 @@ public class DialogueBoxText : MonoBehaviour
             yield return new WaitForSeconds(_remote.Data.GetCharInterval());
         }
 
+        _audioSource.StopEventNoFadeout();
+        
         yield return new WaitForSeconds(_buttonPromptDelay);
         _buttonPrompts.SetActive(true);
 
-        _isWritingText = false;
+        _isPrintingText = false;
+
+    }
+
+    private void SetFMODEvent()
+    {
+        _audioSource.SetFMODEvent(_remote.Data.GetFmodEvent());
     }
 }

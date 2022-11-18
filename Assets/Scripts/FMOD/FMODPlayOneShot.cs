@@ -52,4 +52,9 @@ public class FMODPlayOneShot : MonoBehaviour
         soundEffectsOn = true;
     }
 
+    public void SetFMODEvent(EventReference eventRef)
+    {
+        fmodEvent = eventRef;
+    }
+
 }

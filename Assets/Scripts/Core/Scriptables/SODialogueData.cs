@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using FMODUnity;
 
 [CreateAssetMenu(fileName = "DialogueData_", menuName = "Scriptable Objects/Dialogue")]
 public class SODialogueData : ScriptableObject
@@ -10,12 +11,15 @@ public class SODialogueData : ScriptableObject
     [SerializeField] private string _name;
     [SerializeField] private DialogueLine[] _messageArray;
 
+    [Header("Audio")]
+    [SerializeField] private EventReference _fmodEvent;
+
     [Header("Settings")]
     [SerializeField] private TMP_FontAsset _fontAsset;
     [SerializeField] private Color32 _fontColor;
     [SerializeField] private float _charInterval;
 
-    [SerializeField] private int _index;
+    private int _index;
 
     public void ResetIndex()
     {
@@ -26,7 +30,6 @@ public class SODialogueData : ScriptableObject
     {
         if (_index >= _messageArray.Length - 1)
         {
-            Debug.Log("Dialogue with " + _name + " over");
             return;
         }
         else
@@ -40,7 +43,6 @@ public class SODialogueData : ScriptableObject
     {
         if (_index <= 0)
         {
-            Debug.Log("Dialogue with " + _name + " is at the beginning");
             return;
         }
         else
@@ -75,6 +77,11 @@ public class SODialogueData : ScriptableObject
         return _charInterval;
     }
 
+    public EventReference GetFmodEvent()
+    {
+        return _fmodEvent;
+    }
+
     public bool CheckIfLastMessage()
     {
         if (_index >= _messageArray.Length - 1)
@@ -98,4 +105,6 @@ public class SODialogueData : ScriptableObject
             return false;
         }
     }
+
+
 }

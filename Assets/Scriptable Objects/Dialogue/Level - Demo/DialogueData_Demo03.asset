@@ -17,9 +17,15 @@ MonoBehaviour:
   - Line: Test Message 3-1
   - Line: Test Message 3-2
   - Line: Test Message 3-3
+  _fmodEvent:
+    Guid:
+      Data1: 2121730193
+      Data2: 1236318967
+      Data3: 47841432
+      Data4: 310526990
+    Path: event:/SFX/Dialogue/Dialogue Demo
   _fontAsset: {fileID: 11400000, guid: d6e8707d25fc96843ab0ccc4e17cc8f5, type: 2}
   _fontColor:
     serializedVersion: 2
     rgba: 4282993151
   _charInterval: 0.05
-  _index: 2

@@ -20,9 +20,15 @@ MonoBehaviour:
   - Line: I appreciate you trying out my game! Please leave a comment with any feedback
       or issues you may have
   - Line: Thank you!
+  _fmodEvent:
+    Guid:
+      Data1: 2121730193
+      Data2: 1236318967
+      Data3: 47841432
+      Data4: 310526990
+    Path: event:/SFX/Dialogue/Dialogue Demo
   _fontAsset: {fileID: 11400000, guid: d1b9d720662308840b2ad5c73d874606, type: 2}
   _fontColor:
     serializedVersion: 2
     rgba: 4280098077
   _charInterval: 0.05
-  _index: 2
