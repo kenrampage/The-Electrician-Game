@@ -16,6 +16,7 @@ public class DialogueBoxText : MonoBehaviour
     [SerializeField] private SODialogueBoxRemote _remote;
     [SerializeField] private AnimationHelper _animHelper;
     [SerializeField] private GameObject _buttonPrompts;
+    [SerializeField] private DialogueWalkieVisual _walkieVisual;
 
     [Header("Settings")]
     [SerializeField] private float _buttonPromptDelay;
@@ -51,6 +52,10 @@ public class DialogueBoxText : MonoBehaviour
         // Start Dialogue
         StopAllCoroutines();
         _buttonPrompts.SetActive(false);
+
+        _walkieVisual.SetEffectType(_remote.Data.GetWalkieEffectType());
+        _walkieVisual.EndEffect();
+
         HandleDialogueStart();
     }
 
@@ -111,6 +116,7 @@ public class DialogueBoxText : MonoBehaviour
     {
         _messageText.text = string.Empty;
         _isPrintingText = true;
+        _walkieVisual.StartEffect();
         _audioSource.StartEvent();
 
         foreach (char character in _remote.Data.GetMessageText())
@@ -121,10 +127,11 @@ public class DialogueBoxText : MonoBehaviour
         }
 
         _audioSource.StopEventNoFadeout();
-        
+        _walkieVisual.EndEffect();
+
         yield return new WaitForSeconds(_buttonPromptDelay);
         _buttonPrompts.SetActive(true);
-
+        
         _isPrintingText = false;
 
     }

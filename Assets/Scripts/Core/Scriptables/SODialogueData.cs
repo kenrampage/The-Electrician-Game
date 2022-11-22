@@ -18,6 +18,8 @@ public class SODialogueData : ScriptableObject
     [SerializeField] private TMP_FontAsset _fontAsset;
     [SerializeField] private Color32 _fontColor;
     [SerializeField] private float _charInterval;
+    [SerializeField] private WalkieEffectType _walkieEffectType;
+
 
     private int _index;
 
@@ -80,6 +82,11 @@ public class SODialogueData : ScriptableObject
     public EventReference GetFmodEvent()
     {
         return _fmodEvent;
+    }
+
+    public WalkieEffectType GetWalkieEffectType()
+    {
+        return _walkieEffectType;
     }
 
     public bool CheckIfLastMessage()

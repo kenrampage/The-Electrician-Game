@@ -28,4 +28,4 @@ MonoBehaviour:
   _fontColor:
     serializedVersion: 2
     rgba: 4282993151
-  _charInterval: 0.05
+  _charInterval: 0.025
