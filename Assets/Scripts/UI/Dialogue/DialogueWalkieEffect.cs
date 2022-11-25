@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum WalkieEffectType
-{
-    BASIC,
-    ANGRY
-}
-
+// Bass class for different types of visual effects for the walkie talkie included in the dialogue box
+// Receives input from DialogueWalkieEffectManager script
 public abstract class DialogueWalkieEffect : MonoBehaviour
 {
     protected bool _effectOn;
+    protected Vector3 _walkieOriginalScale;
+
+    [Header("References")]
     protected GameObject _walkie;
-    protected DialogueWalkieVisual _walkieVisual;
+    protected DialogueWalkieEffectManager _walkieEffectManager;
 
     [Header("Visual Objects")]
     [SerializeField] protected GameObject[] _spriteObjects;
@@ -23,8 +22,7 @@ public abstract class DialogueWalkieEffect : MonoBehaviour
     [SerializeField] protected float _minScaleModifier;
     [SerializeField] protected float _maxScaleModifier;
 
-    protected Vector3 _walkieOriginalScale;
-
+    
     public void StartEffect()
     {
         _effectOn = true;
@@ -47,7 +45,6 @@ public abstract class DialogueWalkieEffect : MonoBehaviour
     protected int CalcRandomSpriteIndex()
     {
         int i = Random.Range(0, _spriteObjects.Length);
-        print(i);
         return i;
     }
 

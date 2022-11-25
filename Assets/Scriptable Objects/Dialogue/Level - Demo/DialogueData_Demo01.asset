@@ -15,10 +15,13 @@ MonoBehaviour:
   _name: Ken Rampage
   _messageArray:
   - Line: Hi! This is some test dialogue you might see in the game
-  - Line: While in development this whole system may act a little funky. I promise
-      it won't be that way forever
-  - Line: I appreciate you trying out my game! Please leave a comment with any feedback
-      or issues you may have
+  - Line: "While in development this whole system may act a little funky. \n\nI promise
+      it won't be that way forever"
+  - Line: 'I appreciate you trying out my game!
+
+
+      Please leave a comment with
+      any feedback or issues you may have'
   - Line: Thank you!
   _fmodEvent:
     Guid:
@@ -32,3 +35,6 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4280098077
   _charInterval: 0.025
+  _pageDelay: 1
+  _requireInput: 1
+  _walkieEffectType: 0

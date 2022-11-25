@@ -570,6 +570,45 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Dialogue"",
+            ""id"": ""ce32b463-8fb0-4492-a377-788ac86c42ea"",
+            ""actions"": [
+                {
+                    ""name"": ""DialogueContinue"",
+                    ""type"": ""Button"",
+                    ""id"": ""4f73ffce-85ee-4491-b728-9b4bcad410fe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b56f5d94-2126-4e65-814c-d402c51441c2"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""DialogueContinue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""094f8188-e35c-4216-9b0f-672d8c06ead5"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox Controller;Gamepad"",
+                    ""action"": ""DialogueContinue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -641,6 +680,9 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Navigate = m_Menu.FindAction("Navigate", throwIfNotFound: true);
+        // Dialogue
+        m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
+        m_Dialogue_DialogueContinue = m_Dialogue.FindAction("DialogueContinue", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -875,6 +917,39 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
         }
     }
     public MenuActions @Menu => new MenuActions(this);
+
+    // Dialogue
+    private readonly InputActionMap m_Dialogue;
+    private IDialogueActions m_DialogueActionsCallbackInterface;
+    private readonly InputAction m_Dialogue_DialogueContinue;
+    public struct DialogueActions
+    {
+        private @InputAsset m_Wrapper;
+        public DialogueActions(@InputAsset wrapper) { m_Wrapper = wrapper; }
+        public InputAction @DialogueContinue => m_Wrapper.m_Dialogue_DialogueContinue;
+        public InputActionMap Get() { return m_Wrapper.m_Dialogue; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DialogueActions set) { return set.Get(); }
+        public void SetCallbacks(IDialogueActions instance)
+        {
+            if (m_Wrapper.m_DialogueActionsCallbackInterface != null)
+            {
+                @DialogueContinue.started -= m_Wrapper.m_DialogueActionsCallbackInterface.OnDialogueContinue;
+                @DialogueContinue.performed -= m_Wrapper.m_DialogueActionsCallbackInterface.OnDialogueContinue;
+                @DialogueContinue.canceled -= m_Wrapper.m_DialogueActionsCallbackInterface.OnDialogueContinue;
+            }
+            m_Wrapper.m_DialogueActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @DialogueContinue.started += instance.OnDialogueContinue;
+                @DialogueContinue.performed += instance.OnDialogueContinue;
+                @DialogueContinue.canceled += instance.OnDialogueContinue;
+            }
+        }
+    }
+    public DialogueActions @Dialogue => new DialogueActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -932,5 +1007,9 @@ public partial class @InputAsset : IInputActionCollection2, IDisposable
     public interface IMenuActions
     {
         void OnNavigate(InputAction.CallbackContext context);
+    }
+    public interface IDialogueActions
+    {
+        void OnDialogueContinue(InputAction.CallbackContext context);
     }
 }

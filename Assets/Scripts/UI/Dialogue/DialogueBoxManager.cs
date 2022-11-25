@@ -3,23 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class DialogueBoxText : MonoBehaviour
+
+// Manager class for printing dialogue, animating the window in/out, playing audio and visual effects for the walkie talkie
+// Receives input from SODialogueBoxRemote scriptable object
+public class DialogueBoxManager : MonoBehaviour
 {
-    [Header("Text")]
+    [Header("Text Objects")]
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _messageText;
 
     [Header("Audio")]
     [SerializeField] private FMODPlay _audioSource;
 
-    [Header("References")]
+    [Header("Scriptable Objects")]
     [SerializeField] private SODialogueBoxRemote _remote;
+    [SerializeField] private SOTriggerInputActionMapChange _inputActionMapChangeTrigger;
+
+    [Header("References")]
     [SerializeField] private AnimationHelper _animHelper;
     [SerializeField] private GameObject _buttonPrompts;
-    [SerializeField] private DialogueWalkieVisual _walkieVisual;
-
-    [Header("Settings")]
-    [SerializeField] private float _buttonPromptDelay;
+    [SerializeField] private DialogueWalkieEffectManager _walkieEffectManager;
 
     private bool _isPrintingText = false;
 
@@ -49,13 +52,24 @@ public class DialogueBoxText : MonoBehaviour
         // Animate panel in
         _animHelper.PlayAnimAtIndex(0);
 
-        // Start Dialogue
+        // Stops current text printing
         StopAllCoroutines();
+
+        // Turns off any button prompts currently active
         _buttonPrompts.SetActive(false);
 
-        _walkieVisual.SetEffectType(_remote.Data.GetWalkieEffectType());
-        _walkieVisual.EndEffect();
+        // Checks if the dialogue data requires input and switches action map accordingly
+        if (_remote.Data.CheckifInputRequired())
+        {
+            _inputActionMapChangeTrigger.SwitchToDialogueInput();
+            print("Switched to Dialogue Action Map");
+        }
 
+        // Sets the effect type for the walkie talkie graphic then ends any currently playing effects
+        _walkieEffectManager.SetEffectType(_remote.Data.GetWalkieEffectType());
+        _walkieEffectManager.EndEffect();
+
+        // Start Dialogue
         HandleDialogueStart();
     }
 
@@ -87,6 +101,10 @@ public class DialogueBoxText : MonoBehaviour
         if (_remote.Data.CheckIfLastMessage())
         {
             HandleDialogueOff();
+            if (_remote.Data.CheckifInputRequired())
+            {
+                _inputActionMapChangeTrigger.SwitchToPlayerInput();
+            }
         }
         else
         {
@@ -109,14 +127,13 @@ public class DialogueBoxText : MonoBehaviour
             _remote.Data.DecrementIndex();
             StartCoroutine(PrintDialogueCoroutine());
         }
-
     }
 
     private IEnumerator PrintDialogueCoroutine()
     {
         _messageText.text = string.Empty;
         _isPrintingText = true;
-        _walkieVisual.StartEffect();
+        _walkieEffectManager.StartEffect();
         _audioSource.StartEvent();
 
         foreach (char character in _remote.Data.GetMessageText())
@@ -127,12 +144,20 @@ public class DialogueBoxText : MonoBehaviour
         }
 
         _audioSource.StopEventNoFadeout();
-        _walkieVisual.EndEffect();
+        _walkieEffectManager.EndEffect();
 
-        yield return new WaitForSeconds(_buttonPromptDelay);
-        _buttonPrompts.SetActive(true);
-        
+        yield return new WaitForSeconds(_remote.Data.GetPageDelay());
+
         _isPrintingText = false;
+
+        if (_remote.Data.CheckifInputRequired())
+        {
+            _buttonPrompts.SetActive(true);
+        }
+        else
+        {
+            HandleDialogueNext();
+        }
 
     }
 

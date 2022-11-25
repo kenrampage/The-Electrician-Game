@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Basic Walkie Effects. Receives input from DialogueWalkieEffectManager script
 public class DialogueWalkieEffect_Basic : DialogueWalkieEffect
 {
     public override IEnumerator EffectCoroutine()

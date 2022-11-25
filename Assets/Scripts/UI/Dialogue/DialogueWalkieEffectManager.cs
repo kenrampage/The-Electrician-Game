@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueWalkieVisual : MonoBehaviour
+// Manages references to objects for each type of Dialogue Walkie Effect and passes start/end method calls
+public class DialogueWalkieEffectManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject _walkieObject;

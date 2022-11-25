@@ -30,4 +30,6 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4278190335
   _charInterval: 0.025
+  _pageDelay: 2
+  _requireInput: 0
   _walkieEffectType: 1

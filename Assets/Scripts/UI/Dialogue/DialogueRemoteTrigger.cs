@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Reads data from SODialogueData scriptable object then feeds it into the SODialogueBoxRemote Scriptable Object which controls the
+// DialogueBoxManager script
 public class DialogueRemoteTrigger : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private SODialogueData _data;
     [SerializeField] private SODialogueBoxRemote _remote;
-
-    [Header("Settings")]
-    [SerializeField] private bool _resetIndexOnAwake;
 
     [ContextMenu("Start Dialogue")]
     public void StartDialogue()
@@ -19,12 +18,10 @@ public class DialogueRemoteTrigger : MonoBehaviour
         _remote.DialogueOn();
     }
 
-    // private void Awake()
-    // {
-    //     if (_resetIndexOnAwake)
-    //     {
-    //         _data.ResetIndex();
-    //     }
-    // }
+    [ContextMenu("End Dialogue")]
+    public void EndDialogue()
+    {
+        _remote.DialogueOff();
+    }
 
 }
