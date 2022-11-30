@@ -3803,6 +3803,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 302657854}
+  - component: {fileID: 302657855}
   m_Layer: 5
   m_Name: Button Prompts
   m_TagString: Untagged
@@ -3822,9 +3823,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 98607703}
-  - {fileID: 2075797101978137042}
-  - {fileID: 807689269}
+  - {fileID: 1637030421}
   m_Father: {fileID: 1846438154}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3833,6 +3832,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &302657855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302657853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9e1652d7a718a499a0371dcfe3c621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mkbObjects:
+  - {fileID: 98607702}
+  _gamepadObjects:
+  - {fileID: 4862550281853118125}
 --- !u!1 &306295404
 GameObject:
   m_ObjectHideFlags: 0
@@ -4763,7 +4778,6 @@ GameObject:
   - component: {fileID: 491894374}
   - component: {fileID: 491894373}
   - component: {fileID: 491894376}
-  - component: {fileID: 491894377}
   - component: {fileID: 491894378}
   m_Layer: 5
   m_Name: Dialogue
@@ -4875,24 +4889,8 @@ MonoBehaviour:
   _remote: {fileID: 11400000, guid: d45948711752e72479f4616697c6f350, type: 2}
   _inputActionMapChangeTrigger: {fileID: 11400000, guid: 4b0e810d0f037f94f9046270ef885c63, type: 2}
   _animHelper: {fileID: 1846438160}
-  _buttonPrompts: {fileID: 302657853}
+  _buttonPrompts: {fileID: 1637030420}
   _walkieEffectManager: {fileID: 2045052124}
---- !u!114 &491894377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 491894371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb9e1652d7a718a499a0371dcfe3c621, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mkbObjects:
-  - {fileID: 98607702}
-  _gamepadObjects:
-  - {fileID: 4862550281853118125}
 --- !u!114 &491894378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6131,7 +6129,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 302657854}
+  m_Father: {fileID: 1637030421}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -7578,7 +7576,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 302657854}
+    m_TransformParent: {fileID: 1637030421}
     m_Modifications:
     - target: {fileID: 349810349850479469, guid: 50764f55c76adf045bb1583220fa8dd9, type: 3}
       propertyPath: m_RootOrder
@@ -7590,7 +7588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 349810349850479469, guid: 50764f55c76adf045bb1583220fa8dd9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -53
+      value: -53.00009
       objectReference: {fileID: 0}
     - target: {fileID: 349810349850479469, guid: 50764f55c76adf045bb1583220fa8dd9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7602,15 +7600,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 349810349850479469, guid: 50764f55c76adf045bb1583220fa8dd9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 349810349850479469, guid: 50764f55c76adf045bb1583220fa8dd9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 349810349850479469, guid: 50764f55c76adf045bb1583220fa8dd9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 349810349850479469, guid: 50764f55c76adf045bb1583220fa8dd9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10543,6 +10541,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1637030420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1637030421}
+  m_Layer: 5
+  m_Name: Display Objects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1637030421
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637030420}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 98607703}
+  - {fileID: 2075797101978137042}
+  - {fileID: 807689269}
+  m_Father: {fileID: 302657854}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1669790408
 GameObject:
   m_ObjectHideFlags: 0
@@ -16157,7 +16194,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4862550281853118125}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -16165,7 +16202,7 @@ RectTransform:
   - {fileID: 5929008765931023594}
   - {fileID: 9156669611732078795}
   - {fileID: 5412536492244846030}
-  m_Father: {fileID: 302657854}
+  m_Father: {fileID: 1637030421}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

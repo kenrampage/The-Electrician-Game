@@ -203,7 +203,6 @@ public class InputManager : Singleton<InputManager>
 
     public void OnDialogueContinue(InputValue value)
     {
-        print("Dialogue Continue Event Invoked");
         OnDialogueContinueEvent?.Invoke();
     }
     #endregion
