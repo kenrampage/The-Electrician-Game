@@ -9,10 +9,21 @@ public enum InputDeviceType
     GAMEPAD,
 }
 
+public enum InputActionMapType
+{
+    MENU,
+    GAMEMENU,
+    PLAYER,
+    DIALOGUE
+}
+
 [RequireComponent(typeof(PlayerInput))]
 // Receives messages from player input component and allows easier management of responses via unity events
 public class InputManager : Singleton<InputManager>
 {
+    [Header("Scriptable Objects")]
+    [SerializeField] private SOTriggerInputActionMapChange _inputActionMapChangeTrigger;
+
     [Header("Audio")]
     [SerializeField] private FMODPlayOneShot _sfxPause;
 
@@ -28,6 +39,7 @@ public class InputManager : Singleton<InputManager>
     [HideInInspector] public UnityEvent OnCancelEvent;
     [HideInInspector] public UnityEvent OnToggleXrayEvent;
     [HideInInspector] public UnityEvent OnInputDeviceTypeChanged;
+    [HideInInspector] public UnityEvent OnDialogueContinueEvent;
     #endregion
 
     private PlayerInput _playerInput;
@@ -70,10 +82,13 @@ public class InputManager : Singleton<InputManager>
     }
     #endregion
 
+    private InputActionMapType _currentActionMap;
+    private InputActionMapType _prevActionMap;
 
     private void Awake()
     {
         TryGetReferences();
+        SubscribeToEvents();
     }
 
 
@@ -81,17 +96,34 @@ public class InputManager : Singleton<InputManager>
     #region Input Settings
     public void SwitchToMenuInput()
     {
+        _prevActionMap = _currentActionMap;
+        _currentActionMap = InputActionMapType.MENU;
+
         _playerInput.SwitchCurrentActionMap("Menu");
     }
 
     public void SwitchToGameMenuInput()
     {
+        _prevActionMap = _currentActionMap;
+        _currentActionMap = InputActionMapType.GAMEMENU;
+
         _playerInput.SwitchCurrentActionMap("Game Menu");
     }
 
     public void SwitchToPlayerInput()
     {
+        _prevActionMap = _currentActionMap;
+        _currentActionMap = InputActionMapType.PLAYER;
+
         _playerInput.SwitchCurrentActionMap("Player");
+    }
+
+    public void SwitchToDialogueInput()
+    {
+        _prevActionMap = _currentActionMap;
+        _currentActionMap = InputActionMapType.DIALOGUE;
+
+        _playerInput.SwitchCurrentActionMap("Dialogue");
     }
 
     public void CursorLockOn()
@@ -168,6 +200,11 @@ public class InputManager : Singleton<InputManager>
     {
         OnEndTestEvent?.Invoke();
     }
+
+    public void OnDialogueContinue(InputValue value)
+    {
+        OnDialogueContinueEvent?.Invoke();
+    }
     #endregion
 
     private void TryGetReferences()
@@ -199,6 +236,14 @@ public class InputManager : Singleton<InputManager>
     public void ForceInputDeviceTypeUpdate()
     {
         OnInputDeviceTypeChanged?.Invoke();
+    }
+
+    public void SubscribeToEvents()
+    {
+        _inputActionMapChangeTrigger.TriggerSwitchToMenuInput.AddListener(SwitchToMenuInput);
+        _inputActionMapChangeTrigger.TriggerSwitchToGameMenuInput.AddListener(SwitchToGameMenuInput);
+        _inputActionMapChangeTrigger.TriggerSwitchToPlayerInput.AddListener(SwitchToPlayerInput);
+        _inputActionMapChangeTrigger.TriggerSwitchToDialogueInput.AddListener(SwitchToDialogueInput);
     }
 
 }

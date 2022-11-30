@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00878d0fbed02524c9f1d551ea6c242b, type: 3}
+  m_Name: DialogueData_Demo03
+  m_EditorClassIdentifier: 
+  _name: Test 3
+  _messageArray:
+  - Line: Test Message 3-1
+  - Line: Test Message 3-2
+  - Line: Test Message 3-3
+  _fmodEvent:
+    Guid:
+      Data1: 2121730193
+      Data2: 1236318967
+      Data3: 47841432
+      Data4: 310526990
+    Path: event:/SFX/Dialogue/Dialogue Demo
+  _fontAsset: {fileID: 11400000, guid: d6e8707d25fc96843ab0ccc4e17cc8f5, type: 2}
+  _fontColor:
+    serializedVersion: 2
+    rgba: 4282993151
+  _charInterval: 0.025
+  _pageDelay: 2
+  _requireInput: 0
+  _walkieEffectType: 0

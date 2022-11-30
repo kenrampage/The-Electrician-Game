@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "GameStateControl", menuName = "Scriptable Objects/GameStateControl")]
+[CreateAssetMenu(fileName = "GameStateControl", menuName = "Game State/GameStateControl")]
 public class SOGameStateControl : ScriptableObject
 {
     [HideInInspector] public UnityEvent OnSceneLoad;

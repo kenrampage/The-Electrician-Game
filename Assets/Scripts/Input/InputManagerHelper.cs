@@ -14,7 +14,8 @@ public class InputManagerHelper : MonoBehaviour
         ITEMPREV,
         INTERACT,
         CANCEL,
-        XRAY
+        XRAY,
+        DIALOGUECONTINUE
     }
 
     [Header("Settings")]
@@ -64,6 +65,10 @@ public class InputManagerHelper : MonoBehaviour
 
             case InputType.XRAY:
                 _inputManager.OnToggleXrayEvent.AddListener(InvokeEvent);
+                break;
+
+            case InputType.DIALOGUECONTINUE:
+                _inputManager.OnDialogueContinueEvent.AddListener(InvokeEvent);
                 break;
 
             default:

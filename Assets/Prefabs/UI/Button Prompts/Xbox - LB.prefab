@@ -154,8 +154,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: -1197981891
-  m_SortingOrder: 0
+  m_SortingLayerID: 1162258605
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!1 &5040252226270964454
 GameObject:
@@ -227,7 +227,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1816106789
+  m_SortingLayerID: 1162258605
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ba0416c7f669b214eaad4d0679302b68, type: 3}
@@ -250,6 +250,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5040252226333808841}
+  - component: {fileID: 1883937370}
   m_Layer: 5
   m_Name: Xbox - LB
   m_TagString: Untagged
@@ -280,6 +281,21 @@ RectTransform:
   m_AnchoredPosition: {x: -230, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1883937370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5040252226333808840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab206bd87e92eb646a8027c7fbdb512d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scaleMultiplier: 1.4
+  _length: 0.5
+  _scaleUp: 0
 --- !u!1 &5040252226918622397
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,8 +367,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1162258605
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ba0416c7f669b214eaad4d0679302b68, type: 3}
   m_Color: {r: 0.37647063, g: 0.37647063, b: 0.37647063, a: 1}
   m_FlipX: 0
